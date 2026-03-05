@@ -32,4 +32,7 @@ jobs:
             --database-url "${{ secrets.DATABASE_URL }}" \
             --webhook-url "${{ secrets.AH_ALERT_WEBHOOK_URL }}" \
             --metric weighted_avg_unit_price \
-            --webhook-format discord
+            --webhook-format discord \
+            --sigma 0.5 \
+            --min-history 1 \
+            --buy-recovery-ratio 0.001
