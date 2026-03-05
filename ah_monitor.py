@@ -599,7 +599,7 @@ def format_alert_message(alerts: List[Alert], sigma: float, window_hours: int) -
     lines = [
         f"WoW AH alerts: {len(alerts)} item(s) beyond {sigma:.2f} sigma vs last {window_hours}h",
     ]
-    for a in alerts[:30]:
+    for a in alerts[:10]:
         direction = "BUY signal" if a.direction == "below_mean" else "SELL signal"
         lines.append(
             f"- {a.item_name} [{a.item_id}] {a.source}: {a.current_value} cp vs mean {int(a.mean_value)} cp ({a.z_score:+.2f} sigma, n={a.history_count}) {direction}"
