@@ -31,8 +31,5 @@ jobs:
           python ah_monitor.py \
             --database-url "${{ secrets.DATABASE_URL }}" \
             --webhook-url "${{ secrets.AH_ALERT_WEBHOOK_URL }}" \
-            --sigma 0.001 \
-            --min-history 1 \
-            --min-trend-history 1 \
-            --buy-recovery-ratio 0.001 \
-            --min-abs-move-gold-commodity 0.001
+            --metric weighted_avg_unit_price \
+            --webhook-format discord
