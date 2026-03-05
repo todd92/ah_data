@@ -1,0 +1,33 @@
+name: WoW AH Scraper and Alerter
+
+on:
+  schedule:
+    - cron: '0 * * * *' # Runs every hour
+  workflow_dispatch:    # Allows you to run it manually from the Actions tab
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install psycopg[binary]
+          # Add other dependencies if your scraper needs them
+
+      - name: Run AH Monitor
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          AH_ALERT_WEBHOOK_URL: ${{ secrets.AH_ALERT_WEBHOOK_URL }}
+        run: |
+          # We use --ingest-only if the scraper is a separate step, 
+          # otherwise, we run the full cycle.
+          python ah_monitor.py --metric weighted_avg_unit_price --webhook-format discord
