@@ -1,0 +1,121 @@
+{
+  "meta": {
+    "region": "us",
+    "locale": "en_US",
+    "expansion_keyword": "midnight",
+    "professions": [
+      "enchanting",
+      "tailoring"
+    ],
+    "include_reagents": true,
+    "recipe_count": 191,
+    "item_count": 21
+  },
+  "targets": [
+    {
+      "name": "Carving Canine",
+      "item_id": 238523,
+      "source_mode": "auto"
+    },
+    {
+      "name": "Dazzling Thorium",
+      "item_id": 237366,
+      "source_mode": "auto"
+    },
+    {
+      "name": "Embroidery Floss",
+      "item_id": 251691,
+      "source_mode": "auto"
+    },
+    {
+      "name": "Fantastic Fur",
+      "item_id": 238525,
+      "source_mode": "auto"
+    },
+    {
+      "name": "Fused Vitality",
+      "item_id": 245345,
+      "source_mode": "auto"
+    },
+    {
+      "name": "Lexicologist's Vellum",
+      "item_id": 245881,
+      "source_mode": "auto"
+    },
+    {
+      "name": "Luminant Flux",
+      "item_id": 243060,
+      "source_mode": "auto"
+    },
+    {
+      "name": "Majestic Claw",
+      "item_id": 238528,
+      "source_mode": "auto"
+    },
+    {
+      "name": "Majestic Fin",
+      "item_id": 238530,
+      "source_mode": "auto"
+    },
+    {
+      "name": "Majestic Hide",
+      "item_id": 238529,
+      "source_mode": "auto"
+    },
+    {
+      "name": "Mote of Light",
+      "item_id": 236949,
+      "source_mode": "auto"
+    },
+    {
+      "name": "Mote of Primal Energy",
+      "item_id": 236950,
+      "source_mode": "auto"
+    },
+    {
+      "name": "Mote of Pure Void",
+      "item_id": 236952,
+      "source_mode": "auto"
+    },
+    {
+      "name": "Mote of Wild Magic",
+      "item_id": 236951,
+      "source_mode": "auto"
+    },
+    {
+      "name": "Peerless Plumage",
+      "item_id": 238522,
+      "source_mode": "auto"
+    },
+    {
+      "name": "Petrified Root",
+      "item_id": 251285,
+      "source_mode": "auto"
+    },
+    {
+      "name": "Refulgent Copper Rod",
+      "item_id": 244174,
+      "source_mode": "auto"
+    },
+    {
+      "name": "Silverleaf Thread",
+      "item_id": 251665,
+      "source_mode": "auto"
+    },
+    {
+      "name": "Thalassian Lumber",
+      "item_id": 256963,
+      "source_mode": "auto"
+    },
+    {
+      "name": "Thalassian Songwater",
+      "item_id": 245882,
+      "source_mode": "auto"
+    },
+    {
+      "name": "Tormented Tantalum",
+      "item_id": 251283,
+      "source_mode": "auto"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "region": "us",
+  "locale": "en_US",
+  "default_realm_slug": "dawnbringer",
+  "client_id": "d733b2977ecf45c18013c86b7d3539d4",
+  "client_secret": "4WOMi94GcvSBix3CDQ9CoPqVkIoWTKxh",
+  "targets_file": "targets_midnight_tailoring_enchanting.json",
+  "targets": [
+    {
+      "name": "Optional manual override item",
+      "item_id": 19019,
+      "source_mode": "manual",
+      "sources": [{ "type": "realm", "slug": "dawnbringer" }]
+    }
+  ]
+}
