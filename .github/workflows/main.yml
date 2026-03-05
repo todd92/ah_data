@@ -28,6 +28,4 @@ jobs:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           AH_ALERT_WEBHOOK_URL: ${{ secrets.AH_ALERT_WEBHOOK_URL }}
         run: |
-          # We use --ingest-only if the scraper is a separate step, 
-          # otherwise, we run the full cycle.
-          python ah_monitor.py --metric weighted_avg_unit_price --webhook-format discord
+          python ah_monitor.py --database-url "${{ secrets.DATABASE_URL }}" --webhook-url "${{ secrets.AH_ALERT_WEBHOOK_URL }}" --metric weighted_avg_unit_price --webhook-format discord --min-history 1 --min-trend-history 1 --buy-recovery-ratio 0.01
