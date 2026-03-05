@@ -382,8 +382,8 @@ class PostgresClient(DBClient):
         except ImportError as exc:
             raise RuntimeError("Postgres backend requires 'psycopg'. Install with: pip install psycopg[binary]") from exc
         self._psycopg = psycopg
-        self.conn = psycopg.connect(url)
-
+        self.conn = psycopg.connect(url, prepare_threshold=None)
+        
     def init(self) -> None:
         with self.conn.cursor() as cur:
             cur.execute(postgres_schema_sql())
@@ -615,7 +615,14 @@ def send_webhook(url: str, message: str, fmt: str) -> None:
     else:
         payload = {"text": message}
     body = json.dumps(payload).encode("utf-8")
-    req = urllib.request.Request(url, data=body, method="POST", headers={"Content-Type": "application/json"})
+    
+    # Add User-Agent header to avoid 403 Forbidden
+    headers = {
+        "Content-Type": "application/json",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)" 
+    }
+    
+    req = urllib.request.Request(url, data=body, method="POST", headers=headers)
     with urllib.request.urlopen(req, timeout=20) as resp:
         if resp.status >= 300:
             raise RuntimeError(f"Webhook failed with status {resp.status}")
