@@ -77,6 +77,12 @@ def parse_args() -> argparse.Namespace:
         help="SELL filter: require current >= recent_avg * ratio",
     )
     p.add_argument(
+        "--signal-direction",
+        default="both",
+        choices=["both", "buy", "sell"],
+        help="Filter emitted signals by direction",
+    )
+    p.add_argument(
         "--min-listings-commodity",
         type=int,
         default=8,
@@ -507,6 +513,14 @@ def mean_stddev(values: List[int]) -> Tuple[float, float]:
     return mean, math.sqrt(var)
 
 
+def format_money_copper(value_copper: int) -> str:
+    gold = value_copper // 10000
+    remainder = value_copper % 10000
+    silver = remainder // 100
+    copper = remainder % 100
+    return f"{gold}g {silver}s {copper}c"
+
+
 def is_commodity_source(source: str) -> bool:
     return source.startswith("commodity:")
 
@@ -556,6 +570,10 @@ def detect_alerts(
             continue
 
         direction = "below_mean" if z < 0 else "above_mean"
+        if args.signal_direction == "buy" and direction != "below_mean":
+            continue
+        if args.signal_direction == "sell" and direction != "above_mean":
+            continue
         trend_start_ts = current_ts - timedelta(hours=args.trend_hours)
         trend_values = db.history_values(
             row=row,
@@ -596,16 +614,27 @@ def detect_alerts(
 
 
 def format_alert_message(alerts: List[Alert], sigma: float, window_hours: int) -> str:
-    lines = [
-        f"WoW AH alerts: {len(alerts)} item(s) beyond {sigma:.2f} sigma vs last {window_hours}h",
-    ]
-    for a in alerts[:10]:
-        direction = "BUY signal" if a.direction == "below_mean" else "SELL signal"
-        lines.append(
-            f"- {a.item_name} [{a.item_id}] {a.source}: {a.current_value} cp vs mean {int(a.mean_value)} cp ({a.z_score:+.2f} sigma, n={a.history_count}) {direction}"
-        )
-    if len(alerts) > 30:
-        lines.append(f"... plus {len(alerts) - 30} more")
+    buys = [a for a in alerts if a.direction == "below_mean"]
+    sells = [a for a in alerts if a.direction == "above_mean"]
+    lines = [f"WoW AH alerts: {len(alerts)} item(s) beyond {sigma:.2f} sigma vs last {window_hours}h"]
+    lines.append(f"BUY: {len(buys)} | SELL: {len(sells)}")
+
+    if buys:
+        lines.append("BUY signals:")
+        for a in buys[:10]:
+            lines.append(
+                f"- {a.item_name} [{a.item_id}] {a.source}: {format_money_copper(a.current_value)} vs mean {format_money_copper(int(a.mean_value))} ({a.z_score:+.2f} sigma, n={a.history_count})"
+            )
+
+    if sells:
+        lines.append("SELL signals:")
+        for a in sells[:10]:
+            lines.append(
+                f"- {a.item_name} [{a.item_id}] {a.source}: {format_money_copper(a.current_value)} vs mean {format_money_copper(int(a.mean_value))} ({a.z_score:+.2f} sigma, n={a.history_count})"
+            )
+
+    if len(alerts) > 20:
+        lines.append(f"... plus {len(alerts) - 20} more")
     return "\n".join(lines)
 
 

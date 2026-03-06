@@ -72,6 +72,7 @@ python3 ah_monitor.py \
   --report report.json \
   --db ah_prices.sqlite3 \
   --metric weighted_avg_unit_price \
+  --signal-direction both \
   --window-hours 168 \
   --sigma 2.0 \
   --min-history 24 \
@@ -153,6 +154,7 @@ crontab -e
 - `weighted_avg_unit_price`
 
 All prices are in copper.
+Alert messages display prices as gold/silver/copper (`Xg Ys Zc`) for readability.
 
 `ah_prices.sqlite3` stores:
 - `observations` table: one row per item/source snapshot
@@ -169,6 +171,7 @@ When using Supabase, the same tables are created in Postgres (`observations`, `a
 - Trend filter:
 - BUY signals require current price to not be deeply below the 48h average (helps avoid falling knives).
 - SELL signals require current price to still show strength vs the 48h average.
+- Use `--signal-direction buy|sell|both` to emit only BUY, only SELL, or both signal types.
 - Minimum absolute move:
 - Prevents tiny price changes from alerting just because volatility is very low.
 
