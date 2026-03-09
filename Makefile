@@ -11,7 +11,7 @@ WATCHLIST ?= targets_midnight_tailoring_enchanting.json
 EXPANSION_KEYWORD ?= midnight
 PROFESSIONS ?= tailoring,enchanting
 
-MONITOR_ARGS ?= --metric weighted_avg_unit_price --window-hours 168 --sigma 2.0 --min-history 24 --trend-hours 48 --min-trend-history 6 --min-listings-commodity 8 --min-quantity-commodity 200 --min-listings-crafted 2 --min-quantity-crafted 1 --min-abs-move-gold-commodity 20 --min-abs-move-gold-crafted 100
+MONITOR_ARGS ?= --metric weighted_avg_unit_price --window-hours 168 --sigma 2.0 --min-history 24 --trend-hours 48 --min-trend-history 6 --min-listings-commodity 8 --min-quantity-commodity 200 --min-listings-crafted 2 --min-quantity-crafted 1 --min-abs-move-gold-commodity 20 --min-abs-move-gold-crafted 100 --retention-days-observations 30 --retention-days-alerts 90
 
 help:
 	@echo "Targets:"

@@ -83,7 +83,9 @@ python3 ah_monitor.py \
   --min-listings-crafted 2 \
   --min-quantity-crafted 1 \
   --min-abs-move-gold-commodity 20 \
-  --min-abs-move-gold-crafted 100
+  --min-abs-move-gold-crafted 100 \
+  --retention-days-observations 30 \
+  --retention-days-alerts 90
 ```
 
 Shortcut with Make:
@@ -91,6 +93,11 @@ Shortcut with Make:
 ```bash
 make monitor-live
 ```
+
+Retention notes:
+- `--retention-days-observations 30` keeps only the most recent 30 days of snapshots.
+- `--retention-days-alerts 90` keeps 90 days of emitted alerts for review.
+- Set either value to `0` to disable pruning for that table.
 
 ## 6) Supabase Setup
 

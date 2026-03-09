@@ -118,6 +118,18 @@ def parse_args() -> argparse.Namespace:
         default=100.0,
         help="Minimum absolute move vs 7-day mean for crafted/non-commodity alerts (gold)",
     )
+    p.add_argument(
+        "--retention-days-observations",
+        type=int,
+        default=30,
+        help="Delete observations older than this many days (0 disables pruning)",
+    )
+    p.add_argument(
+        "--retention-days-alerts",
+        type=int,
+        default=90,
+        help="Delete alerts older than this many days (0 disables pruning)",
+    )
     p.add_argument("--webhook-url", default="", help="Optional webhook URL for alerts")
     p.add_argument(
         "--webhook-format",
@@ -289,6 +301,13 @@ class DBClient:
     def insert_alerts(self, alerts: List[Alert], alerted_at: str) -> None:
         raise NotImplementedError
 
+    def prune_old_rows(
+        self,
+        observations_before_iso: Optional[str],
+        alerts_before_iso: Optional[str],
+    ) -> Tuple[int, int]:
+        raise NotImplementedError
+
     def commit(self) -> None:
         raise NotImplementedError
 
@@ -373,6 +392,27 @@ class SQLiteClient(DBClient):
                 for a in alerts
             ],
         )
+
+    def prune_old_rows(
+        self,
+        observations_before_iso: Optional[str],
+        alerts_before_iso: Optional[str],
+    ) -> Tuple[int, int]:
+        deleted_observations = 0
+        deleted_alerts = 0
+        if observations_before_iso:
+            cur = self.conn.execute(
+                "DELETE FROM observations WHERE observed_at < ?",
+                (observations_before_iso,),
+            )
+            deleted_observations = max(int(cur.rowcount), 0)
+        if alerts_before_iso:
+            cur = self.conn.execute(
+                "DELETE FROM alerts WHERE alerted_at < ?",
+                (alerts_before_iso,),
+            )
+            deleted_alerts = max(int(cur.rowcount), 0)
+        return deleted_observations, deleted_alerts
 
     def commit(self) -> None:
         self.conn.commit()
@@ -498,6 +538,28 @@ class PostgresClient(DBClient):
                     for a in alerts
                 ],
             )
+
+    def prune_old_rows(
+        self,
+        observations_before_iso: Optional[str],
+        alerts_before_iso: Optional[str],
+    ) -> Tuple[int, int]:
+        deleted_observations = 0
+        deleted_alerts = 0
+        with self.conn.cursor() as cur:
+            if observations_before_iso:
+                cur.execute(
+                    "DELETE FROM observations WHERE observed_at < %s",
+                    (ts_for_db(observations_before_iso),),
+                )
+                deleted_observations = max(int(cur.rowcount), 0)
+            if alerts_before_iso:
+                cur.execute(
+                    "DELETE FROM alerts WHERE alerted_at < %s",
+                    (ts_for_db(alerts_before_iso),),
+                )
+                deleted_alerts = max(int(cur.rowcount), 0)
+        return deleted_observations, deleted_alerts
 
     def commit(self) -> None:
         self.conn.commit()
@@ -713,11 +775,29 @@ def main() -> int:
         alerted_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
         if alerts:
             db.insert_alerts(alerts, alerted_at)
+        now_utc = datetime.now(timezone.utc).replace(microsecond=0)
+        observations_before_iso = None
+        alerts_before_iso = None
+        if args.retention_days_observations > 0:
+            observations_before_iso = (now_utc - timedelta(days=args.retention_days_observations)).isoformat().replace(
+                "+00:00", "Z"
+            )
+        if args.retention_days_alerts > 0:
+            alerts_before_iso = (now_utc - timedelta(days=args.retention_days_alerts)).isoformat().replace(
+                "+00:00", "Z"
+            )
+        deleted_observations, deleted_alerts = db.prune_old_rows(observations_before_iso, alerts_before_iso)
         db.commit()
     finally:
         db.close()
 
     print(f"Inserted {len(rows)} observations into {db_label} at {observed_at}")
+    if observations_before_iso or alerts_before_iso:
+        print(
+            "Retention prune:"
+            f" deleted {deleted_observations} observation(s)"
+            f" and {deleted_alerts} alert(s)."
+        )
 
     if not alerts:
         print("No sigma alerts this run.")
