@@ -198,3 +198,15 @@ When using Supabase, the same tables are created in Postgres (`observations`, `a
 - If you use `realm` sources, the script resolves the realm slug to connected-realm ID once and then fetches that auction feed.
 - In Blizzard's API, reagent/trade-goods style listings are exposed as commodities (region-wide), not just one connected-realm group.
 - Auction payloads can be large (10MB+). Keep target lists focused for faster runs.
+
+## Web UI (Vercel)
+
+A deployable Next.js app now lives in [`web/`](/home/toddglad/projects/personal/ah_data/web/README.md).
+
+Quick deploy steps:
+1. Import this repository into Vercel.
+2. Set project root directory to `web`.
+3. Add env vars `SUPABASE_URL` and `SUPABASE_ANON_KEY`.
+4. Deploy.
+
+The UI reads `craft_arbitrage` rows from `alerts` and supports filter-driven ranking by profit and margin.
