@@ -8,6 +8,7 @@ import subprocess
 import sys
 import urllib.parse
 import urllib.request
+from collections import defaultdict
 from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -45,6 +46,31 @@ class Alert:
     recent_avg_value: float
     history_count: int
     abs_move: int
+    alert_kind: str = "price_sigma"
+    recipe_id: Optional[int] = None
+    recipe_name: Optional[str] = None
+    craft_cost: Optional[int] = None
+    sale_value: Optional[int] = None
+    expected_profit: Optional[int] = None
+    margin_pct: Optional[float] = None
+
+
+@dataclass
+class RecipeReagent:
+    item_id: int
+    name: str
+    quantity: int
+
+
+@dataclass
+class RecipeDefinition:
+    recipe_id: int
+    recipe_name: str
+    profession: str
+    crafted_item_id: int
+    crafted_item_name: str
+    crafted_quantity: int
+    reagents: List[RecipeReagent]
 
 
 def parse_args() -> argparse.Namespace:
@@ -130,6 +156,29 @@ def parse_args() -> argparse.Namespace:
         default=90,
         help="Delete alerts older than this many days (0 disables pruning)",
     )
+    p.add_argument(
+        "--enable-craft-alerts",
+        action="store_true",
+        help="Emit crafting arbitrage BUY/SELL alerts from recipe definitions",
+    )
+    p.add_argument(
+        "--craft-ah-cut-rate",
+        type=float,
+        default=0.05,
+        help="Auction house cut used for craft profit estimates",
+    )
+    p.add_argument(
+        "--craft-min-profit-gold",
+        type=float,
+        default=50.0,
+        help="Minimum profit (gold) for BUY craft alerts and minimum loss for SELL alerts",
+    )
+    p.add_argument(
+        "--craft-min-margin-pct",
+        type=float,
+        default=0.10,
+        help="Minimum absolute margin ratio for crafting arbitrage alerts",
+    )
     p.add_argument("--webhook-url", default="", help="Optional webhook URL for alerts")
     p.add_argument(
         "--webhook-format",
@@ -181,7 +230,14 @@ def sqlite_schema_sql() -> str:
       mean_value REAL NOT NULL,
       stddev_value REAL NOT NULL,
       z_score REAL NOT NULL,
-      direction TEXT NOT NULL
+      direction TEXT NOT NULL,
+      alert_kind TEXT NOT NULL DEFAULT 'price_sigma',
+      recipe_id INTEGER,
+      recipe_name TEXT,
+      craft_cost INTEGER,
+      sale_value INTEGER,
+      expected_profit INTEGER,
+      margin_pct REAL
     );
     """
 
@@ -219,7 +275,14 @@ def postgres_schema_sql() -> str:
       mean_value DOUBLE PRECISION NOT NULL,
       stddev_value DOUBLE PRECISION NOT NULL,
       z_score DOUBLE PRECISION NOT NULL,
-      direction TEXT NOT NULL
+      direction TEXT NOT NULL,
+      alert_kind TEXT NOT NULL DEFAULT 'price_sigma',
+      recipe_id INTEGER,
+      recipe_name TEXT,
+      craft_cost BIGINT,
+      sale_value BIGINT,
+      expected_profit BIGINT,
+      margin_pct DOUBLE PRECISION
     );
     """
 
@@ -322,6 +385,23 @@ class SQLiteClient(DBClient):
 
     def init(self) -> None:
         self.conn.executescript(sqlite_schema_sql())
+        self._migrate_alert_columns_if_needed()
+
+    def _migrate_alert_columns_if_needed(self) -> None:
+        rows = self.conn.execute("PRAGMA table_info(alerts)").fetchall()
+        existing = {str(r[1]) for r in rows}
+        targets = [
+            ("alert_kind", "TEXT NOT NULL DEFAULT 'price_sigma'"),
+            ("recipe_id", "INTEGER"),
+            ("recipe_name", "TEXT"),
+            ("craft_cost", "INTEGER"),
+            ("sale_value", "INTEGER"),
+            ("expected_profit", "INTEGER"),
+            ("margin_pct", "REAL"),
+        ]
+        for name, decl in targets:
+            if name not in existing:
+                self.conn.execute(f"ALTER TABLE alerts ADD COLUMN {name} {decl}")
 
     def insert_observations(self, rows: List[Observation]) -> None:
         self.conn.executemany(
@@ -372,8 +452,9 @@ class SQLiteClient(DBClient):
             """
             INSERT INTO alerts (
               alerted_at, observed_at, item_id, item_name, source, metric_name,
-              current_value, mean_value, stddev_value, z_score, direction
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+              current_value, mean_value, stddev_value, z_score, direction,
+              alert_kind, recipe_id, recipe_name, craft_cost, sale_value, expected_profit, margin_pct
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             [
                 (
@@ -388,6 +469,13 @@ class SQLiteClient(DBClient):
                     a.stddev_value,
                     a.z_score,
                     a.direction,
+                    a.alert_kind,
+                    a.recipe_id,
+                    a.recipe_name,
+                    a.craft_cost,
+                    a.sale_value,
+                    a.expected_profit,
+                    a.margin_pct,
                 )
                 for a in alerts
             ],
@@ -434,6 +522,7 @@ class PostgresClient(DBClient):
         with self.conn.cursor() as cur:
             cur.execute(postgres_schema_sql())
         self._migrate_int_to_bigint_if_needed()
+        self._migrate_alert_columns_if_needed()
 
     def _migrate_int_to_bigint_if_needed(self) -> None:
         targets = [
@@ -464,6 +553,32 @@ class PostgresClient(DBClient):
                     cur.execute(
                         f"ALTER TABLE {table_name} ALTER COLUMN {column_name} TYPE BIGINT USING {column_name}::BIGINT"
                     )
+
+    def _migrate_alert_columns_if_needed(self) -> None:
+        targets = [
+            ("alert_kind", "TEXT NOT NULL DEFAULT 'price_sigma'"),
+            ("recipe_id", "INTEGER"),
+            ("recipe_name", "TEXT"),
+            ("craft_cost", "BIGINT"),
+            ("sale_value", "BIGINT"),
+            ("expected_profit", "BIGINT"),
+            ("margin_pct", "DOUBLE PRECISION"),
+        ]
+        with self.conn.cursor() as cur:
+            for column_name, ddl in targets:
+                cur.execute(
+                    """
+                    SELECT 1
+                    FROM information_schema.columns
+                    WHERE table_schema = 'public'
+                      AND table_name = 'alerts'
+                      AND column_name = %s
+                    """,
+                    (column_name,),
+                )
+                row = cur.fetchone()
+                if not row:
+                    cur.execute(f"ALTER TABLE alerts ADD COLUMN {column_name} {ddl}")
 
     def insert_observations(self, rows: List[Observation]) -> None:
         with self.conn.cursor() as cur:
@@ -518,8 +633,9 @@ class PostgresClient(DBClient):
                 """
                 INSERT INTO alerts (
                   alerted_at, observed_at, item_id, item_name, source, metric_name,
-                  current_value, mean_value, stddev_value, z_score, direction
-                ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                  current_value, mean_value, stddev_value, z_score, direction,
+                  alert_kind, recipe_id, recipe_name, craft_cost, sale_value, expected_profit, margin_pct
+                ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
                 """,
                 [
                     (
@@ -534,6 +650,13 @@ class PostgresClient(DBClient):
                         a.stddev_value,
                         a.z_score,
                         a.direction,
+                        a.alert_kind,
+                        a.recipe_id,
+                        a.recipe_name,
+                        a.craft_cost,
+                        a.sale_value,
+                        a.expected_profit,
+                        a.margin_pct,
                     )
                     for a in alerts
                 ],
@@ -675,24 +798,181 @@ def detect_alerts(
     return alerts
 
 
+def load_recipe_definitions(config_path: Path) -> List[RecipeDefinition]:
+    if not config_path.exists():
+        return []
+    cfg = json.loads(config_path.read_text(encoding="utf-8"))
+    target_files: List[str] = []
+    one = cfg.get("targets_file")
+    if isinstance(one, str) and one.strip():
+        target_files.append(one)
+    many = cfg.get("targets_files")
+    if isinstance(many, list):
+        for v in many:
+            if isinstance(v, str) and v.strip():
+                target_files.append(v)
+    out: List[RecipeDefinition] = []
+    seen_recipe_ids: set[int] = set()
+    for rel in target_files:
+        path = (config_path.parent / rel).resolve()
+        if not path.exists():
+            continue
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        recipes = payload.get("recipes", [])
+        if not isinstance(recipes, list):
+            continue
+        for raw in recipes:
+            if not isinstance(raw, dict):
+                continue
+            recipe_id = raw.get("recipe_id")
+            crafted_item_id = raw.get("crafted_item_id")
+            reagents_raw = raw.get("reagents")
+            if not isinstance(recipe_id, int) or not isinstance(crafted_item_id, int) or not isinstance(reagents_raw, list):
+                continue
+            if recipe_id in seen_recipe_ids:
+                continue
+            reagents: List[RecipeReagent] = []
+            for r in reagents_raw:
+                if not isinstance(r, dict):
+                    continue
+                item_id = r.get("item_id")
+                quantity = r.get("quantity")
+                if not isinstance(item_id, int) or not isinstance(quantity, int) or quantity <= 0:
+                    continue
+                reagents.append(RecipeReagent(item_id=item_id, name=str(r.get("name", f"item-{item_id}")), quantity=quantity))
+            if not reagents:
+                continue
+            out.append(
+                RecipeDefinition(
+                    recipe_id=recipe_id,
+                    recipe_name=str(raw.get("recipe_name", f"recipe-{recipe_id}")),
+                    profession=str(raw.get("profession", "unknown")),
+                    crafted_item_id=crafted_item_id,
+                    crafted_item_name=str(raw.get("crafted_item_name", f"item-{crafted_item_id}")),
+                    crafted_quantity=max(int(raw.get("crafted_quantity", 1) or 1), 1),
+                    reagents=reagents,
+                )
+            )
+            seen_recipe_ids.add(recipe_id)
+    return out
+
+
+def pick_market_row(candidates: List[Observation], preferred_source: str) -> Optional[Observation]:
+    if not candidates:
+        return None
+    by_source = {r.source: r for r in candidates}
+    if preferred_source in by_source:
+        return by_source[preferred_source]
+    commodity = [r for r in candidates if is_commodity_source(r.source)]
+    if commodity:
+        return max(commodity, key=lambda r: (r.listing_count, r.total_quantity))
+    return max(candidates, key=lambda r: (r.listing_count, r.total_quantity))
+
+
+def detect_craft_alerts(
+    rows: List[Observation],
+    recipes: List[RecipeDefinition],
+    args: argparse.Namespace,
+) -> List[Alert]:
+    if not recipes:
+        return []
+    rows_by_item: Dict[int, List[Observation]] = defaultdict(list)
+    for row in rows:
+        rows_by_item[row.item_id].append(row)
+    recipes_by_output: Dict[int, List[RecipeDefinition]] = defaultdict(list)
+    for recipe in recipes:
+        recipes_by_output[recipe.crafted_item_id].append(recipe)
+
+    min_profit_copper = int(args.craft_min_profit_gold * 10000)
+    alerts: List[Alert] = []
+    for crafted_item_id, crafted_rows in rows_by_item.items():
+        recipe_list = recipes_by_output.get(crafted_item_id)
+        if not recipe_list:
+            continue
+        for crafted_row in crafted_rows:
+            if not passes_liquidity(crafted_row, args):
+                continue
+            for recipe in recipe_list:
+                total_craft_cost = 0
+                missing_price = False
+                for reagent in recipe.reagents:
+                    reagent_row = pick_market_row(rows_by_item.get(reagent.item_id, []), crafted_row.source)
+                    if not reagent_row or not passes_liquidity(reagent_row, args):
+                        missing_price = True
+                        break
+                    total_craft_cost += reagent.quantity * reagent_row.metric_value
+                if missing_price or total_craft_cost <= 0:
+                    continue
+                sale_value = crafted_row.metric_value * recipe.crafted_quantity
+                net_sale = int(sale_value * (1.0 - args.craft_ah_cut_rate))
+                expected_profit = net_sale - total_craft_cost
+                margin_pct = expected_profit / float(total_craft_cost)
+                if expected_profit >= min_profit_copper and margin_pct >= args.craft_min_margin_pct:
+                    direction = "buy"
+                elif expected_profit <= -min_profit_copper and margin_pct <= -args.craft_min_margin_pct:
+                    direction = "sell"
+                else:
+                    continue
+                alerts.append(
+                    Alert(
+                        observed_at=crafted_row.observed_at,
+                        item_id=crafted_row.item_id,
+                        item_name=crafted_row.item_name,
+                        source=crafted_row.source,
+                        metric_name="craft_profit",
+                        current_value=crafted_row.metric_value,
+                        mean_value=0.0,
+                        stddev_value=0.0,
+                        z_score=0.0,
+                        direction=direction,
+                        recent_avg_value=0.0,
+                        history_count=0,
+                        abs_move=abs(expected_profit),
+                        alert_kind="craft_arbitrage",
+                        recipe_id=recipe.recipe_id,
+                        recipe_name=recipe.recipe_name,
+                        craft_cost=total_craft_cost,
+                        sale_value=sale_value,
+                        expected_profit=expected_profit,
+                        margin_pct=margin_pct,
+                    )
+                )
+    return alerts
+
+
 def format_alert_message(alerts: List[Alert], sigma: float, window_hours: int) -> str:
-    buys = [a for a in alerts if a.direction == "below_mean"]
-    sells = [a for a in alerts if a.direction == "above_mean"]
-    lines = [f"WoW AH alerts: {len(alerts)} item(s) beyond {sigma:.2f} sigma vs last {window_hours}h"]
+    sigma_alerts = [a for a in alerts if a.alert_kind == "price_sigma"]
+    craft_alerts = [a for a in alerts if a.alert_kind == "craft_arbitrage"]
+    buys = [a for a in sigma_alerts if a.direction == "below_mean"] + [a for a in craft_alerts if a.direction == "buy"]
+    sells = [a for a in sigma_alerts if a.direction == "above_mean"] + [a for a in craft_alerts if a.direction == "sell"]
+    lines = [f"WoW AH alerts: {len(alerts)} total (sigma={len(sigma_alerts)}, craft={len(craft_alerts)})"]
     lines.append(f"BUY: {len(buys)} | SELL: {len(sells)}")
 
-    if buys:
+    sigma_buys = [a for a in sigma_alerts if a.direction == "below_mean"]
+    if sigma_buys:
         lines.append("BUY signals:")
-        for a in buys[:10]:
+        for a in sigma_buys[:10]:
             lines.append(
                 f"- {a.item_name} [{a.item_id}] {a.source}: {format_money_copper(a.current_value)} vs mean {format_money_copper(int(a.mean_value))} ({a.z_score:+.2f} sigma, n={a.history_count})"
             )
 
-    if sells:
+    sigma_sells = [a for a in sigma_alerts if a.direction == "above_mean"]
+    if sigma_sells:
         lines.append("SELL signals:")
-        for a in sells[:10]:
+        for a in sigma_sells[:10]:
             lines.append(
                 f"- {a.item_name} [{a.item_id}] {a.source}: {format_money_copper(a.current_value)} vs mean {format_money_copper(int(a.mean_value))} ({a.z_score:+.2f} sigma, n={a.history_count})"
+            )
+
+    if craft_alerts:
+        lines.append("Crafting arbitrage:")
+        for a in craft_alerts[:10]:
+            profit = a.expected_profit or 0
+            margin = (a.margin_pct or 0.0) * 100.0
+            lines.append(
+                f"- {a.direction.upper()} {a.item_name} [{a.item_id}] {a.recipe_name or f'r#{a.recipe_id}'}: "
+                f"sale {format_money_copper(a.sale_value or 0)} vs cost {format_money_copper(a.craft_cost or 0)} "
+                f"(profit {format_money_copper(profit)}, margin {margin:+.1f}%)"
             )
 
     if len(alerts) > 20:
@@ -744,6 +1024,7 @@ def pick_db_client(args: argparse.Namespace) -> Tuple[DBClient, str]:
 def main() -> int:
     args = parse_args()
     webhook_url = args.webhook_url.strip() or os.environ.get("AH_ALERT_WEBHOOK_URL", "").strip()
+    recipe_defs = load_recipe_definitions(Path(args.config)) if args.enable_craft_alerts else []
 
     if args.refresh_watchlist:
         refresh_watchlist(args)
@@ -767,11 +1048,13 @@ def main() -> int:
     try:
         db.init()
         db.insert_observations(rows)
-        alerts = detect_alerts(
+        sigma_alerts = detect_alerts(
             db=db,
             rows=rows,
             args=args,
         )
+        craft_alerts = detect_craft_alerts(rows=rows, recipes=recipe_defs, args=args) if args.enable_craft_alerts else []
+        alerts = sigma_alerts + craft_alerts
         alerted_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
         if alerts:
             db.insert_alerts(alerts, alerted_at)
@@ -792,6 +1075,8 @@ def main() -> int:
         db.close()
 
     print(f"Inserted {len(rows)} observations into {db_label} at {observed_at}")
+    if args.enable_craft_alerts:
+        print(f"Craft recipe definitions loaded: {len(recipe_defs)}")
     if observations_before_iso or alerts_before_iso:
         print(
             "Retention prune:"
@@ -800,7 +1085,7 @@ def main() -> int:
         )
 
     if not alerts:
-        print("No sigma alerts this run.")
+        print("No alerts this run.")
         return 0
 
     message = format_alert_message(alerts, args.sigma, args.window_hours)

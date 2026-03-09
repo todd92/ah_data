@@ -84,6 +84,10 @@ python3 ah_monitor.py \
   --min-quantity-crafted 1 \
   --min-abs-move-gold-commodity 20 \
   --min-abs-move-gold-crafted 100 \
+  --enable-craft-alerts \
+  --craft-ah-cut-rate 0.05 \
+  --craft-min-profit-gold 50 \
+  --craft-min-margin-pct 0.10 \
   --retention-days-observations 30 \
   --retention-days-alerts 90
 ```
@@ -98,6 +102,13 @@ Retention notes:
 - `--retention-days-observations 30` keeps only the most recent 30 days of snapshots.
 - `--retention-days-alerts 90` keeps 90 days of emitted alerts for review.
 - Set either value to `0` to disable pruning for that table.
+
+Crafting arbitrage notes:
+- `build_profession_watchlist.py` now writes recipe definitions to the watchlist JSON under `recipes`.
+- `--enable-craft-alerts` uses those recipes to estimate `sale_value`, `craft_cost`, and `expected_profit`.
+- Profitable crafts emit BUY alerts; strongly negative crafts emit SELL alerts.
+- Craft alerts are stored in the same `alerts` table with `alert_kind='craft_arbitrage'`.
+- Craft rows include both `recipe_id` and `recipe_name`.
 
 ## 6) Supabase Setup
 

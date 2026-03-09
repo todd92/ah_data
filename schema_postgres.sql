@@ -29,5 +29,12 @@ CREATE TABLE IF NOT EXISTS alerts (
   mean_value DOUBLE PRECISION NOT NULL,
   stddev_value DOUBLE PRECISION NOT NULL,
   z_score DOUBLE PRECISION NOT NULL,
-  direction TEXT NOT NULL
+  direction TEXT NOT NULL,
+  alert_kind TEXT NOT NULL DEFAULT 'price_sigma',
+  recipe_id INTEGER,
+  recipe_name TEXT,
+  craft_cost BIGINT,
+  sale_value BIGINT,
+  expected_profit BIGINT,
+  margin_pct DOUBLE PRECISION
 );

@@ -129,6 +129,18 @@ def add_item(store: Dict[int, str], item_obj: Dict[str, Any], locale: str):
         store[item_id] = name
 
 
+def crafted_quantity_value(recipe: Dict[str, Any]) -> int:
+    raw = recipe.get("crafted_quantity")
+    if isinstance(raw, int) and raw > 0:
+        return raw
+    if isinstance(raw, dict):
+        for k in ("value", "minimum", "max", "maximum"):
+            v = raw.get(k)
+            if isinstance(v, int) and v > 0:
+                return v
+    return 1
+
+
 def main() -> int:
     args = parse_args()
     cfg = load_config(Path(args.config))
@@ -161,6 +173,7 @@ def main() -> int:
 
     items: Dict[int, str] = {}
     recipe_count = 0
+    recipe_defs: List[Dict[str, Any]] = []
 
     for p in selected_professions:
         pid = p.get("id")
@@ -203,6 +216,38 @@ def main() -> int:
                 crafted = rdetail.get("crafted_item")
                 if isinstance(crafted, dict):
                     add_item(items, crafted, locale)
+                crafted_id = crafted.get("id") if isinstance(crafted, dict) else None
+                if isinstance(crafted_id, int):
+                    recipe_name = text_value(rdetail.get("name"), locale) or f"recipe-{rid}"
+                    recipe_entry: Dict[str, Any] = {
+                        "recipe_id": rid,
+                        "recipe_name": recipe_name,
+                        "profession": prof_name,
+                        "profession_id": pid,
+                        "crafted_item_id": crafted_id,
+                        "crafted_item_name": text_value(crafted.get("name"), locale) or f"item-{crafted_id}",
+                        "crafted_quantity": crafted_quantity_value(rdetail),
+                        "reagents": [],
+                    }
+                    for reagent in rdetail.get("reagents", []):
+                        if not isinstance(reagent, dict):
+                            continue
+                        reagent_item = reagent.get("reagent")
+                        if not isinstance(reagent_item, dict):
+                            continue
+                        reagent_id = reagent_item.get("id")
+                        reagent_qty = reagent.get("quantity")
+                        if not isinstance(reagent_id, int) or not isinstance(reagent_qty, int) or reagent_qty <= 0:
+                            continue
+                        recipe_entry["reagents"].append(
+                            {
+                                "item_id": reagent_id,
+                                "name": text_value(reagent_item.get("name"), locale) or f"item-{reagent_id}",
+                                "quantity": reagent_qty,
+                            }
+                        )
+                    if recipe_entry["reagents"]:
+                        recipe_defs.append(recipe_entry)
 
                 if args.include_reagents:
                     for reagent in rdetail.get("reagents", []):
@@ -231,9 +276,11 @@ def main() -> int:
             "professions": sorted(prof_wanted),
             "include_reagents": args.include_reagents,
             "recipe_count": recipe_count,
+            "recipe_definition_count": len(recipe_defs),
             "item_count": len(targets),
         },
         "targets": targets,
+        "recipes": recipe_defs,
     }
 
     out = Path(args.output)
