@@ -162,6 +162,26 @@ crontab -e
 0 * * * * cd /home/toddglad/projects/personal/ah_data && /usr/bin/env -S bash -lc 'uv run python ah_monitor.py --config config.json --report report.json --db ah_prices.sqlite3 >> monitor.log 2>&1'
 ```
 
+## GitHub Actions Dual Database Sync
+
+If you want GitHub Actions to keep a persistent SQLite history file while still using Supabase for the recent live window:
+
+1. Add GitHub repository secrets:
+   - `BLIZZARD_CLIENT_ID`
+   - `BLIZZARD_CLIENT_SECRET`
+   - `DATABASE_URL`
+   - `AH_ALERT_WEBHOOK_URL` (optional)
+2. Add GitHub repository variables if you want to override defaults:
+   - `WOW_REGION`
+   - `WOW_LOCALE`
+   - `WOW_DEFAULT_REALM_SLUG`
+   - `WOW_TARGETS_FILE`
+   - `WOW_EXPANSION_KEYWORD`
+   - `WOW_PROFESSIONS`
+3. Enable the workflow in [main.yml](/home/toddglad/projects/personal/ah_data/.github/workflows/main.yml).
+
+The workflow restores `data/ah_prices.sqlite3` from a dedicated `sqlite-history` branch, runs `ah_monitor.py` once against SQLite with pruning disabled so the archive keeps full history, then runs it again in `--ingest-only` mode against Supabase so the same snapshot is available there with a 30-day retention window.
+
 ## Output
 `report.json` includes each target item with a per-source summary:
 - `listing_count`

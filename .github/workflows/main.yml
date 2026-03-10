@@ -1,38 +1,172 @@
-name: WoW AH Scraper and Alerter
+name: WoW AH Dual Database Sync
 
 on:
   schedule:
-    - cron: '*/30 * * * *' # Runs every hour
-  workflow_dispatch:    # Allows you to run it manually from the Actions tab
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   monitor:
     runs-on: ubuntu-latest
+    env:
+      ARCHIVE_BRANCH: sqlite-history
+      DB_PATH: data/ah_prices.sqlite3
+      REPORT_PATH: report.json
+      CONFIG_PATH: config.json
+      WOW_REGION: ${{ vars.WOW_REGION || 'us' }}
+      WOW_LOCALE: ${{ vars.WOW_LOCALE || 'en_US' }}
+      WOW_DEFAULT_REALM_SLUG: ${{ vars.WOW_DEFAULT_REALM_SLUG || 'dawnbringer' }}
+      WOW_TARGETS_FILE: ${{ vars.WOW_TARGETS_FILE || 'targets_midnight_tailoring_enchanting.json' }}
+      WOW_EXPANSION_KEYWORD: ${{ vars.WOW_EXPANSION_KEYWORD || 'midnight' }}
+      WOW_PROFESSIONS: ${{ vars.WOW_PROFESSIONS || 'tailoring,enchanting' }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
-          cache: 'pip'
+          python-version: "3.12"
+          cache: "pip"
 
       - name: Install dependencies
-        run: |
-          pip install psycopg[binary]
-          # Add other dependencies if your scraper needs them
+        run: pip install -r requirements.txt
 
-      - name: Run AH Monitor
+      - name: Restore SQLite archive
+        run: |
+          mkdir -p "$(dirname "$DB_PATH")"
+          if git ls-remote --exit-code --heads origin "$ARCHIVE_BRANCH" >/dev/null 2>&1; then
+            git fetch origin "$ARCHIVE_BRANCH"
+            if git cat-file -e "origin/$ARCHIVE_BRANCH:$DB_PATH" 2>/dev/null; then
+              git show "origin/$ARCHIVE_BRANCH:$DB_PATH" > "$DB_PATH"
+              echo "Restored archive database from $ARCHIVE_BRANCH."
+            else
+              echo "Archive branch exists, but $DB_PATH is not present yet."
+            fi
+          else
+            echo "Archive branch $ARCHIVE_BRANCH does not exist yet; a new one will be created."
+          fi
+
+      - name: Write runtime config
+        env:
+          BLIZZARD_CLIENT_ID: ${{ secrets.BLIZZARD_CLIENT_ID }}
+          BLIZZARD_CLIENT_SECRET: ${{ secrets.BLIZZARD_CLIENT_SECRET }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+
+          required = {
+              "client_id": os.environ.get("BLIZZARD_CLIENT_ID", "").strip(),
+              "client_secret": os.environ.get("BLIZZARD_CLIENT_SECRET", "").strip(),
+          }
+          missing = [name for name, value in required.items() if not value]
+          if missing:
+              raise SystemExit(f"Missing required GitHub secrets: {', '.join(missing).upper()}")
+
+          config = {
+              "region": os.environ["WOW_REGION"],
+              "locale": os.environ["WOW_LOCALE"],
+              "default_realm_slug": os.environ["WOW_DEFAULT_REALM_SLUG"],
+              "client_id": required["client_id"],
+              "client_secret": required["client_secret"],
+              "targets_file": os.environ["WOW_TARGETS_FILE"],
+          }
+
+          with open(os.environ["CONFIG_PATH"], "w", encoding="utf-8") as fh:
+              json.dump(config, fh, indent=2)
+          PY
+
+      - name: Run monitor for SQLite archive
+        run: |
+          python ah_monitor.py \
+            --config "$CONFIG_PATH" \
+            --report "$REPORT_PATH" \
+            --db "$DB_PATH" \
+            --refresh-watchlist \
+            --include-reagents \
+            --watchlist-output "$WOW_TARGETS_FILE" \
+            --expansion-keyword "$WOW_EXPANSION_KEYWORD" \
+            --professions "$WOW_PROFESSIONS" \
+            --metric weighted_avg_unit_price \
+            --signal-direction both \
+            --window-hours 168 \
+            --sigma 2.0 \
+            --min-history 24 \
+            --trend-hours 48 \
+            --min-trend-history 6 \
+            --min-listings-commodity 8 \
+            --min-quantity-commodity 200 \
+            --min-listings-crafted 2 \
+            --min-quantity-crafted 1 \
+            --min-abs-move-gold-commodity 20 \
+            --min-abs-move-gold-crafted 100 \
+            --retention-days-observations 0 \
+            --retention-days-alerts 0 \
+            --enable-craft-alerts \
+            --craft-ah-cut-rate 0.05 \
+            --craft-min-profit-gold 50 \
+            --craft-min-margin-pct 0.10 \
+            --webhook-format discord
+
+      - name: Run monitor for Supabase live window
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           AH_ALERT_WEBHOOK_URL: ${{ secrets.AH_ALERT_WEBHOOK_URL }}
         run: |
           python ah_monitor.py \
-            --database-url "${{ secrets.DATABASE_URL }}" \
-            --webhook-url "${{ secrets.AH_ALERT_WEBHOOK_URL }}" \
+            --config "$CONFIG_PATH" \
+            --report "$REPORT_PATH" \
+            --database-url "${DATABASE_URL}" \
+            --ingest-only \
             --metric weighted_avg_unit_price \
-            --webhook-format discord \
-            --sigma 2.5 \
+            --signal-direction both \
+            --window-hours 168 \
+            --sigma 2.0 \
             --min-history 24 \
-            --buy-recovery-ratio 0.98
+            --trend-hours 48 \
+            --min-trend-history 6 \
+            --min-listings-commodity 8 \
+            --min-quantity-commodity 200 \
+            --min-listings-crafted 2 \
+            --min-quantity-crafted 1 \
+            --min-abs-move-gold-commodity 20 \
+            --min-abs-move-gold-crafted 100 \
+            --retention-days-observations 30 \
+            --retention-days-alerts 90 \
+            --enable-craft-alerts \
+            --craft-ah-cut-rate 0.05 \
+            --craft-min-profit-gold 50 \
+            --craft-min-margin-pct 0.10 \
+            --webhook-url "${AH_ALERT_WEBHOOK_URL:-}" \
+            --webhook-format discord
+
+      - name: Publish SQLite archive
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm -rf archive-branch
+          if git show-ref --verify --quiet "refs/remotes/origin/$ARCHIVE_BRANCH"; then
+            git worktree add archive-branch "origin/$ARCHIVE_BRANCH"
+          else
+            git worktree add --detach archive-branch
+            (
+              cd archive-branch
+              git checkout --orphan "$ARCHIVE_BRANCH"
+              find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+            )
+          fi
+          mkdir -p "archive-branch/$(dirname "$DB_PATH")"
+          cp "$DB_PATH" "archive-branch/$DB_PATH"
+          printf "%s\n" "# SQLite archive" "" "This branch stores the GitHub Actions SQLite history snapshot." > archive-branch/README.md
+          (
+            cd archive-branch
+            git add README.md "$DB_PATH"
+            git commit -m "Update SQLite archive" || exit 0
+            git push origin HEAD:"$ARCHIVE_BRANCH"
+          )
