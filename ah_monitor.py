@@ -47,6 +47,7 @@ class Alert:
     history_count: int
     abs_move: int
     alert_kind: str = "price_sigma"
+    profession: Optional[str] = None
     recipe_id: Optional[int] = None
     recipe_name: Optional[str] = None
     craft_cost: Optional[int] = None
@@ -71,6 +72,30 @@ class RecipeDefinition:
     crafted_item_name: str
     crafted_quantity: int
     reagents: List[RecipeReagent]
+
+
+@dataclass
+class AlertDiagnostics:
+    total_rows: int = 0
+    blocked_liquidity: int = 0
+    blocked_min_history: int = 0
+    blocked_zero_stddev: int = 0
+    blocked_abs_move: int = 0
+    blocked_sigma: int = 0
+    blocked_signal_direction: int = 0
+    blocked_trend_history: int = 0
+    blocked_trend_guard: int = 0
+
+
+@dataclass
+class CraftAlertDiagnostics:
+    total_rows: int = 0
+    matched_crafted_rows: int = 0
+    blocked_output_liquidity: int = 0
+    blocked_missing_recipe: int = 0
+    blocked_missing_reagent_price: int = 0
+    blocked_non_positive_cost: int = 0
+    blocked_profit_threshold: int = 0
 
 
 def parse_args() -> argparse.Namespace:
@@ -232,6 +257,7 @@ def sqlite_schema_sql() -> str:
       z_score REAL NOT NULL,
       direction TEXT NOT NULL,
       alert_kind TEXT NOT NULL DEFAULT 'price_sigma',
+      profession TEXT,
       recipe_id INTEGER,
       recipe_name TEXT,
       craft_cost INTEGER,
@@ -277,6 +303,7 @@ def postgres_schema_sql() -> str:
       z_score DOUBLE PRECISION NOT NULL,
       direction TEXT NOT NULL,
       alert_kind TEXT NOT NULL DEFAULT 'price_sigma',
+      profession TEXT,
       recipe_id INTEGER,
       recipe_name TEXT,
       craft_cost BIGINT,
@@ -392,6 +419,7 @@ class SQLiteClient(DBClient):
         existing = {str(r[1]) for r in rows}
         targets = [
             ("alert_kind", "TEXT NOT NULL DEFAULT 'price_sigma'"),
+            ("profession", "TEXT"),
             ("recipe_id", "INTEGER"),
             ("recipe_name", "TEXT"),
             ("craft_cost", "INTEGER"),
@@ -450,11 +478,11 @@ class SQLiteClient(DBClient):
     def insert_alerts(self, alerts: List[Alert], alerted_at: str) -> None:
         self.conn.executemany(
             """
-            INSERT INTO alerts (
-              alerted_at, observed_at, item_id, item_name, source, metric_name,
-              current_value, mean_value, stddev_value, z_score, direction,
-              alert_kind, recipe_id, recipe_name, craft_cost, sale_value, expected_profit, margin_pct
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                INSERT INTO alerts (
+                  alerted_at, observed_at, item_id, item_name, source, metric_name,
+                  current_value, mean_value, stddev_value, z_score, direction,
+                  alert_kind, profession, recipe_id, recipe_name, craft_cost, sale_value, expected_profit, margin_pct
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             [
                 (
@@ -470,6 +498,7 @@ class SQLiteClient(DBClient):
                     a.z_score,
                     a.direction,
                     a.alert_kind,
+                    a.profession,
                     a.recipe_id,
                     a.recipe_name,
                     a.craft_cost,
@@ -557,6 +586,7 @@ class PostgresClient(DBClient):
     def _migrate_alert_columns_if_needed(self) -> None:
         targets = [
             ("alert_kind", "TEXT NOT NULL DEFAULT 'price_sigma'"),
+            ("profession", "TEXT"),
             ("recipe_id", "INTEGER"),
             ("recipe_name", "TEXT"),
             ("craft_cost", "BIGINT"),
@@ -634,8 +664,8 @@ class PostgresClient(DBClient):
                 INSERT INTO alerts (
                   alerted_at, observed_at, item_id, item_name, source, metric_name,
                   current_value, mean_value, stddev_value, z_score, direction,
-                  alert_kind, recipe_id, recipe_name, craft_cost, sale_value, expected_profit, margin_pct
-                ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                  alert_kind, profession, recipe_id, recipe_name, craft_cost, sale_value, expected_profit, margin_pct
+                ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
                 """,
                 [
                     (
@@ -651,6 +681,7 @@ class PostgresClient(DBClient):
                         a.z_score,
                         a.direction,
                         a.alert_kind,
+                        a.profession,
                         a.recipe_id,
                         a.recipe_name,
                         a.craft_cost,
@@ -726,10 +757,12 @@ def detect_alerts(
     db: DBClient,
     rows: List[Observation],
     args: argparse.Namespace,
-) -> List[Alert]:
+) -> Tuple[List[Alert], AlertDiagnostics]:
     alerts: List[Alert] = []
+    diagnostics = AlertDiagnostics(total_rows=len(rows))
     for row in rows:
         if not passes_liquidity(row, args):
+            diagnostics.blocked_liquidity += 1
             continue
 
         current_ts = datetime.fromisoformat(row.observed_at.replace("Z", "+00:00"))
@@ -741,23 +774,29 @@ def detect_alerts(
             end_iso=row.observed_at,
         )
         if len(history) < args.min_history:
+            diagnostics.blocked_min_history += 1
             continue
 
         mean, stddev = mean_stddev(history)
         if stddev <= 0:
+            diagnostics.blocked_zero_stddev += 1
             continue
 
         delta = row.metric_value - mean
         if abs(delta) < min_abs_move_copper(row, args):
+            diagnostics.blocked_abs_move += 1
             continue
         z = delta / stddev
         if abs(z) < args.sigma:
+            diagnostics.blocked_sigma += 1
             continue
 
         direction = "below_mean" if z < 0 else "above_mean"
         if args.signal_direction == "buy" and direction != "below_mean":
+            diagnostics.blocked_signal_direction += 1
             continue
         if args.signal_direction == "sell" and direction != "above_mean":
+            diagnostics.blocked_signal_direction += 1
             continue
         trend_start_ts = current_ts - timedelta(hours=args.trend_hours)
         trend_values = db.history_values(
@@ -766,16 +805,19 @@ def detect_alerts(
             end_iso=row.observed_at,
         )
         if len(trend_values) < args.min_trend_history:
+            diagnostics.blocked_trend_history += 1
             continue
         recent_avg = float(sum(trend_values)) / float(len(trend_values))
 
         if direction == "below_mean":
             # Avoid "falling knife" entries unless price is stabilizing vs recent trend.
             if row.metric_value < recent_avg * args.buy_recovery_ratio:
+                diagnostics.blocked_trend_guard += 1
                 continue
         else:
             # For exits, require current price to still show strength vs recent trend.
             if row.metric_value < recent_avg * args.sell_strength_ratio:
+                diagnostics.blocked_trend_guard += 1
                 continue
 
         alerts.append(
@@ -795,7 +837,7 @@ def detect_alerts(
                 abs_move=abs(delta),
             )
         )
-    return alerts
+    return alerts, diagnostics
 
 
 def load_recipe_definitions(config_path: Path) -> List[RecipeDefinition]:
@@ -873,9 +915,11 @@ def detect_craft_alerts(
     rows: List[Observation],
     recipes: List[RecipeDefinition],
     args: argparse.Namespace,
-) -> List[Alert]:
+) -> Tuple[List[Alert], CraftAlertDiagnostics]:
+    diagnostics = CraftAlertDiagnostics(total_rows=len(rows))
     if not recipes:
-        return []
+        diagnostics.blocked_missing_recipe = len(rows)
+        return [], diagnostics
     rows_by_item: Dict[int, List[Observation]] = defaultdict(list)
     for row in rows:
         rows_by_item[row.item_id].append(row)
@@ -888,9 +932,12 @@ def detect_craft_alerts(
     for crafted_item_id, crafted_rows in rows_by_item.items():
         recipe_list = recipes_by_output.get(crafted_item_id)
         if not recipe_list:
+            diagnostics.blocked_missing_recipe += len(crafted_rows)
             continue
         for crafted_row in crafted_rows:
+            diagnostics.matched_crafted_rows += 1
             if not passes_liquidity(crafted_row, args):
+                diagnostics.blocked_output_liquidity += 1
                 continue
             for recipe in recipe_list:
                 total_craft_cost = 0
@@ -901,7 +948,11 @@ def detect_craft_alerts(
                         missing_price = True
                         break
                     total_craft_cost += reagent.quantity * reagent_row.metric_value
-                if missing_price or total_craft_cost <= 0:
+                if missing_price:
+                    diagnostics.blocked_missing_reagent_price += 1
+                    continue
+                if total_craft_cost <= 0:
+                    diagnostics.blocked_non_positive_cost += 1
                     continue
                 sale_value = crafted_row.metric_value * recipe.crafted_quantity
                 net_sale = int(sale_value * (1.0 - args.craft_ah_cut_rate))
@@ -912,6 +963,7 @@ def detect_craft_alerts(
                 elif expected_profit <= -min_profit_copper and margin_pct <= -args.craft_min_margin_pct:
                     direction = "sell"
                 else:
+                    diagnostics.blocked_profit_threshold += 1
                     continue
                 alerts.append(
                     Alert(
@@ -929,6 +981,7 @@ def detect_craft_alerts(
                         history_count=0,
                         abs_move=abs(expected_profit),
                         alert_kind="craft_arbitrage",
+                        profession=recipe.profession,
                         recipe_id=recipe.recipe_id,
                         recipe_name=recipe.recipe_name,
                         craft_cost=total_craft_cost,
@@ -937,7 +990,36 @@ def detect_craft_alerts(
                         margin_pct=margin_pct,
                     )
                 )
-    return alerts
+    return alerts, diagnostics
+
+
+def format_alert_diagnostics(diag: AlertDiagnostics) -> str:
+    return (
+        "Sigma diagnostics: "
+        f"rows={diag.total_rows}, "
+        f"liquidity={diag.blocked_liquidity}, "
+        f"min_history={diag.blocked_min_history}, "
+        f"zero_stddev={diag.blocked_zero_stddev}, "
+        f"abs_move={diag.blocked_abs_move}, "
+        f"sigma={diag.blocked_sigma}, "
+        f"signal_direction={diag.blocked_signal_direction}, "
+        f"trend_history={diag.blocked_trend_history}, "
+        f"trend_guard={diag.blocked_trend_guard}"
+    )
+
+
+def format_craft_alert_diagnostics(diag: CraftAlertDiagnostics, recipe_count: int) -> str:
+    return (
+        "Craft diagnostics: "
+        f"rows={diag.total_rows}, "
+        f"recipes={recipe_count}, "
+        f"matched_outputs={diag.matched_crafted_rows}, "
+        f"missing_recipe={diag.blocked_missing_recipe}, "
+        f"output_liquidity={diag.blocked_output_liquidity}, "
+        f"missing_reagent_price={diag.blocked_missing_reagent_price}, "
+        f"non_positive_cost={diag.blocked_non_positive_cost}, "
+        f"profit_threshold={diag.blocked_profit_threshold}"
+    )
 
 
 def format_alert_message(alerts: List[Alert], sigma: float, window_hours: int) -> str:
@@ -1048,12 +1130,15 @@ def main() -> int:
     try:
         db.init()
         db.insert_observations(rows)
-        sigma_alerts = detect_alerts(
+        sigma_alerts, sigma_diag = detect_alerts(
             db=db,
             rows=rows,
             args=args,
         )
-        craft_alerts = detect_craft_alerts(rows=rows, recipes=recipe_defs, args=args) if args.enable_craft_alerts else []
+        if args.enable_craft_alerts:
+            craft_alerts, craft_diag = detect_craft_alerts(rows=rows, recipes=recipe_defs, args=args)
+        else:
+            craft_alerts, craft_diag = [], CraftAlertDiagnostics(total_rows=len(rows))
         alerts = sigma_alerts + craft_alerts
         alerted_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
         if alerts:
@@ -1075,8 +1160,10 @@ def main() -> int:
         db.close()
 
     print(f"Inserted {len(rows)} observations into {db_label} at {observed_at}")
+    print(format_alert_diagnostics(sigma_diag))
     if args.enable_craft_alerts:
         print(f"Craft recipe definitions loaded: {len(recipe_defs)}")
+        print(format_craft_alert_diagnostics(craft_diag, len(recipe_defs)))
     if observations_before_iso or alerts_before_iso:
         print(
             "Retention prune:"

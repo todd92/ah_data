@@ -27,6 +27,33 @@ def text_value(v: Any, locale: str) -> str:
     return ""
 
 
+def extract_id_from_href(href: str, path_fragment: str) -> Optional[int]:
+    if path_fragment not in href:
+        return None
+    tail = href.split(path_fragment)[-1]
+    value = tail.split("?")[0].strip("/")
+    if value.isdigit():
+        return int(value)
+    return None
+
+
+def item_id_from_ref(item_obj: Any) -> Optional[int]:
+    if not isinstance(item_obj, dict):
+        return None
+    item_id = item_obj.get("id")
+    if isinstance(item_id, int):
+        return item_id
+    href_candidates = [
+        str((item_obj.get("key") or {}).get("href", "")),
+        str(item_obj.get("href", "")),
+    ]
+    for href in href_candidates:
+        item_id = extract_id_from_href(href, "/data/wow/item/")
+        if item_id is not None:
+            return item_id
+    return None
+
+
 class BlizzardAPI:
     def __init__(self, client_id: str, client_secret: str, region: str, locale: str):
         self.client_id = client_id
@@ -121,8 +148,8 @@ def load_config(path: Path) -> Dict[str, Any]:
 
 
 def add_item(store: Dict[int, str], item_obj: Dict[str, Any], locale: str):
-    item_id = item_obj.get("id")
-    if not isinstance(item_id, int):
+    item_id = item_id_from_ref(item_obj)
+    if item_id is None:
         return
     name = text_value(item_obj.get("name"), locale) or f"item-{item_id}"
     if item_id not in store:
@@ -216,7 +243,7 @@ def main() -> int:
                 crafted = rdetail.get("crafted_item")
                 if isinstance(crafted, dict):
                     add_item(items, crafted, locale)
-                crafted_id = crafted.get("id") if isinstance(crafted, dict) else None
+                crafted_id = item_id_from_ref(crafted)
                 if isinstance(crafted_id, int):
                     recipe_name = text_value(rdetail.get("name"), locale) or f"recipe-{rid}"
                     recipe_entry: Dict[str, Any] = {
@@ -235,7 +262,7 @@ def main() -> int:
                         reagent_item = reagent.get("reagent")
                         if not isinstance(reagent_item, dict):
                             continue
-                        reagent_id = reagent_item.get("id")
+                        reagent_id = item_id_from_ref(reagent_item)
                         reagent_qty = reagent.get("quantity")
                         if not isinstance(reagent_id, int) or not isinstance(reagent_qty, int) or reagent_qty <= 0:
                             continue

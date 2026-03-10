@@ -31,6 +31,7 @@ CREATE TABLE IF NOT EXISTS alerts (
   z_score DOUBLE PRECISION NOT NULL,
   direction TEXT NOT NULL,
   alert_kind TEXT NOT NULL DEFAULT 'price_sigma',
+  profession TEXT,
   recipe_id INTEGER,
   recipe_name TEXT,
   craft_cost BIGINT,

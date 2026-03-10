@@ -26,10 +26,6 @@ If Supabase env vars are missing, the UI serves sample data so you can still tes
 - `SUPABASE_URL`
 - `SUPABASE_ANON_KEY`
 
-Optional:
-
-- `WATCHLIST_FILE` path to watchlist JSON containing recipe definitions with `profession`.
-
 ## Vercel deploy
 
 1. Import this repo in Vercel.
@@ -37,7 +33,6 @@ Optional:
 3. Add env vars:
    - `SUPABASE_URL`
    - `SUPABASE_ANON_KEY`
-   - optional `WATCHLIST_FILE`
 4. Deploy.
 
 ## Data contract
@@ -51,5 +46,6 @@ Expected columns used by UI:
 - `alerted_at`, `observed_at`
 - `item_id`, `item_name`, `source`
 - `direction`
+- `profession`
 - `recipe_id`, `recipe_name`
 - `craft_cost`, `sale_value`, `expected_profit`, `margin_pct`
