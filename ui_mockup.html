@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AH Crafting Radar - Mockup</title>
+  <style>
+    :root {
+      --bg: #f3efe7;
+      --panel: #fffdf8;
+      --ink: #112224;
+      --muted: #5f6f73;
+      --accent: #005f73;
+      --accent-2: #ee9b00;
+      --good: #0d8f5f;
+      --bad: #d1495b;
+      --line: #d8d2c5;
+      --shadow: 0 8px 20px rgba(17, 34, 36, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 15% 20%, #fef7e0 0%, transparent 35%),
+        radial-gradient(circle at 85% 75%, #d9f4f4 0%, transparent 30%),
+        var(--bg);
+    }
+
+    .wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 24px 16px 48px;
+    }
+
+    .hero {
+      background: linear-gradient(120deg, #023047, #005f73 45%, #0a9396);
+      color: #fff;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero h1 { margin: 0 0 8px; font-size: 1.9rem; }
+    .hero p { margin: 0; opacity: 0.9; }
+
+    .grid {
+      margin-top: 18px;
+      display: grid;
+      gap: 16px;
+      grid-template-columns: 1fr;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      padding: 14px;
+    }
+
+    .filters {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 10px;
+      align-items: end;
+    }
+
+    label {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    select, input {
+      width: 100%;
+      padding: 9px 10px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      font: inherit;
+      background: #fff;
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-weight: 700;
+      background: var(--accent);
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+    }
+
+    .stat {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px;
+      background: #fff;
+    }
+
+    .stat .k { color: var(--muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    .stat .v { margin-top: 4px; font-size: 1.3rem; font-weight: 700; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 10px 8px;
+      border-bottom: 1px solid #ece7db;
+      vertical-align: top;
+    }
+
+    th { color: var(--muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    .good { color: var(--good); font-weight: 700; }
+    .bad { color: var(--bad); font-weight: 700; }
+    .pill {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 2px 9px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      background: #e7f6ef;
+      color: var(--good);
+    }
+
+    .recipe {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .mats {
+      margin: 0;
+      padding-left: 16px;
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.35;
+    }
+
+    @media (max-width: 760px) {
+      .hero h1 { font-size: 1.55rem; }
+      table { font-size: 0.85rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <h1>AH Crafting Radar</h1>
+      <p>Pick a profession, compare craft cost vs market sale, and rank live opportunities by profit and margin.</p>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <div class="filters">
+          <div>
+            <label>Profession</label>
+            <select>
+              <option>Tailoring</option>
+              <option>Enchanting</option>
+            </select>
+          </div>
+          <div>
+            <label>Realm / Region</label>
+            <select>
+              <option>US - Dawnbringer</option>
+            </select>
+          </div>
+          <div>
+            <label>Min Profit (gold)</label>
+            <input value="50" />
+          </div>
+          <div>
+            <label>Min Margin (%)</label>
+            <input value="10" />
+          </div>
+          <div>
+            <button class="btn">Analyze Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="stats">
+          <div class="stat"><div class="k">Profitable Crafts</div><div class="v">14</div></div>
+          <div class="stat"><div class="k">Best Profit</div><div class="v">+412g</div></div>
+          <div class="stat"><div class="k">Average Margin</div><div class="v">18.7%</div></div>
+          <div class="stat"><div class="k">Updated</div><div class="v">2m ago</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <table>
+          <thead>
+            <tr>
+              <th>Craft</th>
+              <th>Recipe</th>
+              <th>Mats Needed</th>
+              <th>Craft Cost</th>
+              <th>Sale Value</th>
+              <th>Profit</th>
+              <th>Margin</th>
+              <th>Liquidity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Gilded Spellthread</strong><div class="recipe">Tailoring</div></td>
+              <td>Embroider Gilded Spellthread</td>
+              <td>
+                <ul class="mats">
+                  <li>8x Embroidery Floss</li>
+                  <li>3x Fantastic Fur</li>
+                  <li>1x Carving Canine</li>
+                </ul>
+              </td>
+              <td>1,822g</td>
+              <td>2,234g</td>
+              <td class="good">+412g</td>
+              <td class="good">+22.6%</td>
+              <td><span class="pill">High</span></td>
+            </tr>
+            <tr>
+              <td><strong>Radiant Binding</strong><div class="recipe">Enchanting</div></td>
+              <td>Bind Radiant Matrix</td>
+              <td>
+                <ul class="mats">
+                  <li>6x Luminant Flux</li>
+                  <li>2x Mote of Light</li>
+                  <li>1x Lexicologist's Vellum</li>
+                </ul>
+              </td>
+              <td>740g</td>
+              <td>861g</td>
+              <td class="good">+121g</td>
+              <td class="good">+16.4%</td>
+              <td><span class="pill">Medium</span></td>
+            </tr>
+            <tr>
+              <td><strong>Shimmering Bolt</strong><div class="recipe">Tailoring</div></td>
+              <td>Weave Shimmering Bolt</td>
+              <td>
+                <ul class="mats">
+                  <li>10x Embroidery Floss</li>
+                  <li>4x Dazzling Thorium</li>
+                </ul>
+              </td>
+              <td>590g</td>
+              <td>536g</td>
+              <td class="bad">-54g</td>
+              <td class="bad">-9.2%</td>
+              <td><span class="pill" style="background:#fef0f2;color:#d1495b;">Low</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

@@ -1,0 +1,401 @@
+{
+  "region": "us",
+  "locale": "en_US",
+  "targets": [
+    {
+      "name": "Optional manual override item",
+      "item_id": 19019,
+      "sources": [
+        {
+          "source": "realm:dawnbringer (connected_realm:160)",
+          "summary": null
+        }
+      ]
+    },
+    {
+      "name": "Carving Canine",
+      "item_id": 238523,
+      "sources": [
+        {
+          "source": "commodity:region",
+          "summary": {
+            "listing_count": 2681,
+            "total_quantity": 15712,
+            "min_unit_price": 509900,
+            "max_unit_price": 9000001500,
+            "avg_unit_price": 10045156,
+            "weighted_avg_unit_price": 5611733
+          }
+        }
+      ],
+      "source_mode": "auto",
+      "source_mode_reason": "auto: reagent/trade goods -> commodity:region"
+    },
+    {
+      "name": "Dazzling Thorium",
+      "item_id": 237366,
+      "sources": [
+        {
+          "source": "commodity:region",
+          "summary": {
+            "listing_count": 1160,
+            "total_quantity": 35829,
+            "min_unit_price": 1516900,
+            "max_unit_price": 2411110000,
+            "avg_unit_price": 8886359,
+            "weighted_avg_unit_price": 4711646
+          }
+        }
+      ],
+      "source_mode": "auto",
+      "source_mode_reason": "auto: reagent/trade goods -> commodity:region"
+    },
+    {
+      "name": "Embroidery Floss",
+      "item_id": 251691,
+      "sources": [
+        {
+          "source": "commodity:region",
+          "summary": {
+            "listing_count": 267,
+            "total_quantity": 670516,
+            "min_unit_price": 500,
+            "max_unit_price": 2411110000,
+            "avg_unit_price": 9035376,
+            "weighted_avg_unit_price": 20342
+          }
+        }
+      ],
+      "source_mode": "auto",
+      "source_mode_reason": "auto: reagent/trade goods -> commodity:region"
+    },
+    {
+      "name": "Fantastic Fur",
+      "item_id": 238525,
+      "sources": [
+        {
+          "source": "commodity:region",
+          "summary": {
+            "listing_count": 1879,
+            "total_quantity": 7007,
+            "min_unit_price": 9510000,
+            "max_unit_price": 770000700,
+            "avg_unit_price": 22904836,
+            "weighted_avg_unit_price": 20090948
+          }
+        }
+      ],
+      "source_mode": "auto",
+      "source_mode_reason": "auto: reagent/trade goods -> commodity:region"
+    },
+    {
+      "name": "Fused Vitality",
+      "item_id": 245345,
+      "sources": [
+        {
+          "source": "commodity:region",
+          "summary": null
+        }
+      ],
+      "source_mode": "auto",
+      "source_mode_reason": "auto: reagent/trade goods -> commodity:region"
+    },
+    {
+      "name": "Lexicologist's Vellum",
+      "item_id": 245881,
+      "sources": [
+        {
+          "source": "commodity:region",
+          "summary": {
+            "listing_count": 36,
+            "total_quantity": 116201,
+            "min_unit_price": 2900,
+            "max_unit_price": 2411110000,
+            "avg_unit_price": 133956536,
+            "weighted_avg_unit_price": 127684
+          }
+        }
+      ],
+      "source_mode": "auto",
+      "source_mode_reason": "auto: reagent/trade goods -> commodity:region"
+    },
+    {
+      "name": "Luminant Flux",
+      "item_id": 243060,
+      "sources": [
+        {
+          "source": "commodity:region",
+          "summary": {
+            "listing_count": 20,
+            "total_quantity": 140661,
+            "min_unit_price": 6800,
+            "max_unit_price": 2411110000,
+            "avg_unit_price": 242147840,
+            "weighted_avg_unit_price": 120574
+          }
+        }
+      ],
+      "source_mode": "auto",
+      "source_mode_reason": "auto: reagent/trade goods -> commodity:region"
+    },
+    {
+      "name": "Majestic Claw",
+      "item_id": 238528,
+      "sources": [
+        {
+          "source": "commodity:region",
+          "summary": {
+            "listing_count": 557,
+            "total_quantity": 974,
+            "min_unit_price": 202099600,
+            "max_unit_price": 2500009900,
+            "avg_unit_price": 316803885,
+            "weighted_avg_unit_price": 309542688
+          }
+        }
+      ],
+      "source_mode": "auto",
+      "source_mode_reason": "auto: reagent/trade goods -> commodity:region"
+    },
+    {
+      "name": "Majestic Fin",
+      "item_id": 238530,
+      "sources": [
+        {
+          "source": "commodity:region",
+          "summary": {
+            "listing_count": 378,
+            "total_quantity": 647,
+            "min_unit_price": 228001300,
+            "max_unit_price": 900000000,
+            "avg_unit_price": 315416643,
+            "weighted_avg_unit_price": 316722683
+          }
+        }
+      ],
+      "source_mode": "auto",
+      "source_mode_reason": "auto: reagent/trade goods -> commodity:region"
+    },
+    {
+      "name": "Majestic Hide",
+      "item_id": 238529,
+      "sources": [
+        {
+          "source": "commodity:region",
+          "summary": {
+            "listing_count": 644,
+            "total_quantity": 1024,
+            "min_unit_price": 129980000,
+            "max_unit_price": 500000000,
+            "avg_unit_price": 182125599,
+            "weighted_avg_unit_price": 190384512
+          }
+        }
+      ],
+      "source_mode": "auto",
+      "source_mode_reason": "auto: reagent/trade goods -> commodity:region"
+    },
+    {
+      "name": "Mote of Light",
+      "item_id": 236949,
+      "sources": [
+        {
+          "source": "commodity:region",
+          "summary": {
+            "listing_count": 1295,
+            "total_quantity": 282528,
+            "min_unit_price": 50000,
+            "max_unit_price": 10000002200,
+            "avg_unit_price": 11739870,
+            "weighted_avg_unit_price": 3062052
+          }
+        }
+      ],
+      "source_mode": "auto",
+      "source_mode_reason": "auto: reagent/trade goods -> commodity:region"
+    },
+    {
+      "name": "Mote of Primal Energy",
+      "item_id": 236950,
+      "sources": [
+        {
+          "source": "commodity:region",
+          "summary": {
+            "listing_count": 1481,
+            "total_quantity": 350073,
+            "min_unit_price": 69500,
+            "max_unit_price": 2411110000,
+            "avg_unit_price": 5297445,
+            "weighted_avg_unit_price": 421175
+          }
+        }
+      ],
+      "source_mode": "auto",
+      "source_mode_reason": "auto: reagent/trade goods -> commodity:region"
+    },
+    {
+      "name": "Mote of Pure Void",
+      "item_id": 236952,
+      "sources": [
+        {
+          "source": "commodity:region",
+          "summary": {
+            "listing_count": 2351,
+            "total_quantity": 438455,
+            "min_unit_price": 49000,
+            "max_unit_price": 2411110000,
+            "avg_unit_price": 4483340,
+            "weighted_avg_unit_price": 439478
+          }
+        }
+      ],
+      "source_mode": "auto",
+      "source_mode_reason": "auto: reagent/trade goods -> commodity:region"
+    },
+    {
+      "name": "Mote of Wild Magic",
+      "item_id": 236951,
+      "sources": [
+        {
+          "source": "commodity:region",
+          "summary": {
+            "listing_count": 1015,
+            "total_quantity": 373425,
+            "min_unit_price": 47900,
+            "max_unit_price": 2411110000,
+            "avg_unit_price": 8429439,
+            "weighted_avg_unit_price": 1354659
+          }
+        }
+      ],
+      "source_mode": "auto",
+      "source_mode_reason": "auto: reagent/trade goods -> commodity:region"
+    },
+    {
+      "name": "Peerless Plumage",
+      "item_id": 238522,
+      "sources": [
+        {
+          "source": "commodity:region",
+          "summary": {
+            "listing_count": 2007,
+            "total_quantity": 11295,
+            "min_unit_price": 10159800,
+            "max_unit_price": 1187443600,
+            "avg_unit_price": 25959299,
+            "weighted_avg_unit_price": 20152818
+          }
+        }
+      ],
+      "source_mode": "auto",
+      "source_mode_reason": "auto: reagent/trade goods -> commodity:region"
+    },
+    {
+      "name": "Petrified Root",
+      "item_id": 251285,
+      "sources": [
+        {
+          "source": "commodity:region",
+          "summary": {
+            "listing_count": 518,
+            "total_quantity": 4223,
+            "min_unit_price": 46001000,
+            "max_unit_price": 1123936100,
+            "avg_unit_price": 87939143,
+            "weighted_avg_unit_price": 75661529
+          }
+        }
+      ],
+      "source_mode": "auto",
+      "source_mode_reason": "auto: reagent/trade goods -> commodity:region"
+    },
+    {
+      "name": "Refulgent Copper Rod",
+      "item_id": 244174,
+      "sources": [
+        {
+          "source": "realm:dawnbringer (connected_realm:160)",
+          "summary": {
+            "listing_count": 43,
+            "total_quantity": 43,
+            "min_unit_price": 750000,
+            "max_unit_price": 947300,
+            "avg_unit_price": 889141,
+            "weighted_avg_unit_price": 889141
+          }
+        }
+      ],
+      "source_mode": "auto",
+      "source_mode_reason": "auto: non-reagent -> realm:dawnbringer (connected_realm:160)"
+    },
+    {
+      "name": "Silverleaf Thread",
+      "item_id": 251665,
+      "sources": [
+        {
+          "source": "commodity:region",
+          "summary": {
+            "listing_count": 165,
+            "total_quantity": 309504,
+            "min_unit_price": 1200,
+            "max_unit_price": 2411110000,
+            "avg_unit_price": 43845942,
+            "weighted_avg_unit_price": 110735
+          }
+        }
+      ],
+      "source_mode": "auto",
+      "source_mode_reason": "auto: reagent/trade goods -> commodity:region"
+    },
+    {
+      "name": "Thalassian Lumber",
+      "item_id": 256963,
+      "sources": [
+        {
+          "source": "commodity:region",
+          "summary": null
+        }
+      ],
+      "source_mode": "auto",
+      "source_mode_reason": "auto: reagent/trade goods -> commodity:region"
+    },
+    {
+      "name": "Thalassian Songwater",
+      "item_id": 245882,
+      "sources": [
+        {
+          "source": "commodity:region",
+          "summary": {
+            "listing_count": 94,
+            "total_quantity": 157742,
+            "min_unit_price": 2500,
+            "max_unit_price": 2411110000,
+            "avg_unit_price": 25973085,
+            "weighted_avg_unit_price": 555717
+          }
+        }
+      ],
+      "source_mode": "auto",
+      "source_mode_reason": "auto: reagent/trade goods -> commodity:region"
+    },
+    {
+      "name": "Tormented Tantalum",
+      "item_id": 251283,
+      "sources": [
+        {
+          "source": "commodity:region",
+          "summary": {
+            "listing_count": 1114,
+            "total_quantity": 9749,
+            "min_unit_price": 709500,
+            "max_unit_price": 2411110000,
+            "avg_unit_price": 5736053,
+            "weighted_avg_unit_price": 3710741
+          }
+        }
+      ],
+      "source_mode": "auto",
+      "source_mode_reason": "auto: reagent/trade goods -> commodity:region"
+    }
+  ]
+}
