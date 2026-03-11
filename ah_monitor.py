@@ -1025,13 +1025,22 @@ def format_craft_alert_diagnostics(diag: CraftAlertDiagnostics, recipe_count: in
     )
 
 
-def format_alert_message(alerts: List[Alert], sigma: float, window_hours: int) -> str:
+def craft_action_label(direction: str) -> str:
+    if direction == "buy":
+        return "CRAFT"
+    if direction == "sell":
+        return "SELL_MATS"
+    return direction.upper()
+
+
+def format_alert_message(alerts: List[Alert], sigma: float, window_hours: int, craft_ah_cut_rate: float) -> str:
     sigma_alerts = [a for a in alerts if a.alert_kind == "price_sigma"]
     craft_alerts = [a for a in alerts if a.alert_kind == "craft_arbitrage"]
     buys = [a for a in sigma_alerts if a.direction == "below_mean"] + [a for a in craft_alerts if a.direction == "buy"]
     sells = [a for a in sigma_alerts if a.direction == "above_mean"] + [a for a in craft_alerts if a.direction == "sell"]
     lines = [f"WoW AH alerts: {len(alerts)} total (sigma={len(sigma_alerts)}, craft={len(craft_alerts)})"]
-    lines.append(f"BUY: {len(buys)} | SELL: {len(sells)}")
+    lines.append(f"BUY: {len([a for a in sigma_alerts if a.direction == 'below_mean'])} | SELL: {len([a for a in sigma_alerts if a.direction == 'above_mean'])}")
+    lines.append(f"CRAFT: {len([a for a in craft_alerts if a.direction == 'buy'])} | SELL_MATS: {len([a for a in craft_alerts if a.direction == 'sell'])}")
 
     sigma_buys = [a for a in sigma_alerts if a.direction == "below_mean"]
     if sigma_buys:
@@ -1054,9 +1063,10 @@ def format_alert_message(alerts: List[Alert], sigma: float, window_hours: int) -
         for a in craft_alerts[:10]:
             profit = a.expected_profit or 0
             margin = (a.margin_pct or 0.0) * 100.0
+            net_sale = int((a.sale_value or 0) * (1.0 - craft_ah_cut_rate))
             lines.append(
-                f"- {a.direction.upper()} {a.item_name} [{a.item_id}] {a.recipe_name or f'r#{a.recipe_id}'}: "
-                f"sale {format_money_copper(a.sale_value or 0)} vs cost {format_money_copper(a.craft_cost or 0)} "
+                f"- {craft_action_label(a.direction)} {a.item_name} [{a.item_id}] {a.recipe_name or f'r#{a.recipe_id}'}: "
+                f"net sale {format_money_copper(net_sale)} vs mat cost {format_money_copper(a.craft_cost or 0)} "
                 f"(profit {format_money_copper(profit)}, margin {margin:+.1f}%)"
             )
 
@@ -1178,7 +1188,7 @@ def main() -> int:
         print("No alerts this run.")
         return 0
 
-    message = format_alert_message(alerts, args.sigma, args.window_hours)
+    message = format_alert_message(alerts, args.sigma, args.window_hours, args.craft_ah_cut_rate)
     print(message)
 
     if webhook_url:

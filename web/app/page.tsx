@@ -49,6 +49,10 @@ export default function HomePage() {
 
   const stats = useStats(rows);
 
+  function craftDirectionLabel(direction: "buy" | "sell") {
+    return direction === "buy" ? "CRAFT" : "SELL_MATS";
+  }
+
   async function analyze() {
     setLoading(true);
     setError("");
@@ -105,9 +109,9 @@ export default function HomePage() {
               value={filters.direction}
               onChange={(e) => setFilters((x) => ({ ...x, direction: e.target.value as Filters["direction"] }))}
             >
-              <option value="both">Buy + Sell</option>
-              <option value="buy">Buy only</option>
-              <option value="sell">Sell only</option>
+              <option value="both">Craft + Sell Mats</option>
+              <option value="buy">Craft only</option>
+              <option value="sell">Sell mats only</option>
             </select>
           </div>
           <div>
@@ -196,7 +200,7 @@ export default function HomePage() {
                     <td className={positive ? "good" : "bad"}>{moneyFromCopper(row.expectedProfit)}</td>
                     <td className={positive ? "good" : "bad"}>{pct(row.marginPct)}</td>
                     <td>
-                      <span className={`pill ${row.direction === "sell" ? "bad" : ""}`}>{row.direction.toUpperCase()}</span>
+                      <span className={`pill ${row.direction === "sell" ? "bad" : ""}`}>{craftDirectionLabel(row.direction)}</span>
                     </td>
                   </tr>
                 );
