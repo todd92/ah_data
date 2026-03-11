@@ -2,6 +2,7 @@
 import argparse
 import base64
 import json
+import html
 import re
 import time
 import sys
@@ -18,9 +19,9 @@ API_HOSTS = {
     "kr": "kr.api.blizzard.com",
     "tw": "tw.api.blizzard.com",
 }
-WIKI_SEARCH_URL = "https://warcraft.wiki.gg/w/index.php"
-WIKI_ITEM_ID_RE = re.compile(r"(?:Item ID|ID)\s*</[^>]+>\s*<[^>]+>\s*(\d+)\s*<", re.IGNORECASE)
-WIKI_REAGENT_LINK_RE = re.compile(r'/wiki/([^"#?]+)"', re.IGNORECASE)
+WIKI_API_URL = "https://warcraft.wiki.gg/api.php"
+WIKI_ITEM_ID_RE = re.compile(r"(?:Item ID|ID)\s*:?\s*(\d+)", re.IGNORECASE)
+WIKI_REAGENT_LINE_RE = re.compile(r"(\d+)x\s+([A-Za-z0-9'&: -]+)")
 
 
 def text_value(v: Any, locale: str) -> str:
@@ -134,60 +135,73 @@ class WarcraftWikiClient:
             "Accept-Language": "en-US,en;q=0.9",
         }
 
-    def _http_text(self, url: str) -> str:
-        req = urllib.request.Request(url=url, headers=self._headers)
+    def _http_json(self, params: Dict[str, str]) -> Any:
+        query = urllib.parse.urlencode(params)
+        req = urllib.request.Request(url=f"{WIKI_API_URL}?{query}", headers=self._headers)
         with self._opener.open(req, timeout=45) as resp:
-            return resp.read().decode("utf-8", errors="ignore")
+            return json.loads(resp.read().decode("utf-8", errors="ignore"))
 
-    def search_item_page(self, recipe_name: str) -> Optional[str]:
-        title = recipe_name.replace(" ", "_")
-        direct_url = f"https://warcraft.wiki.gg/wiki/{urllib.parse.quote(title, safe='_():-')}"
+    def page_html(self, title: str) -> Optional[str]:
         try:
-            html = self._http_text(direct_url)
-            if "<title>" in html and "Search results" not in html:
-                return direct_url
-        except Exception:
-            pass
-
-        params = urllib.parse.urlencode(
-            {
-                "search": recipe_name,
-                "title": "Special:Search",
-                "go": "Go",
-            }
-        )
-        search_url = f"{WIKI_SEARCH_URL}?{params}"
-        try:
-            html = self._http_text(search_url)
+            payload = self._http_json(
+                {
+                    "action": "parse",
+                    "page": title,
+                    "prop": "text",
+                    "format": "json",
+                    "redirects": "1",
+                }
+            )
         except Exception:
             return None
-        match = re.search(r'href="(/wiki/[^"#?]+)"', html, re.IGNORECASE)
-        if not match:
-            return None
-        return urllib.parse.urljoin("https://warcraft.wiki.gg", match.group(1))
+        return str((((payload.get("parse") or {}).get("text") or {}).get("*")) or "")
 
-    def parse_item_page(self, url: str) -> Optional[Dict[str, Any]]:
-        html = self._http_text(url)
-        item_id_match = WIKI_ITEM_ID_RE.search(html)
+    def parse_item_page(self, title: str) -> Optional[Dict[str, Any]]:
+        page_html = self.page_html(title)
+        if not page_html:
+            return None
+        text = html.unescape(re.sub(r"<[^>]+>", " ", page_html))
+        text = re.sub(r"\s+", " ", text).strip()
+        item_id_match = WIKI_ITEM_ID_RE.search(text)
         if not item_id_match:
-            item_id_match = re.search(r"/item=(\d+)", html)
+            item_id_match = re.search(r"/item=(\d+)", page_html)
         if not item_id_match:
             return None
 
         item_id = int(item_id_match.group(1))
-        title_match = re.search(r"<title>([^<]+?) - Warcraft Wiki", html, re.IGNORECASE)
-        item_name = title_match.group(1).strip() if title_match else f"item-{item_id}"
+        item_name = title.replace("_", " ")
+        profession_match = re.search(r"created with Midnight ([A-Za-z]+)", text, re.IGNORECASE)
+        profession = profession_match.group(1).lower() if profession_match else None
+
+        reagents: List[Dict[str, Any]] = []
+        reagents_match = re.search(
+            r"Reagents:\s*(.*?)\s*(?:Crafting reagent for|Patch changes|External links|Retrieved from)",
+            text,
+            re.IGNORECASE,
+        )
+        if reagents_match:
+            reagent_blob = reagents_match.group(1)
+            for qty_text, reagent_name in WIKI_REAGENT_LINE_RE.findall(reagent_blob):
+                reagents.append(
+                    {
+                        "name": reagent_name.strip(),
+                        "quantity": int(qty_text),
+                    }
+                )
+
         return {
             "crafted_item_id": item_id,
             "crafted_item_name": item_name,
-            "recipe_name": recipe_name_from_url(url),
-            "wiki_url": url,
+            "recipe_name": item_name,
+            "profession": profession,
+            "reagents": reagents,
+            "wiki_title": title,
         }
 
 
-def recipe_name_from_url(url: str) -> str:
-    slug = urllib.parse.urlparse(url).path.rsplit("/", 1)[-1]
-    return urllib.parse.unquote(slug).replace("_", " ")
+def normalize_name(name: str) -> str:
+    cleaned = re.sub(r"[^a-z0-9]+", " ", name.lower())
+    return " ".join(cleaned.split())
 
 
 def parse_args() -> argparse.Namespace:
@@ -345,24 +359,6 @@ def main() -> int:
                     add_item(items, crafted, locale)
                 crafted_id = item_id_from_ref(crafted)
                 recipe_name = text_value(rdetail.get("name"), locale) or f"recipe-{rid}"
-                if not isinstance(crafted_id, int):
-                    cached = recipe_cache.get(recipe_name)
-                    if cached and isinstance(cached.get("crafted_item_id"), int):
-                        crafted_id = int(cached["crafted_item_id"])
-                    else:
-                        try:
-                            wiki_url = wiki.search_item_page(recipe_name)
-                            parsed = wiki.parse_item_page(wiki_url) if wiki_url else None
-                        except Exception as exc:
-                            print(f"WARN: external lookup failed for '{recipe_name}': {exc}", file=sys.stderr)
-                            parsed = None
-                        if parsed and isinstance(parsed.get("crafted_item_id"), int):
-                            recipe_cache[recipe_name] = parsed
-                            crafted_id = int(parsed["crafted_item_id"])
-                            external_hits += 1
-                        else:
-                            external_misses += 1
-
                 if isinstance(crafted_id, int):
                     recipe_entry: Dict[str, Any] = {
                         "recipe_id": rid,
@@ -375,7 +371,7 @@ def main() -> int:
                             if isinstance(crafted, dict)
                             else ""
                         )
-                        or str(recipe_cache.get(recipe_name, {}).get("crafted_item_name") or f"item-{crafted_id}"),
+                        or f"item-{crafted_id}",
                         "crafted_quantity": crafted_quantity_value(rdetail),
                         "reagents": [],
                     }
@@ -407,6 +403,64 @@ def main() -> int:
 
         print(
             f"Processed profession '{prof_name}' (id={pid}), matching tiers={len(matching_tiers)}, failed recipes={failed_recipe_count}"
+        )
+
+    name_to_id = {normalize_name(name): item_id for item_id, name in items.items()}
+    existing_recipe_outputs = {int(r["crafted_item_id"]) for r in recipe_defs if isinstance(r.get("crafted_item_id"), int)}
+    synthetic_recipe_id = 900000000
+    for item_id, item_name in sorted(items.items(), key=lambda kv: kv[1].lower()):
+        if item_id in existing_recipe_outputs:
+            continue
+        cached = recipe_cache.get(item_name)
+        if cached and isinstance(cached.get("crafted_item_id"), int):
+            parsed = cached
+        else:
+            try:
+                parsed = wiki.parse_item_page(item_name.replace(" ", "_"))
+            except Exception as exc:
+                print(f"WARN: external lookup failed for '{item_name}': {exc}", file=sys.stderr)
+                parsed = None
+            if parsed:
+                recipe_cache[item_name] = parsed
+
+        if not parsed:
+            external_misses += 1
+            continue
+        external_hits += 1
+        profession = str(parsed.get("profession") or "").lower()
+        if profession not in prof_wanted:
+            continue
+        if int(parsed.get("crafted_item_id", 0) or 0) != item_id:
+            continue
+        reagents_raw = parsed.get("reagents") or []
+        resolved_reagents: List[Dict[str, Any]] = []
+        for reagent in reagents_raw:
+            reagent_name = str(reagent.get("name") or "").strip()
+            reagent_qty = reagent.get("quantity")
+            reagent_id = name_to_id.get(normalize_name(reagent_name))
+            if reagent_id is None or not isinstance(reagent_qty, int) or reagent_qty <= 0:
+                resolved_reagents = []
+                break
+            resolved_reagents.append(
+                {
+                    "item_id": reagent_id,
+                    "name": items[reagent_id],
+                    "quantity": reagent_qty,
+                }
+            )
+        if not resolved_reagents:
+            continue
+        recipe_defs.append(
+            {
+                "recipe_id": synthetic_recipe_id + item_id,
+                "recipe_name": item_name,
+                "profession": profession,
+                "profession_id": None,
+                "crafted_item_id": item_id,
+                "crafted_item_name": item_name,
+                "crafted_quantity": 1,
+                "reagents": resolved_reagents,
+            }
         )
 
     save_cache(cache_path, recipe_cache)
