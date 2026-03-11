@@ -5,6 +5,10 @@ on:
     - cron: "*/30 * * * *"
   workflow_dispatch:
 
+concurrency:
+  group: ah-data-monitor
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
