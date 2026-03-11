@@ -37,6 +37,9 @@ function toProfession(raw: string | undefined): Profession {
   if (lowered.includes("enchant")) return "enchanting";
   if (lowered.includes("inscript")) return "inscription";
   if (lowered.includes("leather")) return "leatherworking";
+  if (lowered.includes("alchem")) return "alchemy";
+  if (lowered.includes("blacksmith")) return "blacksmithing";
+  if (lowered.includes("engineer")) return "engineering";
   return "unknown";
 }
 

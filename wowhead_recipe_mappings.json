@@ -39,6 +39,542 @@
       "profession": "tailoring"
     },
     {
+      "recipe_name": "Aetherlume Bands",
+      "wowhead_spell_id": 1229875,
+      "crafted_item_id": 244748,
+      "crafted_item_name": "Aetherlume Bands",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 253302,
+          "quantity": 8,
+          "name": "Malleable Wireframe"
+        },
+        {
+          "item_id": 236951,
+          "quantity": 15,
+          "name": "Mote of Wild Magic"
+        },
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 238518,
+          "quantity": 2,
+          "name": "item-238518"
+        },
+        {
+          "item_id": 243578,
+          "quantity": 10,
+          "name": "item-243578"
+        },
+        {
+          "item_id": 243581,
+          "quantity": 2,
+          "name": "item-243581"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
+    },
+    {
+      "recipe_name": "Aetherlume Bracelets",
+      "wowhead_spell_id": 1229876,
+      "crafted_item_id": 244749,
+      "crafted_item_name": "Aetherlume Bracelets",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 253302,
+          "quantity": 8,
+          "name": "Malleable Wireframe"
+        },
+        {
+          "item_id": 236951,
+          "quantity": 15,
+          "name": "Mote of Wild Magic"
+        },
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 238520,
+          "quantity": 2,
+          "name": "item-238520"
+        },
+        {
+          "item_id": 243578,
+          "quantity": 10,
+          "name": "item-243578"
+        },
+        {
+          "item_id": 243581,
+          "quantity": 2,
+          "name": "item-243581"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
+    },
+    {
+      "recipe_name": "Aetherlume Clonkers",
+      "wowhead_spell_id": 1229880,
+      "crafted_item_id": 244773,
+      "crafted_item_name": "Aetherlume Clonkers",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 253302,
+          "quantity": 6,
+          "name": "Malleable Wireframe"
+        },
+        {
+          "item_id": 236951,
+          "quantity": 6,
+          "name": "Mote of Wild Magic"
+        },
+        {
+          "item_id": 236950,
+          "quantity": 6,
+          "name": "Mote of Primal Energy"
+        },
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 238520,
+          "quantity": 2,
+          "name": "item-238520"
+        },
+        {
+          "item_id": 243578,
+          "quantity": 10,
+          "name": "item-243578"
+        },
+        {
+          "item_id": 243581,
+          "quantity": 4,
+          "name": "item-243581"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
+    },
+    {
+      "recipe_name": "Aetherlume Eye Wrap",
+      "wowhead_spell_id": 1229870,
+      "crafted_item_id": 244743,
+      "crafted_item_name": "Aetherlume Eye Wrap",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 253302,
+          "quantity": 5,
+          "name": "Malleable Wireframe"
+        },
+        {
+          "item_id": 236951,
+          "quantity": 15,
+          "name": "Mote of Wild Magic"
+        },
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 239702,
+          "quantity": 2,
+          "name": "item-239702"
+        },
+        {
+          "item_id": 243578,
+          "quantity": 10,
+          "name": "item-243578"
+        },
+        {
+          "item_id": 243581,
+          "quantity": 3,
+          "name": "item-243581"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
+    },
+    {
+      "recipe_name": "Aetherlume Guards",
+      "wowhead_spell_id": 1229877,
+      "crafted_item_id": 244750,
+      "crafted_item_name": "Aetherlume Guards",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 253302,
+          "quantity": 10,
+          "name": "Malleable Wireframe"
+        },
+        {
+          "item_id": 236951,
+          "quantity": 15,
+          "name": "Mote of Wild Magic"
+        },
+        {
+          "item_id": 237366,
+          "quantity": 3,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 243578,
+          "quantity": 10,
+          "name": "item-243578"
+        },
+        {
+          "item_id": 243581,
+          "quantity": 2,
+          "name": "item-243581"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
+    },
+    {
+      "recipe_name": "Aetherlume Optics",
+      "wowhead_spell_id": 1229871,
+      "crafted_item_id": 244744,
+      "crafted_item_name": "Aetherlume Optics",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 253302,
+          "quantity": 5,
+          "name": "Malleable Wireframe"
+        },
+        {
+          "item_id": 236951,
+          "quantity": 15,
+          "name": "Mote of Wild Magic"
+        },
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 238518,
+          "quantity": 2,
+          "name": "item-238518"
+        },
+        {
+          "item_id": 243578,
+          "quantity": 10,
+          "name": "item-243578"
+        },
+        {
+          "item_id": 243581,
+          "quantity": 3,
+          "name": "item-243581"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
+    },
+    {
+      "recipe_name": "Aetherlume Runners",
+      "wowhead_spell_id": 1229879,
+      "crafted_item_id": 244772,
+      "crafted_item_name": "Aetherlume Runners",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 253302,
+          "quantity": 6,
+          "name": "Malleable Wireframe"
+        },
+        {
+          "item_id": 236951,
+          "quantity": 6,
+          "name": "Mote of Wild Magic"
+        },
+        {
+          "item_id": 236950,
+          "quantity": 6,
+          "name": "Mote of Primal Energy"
+        },
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 238518,
+          "quantity": 2,
+          "name": "item-238518"
+        },
+        {
+          "item_id": 243578,
+          "quantity": 10,
+          "name": "item-243578"
+        },
+        {
+          "item_id": 243581,
+          "quantity": 4,
+          "name": "item-243581"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
+    },
+    {
+      "recipe_name": "Aetherlume Silken Cuffs",
+      "wowhead_spell_id": 1229874,
+      "crafted_item_id": 244747,
+      "crafted_item_name": "Aetherlume Silken Cuffs",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 253302,
+          "quantity": 8,
+          "name": "Malleable Wireframe"
+        },
+        {
+          "item_id": 236951,
+          "quantity": 15,
+          "name": "Mote of Wild Magic"
+        },
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 239702,
+          "quantity": 2,
+          "name": "item-239702"
+        },
+        {
+          "item_id": 243578,
+          "quantity": 10,
+          "name": "item-243578"
+        },
+        {
+          "item_id": 243581,
+          "quantity": 2,
+          "name": "item-243581"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
+    },
+    {
+      "recipe_name": "Aetherlume Softsteppers",
+      "wowhead_spell_id": 1229878,
+      "crafted_item_id": 244771,
+      "crafted_item_name": "Aetherlume Softsteppers",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 253302,
+          "quantity": 6,
+          "name": "Malleable Wireframe"
+        },
+        {
+          "item_id": 236951,
+          "quantity": 6,
+          "name": "Mote of Wild Magic"
+        },
+        {
+          "item_id": 236950,
+          "quantity": 6,
+          "name": "Mote of Primal Energy"
+        },
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 239702,
+          "quantity": 2,
+          "name": "item-239702"
+        },
+        {
+          "item_id": 243578,
+          "quantity": 10,
+          "name": "item-243578"
+        },
+        {
+          "item_id": 243581,
+          "quantity": 4,
+          "name": "item-243581"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
+    },
+    {
+      "recipe_name": "Aetherlume Stompers",
+      "wowhead_spell_id": 1229881,
+      "crafted_item_id": 244774,
+      "crafted_item_name": "Aetherlume Stompers",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 253302,
+          "quantity": 6,
+          "name": "Malleable Wireframe"
+        },
+        {
+          "item_id": 236951,
+          "quantity": 6,
+          "name": "Mote of Wild Magic"
+        },
+        {
+          "item_id": 236950,
+          "quantity": 6,
+          "name": "Mote of Primal Energy"
+        },
+        {
+          "item_id": 237366,
+          "quantity": 3,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 243578,
+          "quantity": 10,
+          "name": "item-243578"
+        },
+        {
+          "item_id": 243581,
+          "quantity": 4,
+          "name": "item-243581"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
+    },
+    {
+      "recipe_name": "Aetherlume Sun Guard",
+      "wowhead_spell_id": 1229873,
+      "crafted_item_id": 244746,
+      "crafted_item_name": "Aetherlume Sun Guard",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 253302,
+          "quantity": 10,
+          "name": "Malleable Wireframe"
+        },
+        {
+          "item_id": 236951,
+          "quantity": 15,
+          "name": "Mote of Wild Magic"
+        },
+        {
+          "item_id": 237366,
+          "quantity": 3,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 243578,
+          "quantity": 10,
+          "name": "item-243578"
+        },
+        {
+          "item_id": 243581,
+          "quantity": 3,
+          "name": "item-243581"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
+    },
+    {
+      "recipe_name": "Aetherlume Vision Shroud",
+      "wowhead_spell_id": 1229872,
+      "crafted_item_id": 244745,
+      "crafted_item_name": "Aetherlume Vision Shroud",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 253302,
+          "quantity": 5,
+          "name": "Malleable Wireframe"
+        },
+        {
+          "item_id": 236951,
+          "quantity": 15,
+          "name": "Mote of Wild Magic"
+        },
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 238520,
+          "quantity": 2,
+          "name": "item-238520"
+        },
+        {
+          "item_id": 243578,
+          "quantity": 10,
+          "name": "item-243578"
+        },
+        {
+          "item_id": 243581,
+          "quantity": 3,
+          "name": "item-243581"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
+    },
+    {
       "recipe_name": "Aln'hara Cane",
       "wowhead_spell_id": 1230060,
       "crafted_item_id": 245770,
@@ -169,6 +705,72 @@
         2913
       ],
       "profession": "inscription"
+    },
+    {
+      "recipe_name": "Amani Extract",
+      "wowhead_spell_id": 1230864,
+      "crafted_item_id": 241298,
+      "crafted_item_name": "Amani Extract",
+      "crafted_quantity": 5,
+      "reagents": [
+        {
+          "item_id": 236761,
+          "quantity": 8,
+          "name": "item-236761"
+        },
+        {
+          "item_id": 236774,
+          "quantity": 3,
+          "name": "item-236774"
+        },
+        {
+          "item_id": 240991,
+          "quantity": 5,
+          "name": "item-240991"
+        }
+      ],
+      "skill": [
+        2906
+      ],
+      "profession": "alchemy"
+    },
+    {
+      "recipe_name": "Ambient Aethercharged Crystal",
+      "wowhead_spell_id": 1248612,
+      "crafted_item_id": 246460,
+      "crafted_item_name": "Ambient Aethercharged Crystal",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 256963,
+          "quantity": 30,
+          "name": "Thalassian Lumber"
+        },
+        {
+          "item_id": 243574,
+          "quantity": 10,
+          "name": "item-243574"
+        },
+        {
+          "item_id": 243576,
+          "quantity": 10,
+          "name": "item-243576"
+        },
+        {
+          "item_id": 243578,
+          "quantity": 5,
+          "name": "item-243578"
+        },
+        {
+          "item_id": 243581,
+          "quantity": 5,
+          "name": "item-243581"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
     },
     {
       "recipe_name": "Animated Sin'dorei Hammer",
@@ -640,6 +1242,62 @@
       "profession": "leatherworking"
     },
     {
+      "recipe_name": "B0P, Curator of Booms",
+      "wowhead_spell_id": 1261945,
+      "crafted_item_id": 257735,
+      "crafted_item_name": "B0P, Curator of Booms",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 253303,
+          "quantity": 10,
+          "name": "Pile of Junk"
+        },
+        {
+          "item_id": 236952,
+          "quantity": 1,
+          "name": "Mote of Pure Void"
+        },
+        {
+          "item_id": 243581,
+          "quantity": 5,
+          "name": "item-243581"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
+    },
+    {
+      "recipe_name": "B1P, Scorcher of Souls",
+      "wowhead_spell_id": 1229922,
+      "crafted_item_id": 248135,
+      "crafted_item_name": "B1P, Scorcher of Souls",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 253303,
+          "quantity": 10,
+          "name": "Pile of Junk"
+        },
+        {
+          "item_id": 236951,
+          "quantity": 1,
+          "name": "Mote of Wild Magic"
+        },
+        {
+          "item_id": 243581,
+          "quantity": 5,
+          "name": "item-243581"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
+    },
+    {
       "recipe_name": "Blessed Pango Charm",
       "wowhead_spell_id": 1237577,
       "crafted_item_id": 244603,
@@ -716,6 +1374,189 @@
       "profession": "leatherworking"
     },
     {
+      "recipe_name": "Blood Knight's Impetus",
+      "wowhead_spell_id": 1229653,
+      "crafted_item_id": 237847,
+      "crafted_item_name": "Blood Knight's Impetus",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 237366,
+          "quantity": 2,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 238202,
+          "quantity": 10,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 6,
+          "name": "item-238204"
+        },
+        {
+          "item_id": 244637,
+          "quantity": 1,
+          "name": "Silvermoon Weapon Wrap"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Blood Knight's Mercy",
+      "wowhead_spell_id": 1229652,
+      "crafted_item_id": 237848,
+      "crafted_item_name": "Blood Knight's Mercy",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 237366,
+          "quantity": 2,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 238202,
+          "quantity": 10,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 6,
+          "name": "item-238204"
+        },
+        {
+          "item_id": 244637,
+          "quantity": 1,
+          "name": "Silvermoon Weapon Wrap"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Blood Knight's Warblade",
+      "wowhead_spell_id": 1229648,
+      "crafted_item_id": 237846,
+      "crafted_item_name": "Blood Knight's Warblade",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 237366,
+          "quantity": 2,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 238202,
+          "quantity": 10,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 6,
+          "name": "item-238204"
+        },
+        {
+          "item_id": 244637,
+          "quantity": 1,
+          "name": "Silvermoon Weapon Wrap"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Blood-Tempered Basinet",
+      "wowhead_spell_id": 1229625,
+      "crafted_item_id": 237921,
+      "crafted_item_name": "Blood-Tempered Basinet",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 2,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 238197,
+          "quantity": 2,
+          "name": "item-238197"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Blood-Tempered Bracers",
+      "wowhead_spell_id": 1229623,
+      "crafted_item_id": 237923,
+      "crafted_item_name": "Blood-Tempered Bracers",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 1,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 238197,
+          "quantity": 2,
+          "name": "item-238197"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Blood-Tempered Bulwark",
+      "wowhead_spell_id": 1229626,
+      "crafted_item_id": 237920,
+      "crafted_item_name": "Blood-Tempered Bulwark",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 2,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 238197,
+          "quantity": 4,
+          "name": "item-238197"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
       "recipe_name": "Blood-Tempered Cape",
       "wowhead_spell_id": 1280545,
       "crafted_item_id": 267448,
@@ -749,6 +1590,281 @@
       "profession": "tailoring"
     },
     {
+      "recipe_name": "Blood-Tempered Chestplate",
+      "wowhead_spell_id": 1229628,
+      "crafted_item_id": 237918,
+      "crafted_item_name": "Blood-Tempered Chestplate",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 1,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 238197,
+          "quantity": 3,
+          "name": "item-238197"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Blood-Tempered Gauntlets",
+      "wowhead_spell_id": 1229621,
+      "crafted_item_id": 237925,
+      "crafted_item_name": "Blood-Tempered Gauntlets",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 2,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 238197,
+          "quantity": 2,
+          "name": "item-238197"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Blood-Tempered Greatbelt",
+      "wowhead_spell_id": 1229627,
+      "crafted_item_id": 237919,
+      "crafted_item_name": "Blood-Tempered Greatbelt",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 1,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 238197,
+          "quantity": 2,
+          "name": "item-238197"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Blood-Tempered Greaves",
+      "wowhead_spell_id": 1229629,
+      "crafted_item_id": 237917,
+      "crafted_item_name": "Blood-Tempered Greaves",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 2,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 238197,
+          "quantity": 2,
+          "name": "item-238197"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Blood-Tempered Leggings",
+      "wowhead_spell_id": 1229624,
+      "crafted_item_id": 237922,
+      "crafted_item_name": "Blood-Tempered Leggings",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 1,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 238197,
+          "quantity": 3,
+          "name": "item-238197"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Blood-Tempered Pauldrons",
+      "wowhead_spell_id": 1229622,
+      "crafted_item_id": 237924,
+      "crafted_item_name": "Blood-Tempered Pauldrons",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 1,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 238197,
+          "quantity": 3,
+          "name": "item-238197"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Bloomforged Claw",
+      "wowhead_spell_id": 1229649,
+      "crafted_item_id": 237845,
+      "crafted_item_name": "Bloomforged Claw",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 237366,
+          "quantity": 2,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 238202,
+          "quantity": 8,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 6,
+          "name": "item-238204"
+        },
+        {
+          "item_id": 244637,
+          "quantity": 1,
+          "name": "Silvermoon Weapon Wrap"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Bloomforged Greataxe",
+      "wowhead_spell_id": 1229655,
+      "crafted_item_id": 237842,
+      "crafted_item_name": "Bloomforged Greataxe",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 237366,
+          "quantity": 2,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 238202,
+          "quantity": 10,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 6,
+          "name": "item-238204"
+        },
+        {
+          "item_id": 244637,
+          "quantity": 1,
+          "name": "Silvermoon Weapon Wrap"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Bouquet of Herbs",
+      "wowhead_spell_id": 1230892,
+      "crafted_item_id": 245650,
+      "crafted_item_name": "Bouquet of Herbs",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 242651,
+          "quantity": 1,
+          "name": "Stabilized Derivate"
+        },
+        {
+          "item_id": 243599,
+          "quantity": 20,
+          "name": "item-243599"
+        },
+        {
+          "item_id": 243602,
+          "quantity": 4,
+          "name": "item-243602"
+        }
+      ],
+      "skill": [
+        2906
+      ],
+      "profession": "alchemy"
+    },
+    {
+      "recipe_name": "Box of Rocks",
+      "wowhead_spell_id": 1230891,
+      "crafted_item_id": 242650,
+      "crafted_item_name": "Box of Rocks",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238525,
+          "quantity": 8,
+          "name": "Fantastic Fur"
+        },
+        {
+          "item_id": 242651,
+          "quantity": 1,
+          "name": "Stabilized Derivate"
+        },
+        {
+          "item_id": 238518,
+          "quantity": 18,
+          "name": "item-238518"
+        },
+        {
+          "item_id": 238520,
+          "quantity": 18,
+          "name": "item-238520"
+        }
+      ],
+      "skill": [
+        2906
+      ],
+      "profession": "alchemy"
+    },
+    {
       "recipe_name": "Bright Linen Alchemy Apron",
       "wowhead_spell_id": 1228968,
       "crafted_item_id": 239641,
@@ -769,6 +1885,24 @@
           "item_id": 243599,
           "quantity": 2,
           "name": "item-243599"
+        }
+      ],
+      "skill": [
+        2918
+      ],
+      "profession": "tailoring"
+    },
+    {
+      "recipe_name": "Bright Linen Bandage",
+      "wowhead_spell_id": 1228941,
+      "crafted_item_id": 239711,
+      "crafted_item_name": "Bright Linen Bandage",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 239700,
+          "quantity": 1,
+          "name": "item-239700"
         }
       ],
       "skill": [
@@ -968,6 +2102,44 @@
       "profession": "tailoring"
     },
     {
+      "recipe_name": "Cauldron of Sin'dorei Flasks",
+      "wowhead_spell_id": 1230874,
+      "crafted_item_id": 241318,
+      "crafted_item_name": "Cauldron of Sin'dorei Flasks",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 236780,
+          "quantity": 1,
+          "name": "item-236780"
+        },
+        {
+          "item_id": 242651,
+          "quantity": 5,
+          "name": "Stabilized Derivate"
+        },
+        {
+          "item_id": 251285,
+          "quantity": 4,
+          "name": "Petrified Root"
+        },
+        {
+          "item_id": 240991,
+          "quantity": 20,
+          "name": "item-240991"
+        },
+        {
+          "item_id": 241283,
+          "quantity": 4,
+          "name": "item-241283"
+        }
+      ],
+      "skill": [
+        2906
+      ],
+      "profession": "alchemy"
+    },
+    {
       "recipe_name": "Chef's Bright Linen Cooking Chapeau",
       "wowhead_spell_id": 1228969,
       "crafted_item_id": 239642,
@@ -1088,6 +2260,72 @@
         2913
       ],
       "profession": "inscription"
+    },
+    {
+      "recipe_name": "Composite Flora",
+      "wowhead_spell_id": 1230855,
+      "crafted_item_id": 241280,
+      "crafted_item_name": "Composite Flora",
+      "crafted_quantity": 2,
+      "reagents": [
+        {
+          "item_id": 236951,
+          "quantity": 4,
+          "name": "Mote of Wild Magic"
+        },
+        {
+          "item_id": 236950,
+          "quantity": 4,
+          "name": "Mote of Primal Energy"
+        },
+        {
+          "item_id": 236761,
+          "quantity": 6,
+          "name": "item-236761"
+        },
+        {
+          "item_id": 236776,
+          "quantity": 4,
+          "name": "item-236776"
+        }
+      ],
+      "skill": [
+        2906
+      ],
+      "profession": "alchemy"
+    },
+    {
+      "recipe_name": "Consistent Cogwheel",
+      "wowhead_spell_id": 1229858,
+      "crafted_item_id": 244703,
+      "crafted_item_name": "Consistent Cogwheel",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 253303,
+          "quantity": 5,
+          "name": "Pile of Junk"
+        },
+        {
+          "item_id": 236949,
+          "quantity": 1,
+          "name": "Mote of Light"
+        },
+        {
+          "item_id": 243574,
+          "quantity": 2,
+          "name": "item-243574"
+        },
+        {
+          "item_id": 243576,
+          "quantity": 1,
+          "name": "item-243576"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
     },
     {
       "recipe_name": "Contract: The Amani Tribe",
@@ -1753,6 +2991,121 @@
       "profession": "inscription"
     },
     {
+      "recipe_name": "Dawnforged Edge",
+      "wowhead_spell_id": 1229619,
+      "crafted_item_id": 237927,
+      "crafted_item_name": "Dawnforged Edge",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 1,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 238197,
+          "quantity": 3,
+          "name": "item-238197"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Dawnforged Long Blade",
+      "wowhead_spell_id": 1229618,
+      "crafted_item_id": 237928,
+      "crafted_item_name": "Dawnforged Long Blade",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 2,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 238197,
+          "quantity": 4,
+          "name": "item-238197"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Dawnforged Ritual Knife",
+      "wowhead_spell_id": 1229620,
+      "crafted_item_id": 237926,
+      "crafted_item_name": "Dawnforged Ritual Knife",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 1,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 238197,
+          "quantity": 3,
+          "name": "item-238197"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Dawnforged Splitter",
+      "wowhead_spell_id": 1229615,
+      "crafted_item_id": 237931,
+      "crafted_item_name": "Dawnforged Splitter",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 2,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 238197,
+          "quantity": 4,
+          "name": "item-238197"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Dawnforged War Mace",
+      "wowhead_spell_id": 1229616,
+      "crafted_item_id": 237930,
+      "crafted_item_name": "Dawnforged War Mace",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 2,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 238197,
+          "quantity": 4,
+          "name": "item-238197"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
       "recipe_name": "Devouring Banding",
       "wowhead_spell_id": 1237579,
       "crafted_item_id": 244674,
@@ -1774,6 +3127,44 @@
         2915
       ],
       "profession": "leatherworking"
+    },
+    {
+      "recipe_name": "Draught of Rampant Abandon",
+      "wowhead_spell_id": 1230860,
+      "crafted_item_id": 241292,
+      "crafted_item_name": "Draught of Rampant Abandon",
+      "crafted_quantity": 5,
+      "reagents": [
+        {
+          "item_id": 236950,
+          "quantity": 3,
+          "name": "Mote of Primal Energy"
+        },
+        {
+          "item_id": 236761,
+          "quantity": 8,
+          "name": "item-236761"
+        },
+        {
+          "item_id": 236770,
+          "quantity": 3,
+          "name": "item-236770"
+        },
+        {
+          "item_id": 236778,
+          "quantity": 3,
+          "name": "item-236778"
+        },
+        {
+          "item_id": 240991,
+          "quantity": 5,
+          "name": "item-240991"
+        }
+      ],
+      "skill": [
+        2906
+      ],
+      "profession": "alchemy"
     },
     {
       "recipe_name": "Elegant Artisan's Alchemy Coveralls",
@@ -2313,6 +3704,29 @@
       "profession": "enchanting"
     },
     {
+      "recipe_name": "Enchant Helm - Blessing of Speed",
+      "wowhead_spell_id": 1236070,
+      "crafted_item_id": 243978,
+      "crafted_item_name": "Enchant Helm - Blessing of Speed",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243599,
+          "quantity": 15,
+          "name": "item-243599"
+        },
+        {
+          "item_id": 243602,
+          "quantity": 3,
+          "name": "item-243602"
+        }
+      ],
+      "skill": [
+        2909
+      ],
+      "profession": "enchanting"
+    },
+    {
       "recipe_name": "Enchant Helm - Empowered Blessing of Speed",
       "wowhead_spell_id": 1236071,
       "crafted_item_id": 243980,
@@ -2427,6 +3841,70 @@
       "profession": "enchanting"
     },
     {
+      "recipe_name": "Enchant Helm - Hex of Leeching",
+      "wowhead_spell_id": 1236055,
+      "crafted_item_id": 243948,
+      "crafted_item_name": "Enchant Helm - Hex of Leeching",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243599,
+          "quantity": 15,
+          "name": "item-243599"
+        },
+        {
+          "item_id": 243602,
+          "quantity": 3,
+          "name": "item-243602"
+        }
+      ],
+      "skill": [
+        2909
+      ],
+      "profession": "enchanting"
+    },
+    {
+      "recipe_name": "Enchant Helm - Rune of Avoidance",
+      "wowhead_spell_id": 1236083,
+      "crafted_item_id": 244004,
+      "crafted_item_name": "Enchant Helm - Rune of Avoidance",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243599,
+          "quantity": 15,
+          "name": "item-243599"
+        },
+        {
+          "item_id": 243602,
+          "quantity": 3,
+          "name": "item-243602"
+        }
+      ],
+      "skill": [
+        2909
+      ],
+      "profession": "enchanting"
+    },
+    {
+      "recipe_name": "Enchant Ring - Amani Mastery",
+      "wowhead_spell_id": 1236058,
+      "crafted_item_id": 243954,
+      "crafted_item_name": "Enchant Ring - Amani Mastery",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243599,
+          "quantity": 5,
+          "name": "item-243599"
+        }
+      ],
+      "skill": [
+        2909
+      ],
+      "profession": "enchanting"
+    },
+    {
       "recipe_name": "Enchant Ring - Eyes of the Eagle",
       "wowhead_spell_id": 1236059,
       "crafted_item_id": 243956,
@@ -2508,6 +3986,24 @@
       "profession": "enchanting"
     },
     {
+      "recipe_name": "Enchant Ring - Nature's Wrath",
+      "wowhead_spell_id": 1236073,
+      "crafted_item_id": 243984,
+      "crafted_item_name": "Enchant Ring - Nature's Wrath",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243599,
+          "quantity": 5,
+          "name": "item-243599"
+        }
+      ],
+      "skill": [
+        2909
+      ],
+      "profession": "enchanting"
+    },
+    {
       "recipe_name": "Enchant Ring - Silvermoon's Alacrity",
       "wowhead_spell_id": 1236088,
       "crafted_item_id": 244014,
@@ -2576,6 +4072,42 @@
           "item_id": 243605,
           "quantity": 1,
           "name": "item-243605"
+        }
+      ],
+      "skill": [
+        2909
+      ],
+      "profession": "enchanting"
+    },
+    {
+      "recipe_name": "Enchant Ring - Thalassian Haste",
+      "wowhead_spell_id": 1236086,
+      "crafted_item_id": 244010,
+      "crafted_item_name": "Enchant Ring - Thalassian Haste",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243599,
+          "quantity": 5,
+          "name": "item-243599"
+        }
+      ],
+      "skill": [
+        2909
+      ],
+      "profession": "enchanting"
+    },
+    {
+      "recipe_name": "Enchant Ring - Thalassian Versatility",
+      "wowhead_spell_id": 1236087,
+      "crafted_item_id": 244012,
+      "crafted_item_name": "Enchant Ring - Thalassian Versatility",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243599,
+          "quantity": 5,
+          "name": "item-243599"
         }
       ],
       "skill": [
@@ -2693,6 +4225,52 @@
       "profession": "enchanting"
     },
     {
+      "recipe_name": "Enchant Shoulders - Flight of the Eagle",
+      "wowhead_spell_id": 1236061,
+      "crafted_item_id": 243960,
+      "crafted_item_name": "Enchant Shoulders - Flight of the Eagle",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243599,
+          "quantity": 15,
+          "name": "item-243599"
+        },
+        {
+          "item_id": 243602,
+          "quantity": 3,
+          "name": "item-243602"
+        }
+      ],
+      "skill": [
+        2909
+      ],
+      "profession": "enchanting"
+    },
+    {
+      "recipe_name": "Enchant Shoulders - Nature's Grace",
+      "wowhead_spell_id": 1236075,
+      "crafted_item_id": 243988,
+      "crafted_item_name": "Enchant Shoulders - Nature's Grace",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243599,
+          "quantity": 15,
+          "name": "item-243599"
+        },
+        {
+          "item_id": 243602,
+          "quantity": 3,
+          "name": "item-243602"
+        }
+      ],
+      "skill": [
+        2909
+      ],
+      "profession": "enchanting"
+    },
+    {
       "recipe_name": "Enchant Shoulders - Silvermoon's Mending",
       "wowhead_spell_id": 1236091,
       "crafted_item_id": 244020,
@@ -2718,6 +4296,29 @@
           "item_id": 243605,
           "quantity": 2,
           "name": "item-243605"
+        }
+      ],
+      "skill": [
+        2909
+      ],
+      "profession": "enchanting"
+    },
+    {
+      "recipe_name": "Enchant Shoulders - Thalassian Recovery",
+      "wowhead_spell_id": 1236090,
+      "crafted_item_id": 244018,
+      "crafted_item_name": "Enchant Shoulders - Thalassian Recovery",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243599,
+          "quantity": 15,
+          "name": "item-243599"
+        },
+        {
+          "item_id": 243602,
+          "quantity": 3,
+          "name": "item-243602"
         }
       ],
       "skill": [
@@ -3485,6 +5086,29 @@
       "profession": "enchanting"
     },
     {
+      "recipe_name": "Enlightenment Tonic",
+      "wowhead_spell_id": 1230886,
+      "crafted_item_id": 241338,
+      "crafted_item_name": "Enlightenment Tonic",
+      "crafted_quantity": 5,
+      "reagents": [
+        {
+          "item_id": 236761,
+          "quantity": 3,
+          "name": "item-236761"
+        },
+        {
+          "item_id": 240991,
+          "quantity": 5,
+          "name": "item-240991"
+        }
+      ],
+      "skill": [
+        2906
+      ],
+      "profession": "alchemy"
+    },
+    {
       "recipe_name": "Ensorcelled Broom",
       "wowhead_spell_id": 1246904,
       "crafted_item_id": 262450,
@@ -3521,6 +5145,62 @@
         2909
       ],
       "profession": "enchanting"
+    },
+    {
+      "recipe_name": "Entropic Extract",
+      "wowhead_spell_id": 1230854,
+      "crafted_item_id": 268954,
+      "crafted_item_name": "Entropic Extract",
+      "crafted_quantity": 5,
+      "reagents": [
+        {
+          "item_id": 236761,
+          "quantity": 3,
+          "name": "item-236761"
+        },
+        {
+          "item_id": 240991,
+          "quantity": 5,
+          "name": "item-240991"
+        }
+      ],
+      "skill": [
+        2906
+      ],
+      "profession": "alchemy"
+    },
+    {
+      "recipe_name": "Entropic Illuminant",
+      "wowhead_spell_id": 1233132,
+      "crafted_item_id": 262355,
+      "crafted_item_name": "Entropic Illuminant",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 236952,
+          "quantity": 6,
+          "name": "Mote of Pure Void"
+        },
+        {
+          "item_id": 256963,
+          "quantity": 26,
+          "name": "Thalassian Lumber"
+        },
+        {
+          "item_id": 241281,
+          "quantity": 4,
+          "name": "item-241281"
+        },
+        {
+          "item_id": 241283,
+          "quantity": 4,
+          "name": "item-241283"
+        }
+      ],
+      "skill": [
+        2906
+      ],
+      "profession": "alchemy"
     },
     {
       "recipe_name": "Eversong Botanist's Satchel",
@@ -3632,6 +5312,44 @@
       "profession": "leatherworking"
     },
     {
+      "recipe_name": "Farstrider's Chopper",
+      "wowhead_spell_id": 1229646,
+      "crafted_item_id": 237850,
+      "crafted_item_name": "Farstrider's Chopper",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 237366,
+          "quantity": 2,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 238202,
+          "quantity": 8,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 6,
+          "name": "item-238204"
+        },
+        {
+          "item_id": 244637,
+          "quantity": 1,
+          "name": "Silvermoon Weapon Wrap"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
       "recipe_name": "Farstrider's Embroidered Cover",
       "wowhead_spell_id": 1280544,
       "crafted_item_id": 267447,
@@ -3663,6 +5381,77 @@
         2918
       ],
       "profession": "tailoring"
+    },
+    {
+      "recipe_name": "Farstrider's Hawkeye",
+      "wowhead_spell_id": 1261866,
+      "crafted_item_id": 257745,
+      "crafted_item_name": "Farstrider's Hawkeye",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243574,
+          "quantity": 1,
+          "name": "item-243574"
+        },
+        {
+          "item_id": 243576,
+          "quantity": 1,
+          "name": "item-243576"
+        },
+        {
+          "item_id": 243578,
+          "quantity": 3,
+          "name": "item-243578"
+        },
+        {
+          "item_id": 243581,
+          "quantity": 2,
+          "name": "item-243581"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
+    },
+    {
+      "recipe_name": "Farstrider's Mercy",
+      "wowhead_spell_id": 1229659,
+      "crafted_item_id": 237837,
+      "crafted_item_name": "Farstrider's Mercy",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 237366,
+          "quantity": 2,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 238202,
+          "quantity": 7,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 7,
+          "name": "item-238204"
+        },
+        {
+          "item_id": 244637,
+          "quantity": 1,
+          "name": "Silvermoon Weapon Wrap"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
     },
     {
       "recipe_name": "Farstrider's Plated Bracers",
@@ -3977,32 +5766,156 @@
       "profession": "inscription"
     },
     {
-      "recipe_name": "Floating Void-Touched Tome",
-      "wowhead_spell_id": 1248621,
-      "crafted_item_id": 262464,
-      "crafted_item_name": "Floating Void-Touched Tome",
-      "crafted_quantity": 1,
+      "recipe_name": "Flask of Thalassian Resistance",
+      "wowhead_spell_id": 1230875,
+      "crafted_item_id": 241320,
+      "crafted_item_name": "Flask of Thalassian Resistance",
+      "crafted_quantity": 2,
       "reagents": [
         {
-          "item_id": 256963,
-          "quantity": 22,
-          "name": "Thalassian Lumber"
+          "item_id": 236780,
+          "quantity": 1,
+          "name": "item-236780"
         },
         {
-          "item_id": 245764,
-          "quantity": 4,
-          "name": "item-245764"
+          "item_id": 236949,
+          "quantity": 2,
+          "name": "Mote of Light"
         },
         {
-          "item_id": 245766,
+          "item_id": 236774,
+          "quantity": 6,
+          "name": "item-236774"
+        },
+        {
+          "item_id": 236778,
           "quantity": 8,
-          "name": "item-245766"
+          "name": "item-236778"
+        },
+        {
+          "item_id": 240991,
+          "quantity": 2,
+          "name": "item-240991"
         }
       ],
       "skill": [
-        2913
+        2906
       ],
-      "profession": "inscription"
+      "profession": "alchemy"
+    },
+    {
+      "recipe_name": "Flask of the Blood Knights",
+      "wowhead_spell_id": 1230877,
+      "crafted_item_id": 241324,
+      "crafted_item_name": "Flask of the Blood Knights",
+      "crafted_quantity": 2,
+      "reagents": [
+        {
+          "item_id": 236780,
+          "quantity": 1,
+          "name": "item-236780"
+        },
+        {
+          "item_id": 236951,
+          "quantity": 2,
+          "name": "Mote of Wild Magic"
+        },
+        {
+          "item_id": 236770,
+          "quantity": 6,
+          "name": "item-236770"
+        },
+        {
+          "item_id": 236776,
+          "quantity": 8,
+          "name": "item-236776"
+        },
+        {
+          "item_id": 240991,
+          "quantity": 2,
+          "name": "item-240991"
+        }
+      ],
+      "skill": [
+        2906
+      ],
+      "profession": "alchemy"
+    },
+    {
+      "recipe_name": "Flask of the Magisters",
+      "wowhead_spell_id": 1230876,
+      "crafted_item_id": 241322,
+      "crafted_item_name": "Flask of the Magisters",
+      "crafted_quantity": 2,
+      "reagents": [
+        {
+          "item_id": 236780,
+          "quantity": 1,
+          "name": "item-236780"
+        },
+        {
+          "item_id": 236952,
+          "quantity": 2,
+          "name": "Mote of Pure Void"
+        },
+        {
+          "item_id": 236770,
+          "quantity": 8,
+          "name": "item-236770"
+        },
+        {
+          "item_id": 236778,
+          "quantity": 6,
+          "name": "item-236778"
+        },
+        {
+          "item_id": 240991,
+          "quantity": 2,
+          "name": "item-240991"
+        }
+      ],
+      "skill": [
+        2906
+      ],
+      "profession": "alchemy"
+    },
+    {
+      "recipe_name": "Flask of the Shattered Sun",
+      "wowhead_spell_id": 1230878,
+      "crafted_item_id": 241326,
+      "crafted_item_name": "Flask of the Shattered Sun",
+      "crafted_quantity": 2,
+      "reagents": [
+        {
+          "item_id": 236780,
+          "quantity": 1,
+          "name": "item-236780"
+        },
+        {
+          "item_id": 236950,
+          "quantity": 2,
+          "name": "Mote of Primal Energy"
+        },
+        {
+          "item_id": 236774,
+          "quantity": 8,
+          "name": "item-236774"
+        },
+        {
+          "item_id": 236776,
+          "quantity": 6,
+          "name": "item-236776"
+        },
+        {
+          "item_id": 240991,
+          "quantity": 2,
+          "name": "item-240991"
+        }
+      ],
+      "skill": [
+        2906
+      ],
+      "profession": "alchemy"
     },
     {
       "recipe_name": "Floratender's Crutch",
@@ -4026,6 +5939,39 @@
         2913
       ],
       "profession": "inscription"
+    },
+    {
+      "recipe_name": "Flux Cogwheel",
+      "wowhead_spell_id": 1229859,
+      "crafted_item_id": 244697,
+      "crafted_item_name": "Flux Cogwheel",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 253303,
+          "quantity": 5,
+          "name": "Pile of Junk"
+        },
+        {
+          "item_id": 236950,
+          "quantity": 1,
+          "name": "Mote of Primal Energy"
+        },
+        {
+          "item_id": 243574,
+          "quantity": 2,
+          "name": "item-243574"
+        },
+        {
+          "item_id": 243576,
+          "quantity": 1,
+          "name": "item-243576"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
     },
     {
       "recipe_name": "Font of Gleaming Water",
@@ -4114,93 +6060,108 @@
       "profession": "leatherworking"
     },
     {
-      "recipe_name": "Gilded Alchemist's Mixing Rod",
-      "wowhead_spell_id": 1264550,
-      "crafted_item_id": 259205,
-      "crafted_item_name": "Gilded Alchemist's Mixing Rod",
+      "recipe_name": "Giga-Gem Grippers",
+      "wowhead_spell_id": 1264528,
+      "crafted_item_id": 259181,
+      "crafted_item_name": "Giga-Gem Grippers",
       "crafted_quantity": 1,
       "reagents": [
+        {
+          "item_id": 253302,
+          "quantity": 1,
+          "name": "Malleable Wireframe"
+        },
+        {
+          "item_id": 238530,
+          "quantity": 1,
+          "name": "Majestic Fin"
+        },
         {
           "item_id": 245345,
           "quantity": 20,
           "name": "Fused Vitality"
         },
         {
-          "item_id": 245764,
-          "quantity": 10,
-          "name": "item-245764"
+          "item_id": 243578,
+          "quantity": 4,
+          "name": "item-243578"
         },
         {
-          "item_id": 245766,
-          "quantity": 4,
-          "name": "item-245766"
+          "item_id": 243581,
+          "quantity": 2,
+          "name": "item-243581"
         }
       ],
       "skill": [
-        2913
+        2910
       ],
-      "profession": "inscription"
+      "profession": "engineering"
     },
     {
-      "recipe_name": "Gilded Eversong Book",
-      "wowhead_spell_id": 1248625,
-      "crafted_item_id": 262597,
-      "crafted_item_name": "Gilded Eversong Book",
+      "recipe_name": "Gilded Silvermoon Anvil",
+      "wowhead_spell_id": 1276108,
+      "crafted_item_id": 262451,
+      "crafted_item_name": "Gilded Silvermoon Anvil",
       "crafted_quantity": 1,
       "reagents": [
         {
           "item_id": 256963,
-          "quantity": 6,
+          "quantity": 26,
           "name": "Thalassian Lumber"
         },
         {
-          "item_id": 245764,
-          "quantity": 1,
-          "name": "item-245764"
+          "item_id": 238197,
+          "quantity": 18,
+          "name": "item-238197"
         },
         {
-          "item_id": 245766,
-          "quantity": 2,
-          "name": "item-245766"
+          "item_id": 238202,
+          "quantity": 5,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 5,
+          "name": "item-238204"
         }
       ],
       "skill": [
-        2913
+        2907
       ],
-      "profession": "inscription"
+      "profession": "blacksmithing"
     },
     {
-      "recipe_name": "Gilded Sin'dorei Quill",
-      "wowhead_spell_id": 1264552,
-      "crafted_item_id": 259209,
-      "crafted_item_name": "Gilded Sin'dorei Quill",
+      "recipe_name": "Gilded Silvermoon Hanger",
+      "wowhead_spell_id": 1276110,
+      "crafted_item_id": 262457,
+      "crafted_item_name": "Gilded Silvermoon Hanger",
       "crafted_quantity": 1,
       "reagents": [
         {
-          "item_id": 245345,
-          "quantity": 20,
-          "name": "Fused Vitality"
+          "item_id": 256963,
+          "quantity": 18,
+          "name": "Thalassian Lumber"
         },
         {
-          "item_id": 245764,
-          "quantity": 8,
-          "name": "item-245764"
+          "item_id": 238197,
+          "quantity": 12,
+          "name": "item-238197"
         },
         {
-          "item_id": 245801,
-          "quantity": 8,
-          "name": "item-245801"
+          "item_id": 238202,
+          "quantity": 3,
+          "name": "item-238202"
         },
         {
-          "item_id": 245805,
-          "quantity": 8,
-          "name": "item-245805"
+          "item_id": 238204,
+          "quantity": 3,
+          "name": "item-238204"
         }
       ],
       "skill": [
-        2913
+        2907
       ],
-      "profession": "inscription"
+      "profession": "blacksmithing"
     },
     {
       "recipe_name": "Gilded Sin'dorei Rolling Pin",
@@ -4806,32 +6767,65 @@
       "profession": "enchanting"
     },
     {
-      "recipe_name": "Harandar Signpost",
-      "wowhead_spell_id": 1248630,
-      "crafted_item_id": 253508,
-      "crafted_item_name": "Harandar Signpost",
+      "recipe_name": "Gloaming Alloy",
+      "wowhead_spell_id": 1230762,
+      "crafted_item_id": 238202,
+      "crafted_item_name": "Gloaming Alloy",
       "crafted_quantity": 1,
       "reagents": [
         {
-          "item_id": 256963,
-          "quantity": 18,
-          "name": "Thalassian Lumber"
+          "item_id": 243060,
+          "quantity": 4,
+          "name": "Luminant Flux"
         },
         {
-          "item_id": 245764,
+          "item_id": 237362,
+          "quantity": 6,
+          "name": "item-237362"
+        },
+        {
+          "item_id": 238197,
           "quantity": 3,
-          "name": "item-245764"
-        },
-        {
-          "item_id": 245766,
-          "quantity": 7,
-          "name": "item-245766"
+          "name": "item-238197"
         }
       ],
       "skill": [
-        2913
+        2907
       ],
-      "profession": "inscription"
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Greased Cogwheel",
+      "wowhead_spell_id": 1229857,
+      "crafted_item_id": 244699,
+      "crafted_item_name": "Greased Cogwheel",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 253303,
+          "quantity": 5,
+          "name": "Pile of Junk"
+        },
+        {
+          "item_id": 236951,
+          "quantity": 1,
+          "name": "Mote of Wild Magic"
+        },
+        {
+          "item_id": 243574,
+          "quantity": 2,
+          "name": "item-243574"
+        },
+        {
+          "item_id": 243576,
+          "quantity": 1,
+          "name": "item-243576"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
     },
     {
       "recipe_name": "Haranir Canopy Bed",
@@ -4875,6 +6869,229 @@
         2915
       ],
       "profession": "leatherworking"
+    },
+    {
+      "recipe_name": "Haranir Phial of Finesse",
+      "wowhead_spell_id": 1230870,
+      "crafted_item_id": 241310,
+      "crafted_item_name": "Haranir Phial of Finesse",
+      "crafted_quantity": 4,
+      "reagents": [
+        {
+          "item_id": 236950,
+          "quantity": 2,
+          "name": "Mote of Primal Energy"
+        },
+        {
+          "item_id": 236761,
+          "quantity": 8,
+          "name": "item-236761"
+        },
+        {
+          "item_id": 236774,
+          "quantity": 3,
+          "name": "item-236774"
+        },
+        {
+          "item_id": 236778,
+          "quantity": 6,
+          "name": "item-236778"
+        },
+        {
+          "item_id": 240991,
+          "quantity": 4,
+          "name": "item-240991"
+        }
+      ],
+      "skill": [
+        2906
+      ],
+      "profession": "alchemy"
+    },
+    {
+      "recipe_name": "Haranir Phial of Ingenuity",
+      "wowhead_spell_id": 1230872,
+      "crafted_item_id": 241312,
+      "crafted_item_name": "Haranir Phial of Ingenuity",
+      "crafted_quantity": 4,
+      "reagents": [
+        {
+          "item_id": 236952,
+          "quantity": 2,
+          "name": "Mote of Pure Void"
+        },
+        {
+          "item_id": 236761,
+          "quantity": 8,
+          "name": "item-236761"
+        },
+        {
+          "item_id": 236770,
+          "quantity": 6,
+          "name": "item-236770"
+        },
+        {
+          "item_id": 236778,
+          "quantity": 3,
+          "name": "item-236778"
+        },
+        {
+          "item_id": 240991,
+          "quantity": 4,
+          "name": "item-240991"
+        }
+      ],
+      "skill": [
+        2906
+      ],
+      "profession": "alchemy"
+    },
+    {
+      "recipe_name": "Haranir Phial of Perception",
+      "wowhead_spell_id": 1230873,
+      "crafted_item_id": 241316,
+      "crafted_item_name": "Haranir Phial of Perception",
+      "crafted_quantity": 4,
+      "reagents": [
+        {
+          "item_id": 236951,
+          "quantity": 2,
+          "name": "Mote of Wild Magic"
+        },
+        {
+          "item_id": 236761,
+          "quantity": 8,
+          "name": "item-236761"
+        },
+        {
+          "item_id": 236774,
+          "quantity": 6,
+          "name": "item-236774"
+        },
+        {
+          "item_id": 236776,
+          "quantity": 3,
+          "name": "item-236776"
+        },
+        {
+          "item_id": 240991,
+          "quantity": 4,
+          "name": "item-240991"
+        }
+      ],
+      "skill": [
+        2906
+      ],
+      "profession": "alchemy"
+    },
+    {
+      "recipe_name": "Haranir Preserving Agents",
+      "wowhead_spell_id": 1233137,
+      "crafted_item_id": 262356,
+      "crafted_item_name": "Haranir Preserving Agents",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 236950,
+          "quantity": 6,
+          "name": "Mote of Primal Energy"
+        },
+        {
+          "item_id": 256963,
+          "quantity": 8,
+          "name": "Thalassian Lumber"
+        },
+        {
+          "item_id": 241281,
+          "quantity": 4,
+          "name": "item-241281"
+        },
+        {
+          "item_id": 241283,
+          "quantity": 4,
+          "name": "item-241283"
+        }
+      ],
+      "skill": [
+        2906
+      ],
+      "profession": "alchemy"
+    },
+    {
+      "recipe_name": "Head-Mounted Beam Bummer",
+      "wowhead_spell_id": 1264523,
+      "crafted_item_id": 259171,
+      "crafted_item_name": "Head-Mounted Beam Bummer",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 253302,
+          "quantity": 1,
+          "name": "Malleable Wireframe"
+        },
+        {
+          "item_id": 238530,
+          "quantity": 1,
+          "name": "Majestic Fin"
+        },
+        {
+          "item_id": 245345,
+          "quantity": 20,
+          "name": "Fused Vitality"
+        },
+        {
+          "item_id": 243578,
+          "quantity": 4,
+          "name": "item-243578"
+        },
+        {
+          "item_id": 243581,
+          "quantity": 2,
+          "name": "item-243581"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
+    },
+    {
+      "recipe_name": "Heavy-Duty Rock Assister",
+      "wowhead_spell_id": 1264525,
+      "crafted_item_id": 259175,
+      "crafted_item_name": "Heavy-Duty Rock Assister",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 253302,
+          "quantity": 1,
+          "name": "Malleable Wireframe"
+        },
+        {
+          "item_id": 238529,
+          "quantity": 1,
+          "name": "Majestic Hide"
+        },
+        {
+          "item_id": 245345,
+          "quantity": 20,
+          "name": "Fused Vitality"
+        },
+        {
+          "item_id": 243578,
+          "quantity": 4,
+          "name": "item-243578"
+        },
+        {
+          "item_id": 243581,
+          "quantity": 2,
+          "name": "item-243581"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
     },
     {
       "recipe_name": "Hexwoven Strand",
@@ -4976,6 +7193,29 @@
       "profession": "inscription"
     },
     {
+      "recipe_name": "Hobbyist Rolling Pin",
+      "wowhead_spell_id": 1230020,
+      "crafted_item_id": 245779,
+      "crafted_item_name": "Hobbyist Rolling Pin",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 236774,
+          "quantity": 10,
+          "name": "item-236774"
+        },
+        {
+          "item_id": 245805,
+          "quantity": 1,
+          "name": "item-245805"
+        }
+      ],
+      "skill": [
+        2913
+      ],
+      "profession": "inscription"
+    },
+    {
       "recipe_name": "Hobbyist Scribe's Quill",
       "wowhead_spell_id": 1230022,
       "crafted_item_id": 245775,
@@ -5009,60 +7249,32 @@
       "profession": "inscription"
     },
     {
-      "recipe_name": "Homely Sin'dorei Shelf",
-      "wowhead_spell_id": 1248622,
-      "crafted_item_id": 262594,
-      "crafted_item_name": "Homely Sin'dorei Shelf",
+      "recipe_name": "HU5H, Nonchalant Pup",
+      "wowhead_spell_id": 1229921,
+      "crafted_item_id": 255843,
+      "crafted_item_name": "HU5H, Nonchalant Pup",
       "crafted_quantity": 1,
       "reagents": [
         {
-          "item_id": 256963,
-          "quantity": 24,
-          "name": "Thalassian Lumber"
+          "item_id": 253303,
+          "quantity": 10,
+          "name": "Pile of Junk"
         },
         {
-          "item_id": 245764,
-          "quantity": 4,
-          "name": "item-245764"
+          "item_id": 236952,
+          "quantity": 1,
+          "name": "Mote of Pure Void"
         },
         {
-          "item_id": 245766,
-          "quantity": 9,
-          "name": "item-245766"
+          "item_id": 243581,
+          "quantity": 5,
+          "name": "item-243581"
         }
       ],
       "skill": [
-        2913
+        2910
       ],
-      "profession": "inscription"
-    },
-    {
-      "recipe_name": "Homely Wall Shelves",
-      "wowhead_spell_id": 1248627,
-      "crafted_item_id": 262595,
-      "crafted_item_name": "Homely Wall Shelves",
-      "crafted_quantity": 1,
-      "reagents": [
-        {
-          "item_id": 256963,
-          "quantity": 24,
-          "name": "Thalassian Lumber"
-        },
-        {
-          "item_id": 245764,
-          "quantity": 4,
-          "name": "item-245764"
-        },
-        {
-          "item_id": 245766,
-          "quantity": 9,
-          "name": "item-245766"
-        }
-      ],
-      "skill": [
-        2913
-      ],
-      "profession": "inscription"
+      "profession": "engineering"
     },
     {
       "recipe_name": "Illusory Adornment - Blooming Light",
@@ -5243,6 +7455,138 @@
       "profession": "leatherworking"
     },
     {
+      "recipe_name": "Junker's Big Ol' Bag",
+      "wowhead_spell_id": 1229906,
+      "crafted_item_id": 244720,
+      "crafted_item_name": "Junker's Big Ol' Bag",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 253302,
+          "quantity": 1,
+          "name": "Malleable Wireframe"
+        },
+        {
+          "item_id": 238529,
+          "quantity": 1,
+          "name": "Majestic Hide"
+        },
+        {
+          "item_id": 243578,
+          "quantity": 4,
+          "name": "item-243578"
+        },
+        {
+          "item_id": 243581,
+          "quantity": 2,
+          "name": "item-243581"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
+    },
+    {
+      "recipe_name": "Kinetic Ankle Primers",
+      "wowhead_spell_id": 1229919,
+      "crafted_item_id": 248132,
+      "crafted_item_name": "Kinetic Ankle Primers",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243574,
+          "quantity": 2,
+          "name": "item-243574"
+        },
+        {
+          "item_id": 243578,
+          "quantity": 3,
+          "name": "item-243578"
+        },
+        {
+          "item_id": 243581,
+          "quantity": 1,
+          "name": "item-243581"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
+    },
+    {
+      "recipe_name": "Knight-Commander's Palisade",
+      "wowhead_spell_id": 1230767,
+      "crafted_item_id": 244472,
+      "crafted_item_name": "Knight-Commander's Palisade",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 237366,
+          "quantity": 1,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 238202,
+          "quantity": 10,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 10,
+          "name": "item-238204"
+        },
+        {
+          "item_id": 244637,
+          "quantity": 1,
+          "name": "Silvermoon Weapon Wrap"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Laced Zoomshots",
+      "wowhead_spell_id": 1261895,
+      "crafted_item_id": 257749,
+      "crafted_item_name": "Laced Zoomshots",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243574,
+          "quantity": 1,
+          "name": "item-243574"
+        },
+        {
+          "item_id": 243576,
+          "quantity": 1,
+          "name": "item-243576"
+        },
+        {
+          "item_id": 243578,
+          "quantity": 3,
+          "name": "item-243578"
+        },
+        {
+          "item_id": 243581,
+          "quantity": 2,
+          "name": "item-243581"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
+    },
+    {
       "recipe_name": "Leather-Bound Haranir Wall Shelf",
       "wowhead_spell_id": 1246938,
       "crafted_item_id": 253457,
@@ -5276,32 +7620,131 @@
       "profession": "leatherworking"
     },
     {
-      "recipe_name": "Lively Songwriter's Quill",
-      "wowhead_spell_id": 1248623,
-      "crafted_item_id": 262616,
-      "crafted_item_name": "Lively Songwriter's Quill",
-      "crafted_quantity": 1,
+      "recipe_name": "Light's Potential",
+      "wowhead_spell_id": 1230869,
+      "crafted_item_id": 241308,
+      "crafted_item_name": "Light's Potential",
+      "crafted_quantity": 5,
       "reagents": [
         {
-          "item_id": 256963,
-          "quantity": 18,
-          "name": "Thalassian Lumber"
+          "item_id": 236949,
+          "quantity": 1,
+          "name": "Mote of Light"
         },
         {
-          "item_id": 245764,
+          "item_id": 236761,
+          "quantity": 8,
+          "name": "item-236761"
+        },
+        {
+          "item_id": 236774,
           "quantity": 3,
-          "name": "item-245764"
+          "name": "item-236774"
         },
         {
-          "item_id": 245766,
-          "quantity": 7,
-          "name": "item-245766"
+          "item_id": 236776,
+          "quantity": 3,
+          "name": "item-236776"
+        },
+        {
+          "item_id": 240991,
+          "quantity": 5,
+          "name": "item-240991"
         }
       ],
       "skill": [
-        2913
+        2906
       ],
-      "profession": "inscription"
+      "profession": "alchemy"
+    },
+    {
+      "recipe_name": "Light's Preservation",
+      "wowhead_spell_id": 1230858,
+      "crafted_item_id": 241286,
+      "crafted_item_name": "Light's Preservation",
+      "crafted_quantity": 5,
+      "reagents": [
+        {
+          "item_id": 236949,
+          "quantity": 2,
+          "name": "Mote of Light"
+        },
+        {
+          "item_id": 236761,
+          "quantity": 4,
+          "name": "item-236761"
+        },
+        {
+          "item_id": 236774,
+          "quantity": 3,
+          "name": "item-236774"
+        },
+        {
+          "item_id": 240991,
+          "quantity": 5,
+          "name": "item-240991"
+        }
+      ],
+      "skill": [
+        2906
+      ],
+      "profession": "alchemy"
+    },
+    {
+      "recipe_name": "Lightfused Mana Potion",
+      "wowhead_spell_id": 1230865,
+      "crafted_item_id": 241300,
+      "crafted_item_name": "Lightfused Mana Potion",
+      "crafted_quantity": 5,
+      "reagents": [
+        {
+          "item_id": 236761,
+          "quantity": 8,
+          "name": "item-236761"
+        },
+        {
+          "item_id": 236778,
+          "quantity": 3,
+          "name": "item-236778"
+        },
+        {
+          "item_id": 240991,
+          "quantity": 5,
+          "name": "item-240991"
+        }
+      ],
+      "skill": [
+        2906
+      ],
+      "profession": "alchemy"
+    },
+    {
+      "recipe_name": "Lucky Keychain",
+      "wowhead_spell_id": 1229916,
+      "crafted_item_id": 248130,
+      "crafted_item_name": "Lucky Keychain",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 253303,
+          "quantity": 10,
+          "name": "Pile of Junk"
+        },
+        {
+          "item_id": 236951,
+          "quantity": 1,
+          "name": "Mote of Wild Magic"
+        },
+        {
+          "item_id": 243581,
+          "quantity": 5,
+          "name": "item-243581"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
     },
     {
       "recipe_name": "Lush Telogrus Carpet",
@@ -5370,6 +7813,110 @@
       "profession": "tailoring"
     },
     {
+      "recipe_name": "M3DDY, Travel-Sized",
+      "wowhead_spell_id": 1229917,
+      "crafted_item_id": 248136,
+      "crafted_item_name": "M3DDY, Travel-Sized",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243576,
+          "quantity": 1,
+          "name": "item-243576"
+        },
+        {
+          "item_id": 243578,
+          "quantity": 3,
+          "name": "item-243578"
+        },
+        {
+          "item_id": 243581,
+          "quantity": 2,
+          "name": "item-243581"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
+    },
+    {
+      "recipe_name": "Magister's Alchemist Stone",
+      "wowhead_spell_id": 1230885,
+      "crafted_item_id": 241340,
+      "crafted_item_name": "Magister's Alchemist Stone",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 242651,
+          "quantity": 5,
+          "name": "Stabilized Derivate"
+        },
+        {
+          "item_id": 236950,
+          "quantity": 8,
+          "name": "Mote of Primal Energy"
+        },
+        {
+          "item_id": 236951,
+          "quantity": 8,
+          "name": "Mote of Wild Magic"
+        },
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 241283,
+          "quantity": 2,
+          "name": "item-241283"
+        }
+      ],
+      "skill": [
+        2906
+      ],
+      "profession": "alchemy"
+    },
+    {
+      "recipe_name": "Magister's Cleaver",
+      "wowhead_spell_id": 1229654,
+      "crafted_item_id": 237844,
+      "crafted_item_name": "Magister's Cleaver",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 237366,
+          "quantity": 2,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 238202,
+          "quantity": 8,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 6,
+          "name": "item-238204"
+        },
+        {
+          "item_id": 244637,
+          "quantity": 1,
+          "name": "Silvermoon Weapon Wrap"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
       "recipe_name": "Magister's Grand Focus",
       "wowhead_spell_id": 1236490,
       "crafted_item_id": 244179,
@@ -5399,7 +7946,7 @@
         {
           "item_id": 244637,
           "quantity": 1,
-          "name": "item-244637"
+          "name": "Silvermoon Weapon Wrap"
         }
       ],
       "skill": [
@@ -5408,32 +7955,118 @@
       "profession": "enchanting"
     },
     {
-      "recipe_name": "Magnificent Towering Bookcase",
-      "wowhead_spell_id": 1248631,
-      "crafted_item_id": 263034,
-      "crafted_item_name": "Magnificent Towering Bookcase",
+      "recipe_name": "Magister's Mana Sword",
+      "wowhead_spell_id": 1229651,
+      "crafted_item_id": 237843,
+      "crafted_item_name": "Magister's Mana Sword",
       "crafted_quantity": 1,
       "reagents": [
         {
-          "item_id": 256963,
-          "quantity": 50,
-          "name": "Thalassian Lumber"
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
         },
         {
-          "item_id": 245764,
-          "quantity": 10,
-          "name": "item-245764"
+          "item_id": 237366,
+          "quantity": 2,
+          "name": "Dazzling Thorium"
         },
         {
-          "item_id": 245766,
-          "quantity": 20,
-          "name": "item-245766"
+          "item_id": 238202,
+          "quantity": 8,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 6,
+          "name": "item-238204"
+        },
+        {
+          "item_id": 244637,
+          "quantity": 1,
+          "name": "Silvermoon Weapon Wrap"
         }
       ],
       "skill": [
-        2913
+        2907
       ],
-      "profession": "inscription"
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Magister's Ritual Knife",
+      "wowhead_spell_id": 1229650,
+      "crafted_item_id": 237838,
+      "crafted_item_name": "Magister's Ritual Knife",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 237366,
+          "quantity": 2,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 238202,
+          "quantity": 7,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 7,
+          "name": "item-238204"
+        },
+        {
+          "item_id": 244637,
+          "quantity": 1,
+          "name": "Silvermoon Weapon Wrap"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Magister's Valediction",
+      "wowhead_spell_id": 1229647,
+      "crafted_item_id": 237849,
+      "crafted_item_name": "Magister's Valediction",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 237366,
+          "quantity": 2,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 238202,
+          "quantity": 10,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 6,
+          "name": "item-238204"
+        },
+        {
+          "item_id": 244637,
+          "quantity": 1,
+          "name": "Silvermoon Weapon Wrap"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
     },
     {
       "recipe_name": "Martyr's Bindings",
@@ -5780,37 +8413,113 @@
       "profession": "tailoring"
     },
     {
-      "recipe_name": "Munsell Ink",
-      "wowhead_spell_id": 1230017,
-      "crafted_item_id": 245801,
-      "crafted_item_name": "Munsell Ink",
-      "crafted_quantity": 2,
+      "recipe_name": "Masterwork Crafting Hammer",
+      "wowhead_spell_id": 1276112,
+      "crafted_item_id": 262452,
+      "crafted_item_name": "Masterwork Crafting Hammer",
+      "crafted_quantity": 1,
       "reagents": [
         {
-          "item_id": 245882,
-          "quantity": 3,
-          "name": "Thalassian Songwater"
+          "item_id": 256963,
+          "quantity": 12,
+          "name": "Thalassian Lumber"
         },
         {
-          "item_id": 245807,
-          "quantity": 20,
-          "name": "item-245807"
+          "item_id": 238197,
+          "quantity": 8,
+          "name": "item-238197"
         },
         {
-          "item_id": 245865,
-          "quantity": 10,
-          "name": "item-245865"
+          "item_id": 238202,
+          "quantity": 2,
+          "name": "item-238202"
         },
         {
-          "item_id": 245867,
-          "quantity": 5,
-          "name": "item-245867"
+          "item_id": 238204,
+          "quantity": 2,
+          "name": "item-238204"
         }
       ],
       "skill": [
-        2913
+        2907
       ],
-      "profession": "inscription"
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Murder Row Fishhook",
+      "wowhead_spell_id": 1230768,
+      "crafted_item_id": 244679,
+      "crafted_item_name": "Murder Row Fishhook",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 237366,
+          "quantity": 1,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 238202,
+          "quantity": 10,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 10,
+          "name": "item-238204"
+        },
+        {
+          "item_id": 244637,
+          "quantity": 1,
+          "name": "Silvermoon Weapon Wrap"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Murder Row Fleet Feet",
+      "wowhead_spell_id": 1230766,
+      "crafted_item_id": 244463,
+      "crafted_item_name": "Murder Row Fleet Feet",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 237366,
+          "quantity": 1,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 238202,
+          "quantity": 10,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 10,
+          "name": "item-238204"
+        },
+        {
+          "item_id": 244637,
+          "quantity": 1,
+          "name": "Silvermoon Weapon Wrap"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
     },
     {
       "recipe_name": "Oil of Dawn",
@@ -5846,32 +8555,118 @@
       "profession": "enchanting"
     },
     {
-      "recipe_name": "Opened Sin'dorei Scroll",
-      "wowhead_spell_id": 1248624,
-      "crafted_item_id": 262598,
-      "crafted_item_name": "Opened Sin'dorei Scroll",
+      "recipe_name": "Ornamental Silvermoon Hanger",
+      "wowhead_spell_id": 1276109,
+      "crafted_item_id": 262456,
+      "crafted_item_name": "Ornamental Silvermoon Hanger",
       "crafted_quantity": 1,
       "reagents": [
         {
           "item_id": 256963,
-          "quantity": 6,
+          "quantity": 18,
           "name": "Thalassian Lumber"
         },
         {
-          "item_id": 245764,
-          "quantity": 1,
-          "name": "item-245764"
+          "item_id": 238197,
+          "quantity": 12,
+          "name": "item-238197"
         },
         {
-          "item_id": 245766,
-          "quantity": 2,
-          "name": "item-245766"
+          "item_id": 238202,
+          "quantity": 3,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 3,
+          "name": "item-238204"
         }
       ],
       "skill": [
-        2913
+        2907
       ],
-      "profession": "inscription"
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "P.O.W. x3",
+      "wowhead_spell_id": 1282456,
+      "crafted_item_id": 268477,
+      "crafted_item_name": "P.O.W. x3",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 253302,
+          "quantity": 6,
+          "name": "Malleable Wireframe"
+        },
+        {
+          "item_id": 236951,
+          "quantity": 6,
+          "name": "Mote of Wild Magic"
+        },
+        {
+          "item_id": 236950,
+          "quantity": 6,
+          "name": "Mote of Primal Energy"
+        },
+        {
+          "item_id": 237366,
+          "quantity": 3,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 243578,
+          "quantity": 10,
+          "name": "item-243578"
+        },
+        {
+          "item_id": 243581,
+          "quantity": 4,
+          "name": "item-243581"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
+    },
+    {
+      "recipe_name": "Perfected Cogwheel",
+      "wowhead_spell_id": 1229856,
+      "crafted_item_id": 244701,
+      "crafted_item_name": "Perfected Cogwheel",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 253303,
+          "quantity": 5,
+          "name": "Pile of Junk"
+        },
+        {
+          "item_id": 236952,
+          "quantity": 1,
+          "name": "Mote of Pure Void"
+        },
+        {
+          "item_id": 243574,
+          "quantity": 2,
+          "name": "item-243574"
+        },
+        {
+          "item_id": 243576,
+          "quantity": 1,
+          "name": "item-243576"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
     },
     {
       "recipe_name": "Plush Haranir Leather Pillow",
@@ -5940,6 +8735,133 @@
       "profession": "tailoring"
     },
     {
+      "recipe_name": "Potion of Devoured Dreams",
+      "wowhead_spell_id": 1230862,
+      "crafted_item_id": 241294,
+      "crafted_item_name": "Potion of Devoured Dreams",
+      "crafted_quantity": 5,
+      "reagents": [
+        {
+          "item_id": 236951,
+          "quantity": 2,
+          "name": "Mote of Wild Magic"
+        },
+        {
+          "item_id": 236761,
+          "quantity": 8,
+          "name": "item-236761"
+        },
+        {
+          "item_id": 236778,
+          "quantity": 4,
+          "name": "item-236778"
+        },
+        {
+          "item_id": 240991,
+          "quantity": 5,
+          "name": "item-240991"
+        }
+      ],
+      "skill": [
+        2906
+      ],
+      "profession": "alchemy"
+    },
+    {
+      "recipe_name": "Potion of Recklessness",
+      "wowhead_spell_id": 1230859,
+      "crafted_item_id": 241288,
+      "crafted_item_name": "Potion of Recklessness",
+      "crafted_quantity": 5,
+      "reagents": [
+        {
+          "item_id": 236950,
+          "quantity": 2,
+          "name": "Mote of Primal Energy"
+        },
+        {
+          "item_id": 236761,
+          "quantity": 8,
+          "name": "item-236761"
+        },
+        {
+          "item_id": 236774,
+          "quantity": 4,
+          "name": "item-236774"
+        },
+        {
+          "item_id": 240991,
+          "quantity": 5,
+          "name": "item-240991"
+        }
+      ],
+      "skill": [
+        2906
+      ],
+      "profession": "alchemy"
+    },
+    {
+      "recipe_name": "Potion of Zealotry",
+      "wowhead_spell_id": 1230863,
+      "crafted_item_id": 241296,
+      "crafted_item_name": "Potion of Zealotry",
+      "crafted_quantity": 5,
+      "reagents": [
+        {
+          "item_id": 236949,
+          "quantity": 1,
+          "name": "Mote of Light"
+        },
+        {
+          "item_id": 236761,
+          "quantity": 8,
+          "name": "item-236761"
+        },
+        {
+          "item_id": 236774,
+          "quantity": 10,
+          "name": "item-236774"
+        },
+        {
+          "item_id": 240991,
+          "quantity": 5,
+          "name": "item-240991"
+        }
+      ],
+      "skill": [
+        2906
+      ],
+      "profession": "alchemy"
+    },
+    {
+      "recipe_name": "Primal Philosopher's Stone",
+      "wowhead_spell_id": 1230861,
+      "crafted_item_id": 241291,
+      "crafted_item_name": "Primal Philosopher's Stone",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 242651,
+          "quantity": 2,
+          "name": "Stabilized Derivate"
+        },
+        {
+          "item_id": 236949,
+          "quantity": 2,
+          "name": "Mote of Light"
+        },
+        {
+          "item_id": 241307,
+          "quantity": 5,
+          "name": "item-241307"
+        }
+      ],
+      "skill": [
+        2906
+      ],
+      "profession": "alchemy"
+    },
+    {
       "recipe_name": "Primal Spore Binding",
       "wowhead_spell_id": 1237578,
       "crafted_item_id": 244607,
@@ -5966,6 +8888,52 @@
         2915
       ],
       "profession": "leatherworking"
+    },
+    {
+      "recipe_name": "Primalforged Heavy Axe",
+      "wowhead_spell_id": 1229614,
+      "crafted_item_id": 237932,
+      "crafted_item_name": "Primalforged Heavy Axe",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 2,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 238197,
+          "quantity": 4,
+          "name": "item-238197"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Primalforged Knuckles",
+      "wowhead_spell_id": 1229617,
+      "crafted_item_id": 237929,
+      "crafted_item_name": "Primalforged Knuckles",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 1,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 238197,
+          "quantity": 3,
+          "name": "item-238197"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
     },
     {
       "recipe_name": "Ranger-General's Grips",
@@ -6011,6 +8979,293 @@
       "profession": "leatherworking"
     },
     {
+      "recipe_name": "Refreshing Serum",
+      "wowhead_spell_id": 1230868,
+      "crafted_item_id": 241306,
+      "crafted_item_name": "Refreshing Serum",
+      "crafted_quantity": 5,
+      "reagents": [
+        {
+          "item_id": 236761,
+          "quantity": 8,
+          "name": "item-236761"
+        },
+        {
+          "item_id": 236770,
+          "quantity": 3,
+          "name": "item-236770"
+        },
+        {
+          "item_id": 240991,
+          "quantity": 5,
+          "name": "item-240991"
+        }
+      ],
+      "skill": [
+        2906
+      ],
+      "profession": "alchemy"
+    },
+    {
+      "recipe_name": "Refulgent Copper Ingot",
+      "wowhead_spell_id": 1230761,
+      "crafted_item_id": 238197,
+      "crafted_item_name": "Refulgent Copper Ingot",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 2,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 237359,
+          "quantity": 5,
+          "name": "item-237359"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Refulgent Razorstone",
+      "wowhead_spell_id": 1230760,
+      "crafted_item_id": 237372,
+      "crafted_item_name": "Refulgent Razorstone",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 15,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 251285,
+          "quantity": 2,
+          "name": "Petrified Root"
+        },
+        {
+          "item_id": 238197,
+          "quantity": 12,
+          "name": "item-238197"
+        },
+        {
+          "item_id": 242788,
+          "quantity": 4,
+          "name": "item-242788"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Refulgent Repair Hammer",
+      "wowhead_spell_id": 1230764,
+      "crafted_item_id": 238209,
+      "crafted_item_name": "Refulgent Repair Hammer",
+      "crafted_quantity": 2,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 1,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 238197,
+          "quantity": 1,
+          "name": "item-238197"
+        },
+        {
+          "item_id": 242788,
+          "quantity": 1,
+          "name": "item-242788"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Refulgent Weightstone",
+      "wowhead_spell_id": 1230759,
+      "crafted_item_id": 237367,
+      "crafted_item_name": "Refulgent Weightstone",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 15,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 251285,
+          "quantity": 2,
+          "name": "Petrified Root"
+        },
+        {
+          "item_id": 238197,
+          "quantity": 12,
+          "name": "item-238197"
+        },
+        {
+          "item_id": 242788,
+          "quantity": 4,
+          "name": "item-242788"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Refulgent Whetstone",
+      "wowhead_spell_id": 1230758,
+      "crafted_item_id": 237370,
+      "crafted_item_name": "Refulgent Whetstone",
+      "crafted_quantity": 4,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 15,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 251285,
+          "quantity": 2,
+          "name": "Petrified Root"
+        },
+        {
+          "item_id": 238197,
+          "quantity": 12,
+          "name": "item-238197"
+        },
+        {
+          "item_id": 242788,
+          "quantity": 4,
+          "name": "item-242788"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Ren'dorei Anvil",
+      "wowhead_spell_id": 1276111,
+      "crafted_item_id": 262460,
+      "crafted_item_name": "Ren'dorei Anvil",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 256963,
+          "quantity": 26,
+          "name": "Thalassian Lumber"
+        },
+        {
+          "item_id": 238197,
+          "quantity": 18,
+          "name": "item-238197"
+        },
+        {
+          "item_id": 238202,
+          "quantity": 5,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 5,
+          "name": "item-238204"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Ren'dorei Crafting Framework",
+      "wowhead_spell_id": 1248615,
+      "crafted_item_id": 262617,
+      "crafted_item_name": "Ren'dorei Crafting Framework",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 256963,
+          "quantity": 24,
+          "name": "Thalassian Lumber"
+        },
+        {
+          "item_id": 243574,
+          "quantity": 10,
+          "name": "item-243574"
+        },
+        {
+          "item_id": 243576,
+          "quantity": 10,
+          "name": "item-243576"
+        },
+        {
+          "item_id": 243578,
+          "quantity": 5,
+          "name": "item-243578"
+        },
+        {
+          "item_id": 243581,
+          "quantity": 5,
+          "name": "item-243581"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
+    },
+    {
+      "recipe_name": "Ren'dorei Lightpost",
+      "wowhead_spell_id": 1248611,
+      "crafted_item_id": 263049,
+      "crafted_item_name": "Ren'dorei Lightpost",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 256963,
+          "quantity": 26,
+          "name": "Thalassian Lumber"
+        },
+        {
+          "item_id": 243574,
+          "quantity": 10,
+          "name": "item-243574"
+        },
+        {
+          "item_id": 243576,
+          "quantity": 10,
+          "name": "item-243576"
+        },
+        {
+          "item_id": 243578,
+          "quantity": 5,
+          "name": "item-243578"
+        },
+        {
+          "item_id": 243581,
+          "quantity": 5,
+          "name": "item-243581"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
+    },
+    {
       "recipe_name": "Ren'dorei Postal Repository",
       "wowhead_spell_id": 1246903,
       "crafted_item_id": 262468,
@@ -6054,10 +9309,48 @@
       "profession": "enchanting"
     },
     {
-      "recipe_name": "Restful Bronze Bench",
-      "wowhead_spell_id": 1248620,
-      "crafted_item_id": 262790,
-      "crafted_item_name": "Restful Bronze Bench",
+      "recipe_name": "Ren'dorei Stargazer",
+      "wowhead_spell_id": 1248613,
+      "crafted_item_id": 262465,
+      "crafted_item_name": "Ren'dorei Stargazer",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 256963,
+          "quantity": 32,
+          "name": "Thalassian Lumber"
+        },
+        {
+          "item_id": 243574,
+          "quantity": 10,
+          "name": "item-243574"
+        },
+        {
+          "item_id": 243576,
+          "quantity": 10,
+          "name": "item-243576"
+        },
+        {
+          "item_id": 243578,
+          "quantity": 5,
+          "name": "item-243578"
+        },
+        {
+          "item_id": 243581,
+          "quantity": 5,
+          "name": "item-243581"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
+    },
+    {
+      "recipe_name": "Ren'dorei Void Projector",
+      "wowhead_spell_id": 1248610,
+      "crafted_item_id": 262618,
+      "crafted_item_name": "Ren'dorei Void Projector",
       "crafted_quantity": 1,
       "reagents": [
         {
@@ -6066,20 +9359,172 @@
           "name": "Thalassian Lumber"
         },
         {
-          "item_id": 245764,
-          "quantity": 4,
-          "name": "item-245764"
+          "item_id": 243574,
+          "quantity": 10,
+          "name": "item-243574"
         },
         {
-          "item_id": 245766,
-          "quantity": 8,
-          "name": "item-245766"
+          "item_id": 243576,
+          "quantity": 10,
+          "name": "item-243576"
+        },
+        {
+          "item_id": 243578,
+          "quantity": 5,
+          "name": "item-243578"
+        },
+        {
+          "item_id": 243581,
+          "quantity": 5,
+          "name": "item-243581"
         }
       ],
       "skill": [
-        2913
+        2910
       ],
-      "profession": "inscription"
+      "profession": "engineering"
+    },
+    {
+      "recipe_name": "Ren'dorei Warp Orb",
+      "wowhead_spell_id": 1248616,
+      "crafted_item_id": 262602,
+      "crafted_item_name": "Ren'dorei Warp Orb",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 256963,
+          "quantity": 28,
+          "name": "Thalassian Lumber"
+        },
+        {
+          "item_id": 243574,
+          "quantity": 10,
+          "name": "item-243574"
+        },
+        {
+          "item_id": 243576,
+          "quantity": 10,
+          "name": "item-243576"
+        },
+        {
+          "item_id": 243578,
+          "quantity": 5,
+          "name": "item-243578"
+        },
+        {
+          "item_id": 243581,
+          "quantity": 5,
+          "name": "item-243581"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
+    },
+    {
+      "recipe_name": "Riftstone",
+      "wowhead_spell_id": 1233136,
+      "crafted_item_id": 262354,
+      "crafted_item_name": "Riftstone",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 236952,
+          "quantity": 8,
+          "name": "Mote of Pure Void"
+        },
+        {
+          "item_id": 256963,
+          "quantity": 8,
+          "name": "Thalassian Lumber"
+        },
+        {
+          "item_id": 241281,
+          "quantity": 4,
+          "name": "item-241281"
+        },
+        {
+          "item_id": 241283,
+          "quantity": 4,
+          "name": "item-241283"
+        }
+      ],
+      "skill": [
+        2906
+      ],
+      "profession": "alchemy"
+    },
+    {
+      "recipe_name": "Rock Bonkin' Hardhat",
+      "wowhead_spell_id": 1264524,
+      "crafted_item_id": 259173,
+      "crafted_item_name": "Rock Bonkin' Hardhat",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 253302,
+          "quantity": 1,
+          "name": "Malleable Wireframe"
+        },
+        {
+          "item_id": 238529,
+          "quantity": 1,
+          "name": "Majestic Hide"
+        },
+        {
+          "item_id": 245345,
+          "quantity": 20,
+          "name": "Fused Vitality"
+        },
+        {
+          "item_id": 243578,
+          "quantity": 4,
+          "name": "item-243578"
+        },
+        {
+          "item_id": 243581,
+          "quantity": 2,
+          "name": "item-243581"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
+    },
+    {
+      "recipe_name": "Rootbound Vat",
+      "wowhead_spell_id": 1233133,
+      "crafted_item_id": 253506,
+      "crafted_item_name": "Rootbound Vat",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 236950,
+          "quantity": 6,
+          "name": "Mote of Primal Energy"
+        },
+        {
+          "item_id": 256963,
+          "quantity": 32,
+          "name": "Thalassian Lumber"
+        },
+        {
+          "item_id": 241281,
+          "quantity": 4,
+          "name": "item-241281"
+        },
+        {
+          "item_id": 241283,
+          "quantity": 4,
+          "name": "item-241283"
+        }
+      ],
+      "skill": [
+        2906
+      ],
+      "profession": "alchemy"
     },
     {
       "recipe_name": "Rootflame Campfire",
@@ -6162,7 +9607,7 @@
         {
           "item_id": 243737,
           "quantity": 1,
-          "name": "item-243737"
+          "name": "Smuggler's Enchanted Edge"
         },
         {
           "item_id": 244633,
@@ -6200,7 +9645,7 @@
         {
           "item_id": 243737,
           "quantity": 2,
-          "name": "item-243737"
+          "name": "Smuggler's Enchanted Edge"
         },
         {
           "item_id": 244633,
@@ -6238,7 +9683,7 @@
         {
           "item_id": 243737,
           "quantity": 1,
-          "name": "item-243737"
+          "name": "Smuggler's Enchanted Edge"
         },
         {
           "item_id": 244633,
@@ -6255,6 +9700,44 @@
         2915
       ],
       "profession": "leatherworking"
+    },
+    {
+      "recipe_name": "Runed Brilliant Silver Rod",
+      "wowhead_spell_id": 1236487,
+      "crafted_item_id": 244176,
+      "crafted_item_name": "Runed Brilliant Silver Rod",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 237364,
+          "quantity": 5,
+          "name": "item-237364"
+        },
+        {
+          "item_id": 243599,
+          "quantity": 20,
+          "name": "item-243599"
+        },
+        {
+          "item_id": 243602,
+          "quantity": 5,
+          "name": "item-243602"
+        },
+        {
+          "item_id": 243605,
+          "quantity": 2,
+          "name": "item-243605"
+        },
+        {
+          "item_id": 244637,
+          "quantity": 1,
+          "name": "Silvermoon Weapon Wrap"
+        }
+      ],
+      "skill": [
+        2909
+      ],
+      "profession": "enchanting"
     },
     {
       "recipe_name": "Runed Dazzling Thorium Rod",
@@ -6291,7 +9774,7 @@
         {
           "item_id": 244637,
           "quantity": 1,
-          "name": "item-244637"
+          "name": "Silvermoon Weapon Wrap"
         }
       ],
       "skill": [
@@ -6321,6 +9804,67 @@
         2909
       ],
       "profession": "enchanting"
+    },
+    {
+      "recipe_name": "Scalewoven Hide",
+      "wowhead_spell_id": 1237572,
+      "crafted_item_id": 244631,
+      "crafted_item_name": "Scalewoven Hide",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238518,
+          "quantity": 1,
+          "name": "item-238518"
+        },
+        {
+          "item_id": 238520,
+          "quantity": 1,
+          "name": "item-238520"
+        }
+      ],
+      "skill": [
+        2915
+      ],
+      "profession": "leatherworking"
+    },
+    {
+      "recipe_name": "School of Gems",
+      "wowhead_spell_id": 1230893,
+      "crafted_item_id": 245647,
+      "crafted_item_name": "School of Gems",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238383,
+          "quantity": 4,
+          "name": "Eversong Trout"
+        },
+        {
+          "item_id": 238369,
+          "quantity": 12,
+          "name": "Bloomtail Minnow"
+        },
+        {
+          "item_id": 238365,
+          "quantity": 20,
+          "name": "Sin'dorei Swarmer"
+        },
+        {
+          "item_id": 242651,
+          "quantity": 1,
+          "name": "Stabilized Derivate"
+        },
+        {
+          "item_id": 241281,
+          "quantity": 3,
+          "name": "item-241281"
+        }
+      ],
+      "skill": [
+        2906
+      ],
+      "profession": "alchemy"
     },
     {
       "recipe_name": "Scout's Cape",
@@ -6412,6 +9956,29 @@
       "profession": "leatherworking"
     },
     {
+      "recipe_name": "Scout's Polished Skullcap",
+      "wowhead_spell_id": 1237531,
+      "crafted_item_id": 244596,
+      "crafted_item_name": "Scout's Polished Skullcap",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238511,
+          "quantity": 20,
+          "name": "item-238511"
+        },
+        {
+          "item_id": 238513,
+          "quantity": 40,
+          "name": "item-238513"
+        }
+      ],
+      "skill": [
+        2915
+      ],
+      "profession": "leatherworking"
+    },
+    {
       "recipe_name": "Scout's Polished Spaulders",
       "wowhead_spell_id": 1237533,
       "crafted_item_id": 244597,
@@ -6431,6 +9998,98 @@
         {
           "item_id": 238513,
           "quantity": 40,
+          "name": "item-238513"
+        }
+      ],
+      "skill": [
+        2915
+      ],
+      "profession": "leatherworking"
+    },
+    {
+      "recipe_name": "Scout's Polished Wrap",
+      "wowhead_spell_id": 1237534,
+      "crafted_item_id": 244600,
+      "crafted_item_name": "Scout's Polished Wrap",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238511,
+          "quantity": 15,
+          "name": "item-238511"
+        },
+        {
+          "item_id": 238513,
+          "quantity": 30,
+          "name": "item-238513"
+        }
+      ],
+      "skill": [
+        2915
+      ],
+      "profession": "leatherworking"
+    },
+    {
+      "recipe_name": "Scout's Scaled Boots",
+      "wowhead_spell_id": 1237529,
+      "crafted_item_id": 244588,
+      "crafted_item_name": "Scout's Scaled Boots",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238511,
+          "quantity": 10,
+          "name": "item-238511"
+        },
+        {
+          "item_id": 238513,
+          "quantity": 25,
+          "name": "item-238513"
+        }
+      ],
+      "skill": [
+        2915
+      ],
+      "profession": "leatherworking"
+    },
+    {
+      "recipe_name": "Scout's Scaled Bracers",
+      "wowhead_spell_id": 1237535,
+      "crafted_item_id": 244589,
+      "crafted_item_name": "Scout's Scaled Bracers",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238511,
+          "quantity": 10,
+          "name": "item-238511"
+        },
+        {
+          "item_id": 238513,
+          "quantity": 20,
+          "name": "item-238513"
+        }
+      ],
+      "skill": [
+        2915
+      ],
+      "profession": "leatherworking"
+    },
+    {
+      "recipe_name": "Scout's Scaled Vest",
+      "wowhead_spell_id": 1237528,
+      "crafted_item_id": 244590,
+      "crafted_item_name": "Scout's Scaled Vest",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238511,
+          "quantity": 15,
+          "name": "item-238511"
+        },
+        {
+          "item_id": 238513,
+          "quantity": 25,
           "name": "item-238513"
         }
       ],
@@ -6473,37 +10132,42 @@
       "profession": "enchanting"
     },
     {
-      "recipe_name": "Sienna Ink",
-      "wowhead_spell_id": 1230016,
-      "crafted_item_id": 245805,
-      "crafted_item_name": "Sienna Ink",
-      "crafted_quantity": 2,
+      "recipe_name": "Self-Sharpening Sin'dorei Snippers",
+      "wowhead_spell_id": 1264526,
+      "crafted_item_id": 259177,
+      "crafted_item_name": "Self-Sharpening Sin'dorei Snippers",
+      "crafted_quantity": 1,
       "reagents": [
         {
-          "item_id": 245882,
-          "quantity": 3,
-          "name": "Thalassian Songwater"
+          "item_id": 253302,
+          "quantity": 1,
+          "name": "Malleable Wireframe"
         },
         {
-          "item_id": 245803,
-          "quantity": 10,
-          "name": "item-245803"
+          "item_id": 238528,
+          "quantity": 1,
+          "name": "Majestic Claw"
         },
         {
-          "item_id": 245807,
+          "item_id": 245345,
           "quantity": 20,
-          "name": "item-245807"
+          "name": "Fused Vitality"
         },
         {
-          "item_id": 245867,
-          "quantity": 5,
-          "name": "item-245867"
+          "item_id": 243578,
+          "quantity": 4,
+          "name": "item-243578"
+        },
+        {
+          "item_id": 243581,
+          "quantity": 2,
+          "name": "item-243581"
         }
       ],
       "skill": [
-        2913
+        2910
       ],
-      "profession": "inscription"
+      "profession": "engineering"
     },
     {
       "recipe_name": "Silvermoon Agent's Coat",
@@ -6876,6 +10540,67 @@
       "profession": "tailoring"
     },
     {
+      "recipe_name": "Silvermoon Health Potion",
+      "wowhead_spell_id": 1230866,
+      "crafted_item_id": 241304,
+      "crafted_item_name": "Silvermoon Health Potion",
+      "crafted_quantity": 5,
+      "reagents": [
+        {
+          "item_id": 236761,
+          "quantity": 6,
+          "name": "item-236761"
+        },
+        {
+          "item_id": 240991,
+          "quantity": 5,
+          "name": "item-240991"
+        }
+      ],
+      "skill": [
+        2906
+      ],
+      "profession": "alchemy"
+    },
+    {
+      "recipe_name": "Silvermoon Spire Fountain",
+      "wowhead_spell_id": 1233138,
+      "crafted_item_id": 257420,
+      "crafted_item_name": "Silvermoon Spire Fountain",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 236951,
+          "quantity": 6,
+          "name": "Mote of Wild Magic"
+        },
+        {
+          "item_id": 236950,
+          "quantity": 6,
+          "name": "Mote of Primal Energy"
+        },
+        {
+          "item_id": 256963,
+          "quantity": 40,
+          "name": "Thalassian Lumber"
+        },
+        {
+          "item_id": 241281,
+          "quantity": 4,
+          "name": "item-241281"
+        },
+        {
+          "item_id": 241283,
+          "quantity": 4,
+          "name": "item-241283"
+        }
+      ],
+      "skill": [
+        2906
+      ],
+      "profession": "alchemy"
+    },
+    {
       "recipe_name": "Silvermoon Weapon Wrap",
       "wowhead_spell_id": 1237575,
       "crafted_item_id": 244637,
@@ -6975,6 +10700,39 @@
       "profession": "leatherworking"
     },
     {
+      "recipe_name": "Sin'dorei Angler's Rod",
+      "wowhead_spell_id": 1229902,
+      "crafted_item_id": 244712,
+      "crafted_item_name": "Sin'dorei Angler's Rod",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 253302,
+          "quantity": 1,
+          "name": "Malleable Wireframe"
+        },
+        {
+          "item_id": 238530,
+          "quantity": 1,
+          "name": "Majestic Fin"
+        },
+        {
+          "item_id": 243578,
+          "quantity": 4,
+          "name": "item-243578"
+        },
+        {
+          "item_id": 243581,
+          "quantity": 2,
+          "name": "item-243581"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
+    },
+    {
       "recipe_name": "Sin'dorei Armor Banding",
       "wowhead_spell_id": 1237574,
       "crafted_item_id": 244635,
@@ -7001,6 +10759,39 @@
         2915
       ],
       "profession": "leatherworking"
+    },
+    {
+      "recipe_name": "Sin'dorei Clampers",
+      "wowhead_spell_id": 1229905,
+      "crafted_item_id": 244714,
+      "crafted_item_name": "Sin'dorei Clampers",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 253302,
+          "quantity": 1,
+          "name": "Malleable Wireframe"
+        },
+        {
+          "item_id": 238530,
+          "quantity": 1,
+          "name": "Majestic Fin"
+        },
+        {
+          "item_id": 243578,
+          "quantity": 4,
+          "name": "item-243578"
+        },
+        {
+          "item_id": 243581,
+          "quantity": 2,
+          "name": "item-243581"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
     },
     {
       "recipe_name": "Sin'dorei Engineer's Gloves",
@@ -7062,6 +10853,72 @@
         2915
       ],
       "profession": "leatherworking"
+    },
+    {
+      "recipe_name": "Sin'dorei Gilded Hardhat",
+      "wowhead_spell_id": 1229897,
+      "crafted_item_id": 244716,
+      "crafted_item_name": "Sin'dorei Gilded Hardhat",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 253302,
+          "quantity": 1,
+          "name": "Malleable Wireframe"
+        },
+        {
+          "item_id": 238529,
+          "quantity": 1,
+          "name": "Majestic Hide"
+        },
+        {
+          "item_id": 243578,
+          "quantity": 4,
+          "name": "item-243578"
+        },
+        {
+          "item_id": 243581,
+          "quantity": 2,
+          "name": "item-243581"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
+    },
+    {
+      "recipe_name": "Sin'dorei Headlamp",
+      "wowhead_spell_id": 1229894,
+      "crafted_item_id": 244710,
+      "crafted_item_name": "Sin'dorei Headlamp",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 253302,
+          "quantity": 1,
+          "name": "Malleable Wireframe"
+        },
+        {
+          "item_id": 238530,
+          "quantity": 1,
+          "name": "Majestic Fin"
+        },
+        {
+          "item_id": 243578,
+          "quantity": 4,
+          "name": "item-243578"
+        },
+        {
+          "item_id": 243581,
+          "quantity": 2,
+          "name": "item-243581"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
     },
     {
       "recipe_name": "Sin'dorei Herbalist's Backpack",
@@ -7211,32 +11068,42 @@
       "profession": "leatherworking"
     },
     {
-      "recipe_name": "Sin'dorei Phoenix Quill",
-      "wowhead_spell_id": 1248626,
-      "crafted_item_id": 262615,
-      "crafted_item_name": "Sin'dorei Phoenix Quill",
+      "recipe_name": "Sin'dorei Reeler's Rod",
+      "wowhead_spell_id": 1264527,
+      "crafted_item_id": 259179,
+      "crafted_item_name": "Sin'dorei Reeler's Rod",
       "crafted_quantity": 1,
       "reagents": [
         {
-          "item_id": 256963,
+          "item_id": 253302,
+          "quantity": 1,
+          "name": "Malleable Wireframe"
+        },
+        {
+          "item_id": 238530,
+          "quantity": 1,
+          "name": "Majestic Fin"
+        },
+        {
+          "item_id": 245345,
+          "quantity": 20,
+          "name": "Fused Vitality"
+        },
+        {
+          "item_id": 243578,
           "quantity": 4,
-          "name": "Thalassian Lumber"
+          "name": "item-243578"
         },
         {
-          "item_id": 245764,
-          "quantity": 1,
-          "name": "item-245764"
-        },
-        {
-          "item_id": 245766,
-          "quantity": 1,
-          "name": "item-245766"
+          "item_id": 243581,
+          "quantity": 2,
+          "name": "item-243581"
         }
       ],
       "skill": [
-        2913
+        2910
       ],
-      "profession": "inscription"
+      "profession": "engineering"
     },
     {
       "recipe_name": "Sin'dorei Rolling Pin",
@@ -7260,6 +11127,39 @@
         2913
       ],
       "profession": "inscription"
+    },
+    {
+      "recipe_name": "Sin'dorei Snippers",
+      "wowhead_spell_id": 1229907,
+      "crafted_item_id": 244708,
+      "crafted_item_name": "Sin'dorei Snippers",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 253302,
+          "quantity": 1,
+          "name": "Malleable Wireframe"
+        },
+        {
+          "item_id": 238528,
+          "quantity": 1,
+          "name": "Majestic Claw"
+        },
+        {
+          "item_id": 243578,
+          "quantity": 4,
+          "name": "item-243578"
+        },
+        {
+          "item_id": 243581,
+          "quantity": 2,
+          "name": "item-243581"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
     },
     {
       "recipe_name": "Skinner's Backpack",
@@ -7316,6 +11216,44 @@
         2915
       ],
       "profession": "leatherworking"
+    },
+    {
+      "recipe_name": "Small Telogrus Lamp",
+      "wowhead_spell_id": 1248614,
+      "crafted_item_id": 262789,
+      "crafted_item_name": "Small Telogrus Lamp",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 256963,
+          "quantity": 18,
+          "name": "Thalassian Lumber"
+        },
+        {
+          "item_id": 243574,
+          "quantity": 10,
+          "name": "item-243574"
+        },
+        {
+          "item_id": 243576,
+          "quantity": 10,
+          "name": "item-243576"
+        },
+        {
+          "item_id": 243578,
+          "quantity": 5,
+          "name": "item-243578"
+        },
+        {
+          "item_id": 243581,
+          "quantity": 5,
+          "name": "item-243581"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
     },
     {
       "recipe_name": "Smuggler's Cloak",
@@ -7384,6 +11322,131 @@
       "profession": "enchanting"
     },
     {
+      "recipe_name": "Smuggler's Leather Footpads",
+      "wowhead_spell_id": 1237500,
+      "crafted_item_id": 244585,
+      "crafted_item_name": "Smuggler's Leather Footpads",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238511,
+          "quantity": 25,
+          "name": "item-238511"
+        },
+        {
+          "item_id": 238513,
+          "quantity": 10,
+          "name": "item-238513"
+        }
+      ],
+      "skill": [
+        2915
+      ],
+      "profession": "leatherworking"
+    },
+    {
+      "recipe_name": "Smuggler's Leather Tunic",
+      "wowhead_spell_id": 1237499,
+      "crafted_item_id": 244587,
+      "crafted_item_name": "Smuggler's Leather Tunic",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238511,
+          "quantity": 25,
+          "name": "item-238511"
+        },
+        {
+          "item_id": 238513,
+          "quantity": 15,
+          "name": "item-238513"
+        }
+      ],
+      "skill": [
+        2915
+      ],
+      "profession": "leatherworking"
+    },
+    {
+      "recipe_name": "Smuggler's Leather Wristbands",
+      "wowhead_spell_id": 1237506,
+      "crafted_item_id": 244586,
+      "crafted_item_name": "Smuggler's Leather Wristbands",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238511,
+          "quantity": 20,
+          "name": "item-238511"
+        },
+        {
+          "item_id": 238513,
+          "quantity": 10,
+          "name": "item-238513"
+        }
+      ],
+      "skill": [
+        2915
+      ],
+      "profession": "leatherworking"
+    },
+    {
+      "recipe_name": "Smuggler's Lynxeye",
+      "wowhead_spell_id": 1261893,
+      "crafted_item_id": 257747,
+      "crafted_item_name": "Smuggler's Lynxeye",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243574,
+          "quantity": 1,
+          "name": "item-243574"
+        },
+        {
+          "item_id": 243576,
+          "quantity": 1,
+          "name": "item-243576"
+        },
+        {
+          "item_id": 243578,
+          "quantity": 3,
+          "name": "item-243578"
+        },
+        {
+          "item_id": 243581,
+          "quantity": 2,
+          "name": "item-243581"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
+    },
+    {
+      "recipe_name": "Smuggler's Reinforced Binding",
+      "wowhead_spell_id": 1237505,
+      "crafted_item_id": 244595,
+      "crafted_item_name": "Smuggler's Reinforced Binding",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238511,
+          "quantity": 30,
+          "name": "item-238511"
+        },
+        {
+          "item_id": 238513,
+          "quantity": 15,
+          "name": "item-238513"
+        }
+      ],
+      "skill": [
+        2915
+      ],
+      "profession": "leatherworking"
+    },
+    {
       "recipe_name": "Smuggler's Reinforced Gloves",
       "wowhead_spell_id": 1237501,
       "crafted_item_id": 244593,
@@ -7395,6 +11458,29 @@
           "quantity": 1,
           "name": "Peerless Plumage"
         },
+        {
+          "item_id": 238511,
+          "quantity": 40,
+          "name": "item-238511"
+        },
+        {
+          "item_id": 238513,
+          "quantity": 20,
+          "name": "item-238513"
+        }
+      ],
+      "skill": [
+        2915
+      ],
+      "profession": "leatherworking"
+    },
+    {
+      "recipe_name": "Smuggler's Reinforced Hood",
+      "wowhead_spell_id": 1237502,
+      "crafted_item_id": 244591,
+      "crafted_item_name": "Smuggler's Reinforced Hood",
+      "crafted_quantity": 1,
+      "reagents": [
         {
           "item_id": 238511,
           "quantity": 40,
@@ -7549,6 +11635,386 @@
       "profession": "enchanting"
     },
     {
+      "recipe_name": "Spellbreaker's Blade",
+      "wowhead_spell_id": 1229658,
+      "crafted_item_id": 237839,
+      "crafted_item_name": "Spellbreaker's Blade",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 237366,
+          "quantity": 2,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 238202,
+          "quantity": 8,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 6,
+          "name": "item-238204"
+        },
+        {
+          "item_id": 244637,
+          "quantity": 1,
+          "name": "Silvermoon Weapon Wrap"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Spellbreaker's Bracers",
+      "wowhead_spell_id": 1229662,
+      "crafted_item_id": 237834,
+      "crafted_item_name": "Spellbreaker's Bracers",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 237366,
+          "quantity": 1,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 238202,
+          "quantity": 8,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 8,
+          "name": "item-238204"
+        },
+        {
+          "item_id": 244635,
+          "quantity": 1,
+          "name": "item-244635"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Spellbreaker's Cover",
+      "wowhead_spell_id": 1229664,
+      "crafted_item_id": 237832,
+      "crafted_item_name": "Spellbreaker's Cover",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 237366,
+          "quantity": 1,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 238202,
+          "quantity": 6,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 10,
+          "name": "item-238204"
+        },
+        {
+          "item_id": 244635,
+          "quantity": 1,
+          "name": "item-244635"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Spellbreaker's Girdle",
+      "wowhead_spell_id": 1229666,
+      "crafted_item_id": 237830,
+      "crafted_item_name": "Spellbreaker's Girdle",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 237366,
+          "quantity": 1,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 238202,
+          "quantity": 8,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 8,
+          "name": "item-238204"
+        },
+        {
+          "item_id": 244635,
+          "quantity": 1,
+          "name": "item-244635"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Spellbreaker's Legguards",
+      "wowhead_spell_id": 1229663,
+      "crafted_item_id": 237833,
+      "crafted_item_name": "Spellbreaker's Legguards",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 237366,
+          "quantity": 1,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 238202,
+          "quantity": 5,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 12,
+          "name": "item-238204"
+        },
+        {
+          "item_id": 244635,
+          "quantity": 1,
+          "name": "item-244635"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Spellbreaker's Mantle",
+      "wowhead_spell_id": 1229661,
+      "crafted_item_id": 237835,
+      "crafted_item_name": "Spellbreaker's Mantle",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 237366,
+          "quantity": 1,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 238202,
+          "quantity": 5,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 12,
+          "name": "item-238204"
+        },
+        {
+          "item_id": 244635,
+          "quantity": 1,
+          "name": "item-244635"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Spellbreaker's March",
+      "wowhead_spell_id": 1229668,
+      "crafted_item_id": 237828,
+      "crafted_item_name": "Spellbreaker's March",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 237366,
+          "quantity": 1,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 238202,
+          "quantity": 6,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 10,
+          "name": "item-238204"
+        },
+        {
+          "item_id": 244635,
+          "quantity": 1,
+          "name": "item-244635"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Spellbreaker's Rebuke",
+      "wowhead_spell_id": 1229665,
+      "crafted_item_id": 237831,
+      "crafted_item_name": "Spellbreaker's Rebuke",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 237366,
+          "quantity": 2,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 238202,
+          "quantity": 10,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 6,
+          "name": "item-238204"
+        },
+        {
+          "item_id": 244637,
+          "quantity": 1,
+          "name": "Silvermoon Weapon Wrap"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Spellbreaker's Resolve",
+      "wowhead_spell_id": 1229660,
+      "crafted_item_id": 237836,
+      "crafted_item_name": "Spellbreaker's Resolve",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 237366,
+          "quantity": 1,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 238202,
+          "quantity": 6,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 10,
+          "name": "item-238204"
+        },
+        {
+          "item_id": 244635,
+          "quantity": 1,
+          "name": "item-244635"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Spellbreaker's Shelter",
+      "wowhead_spell_id": 1229667,
+      "crafted_item_id": 237829,
+      "crafted_item_name": "Spellbreaker's Shelter",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 237366,
+          "quantity": 1,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 238202,
+          "quantity": 5,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 12,
+          "name": "item-238204"
+        },
+        {
+          "item_id": 244635,
+          "quantity": 1,
+          "name": "item-244635"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
       "recipe_name": "Spellbreaker's Shroud",
       "wowhead_spell_id": 1280546,
       "crafted_item_id": 267449,
@@ -7580,6 +12046,110 @@
         2918
       ],
       "profession": "tailoring"
+    },
+    {
+      "recipe_name": "Spellbreaker's Ultimatum",
+      "wowhead_spell_id": 1229656,
+      "crafted_item_id": 237841,
+      "crafted_item_name": "Spellbreaker's Ultimatum",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 237366,
+          "quantity": 2,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 238202,
+          "quantity": 8,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 6,
+          "name": "item-238204"
+        },
+        {
+          "item_id": 244637,
+          "quantity": 1,
+          "name": "Silvermoon Weapon Wrap"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Spellbreaker's Warglaive",
+      "wowhead_spell_id": 1229657,
+      "crafted_item_id": 237840,
+      "crafted_item_name": "Spellbreaker's Warglaive",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 237366,
+          "quantity": 2,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 238202,
+          "quantity": 8,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 6,
+          "name": "item-238204"
+        },
+        {
+          "item_id": 244637,
+          "quantity": 1,
+          "name": "Silvermoon Weapon Wrap"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Sterling Alloy",
+      "wowhead_spell_id": 1230763,
+      "crafted_item_id": 238204,
+      "crafted_item_name": "Sterling Alloy",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 4,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 237364,
+          "quantity": 6,
+          "name": "item-237364"
+        },
+        {
+          "item_id": 238197,
+          "quantity": 3,
+          "name": "item-238197"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
     },
     {
       "recipe_name": "Stitched Haranir Rug",
@@ -7658,32 +12228,243 @@
       "profession": "leatherworking"
     },
     {
-      "recipe_name": "Sturdy Ren'dorei Cask",
-      "wowhead_spell_id": 1248619,
-      "crafted_item_id": 262612,
-      "crafted_item_name": "Sturdy Ren'dorei Cask",
+      "recipe_name": "Sun-Blessed Blacksmith's Hammer",
+      "wowhead_spell_id": 1229598,
+      "crafted_item_id": 238018,
+      "crafted_item_name": "Sun-Blessed Blacksmith's Hammer",
       "crafted_quantity": 1,
       "reagents": [
         {
-          "item_id": 256963,
-          "quantity": 26,
-          "name": "Thalassian Lumber"
+          "item_id": 238528,
+          "quantity": 1,
+          "name": "Majestic Claw"
         },
         {
-          "item_id": 245764,
+          "item_id": 237366,
+          "quantity": 2,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 238204,
           "quantity": 5,
-          "name": "item-245764"
-        },
-        {
-          "item_id": 245766,
-          "quantity": 10,
-          "name": "item-245766"
+          "name": "item-238204"
         }
       ],
       "skill": [
-        2913
+        2907
       ],
-      "profession": "inscription"
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Sun-Blessed Blacksmith's Toolbox",
+      "wowhead_spell_id": 1229603,
+      "crafted_item_id": 237952,
+      "crafted_item_name": "Sun-Blessed Blacksmith's Toolbox",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238530,
+          "quantity": 1,
+          "name": "Majestic Fin"
+        },
+        {
+          "item_id": 243060,
+          "quantity": 5,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 237366,
+          "quantity": 2,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 5,
+          "name": "item-238204"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Sun-Blessed Leatherworker's Knife",
+      "wowhead_spell_id": 1229599,
+      "crafted_item_id": 238017,
+      "crafted_item_name": "Sun-Blessed Leatherworker's Knife",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238528,
+          "quantity": 1,
+          "name": "Majestic Claw"
+        },
+        {
+          "item_id": 237366,
+          "quantity": 2,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 5,
+          "name": "item-238204"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Sun-Blessed Leatherworker's Toolset",
+      "wowhead_spell_id": 1229604,
+      "crafted_item_id": 237951,
+      "crafted_item_name": "Sun-Blessed Leatherworker's Toolset",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238529,
+          "quantity": 1,
+          "name": "Majestic Hide"
+        },
+        {
+          "item_id": 243060,
+          "quantity": 5,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 237366,
+          "quantity": 2,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 5,
+          "name": "item-238204"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Sun-Blessed Needle Set",
+      "wowhead_spell_id": 1229605,
+      "crafted_item_id": 237950,
+      "crafted_item_name": "Sun-Blessed Needle Set",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238528,
+          "quantity": 1,
+          "name": "Majestic Claw"
+        },
+        {
+          "item_id": 243060,
+          "quantity": 5,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 237366,
+          "quantity": 2,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 5,
+          "name": "item-238204"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Sun-Blessed Pickaxe",
+      "wowhead_spell_id": 1229601,
+      "crafted_item_id": 238015,
+      "crafted_item_name": "Sun-Blessed Pickaxe",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238528,
+          "quantity": 1,
+          "name": "Majestic Claw"
+        },
+        {
+          "item_id": 237366,
+          "quantity": 2,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 5,
+          "name": "item-238204"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Sun-Blessed Sickle",
+      "wowhead_spell_id": 1229602,
+      "crafted_item_id": 238014,
+      "crafted_item_name": "Sun-Blessed Sickle",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238528,
+          "quantity": 1,
+          "name": "Majestic Claw"
+        },
+        {
+          "item_id": 237366,
+          "quantity": 2,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 5,
+          "name": "item-238204"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Sun-Blessed Skinning Knife",
+      "wowhead_spell_id": 1229600,
+      "crafted_item_id": 238016,
+      "crafted_item_name": "Sun-Blessed Skinning Knife",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238528,
+          "quantity": 1,
+          "name": "Majestic Claw"
+        },
+        {
+          "item_id": 237366,
+          "quantity": 2,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 5,
+          "name": "item-238204"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
     },
     {
       "recipe_name": "Sunfire Bracers",
@@ -7995,6 +12776,318 @@
       "profession": "tailoring"
     },
     {
+      "recipe_name": "Sunforged Blacksmith's Hammer",
+      "wowhead_spell_id": 1230769,
+      "crafted_item_id": 246537,
+      "crafted_item_name": "Sunforged Blacksmith's Hammer",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238528,
+          "quantity": 2,
+          "name": "Majestic Claw"
+        },
+        {
+          "item_id": 237366,
+          "quantity": 2,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 245345,
+          "quantity": 20,
+          "name": "Fused Vitality"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 5,
+          "name": "item-238204"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Sunforged Blacksmith's Toolbox",
+      "wowhead_spell_id": 1264644,
+      "crafted_item_id": 259230,
+      "crafted_item_name": "Sunforged Blacksmith's Toolbox",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238530,
+          "quantity": 2,
+          "name": "Majestic Fin"
+        },
+        {
+          "item_id": 243060,
+          "quantity": 5,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 237366,
+          "quantity": 2,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 245345,
+          "quantity": 20,
+          "name": "Fused Vitality"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 5,
+          "name": "item-238204"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Sunforged Leatherworker's Knife",
+      "wowhead_spell_id": 1262899,
+      "crafted_item_id": 246536,
+      "crafted_item_name": "Sunforged Leatherworker's Knife",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238528,
+          "quantity": 2,
+          "name": "Majestic Claw"
+        },
+        {
+          "item_id": 237366,
+          "quantity": 2,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 245345,
+          "quantity": 20,
+          "name": "Fused Vitality"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 5,
+          "name": "item-238204"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Sunforged Leatherworker's Toolset",
+      "wowhead_spell_id": 1264645,
+      "crafted_item_id": 259232,
+      "crafted_item_name": "Sunforged Leatherworker's Toolset",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238529,
+          "quantity": 2,
+          "name": "Majestic Hide"
+        },
+        {
+          "item_id": 243060,
+          "quantity": 5,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 237366,
+          "quantity": 2,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 245345,
+          "quantity": 20,
+          "name": "Fused Vitality"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 5,
+          "name": "item-238204"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Sunforged Needle Set",
+      "wowhead_spell_id": 1264646,
+      "crafted_item_id": 259234,
+      "crafted_item_name": "Sunforged Needle Set",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238528,
+          "quantity": 2,
+          "name": "Majestic Claw"
+        },
+        {
+          "item_id": 243060,
+          "quantity": 5,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 237366,
+          "quantity": 2,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 245345,
+          "quantity": 20,
+          "name": "Fused Vitality"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 5,
+          "name": "item-238204"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Sunforged Pickaxe",
+      "wowhead_spell_id": 1262919,
+      "crafted_item_id": 246534,
+      "crafted_item_name": "Sunforged Pickaxe",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238528,
+          "quantity": 2,
+          "name": "Majestic Claw"
+        },
+        {
+          "item_id": 237366,
+          "quantity": 2,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 245345,
+          "quantity": 20,
+          "name": "Fused Vitality"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 5,
+          "name": "item-238204"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Sunforged Sickle",
+      "wowhead_spell_id": 1264651,
+      "crafted_item_id": 246533,
+      "crafted_item_name": "Sunforged Sickle",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238528,
+          "quantity": 2,
+          "name": "Majestic Claw"
+        },
+        {
+          "item_id": 237366,
+          "quantity": 2,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 245345,
+          "quantity": 20,
+          "name": "Fused Vitality"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 5,
+          "name": "item-238204"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Sunforged Skinning Knife",
+      "wowhead_spell_id": 1262905,
+      "crafted_item_id": 246535,
+      "crafted_item_name": "Sunforged Skinning Knife",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238528,
+          "quantity": 2,
+          "name": "Majestic Claw"
+        },
+        {
+          "item_id": 237366,
+          "quantity": 2,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 245345,
+          "quantity": 20,
+          "name": "Fused Vitality"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 5,
+          "name": "item-238204"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Sunsmoke Censer",
+      "wowhead_spell_id": 1233135,
+      "crafted_item_id": 256356,
+      "crafted_item_name": "Sunsmoke Censer",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 236949,
+          "quantity": 6,
+          "name": "Mote of Light"
+        },
+        {
+          "item_id": 256963,
+          "quantity": 12,
+          "name": "Thalassian Lumber"
+        },
+        {
+          "item_id": 241281,
+          "quantity": 4,
+          "name": "item-241281"
+        },
+        {
+          "item_id": 241283,
+          "quantity": 4,
+          "name": "item-241283"
+        }
+      ],
+      "skill": [
+        2906
+      ],
+      "profession": "alchemy"
+    },
+    {
       "recipe_name": "Thalassian Alchemist's Mixcap",
       "wowhead_spell_id": 1237550,
       "crafted_item_id": 244812,
@@ -8071,6 +13164,52 @@
       "profession": "tailoring"
     },
     {
+      "recipe_name": "Thalassian Blacksmith's Hammer",
+      "wowhead_spell_id": 1229606,
+      "crafted_item_id": 238013,
+      "crafted_item_name": "Thalassian Blacksmith's Hammer",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 3,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 238197,
+          "quantity": 6,
+          "name": "item-238197"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Thalassian Blacksmith's Toolbox",
+      "wowhead_spell_id": 1229611,
+      "crafted_item_id": 237948,
+      "crafted_item_name": "Thalassian Blacksmith's Toolbox",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 4,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 238197,
+          "quantity": 5,
+          "name": "item-238197"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
       "recipe_name": "Thalassian Chef's Chapeau",
       "wowhead_spell_id": 1279124,
       "crafted_item_id": 267054,
@@ -8107,6 +13246,298 @@
         2918
       ],
       "profession": "tailoring"
+    },
+    {
+      "recipe_name": "Thalassian Competitor's Bulwark",
+      "wowhead_spell_id": 1229634,
+      "crafted_item_id": 237912,
+      "crafted_item_name": "Thalassian Competitor's Bulwark",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 8,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 238202,
+          "quantity": 2,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 244637,
+          "quantity": 1,
+          "name": "Silvermoon Weapon Wrap"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Thalassian Competitor's Chain Cowl",
+      "wowhead_spell_id": 1237523,
+      "crafted_item_id": 244563,
+      "crafted_item_name": "Thalassian Competitor's Chain Cowl",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238511,
+          "quantity": 15,
+          "name": "item-238511"
+        },
+        {
+          "item_id": 238513,
+          "quantity": 30,
+          "name": "item-238513"
+        },
+        {
+          "item_id": 238520,
+          "quantity": 1,
+          "name": "item-238520"
+        },
+        {
+          "item_id": 244635,
+          "quantity": 1,
+          "name": "item-244635"
+        }
+      ],
+      "skill": [
+        2915
+      ],
+      "profession": "leatherworking"
+    },
+    {
+      "recipe_name": "Thalassian Competitor's Chain Cuffs",
+      "wowhead_spell_id": 1237527,
+      "crafted_item_id": 244568,
+      "crafted_item_name": "Thalassian Competitor's Chain Cuffs",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238511,
+          "quantity": 10,
+          "name": "item-238511"
+        },
+        {
+          "item_id": 238513,
+          "quantity": 20,
+          "name": "item-238513"
+        },
+        {
+          "item_id": 238520,
+          "quantity": 1,
+          "name": "item-238520"
+        },
+        {
+          "item_id": 244635,
+          "quantity": 1,
+          "name": "item-244635"
+        }
+      ],
+      "skill": [
+        2915
+      ],
+      "profession": "leatherworking"
+    },
+    {
+      "recipe_name": "Thalassian Competitor's Chain Epaulets",
+      "wowhead_spell_id": 1237525,
+      "crafted_item_id": 244564,
+      "crafted_item_name": "Thalassian Competitor's Chain Epaulets",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238511,
+          "quantity": 20,
+          "name": "item-238511"
+        },
+        {
+          "item_id": 238513,
+          "quantity": 40,
+          "name": "item-238513"
+        },
+        {
+          "item_id": 238520,
+          "quantity": 1,
+          "name": "item-238520"
+        },
+        {
+          "item_id": 244635,
+          "quantity": 1,
+          "name": "item-244635"
+        }
+      ],
+      "skill": [
+        2915
+      ],
+      "profession": "leatherworking"
+    },
+    {
+      "recipe_name": "Thalassian Competitor's Chain Girdle",
+      "wowhead_spell_id": 1237526,
+      "crafted_item_id": 244565,
+      "crafted_item_name": "Thalassian Competitor's Chain Girdle",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238511,
+          "quantity": 10,
+          "name": "item-238511"
+        },
+        {
+          "item_id": 238513,
+          "quantity": 20,
+          "name": "item-238513"
+        },
+        {
+          "item_id": 238520,
+          "quantity": 1,
+          "name": "item-238520"
+        },
+        {
+          "item_id": 244635,
+          "quantity": 1,
+          "name": "item-244635"
+        }
+      ],
+      "skill": [
+        2915
+      ],
+      "profession": "leatherworking"
+    },
+    {
+      "recipe_name": "Thalassian Competitor's Chain Grips",
+      "wowhead_spell_id": 1237522,
+      "crafted_item_id": 244567,
+      "crafted_item_name": "Thalassian Competitor's Chain Grips",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238511,
+          "quantity": 10,
+          "name": "item-238511"
+        },
+        {
+          "item_id": 238513,
+          "quantity": 20,
+          "name": "item-238513"
+        },
+        {
+          "item_id": 238520,
+          "quantity": 1,
+          "name": "item-238520"
+        },
+        {
+          "item_id": 244635,
+          "quantity": 1,
+          "name": "item-244635"
+        }
+      ],
+      "skill": [
+        2915
+      ],
+      "profession": "leatherworking"
+    },
+    {
+      "recipe_name": "Thalassian Competitor's Chain Leggings",
+      "wowhead_spell_id": 1237524,
+      "crafted_item_id": 244566,
+      "crafted_item_name": "Thalassian Competitor's Chain Leggings",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238511,
+          "quantity": 20,
+          "name": "item-238511"
+        },
+        {
+          "item_id": 238513,
+          "quantity": 40,
+          "name": "item-238513"
+        },
+        {
+          "item_id": 238520,
+          "quantity": 1,
+          "name": "item-238520"
+        },
+        {
+          "item_id": 244635,
+          "quantity": 1,
+          "name": "item-244635"
+        }
+      ],
+      "skill": [
+        2915
+      ],
+      "profession": "leatherworking"
+    },
+    {
+      "recipe_name": "Thalassian Competitor's Chain Stompers",
+      "wowhead_spell_id": 1237521,
+      "crafted_item_id": 244561,
+      "crafted_item_name": "Thalassian Competitor's Chain Stompers",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238511,
+          "quantity": 15,
+          "name": "item-238511"
+        },
+        {
+          "item_id": 238513,
+          "quantity": 30,
+          "name": "item-238513"
+        },
+        {
+          "item_id": 238520,
+          "quantity": 1,
+          "name": "item-238520"
+        },
+        {
+          "item_id": 244635,
+          "quantity": 1,
+          "name": "item-244635"
+        }
+      ],
+      "skill": [
+        2915
+      ],
+      "profession": "leatherworking"
+    },
+    {
+      "recipe_name": "Thalassian Competitor's Chain Tunic",
+      "wowhead_spell_id": 1237520,
+      "crafted_item_id": 244562,
+      "crafted_item_name": "Thalassian Competitor's Chain Tunic",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238511,
+          "quantity": 20,
+          "name": "item-238511"
+        },
+        {
+          "item_id": 238513,
+          "quantity": 40,
+          "name": "item-238513"
+        },
+        {
+          "item_id": 238520,
+          "quantity": 1,
+          "name": "item-238520"
+        },
+        {
+          "item_id": 244635,
+          "quantity": 1,
+          "name": "item-244635"
+        }
+      ],
+      "skill": [
+        2915
+      ],
+      "profession": "leatherworking"
     },
     {
       "recipe_name": "Thalassian Competitor's Cloth Bands",
@@ -8401,88 +13832,688 @@
       "profession": "tailoring"
     },
     {
-      "recipe_name": "Thalassian Competitor's Emblem",
-      "wowhead_spell_id": 1230067,
-      "crafted_item_id": 245753,
-      "crafted_item_name": "Thalassian Competitor's Emblem",
+      "recipe_name": "Thalassian Competitor's Greatsword",
+      "wowhead_spell_id": 1229631,
+      "crafted_item_id": 237915,
+      "crafted_item_name": "Thalassian Competitor's Greatsword",
       "crafted_quantity": 1,
       "reagents": [
         {
-          "item_id": 245882,
-          "quantity": 3,
-          "name": "Thalassian Songwater"
+          "item_id": 243060,
+          "quantity": 8,
+          "name": "Luminant Flux"
         },
         {
-          "item_id": 245766,
-          "quantity": 4,
-          "name": "item-245766"
-        },
-        {
-          "item_id": 245801,
+          "item_id": 238202,
           "quantity": 2,
-          "name": "item-245801"
+          "name": "item-238202"
+        },
+        {
+          "item_id": 244637,
+          "quantity": 1,
+          "name": "Silvermoon Weapon Wrap"
         }
       ],
       "skill": [
-        2913
+        2907
       ],
-      "profession": "inscription"
+      "profession": "blacksmithing"
     },
     {
-      "recipe_name": "Thalassian Competitor's Insignia of Alacrity",
-      "wowhead_spell_id": 1230068,
-      "crafted_item_id": 245752,
-      "crafted_item_name": "Thalassian Competitor's Insignia of Alacrity",
+      "recipe_name": "Thalassian Competitor's Knife",
+      "wowhead_spell_id": 1229636,
+      "crafted_item_id": 237910,
+      "crafted_item_name": "Thalassian Competitor's Knife",
       "crafted_quantity": 1,
       "reagents": [
         {
-          "item_id": 245882,
-          "quantity": 3,
-          "name": "Thalassian Songwater"
+          "item_id": 243060,
+          "quantity": 5,
+          "name": "Luminant Flux"
         },
         {
-          "item_id": 245766,
-          "quantity": 4,
-          "name": "item-245766"
-        },
-        {
-          "item_id": 245801,
+          "item_id": 238202,
           "quantity": 2,
-          "name": "item-245801"
+          "name": "item-238202"
+        },
+        {
+          "item_id": 244637,
+          "quantity": 1,
+          "name": "Silvermoon Weapon Wrap"
         }
       ],
       "skill": [
-        2913
+        2907
       ],
-      "profession": "inscription"
+      "profession": "blacksmithing"
     },
     {
-      "recipe_name": "Thalassian Competitor's Medallion",
-      "wowhead_spell_id": 1230069,
-      "crafted_item_id": 245751,
-      "crafted_item_name": "Thalassian Competitor's Medallion",
+      "recipe_name": "Thalassian Competitor's Leather Belt",
+      "wowhead_spell_id": 1237496,
+      "crafted_item_id": 244557,
+      "crafted_item_name": "Thalassian Competitor's Leather Belt",
       "crafted_quantity": 1,
       "reagents": [
         {
-          "item_id": 245882,
-          "quantity": 3,
-          "name": "Thalassian Songwater"
+          "item_id": 238511,
+          "quantity": 20,
+          "name": "item-238511"
         },
         {
-          "item_id": 245766,
-          "quantity": 4,
-          "name": "item-245766"
+          "item_id": 238513,
+          "quantity": 10,
+          "name": "item-238513"
         },
         {
-          "item_id": 245805,
-          "quantity": 2,
-          "name": "item-245805"
+          "item_id": 238518,
+          "quantity": 1,
+          "name": "item-238518"
+        },
+        {
+          "item_id": 244635,
+          "quantity": 1,
+          "name": "item-244635"
         }
       ],
       "skill": [
-        2913
+        2915
       ],
-      "profession": "inscription"
+      "profession": "leatherworking"
+    },
+    {
+      "recipe_name": "Thalassian Competitor's Leather Boots",
+      "wowhead_spell_id": 1237490,
+      "crafted_item_id": 244553,
+      "crafted_item_name": "Thalassian Competitor's Leather Boots",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238511,
+          "quantity": 40,
+          "name": "item-238511"
+        },
+        {
+          "item_id": 238513,
+          "quantity": 20,
+          "name": "item-238513"
+        },
+        {
+          "item_id": 238518,
+          "quantity": 1,
+          "name": "item-238518"
+        },
+        {
+          "item_id": 244635,
+          "quantity": 1,
+          "name": "item-244635"
+        }
+      ],
+      "skill": [
+        2915
+      ],
+      "profession": "leatherworking"
+    },
+    {
+      "recipe_name": "Thalassian Competitor's Leather Chestpiece",
+      "wowhead_spell_id": 1237491,
+      "crafted_item_id": 244554,
+      "crafted_item_name": "Thalassian Competitor's Leather Chestpiece",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238511,
+          "quantity": 30,
+          "name": "item-238511"
+        },
+        {
+          "item_id": 238513,
+          "quantity": 15,
+          "name": "item-238513"
+        },
+        {
+          "item_id": 238518,
+          "quantity": 1,
+          "name": "item-238518"
+        },
+        {
+          "item_id": 244635,
+          "quantity": 1,
+          "name": "item-244635"
+        }
+      ],
+      "skill": [
+        2915
+      ],
+      "profession": "leatherworking"
+    },
+    {
+      "recipe_name": "Thalassian Competitor's Leather Gloves",
+      "wowhead_spell_id": 1237492,
+      "crafted_item_id": 244559,
+      "crafted_item_name": "Thalassian Competitor's Leather Gloves",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238511,
+          "quantity": 20,
+          "name": "item-238511"
+        },
+        {
+          "item_id": 238513,
+          "quantity": 10,
+          "name": "item-238513"
+        },
+        {
+          "item_id": 238518,
+          "quantity": 1,
+          "name": "item-238518"
+        },
+        {
+          "item_id": 244635,
+          "quantity": 1,
+          "name": "item-244635"
+        }
+      ],
+      "skill": [
+        2915
+      ],
+      "profession": "leatherworking"
+    },
+    {
+      "recipe_name": "Thalassian Competitor's Leather Mask",
+      "wowhead_spell_id": 1237493,
+      "crafted_item_id": 244555,
+      "crafted_item_name": "Thalassian Competitor's Leather Mask",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238511,
+          "quantity": 30,
+          "name": "item-238511"
+        },
+        {
+          "item_id": 238513,
+          "quantity": 15,
+          "name": "item-238513"
+        },
+        {
+          "item_id": 238518,
+          "quantity": 1,
+          "name": "item-238518"
+        },
+        {
+          "item_id": 244635,
+          "quantity": 1,
+          "name": "item-244635"
+        }
+      ],
+      "skill": [
+        2915
+      ],
+      "profession": "leatherworking"
+    },
+    {
+      "recipe_name": "Thalassian Competitor's Leather Shoulderpads",
+      "wowhead_spell_id": 1237495,
+      "crafted_item_id": 244556,
+      "crafted_item_name": "Thalassian Competitor's Leather Shoulderpads",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238511,
+          "quantity": 40,
+          "name": "item-238511"
+        },
+        {
+          "item_id": 238513,
+          "quantity": 20,
+          "name": "item-238513"
+        },
+        {
+          "item_id": 238518,
+          "quantity": 1,
+          "name": "item-238518"
+        },
+        {
+          "item_id": 244635,
+          "quantity": 1,
+          "name": "item-244635"
+        }
+      ],
+      "skill": [
+        2915
+      ],
+      "profession": "leatherworking"
+    },
+    {
+      "recipe_name": "Thalassian Competitor's Leather Trousers",
+      "wowhead_spell_id": 1237494,
+      "crafted_item_id": 244558,
+      "crafted_item_name": "Thalassian Competitor's Leather Trousers",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238511,
+          "quantity": 40,
+          "name": "item-238511"
+        },
+        {
+          "item_id": 238513,
+          "quantity": 20,
+          "name": "item-238513"
+        },
+        {
+          "item_id": 238518,
+          "quantity": 1,
+          "name": "item-238518"
+        },
+        {
+          "item_id": 244635,
+          "quantity": 1,
+          "name": "item-244635"
+        }
+      ],
+      "skill": [
+        2915
+      ],
+      "profession": "leatherworking"
+    },
+    {
+      "recipe_name": "Thalassian Competitor's Leather Wristwraps",
+      "wowhead_spell_id": 1237497,
+      "crafted_item_id": 244560,
+      "crafted_item_name": "Thalassian Competitor's Leather Wristwraps",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238511,
+          "quantity": 20,
+          "name": "item-238511"
+        },
+        {
+          "item_id": 238513,
+          "quantity": 10,
+          "name": "item-238513"
+        },
+        {
+          "item_id": 238518,
+          "quantity": 1,
+          "name": "item-238518"
+        },
+        {
+          "item_id": 244635,
+          "quantity": 1,
+          "name": "item-244635"
+        }
+      ],
+      "skill": [
+        2915
+      ],
+      "profession": "leatherworking"
+    },
+    {
+      "recipe_name": "Thalassian Competitor's Maxim",
+      "wowhead_spell_id": 1229635,
+      "crafted_item_id": 237911,
+      "crafted_item_name": "Thalassian Competitor's Maxim",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 8,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 238202,
+          "quantity": 2,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 244637,
+          "quantity": 1,
+          "name": "Silvermoon Weapon Wrap"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Thalassian Competitor's Pickaxe",
+      "wowhead_spell_id": 1229637,
+      "crafted_item_id": 237909,
+      "crafted_item_name": "Thalassian Competitor's Pickaxe",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 8,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 238202,
+          "quantity": 2,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 244637,
+          "quantity": 1,
+          "name": "Silvermoon Weapon Wrap"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Thalassian Competitor's Plate Armguards",
+      "wowhead_spell_id": 1229638,
+      "crafted_item_id": 237908,
+      "crafted_item_name": "Thalassian Competitor's Plate Armguards",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 3,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 238202,
+          "quantity": 2,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 244635,
+          "quantity": 1,
+          "name": "item-244635"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Thalassian Competitor's Plate Breastplate",
+      "wowhead_spell_id": 1229645,
+      "crafted_item_id": 237901,
+      "crafted_item_name": "Thalassian Competitor's Plate Breastplate",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 6,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 238202,
+          "quantity": 2,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 244635,
+          "quantity": 1,
+          "name": "item-244635"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Thalassian Competitor's Plate Gauntlets",
+      "wowhead_spell_id": 1229642,
+      "crafted_item_id": 237903,
+      "crafted_item_name": "Thalassian Competitor's Plate Gauntlets",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 4,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 238202,
+          "quantity": 2,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 244635,
+          "quantity": 1,
+          "name": "item-244635"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Thalassian Competitor's Plate Greaves",
+      "wowhead_spell_id": 1229644,
+      "crafted_item_id": 237905,
+      "crafted_item_name": "Thalassian Competitor's Plate Greaves",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 6,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 238202,
+          "quantity": 2,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 244635,
+          "quantity": 1,
+          "name": "item-244635"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Thalassian Competitor's Plate Helm",
+      "wowhead_spell_id": 1229641,
+      "crafted_item_id": 237904,
+      "crafted_item_name": "Thalassian Competitor's Plate Helm",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 4,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 238202,
+          "quantity": 2,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 244635,
+          "quantity": 1,
+          "name": "item-244635"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Thalassian Competitor's Plate Pauldrons",
+      "wowhead_spell_id": 1229640,
+      "crafted_item_id": 237906,
+      "crafted_item_name": "Thalassian Competitor's Plate Pauldrons",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 6,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 238202,
+          "quantity": 2,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 244635,
+          "quantity": 1,
+          "name": "item-244635"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Thalassian Competitor's Plate Sabatons",
+      "wowhead_spell_id": 1229643,
+      "crafted_item_id": 237902,
+      "crafted_item_name": "Thalassian Competitor's Plate Sabatons",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 4,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 238202,
+          "quantity": 2,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 244635,
+          "quantity": 1,
+          "name": "item-244635"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Thalassian Competitor's Plate Waistguard",
+      "wowhead_spell_id": 1229639,
+      "crafted_item_id": 237907,
+      "crafted_item_name": "Thalassian Competitor's Plate Waistguard",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 3,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 238202,
+          "quantity": 2,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 244635,
+          "quantity": 1,
+          "name": "item-244635"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Thalassian Competitor's Skewer",
+      "wowhead_spell_id": 1229632,
+      "crafted_item_id": 237914,
+      "crafted_item_name": "Thalassian Competitor's Skewer",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 5,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 238202,
+          "quantity": 2,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 244637,
+          "quantity": 1,
+          "name": "Silvermoon Weapon Wrap"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Thalassian Competitor's Splitter",
+      "wowhead_spell_id": 1229633,
+      "crafted_item_id": 237913,
+      "crafted_item_name": "Thalassian Competitor's Splitter",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 8,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 238202,
+          "quantity": 2,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 244637,
+          "quantity": 1,
+          "name": "Silvermoon Weapon Wrap"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Thalassian Competitor's Sword",
+      "wowhead_spell_id": 1229630,
+      "crafted_item_id": 237916,
+      "crafted_item_name": "Thalassian Competitor's Sword",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 8,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 238202,
+          "quantity": 2,
+          "name": "item-238202"
+        },
+        {
+          "item_id": 244637,
+          "quantity": 1,
+          "name": "Silvermoon Weapon Wrap"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
     },
     {
       "recipe_name": "Thalassian Enchanter's Bonnet",
@@ -8716,6 +14747,85 @@
         2915
       ],
       "profession": "leatherworking"
+    },
+    {
+      "recipe_name": "Thalassian Leatherworker's Knife",
+      "wowhead_spell_id": 1229607,
+      "crafted_item_id": 238012,
+      "crafted_item_name": "Thalassian Leatherworker's Knife",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 3,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 238197,
+          "quantity": 6,
+          "name": "item-238197"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Thalassian Leatherworker's Toolset",
+      "wowhead_spell_id": 1229612,
+      "crafted_item_id": 237947,
+      "crafted_item_name": "Thalassian Leatherworker's Toolset",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 4,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 238197,
+          "quantity": 5,
+          "name": "item-238197"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Thalassian Master Repair Hammer",
+      "wowhead_spell_id": 1230765,
+      "crafted_item_id": 238020,
+      "crafted_item_name": "Thalassian Master Repair Hammer",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 237366,
+          "quantity": 3,
+          "name": "Dazzling Thorium"
+        },
+        {
+          "item_id": 243060,
+          "quantity": 10,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 238197,
+          "quantity": 5,
+          "name": "item-238197"
+        },
+        {
+          "item_id": 238204,
+          "quantity": 5,
+          "name": "item-238204"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
     },
     {
       "recipe_name": "Thalassian Missive of Crafting Speed",
@@ -9147,6 +15257,29 @@
       "profession": "inscription"
     },
     {
+      "recipe_name": "Thalassian Needle Set",
+      "wowhead_spell_id": 1229613,
+      "crafted_item_id": 237946,
+      "crafted_item_name": "Thalassian Needle Set",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 4,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 238197,
+          "quantity": 5,
+          "name": "item-238197"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
       "recipe_name": "Thalassian Phoenix Oil",
       "wowhead_spell_id": 1236491,
       "crafted_item_id": 243733,
@@ -9173,6 +15306,29 @@
         2909
       ],
       "profession": "enchanting"
+    },
+    {
+      "recipe_name": "Thalassian Pickaxe",
+      "wowhead_spell_id": 1229609,
+      "crafted_item_id": 238010,
+      "crafted_item_name": "Thalassian Pickaxe",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 3,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 238197,
+          "quantity": 6,
+          "name": "item-238197"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
     },
     {
       "recipe_name": "Thalassian Scout Armor Kit",
@@ -9239,6 +15395,75 @@
         2915
       ],
       "profession": "leatherworking"
+    },
+    {
+      "recipe_name": "Thalassian Sickle",
+      "wowhead_spell_id": 1229610,
+      "crafted_item_id": 238009,
+      "crafted_item_name": "Thalassian Sickle",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 3,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 238197,
+          "quantity": 6,
+          "name": "item-238197"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Thalassian Skinning Knife",
+      "wowhead_spell_id": 1229608,
+      "crafted_item_id": 238011,
+      "crafted_item_name": "Thalassian Skinning Knife",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243060,
+          "quantity": 3,
+          "name": "Luminant Flux"
+        },
+        {
+          "item_id": 238197,
+          "quantity": 6,
+          "name": "item-238197"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Thalassian Spellweaver's Wand",
+      "wowhead_spell_id": 1236489,
+      "crafted_item_id": 244178,
+      "crafted_item_name": "Thalassian Spellweaver's Wand",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 243599,
+          "quantity": 15,
+          "name": "item-243599"
+        },
+        {
+          "item_id": 243602,
+          "quantity": 3,
+          "name": "item-243602"
+        }
+      ],
+      "skill": [
+        2909
+      ],
+      "profession": "enchanting"
     },
     {
       "recipe_name": "Thalassian Tailor's Threads",
@@ -9718,37 +15943,256 @@
       "profession": "leatherworking"
     },
     {
-      "recipe_name": "Vantus Rune: Radiant",
-      "wowhead_spell_id": 1230050,
-      "crafted_item_id": 245879,
-      "crafted_item_name": "Vantus Rune: Radiant",
+      "recipe_name": "Tinker's Handguard",
+      "wowhead_spell_id": 1237554,
+      "crafted_item_id": 244618,
+      "crafted_item_name": "Tinker's Handguard",
       "crafted_quantity": 1,
       "reagents": [
         {
-          "item_id": 245882,
-          "quantity": 1,
-          "name": "Thalassian Songwater"
+          "item_id": 238511,
+          "quantity": 40,
+          "name": "item-238511"
         },
         {
-          "item_id": 245881,
-          "quantity": 1,
-          "name": "Lexicologist's Vellum"
-        },
-        {
-          "item_id": 251285,
-          "quantity": 2,
-          "name": "Petrified Root"
-        },
-        {
-          "item_id": 245766,
-          "quantity": 1,
-          "name": "item-245766"
+          "item_id": 238513,
+          "quantity": 30,
+          "name": "item-238513"
         }
       ],
       "skill": [
-        2913
+        2915
       ],
-      "profession": "inscription"
+      "profession": "leatherworking"
+    },
+    {
+      "recipe_name": "Transmute: Mote of Light",
+      "wowhead_spell_id": 1230890,
+      "crafted_item_id": 236949,
+      "crafted_item_name": "Transmute: Mote of Light",
+      "crafted_quantity": 8,
+      "reagents": [
+        {
+          "item_id": 236950,
+          "quantity": 10,
+          "name": "Mote of Primal Energy"
+        },
+        {
+          "item_id": 242651,
+          "quantity": 2,
+          "name": "Stabilized Derivate"
+        }
+      ],
+      "skill": [
+        2906
+      ],
+      "profession": "alchemy"
+    },
+    {
+      "recipe_name": "Transmute: Mote of Primal Energy",
+      "wowhead_spell_id": 1230889,
+      "crafted_item_id": 236950,
+      "crafted_item_name": "Transmute: Mote of Primal Energy",
+      "crafted_quantity": 8,
+      "reagents": [
+        {
+          "item_id": 236952,
+          "quantity": 10,
+          "name": "Mote of Pure Void"
+        },
+        {
+          "item_id": 242651,
+          "quantity": 2,
+          "name": "Stabilized Derivate"
+        }
+      ],
+      "skill": [
+        2906
+      ],
+      "profession": "alchemy"
+    },
+    {
+      "recipe_name": "Transmute: Mote of Pure Void",
+      "wowhead_spell_id": 1230888,
+      "crafted_item_id": 236952,
+      "crafted_item_name": "Transmute: Mote of Pure Void",
+      "crafted_quantity": 8,
+      "reagents": [
+        {
+          "item_id": 236951,
+          "quantity": 10,
+          "name": "Mote of Wild Magic"
+        },
+        {
+          "item_id": 242651,
+          "quantity": 2,
+          "name": "Stabilized Derivate"
+        }
+      ],
+      "skill": [
+        2906
+      ],
+      "profession": "alchemy"
+    },
+    {
+      "recipe_name": "Transmute: Mote of Wild Magic",
+      "wowhead_spell_id": 1230887,
+      "crafted_item_id": 236951,
+      "crafted_item_name": "Transmute: Mote of Wild Magic",
+      "crafted_quantity": 8,
+      "reagents": [
+        {
+          "item_id": 236949,
+          "quantity": 10,
+          "name": "Mote of Light"
+        },
+        {
+          "item_id": 242651,
+          "quantity": 2,
+          "name": "Stabilized Derivate"
+        }
+      ],
+      "skill": [
+        2906
+      ],
+      "profession": "alchemy"
+    },
+    {
+      "recipe_name": "Turbo-Junker's Multitool",
+      "wowhead_spell_id": 1229903,
+      "crafted_item_id": 244718,
+      "crafted_item_name": "Turbo-Junker's Multitool",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 253302,
+          "quantity": 1,
+          "name": "Malleable Wireframe"
+        },
+        {
+          "item_id": 238528,
+          "quantity": 1,
+          "name": "Majestic Claw"
+        },
+        {
+          "item_id": 243578,
+          "quantity": 3,
+          "name": "item-243578"
+        },
+        {
+          "item_id": 243581,
+          "quantity": 2,
+          "name": "item-243581"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
+    },
+    {
+      "recipe_name": "Turbo-Junker's Multitool v9",
+      "wowhead_spell_id": 1264529,
+      "crafted_item_id": 259183,
+      "crafted_item_name": "Turbo-Junker's Multitool v9",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 253302,
+          "quantity": 1,
+          "name": "Malleable Wireframe"
+        },
+        {
+          "item_id": 238528,
+          "quantity": 1,
+          "name": "Majestic Claw"
+        },
+        {
+          "item_id": 245345,
+          "quantity": 20,
+          "name": "Fused Vitality"
+        },
+        {
+          "item_id": 243578,
+          "quantity": 3,
+          "name": "item-243578"
+        },
+        {
+          "item_id": 243581,
+          "quantity": 2,
+          "name": "item-243581"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
+    },
+    {
+      "recipe_name": "Vicious Thalassian Flask of Honor",
+      "wowhead_spell_id": 1230883,
+      "crafted_item_id": 241334,
+      "crafted_item_name": "Vicious Thalassian Flask of Honor",
+      "crafted_quantity": 2,
+      "reagents": [
+        {
+          "item_id": 236761,
+          "quantity": 6,
+          "name": "item-236761"
+        },
+        {
+          "item_id": 236770,
+          "quantity": 8,
+          "name": "item-236770"
+        },
+        {
+          "item_id": 236774,
+          "quantity": 6,
+          "name": "item-236774"
+        },
+        {
+          "item_id": 240991,
+          "quantity": 2,
+          "name": "item-240991"
+        }
+      ],
+      "skill": [
+        2906
+      ],
+      "profession": "alchemy"
+    },
+    {
+      "recipe_name": "Void-Shrouded Tincture",
+      "wowhead_spell_id": 1230867,
+      "crafted_item_id": 241302,
+      "crafted_item_name": "Void-Shrouded Tincture",
+      "crafted_quantity": 5,
+      "reagents": [
+        {
+          "item_id": 236952,
+          "quantity": 2,
+          "name": "Mote of Pure Void"
+        },
+        {
+          "item_id": 236761,
+          "quantity": 8,
+          "name": "item-236761"
+        },
+        {
+          "item_id": 236770,
+          "quantity": 4,
+          "name": "item-236770"
+        },
+        {
+          "item_id": 240991,
+          "quantity": 5,
+          "name": "item-240991"
+        }
+      ],
+      "skill": [
+        2906
+      ],
+      "profession": "alchemy"
     },
     {
       "recipe_name": "Void-touched Drums",
@@ -9789,6 +16233,44 @@
       "profession": "leatherworking"
     },
     {
+      "recipe_name": "Voidlight Potion Cauldron",
+      "wowhead_spell_id": 1230857,
+      "crafted_item_id": 241284,
+      "crafted_item_name": "Voidlight Potion Cauldron",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 236780,
+          "quantity": 1,
+          "name": "item-236780"
+        },
+        {
+          "item_id": 242651,
+          "quantity": 5,
+          "name": "Stabilized Derivate"
+        },
+        {
+          "item_id": 251285,
+          "quantity": 4,
+          "name": "Petrified Root"
+        },
+        {
+          "item_id": 240991,
+          "quantity": 20,
+          "name": "item-240991"
+        },
+        {
+          "item_id": 241283,
+          "quantity": 4,
+          "name": "item-241283"
+        }
+      ],
+      "skill": [
+        2906
+      ],
+      "profession": "alchemy"
+    },
+    {
       "recipe_name": "Voidstrider Saddlebag",
       "wowhead_spell_id": 1246929,
       "crafted_item_id": 262611,
@@ -9822,32 +16304,80 @@
       "profession": "tailoring"
     },
     {
-      "recipe_name": "Wild Hanging Scroll",
-      "wowhead_spell_id": 1248628,
-      "crafted_item_id": 262601,
-      "crafted_item_name": "Wild Hanging Scroll",
+      "recipe_name": "Weighted Boomshots",
+      "wowhead_spell_id": 1261913,
+      "crafted_item_id": 257751,
+      "crafted_item_name": "Weighted Boomshots",
       "crafted_quantity": 1,
       "reagents": [
         {
-          "item_id": 256963,
-          "quantity": 18,
-          "name": "Thalassian Lumber"
+          "item_id": 243574,
+          "quantity": 1,
+          "name": "item-243574"
         },
         {
-          "item_id": 245764,
+          "item_id": 243576,
+          "quantity": 1,
+          "name": "item-243576"
+        },
+        {
+          "item_id": 243578,
           "quantity": 3,
-          "name": "item-245764"
+          "name": "item-243578"
         },
         {
-          "item_id": 245766,
-          "quantity": 7,
-          "name": "item-245766"
+          "item_id": 243581,
+          "quantity": 2,
+          "name": "item-243581"
         }
       ],
       "skill": [
-        2913
+        2910
       ],
-      "profession": "inscription"
+      "profession": "engineering"
+    },
+    {
+      "recipe_name": "Wondrous Synergist",
+      "wowhead_spell_id": 1230856,
+      "crafted_item_id": 241282,
+      "crafted_item_name": "Wondrous Synergist",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 242651,
+          "quantity": 4,
+          "name": "Stabilized Derivate"
+        },
+        {
+          "item_id": 236761,
+          "quantity": 2,
+          "name": "item-236761"
+        },
+        {
+          "item_id": 236770,
+          "quantity": 2,
+          "name": "item-236770"
+        },
+        {
+          "item_id": 236774,
+          "quantity": 2,
+          "name": "item-236774"
+        },
+        {
+          "item_id": 236776,
+          "quantity": 2,
+          "name": "item-236776"
+        },
+        {
+          "item_id": 236778,
+          "quantity": 2,
+          "name": "item-236778"
+        }
+      ],
+      "skill": [
+        2906
+      ],
+      "profession": "alchemy"
     },
     {
       "recipe_name": "World Tender's Barkclasp",

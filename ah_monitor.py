@@ -243,7 +243,7 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--expansion-keyword", default="midnight", help="Expansion keyword for watchlist refresh")
     p.add_argument(
         "--professions",
-        default="tailoring,enchanting,inscription,leatherworking",
+        default="tailoring,enchanting,inscription,leatherworking,alchemy,blacksmithing,engineering",
         help="Comma-separated professions for watchlist refresh",
     )
     p.add_argument("--include-reagents", action="store_true", help="Include reagents while refreshing watchlist")

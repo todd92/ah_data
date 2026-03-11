@@ -8,16 +8,22 @@ from typing import Any, Dict, List, Optional
 
 
 SKILL_TO_PROFESSION = {
+    164: "blacksmithing",
+    171: "alchemy",
     197: "tailoring",
+    202: "engineering",
     333: "enchanting",
+    2906: "alchemy",
+    2907: "blacksmithing",
     2909: "enchanting",
+    2910: "engineering",
     2913: "inscription",
     2915: "leatherworking",
     2918: "tailoring",
 }
 
 def parse_args() -> argparse.Namespace:
-    p = argparse.ArgumentParser(description="Build local Tailoring/Enchanting recipe mappings from Wowhead reagent pages.")
+    p = argparse.ArgumentParser(description="Build local profession recipe mappings from Wowhead reagent pages.")
     p.add_argument("--targets-file", default="targets_midnight_tailoring_enchanting.json", help="Targets/watchlist JSON file")
     p.add_argument("--output", default="wowhead_recipe_mappings.json", help="Output mapping JSON file")
     return p.parse_args()

@@ -233,8 +233,8 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--expansion-keyword", default="midnight", help="Case-insensitive tier-name keyword")
     p.add_argument(
         "--professions",
-        default="tailoring,enchanting,inscription,leatherworking",
-        help="Comma-separated profession names to include (ex: tailoring,enchanting,inscription,leatherworking)",
+        default="tailoring,enchanting,inscription,leatherworking,alchemy,blacksmithing,engineering",
+        help="Comma-separated profession names to include (ex: tailoring,enchanting,inscription,leatherworking,alchemy,blacksmithing,engineering)",
     )
     p.add_argument("--output", default="targets_midnight_tailoring_enchanting.json", help="Output targets JSON file")
     p.add_argument(
@@ -331,9 +331,15 @@ def profession_from_skill_ids(skill_ids: Any) -> Optional[str]:
     if not isinstance(skill_ids, list):
         return None
     mapping = {
+        164: "blacksmithing",
+        171: "alchemy",
         333: "enchanting",
         197: "tailoring",
+        202: "engineering",
+        2906: "alchemy",
+        2907: "blacksmithing",
         2909: "enchanting",
+        2910: "engineering",
         773: "inscription",
         165: "leatherworking",
         2913: "inscription",
