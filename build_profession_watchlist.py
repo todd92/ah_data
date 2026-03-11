@@ -525,7 +525,11 @@ def main() -> int:
             parsed = cached
         else:
             try:
-                parsed = wiki.parse_item_page(output_name.replace(" ", "_"))
+                wiki_title = output_name.replace(" ", "_")
+                page_html = wiki.page_html(wiki_title)
+                parsed = wiki.parse_item_page(wiki_title) if page_html else None
+                if debug_dir and normalize_name(output_name) in debug_items:
+                    write_debug_files(debug_dir, output_name, page_html or "", parsed)
             except Exception as exc:
                 print(f"WARN: output page lookup failed for '{output_name}': {exc}", file=sys.stderr)
                 parsed = None
