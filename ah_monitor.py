@@ -1047,8 +1047,6 @@ def detect_craft_alerts(
                 margin_pct = expected_profit / float(total_craft_cost)
                 if expected_profit >= min_profit_copper and margin_pct >= args.craft_min_margin_pct:
                     direction = "buy"
-                elif expected_profit <= -min_profit_copper and margin_pct <= -args.craft_min_margin_pct:
-                    direction = "sell"
                 else:
                     diagnostics.blocked_profit_threshold += 1
                     continue
@@ -1112,8 +1110,6 @@ def format_craft_alert_diagnostics(diag: CraftAlertDiagnostics, recipe_count: in
 def craft_action_label(direction: str) -> str:
     if direction == "buy":
         return "CRAFT"
-    if direction == "sell":
-        return "SELL_MATS"
     return direction.upper()
 
 
@@ -1124,7 +1120,7 @@ def format_alert_message(alerts: List[Alert], sigma: float, window_hours: int, c
     sells = [a for a in sigma_alerts if a.direction == "above_mean"] + [a for a in craft_alerts if a.direction == "sell"]
     lines = [f"WoW AH alerts: {len(alerts)} total (sigma={len(sigma_alerts)}, craft={len(craft_alerts)})"]
     lines.append(f"BUY: {len([a for a in sigma_alerts if a.direction == 'below_mean'])} | SELL: {len([a for a in sigma_alerts if a.direction == 'above_mean'])}")
-    lines.append(f"CRAFT: {len([a for a in craft_alerts if a.direction == 'buy'])} | SELL_MATS: {len([a for a in craft_alerts if a.direction == 'sell'])}")
+    lines.append(f"CRAFT: {len(craft_alerts)}")
 
     sigma_buys = [a for a in sigma_alerts if a.direction == "below_mean"]
     if sigma_buys:

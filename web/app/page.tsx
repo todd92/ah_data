@@ -6,7 +6,7 @@ import { sampleResponse } from "@/lib/sample-data";
 
 type Filters = {
   profession: "all" | "tailoring" | "enchanting";
-  direction: "both" | "buy" | "sell";
+  direction: "both" | "buy";
   minProfitGold: number;
   minMarginPct: number;
 };
@@ -109,9 +109,8 @@ export default function HomePage() {
               value={filters.direction}
               onChange={(e) => setFilters((x) => ({ ...x, direction: e.target.value as Filters["direction"] }))}
             >
-              <option value="both">Craft + Sell Mats</option>
+              <option value="both">All craft alerts</option>
               <option value="buy">Craft only</option>
-              <option value="sell">Sell mats only</option>
             </select>
           </div>
           <div>
