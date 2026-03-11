@@ -257,6 +257,11 @@ def parse_args() -> argparse.Namespace:
         default="Carving Canine,Lexicologist's Vellum,Silvermoon Weapon Wrap",
         help="Comma-separated item names to capture debug files for",
     )
+    p.add_argument(
+        "--seed-crafted-items",
+        default="Silvermoon Weapon Wrap",
+        help="Comma-separated crafted item names to force through external parsing for debugging",
+    )
     return p.parse_args()
 
 
@@ -342,6 +347,7 @@ def main() -> int:
     external_misses = 0
     debug_dir = Path(args.debug_dir).resolve() if args.debug_dir else None
     debug_items = {normalize_name(v) for v in args.debug_items.split(",") if v.strip()}
+    seeded_items = [v.strip() for v in args.seed_crafted_items.split(",") if v.strip()]
 
     prof_index = api.api_get("/data/wow/profession/index", namespace=f"static-{region}")
     professions = prof_index.get("professions", [])
@@ -452,6 +458,10 @@ def main() -> int:
     existing_recipe_outputs = {int(r["crafted_item_id"]) for r in recipe_defs if isinstance(r.get("crafted_item_id"), int)}
     synthetic_recipe_id = 900000000
     discovered_outputs: List[Dict[str, str]] = []
+
+    for seeded_name in seeded_items:
+        discovered_outputs.append({"profession": "unknown", "crafted_item_name": seeded_name})
+
     for item_id, item_name in sorted(items.items(), key=lambda kv: kv[1].lower()):
         if item_id in existing_recipe_outputs:
             continue
@@ -522,7 +532,10 @@ def main() -> int:
     for discovered in discovered_outputs:
         output_name = str(discovered.get("crafted_item_name") or "").strip()
         profession = str(discovered.get("profession") or "").strip().lower()
-        if not output_name or profession not in prof_wanted:
+        if not output_name:
+            continue
+        seeded = profession == "unknown"
+        if not seeded and profession not in prof_wanted:
             continue
         cached = recipe_cache.get(output_name)
         if cached and isinstance(cached.get("crafted_item_id"), int):
@@ -541,10 +554,20 @@ def main() -> int:
                 recipe_cache[output_name] = parsed
         if not parsed:
             continue
+        if seeded:
+            parsed_profession = str(parsed.get("profession") or "").strip().lower()
+            if parsed_profession in prof_wanted:
+                profession = parsed_profession
         crafted_item_id = parsed.get("crafted_item_id")
-        if not isinstance(crafted_item_id, int) or crafted_item_id in existing_recipe_outputs:
+        if not isinstance(crafted_item_id, int):
             continue
         reagents_raw = parsed.get("reagents") or []
+        if seeded and debug_dir and normalize_name(output_name) in debug_items:
+            write_debug_files(debug_dir, output_name, wiki.page_html(output_name.replace(" ", "_")) or "", parsed)
+        if seeded:
+            continue
+        if crafted_item_id in existing_recipe_outputs:
+            continue
         resolved_reagents: List[Dict[str, Any]] = []
         for reagent in reagents_raw:
             reagent_name = str(reagent.get("name") or "").strip()
