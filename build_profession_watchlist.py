@@ -23,7 +23,7 @@ WIKI_API_URL = "https://warcraft.wiki.gg/api.php"
 WIKI_ITEM_ID_RE = re.compile(r"(?:Item ID|ID)\s*:?\s*(\d+)", re.IGNORECASE)
 WIKI_REAGENT_LINE_RE = re.compile(r"(\d+)x\s+([A-Za-z0-9'&: -]+)")
 WIKI_PROF_SECTION_RE = re.compile(r'<h3><span class="mw-headline" id="([A-Za-z]+)">.*?</h3>(.*?)(?=<h[23]>|$)', re.IGNORECASE | re.DOTALL)
-WIKI_LINK_TEXT_RE = re.compile(r">([^<]+)</a>")
+WIKI_LINK_RE = re.compile(r'<a[^>]+href="/wiki/([^"#?]+)"[^>]*?(?:title="([^"]+)")?[^>]*>(.*?)</a>', re.IGNORECASE | re.DOTALL)
 
 
 def text_value(v: Any, locale: str) -> str:
@@ -210,9 +210,13 @@ class WarcraftWikiClient:
             profession = section_name.strip().lower()
             if profession not in professions:
                 continue
-            for raw_name in WIKI_LINK_TEXT_RE.findall(section_html):
-                name = html.unescape(raw_name).strip()
-                if not name or name.lower() == "edit":
+            for href_slug, title_attr, inner_html in WIKI_LINK_RE.findall(section_html):
+                inner_text = html.unescape(re.sub(r"<[^>]+>", " ", inner_html))
+                inner_text = re.sub(r"\s+", " ", inner_text).strip()
+                href_name = html.unescape(urllib.parse.unquote(href_slug)).replace("_", " ").strip()
+                title_name = html.unescape(title_attr).strip() if title_attr else ""
+                name = inner_text or title_name or href_name
+                if not name or name.lower() == "edit" or "(page does not exist)" in name.lower():
                     continue
                 out.append({"profession": profession, "crafted_item_name": name})
         return out
