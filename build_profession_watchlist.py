@@ -248,6 +248,11 @@ def parse_args() -> argparse.Namespace:
         help="JSON cache file for external recipe lookups",
     )
     p.add_argument(
+        "--mapping-file",
+        default="wowhead_recipe_mappings.json",
+        help="Optional local recipe mapping file to use before external fallback lookups",
+    )
+    p.add_argument(
         "--debug-dir",
         default="",
         help="Optional directory to write external lookup debug files",
@@ -309,6 +314,38 @@ def load_cache(path: Path) -> Dict[str, Dict[str, Any]]:
     return out
 
 
+def load_local_recipe_mappings(path: Path) -> List[Dict[str, Any]]:
+    if not path.exists():
+        return []
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return []
+    items = payload.get("items") if isinstance(payload, dict) else None
+    if not isinstance(items, list):
+        return []
+    return [row for row in items if isinstance(row, dict)]
+
+
+def profession_from_skill_ids(skill_ids: Any) -> Optional[str]:
+    if not isinstance(skill_ids, list):
+        return None
+    mapping = {
+        333: "enchanting",
+        197: "tailoring",
+        2909: "enchanting",
+        773: "inscription",
+        165: "leatherworking",
+        2913: "inscription",
+        2915: "leatherworking",
+        2918: "tailoring",
+    }
+    for raw in skill_ids:
+        if isinstance(raw, int) and raw in mapping:
+            return mapping[raw]
+    return None
+
+
 def save_cache(path: Path, cache: Dict[str, Dict[str, Any]]) -> None:
     path.write_text(json.dumps(cache, indent=2, sort_keys=True), encoding="utf-8")
 
@@ -342,7 +379,11 @@ def main() -> int:
     cache_path = Path(args.recipe_cache)
     if not cache_path.is_absolute():
         cache_path = Path(args.config).parent / cache_path
+    mapping_path = Path(args.mapping_file)
+    if not mapping_path.is_absolute():
+        mapping_path = Path(args.config).parent / mapping_path
     recipe_cache = load_cache(cache_path)
+    local_mappings = load_local_recipe_mappings(mapping_path)
     external_hits = 0
     external_misses = 0
     debug_dir = Path(args.debug_dir).resolve() if args.debug_dir else None
@@ -453,6 +494,52 @@ def main() -> int:
         print(
             f"Processed profession '{prof_name}' (id={pid}), matching tiers={len(matching_tiers)}, failed recipes={failed_recipe_count}"
         )
+
+    local_mapping_hits = 0
+    for mapping in local_mappings:
+        crafted_item_id = mapping.get("crafted_item_id")
+        recipe_name = str(mapping.get("recipe_name") or mapping.get("crafted_item_name") or "").strip()
+        crafted_item_name = str(mapping.get("crafted_item_name") or recipe_name).strip()
+        profession = str(mapping.get("profession") or "").strip().lower()
+        if not profession:
+            inferred = profession_from_skill_ids(mapping.get("skill"))
+            profession = inferred or ""
+        reagents_raw = mapping.get("reagents")
+        if not isinstance(crafted_item_id, int) or not crafted_item_name or profession not in prof_wanted or not isinstance(reagents_raw, list):
+            continue
+        resolved_reagents: List[Dict[str, Any]] = []
+        for reagent in reagents_raw:
+            if not isinstance(reagent, dict):
+                resolved_reagents = []
+                break
+            reagent_id = reagent.get("item_id")
+            reagent_qty = reagent.get("quantity")
+            if not isinstance(reagent_id, int) or not isinstance(reagent_qty, int) or reagent_qty <= 0:
+                resolved_reagents = []
+                break
+            resolved_reagents.append(
+                {
+                    "item_id": reagent_id,
+                    "name": items.get(reagent_id, f"item-{reagent_id}"),
+                    "quantity": reagent_qty,
+                }
+            )
+        if not resolved_reagents:
+            continue
+        items[crafted_item_id] = crafted_item_name
+        recipe_defs.append(
+            {
+                "recipe_id": int(mapping.get("wowhead_spell_id") or (900000000 + crafted_item_id)),
+                "recipe_name": recipe_name or crafted_item_name,
+                "profession": profession,
+                "profession_id": None,
+                "crafted_item_id": crafted_item_id,
+                "crafted_item_name": crafted_item_name,
+                "crafted_quantity": int(mapping.get("crafted_quantity") or 1),
+                "reagents": resolved_reagents,
+            }
+        )
+        local_mapping_hits += 1
 
     name_to_id = {normalize_name(name): item_id for item_id, name in items.items()}
     existing_recipe_outputs = {int(r["crafted_item_id"]) for r in recipe_defs if isinstance(r.get("crafted_item_id"), int)}
@@ -623,6 +710,7 @@ def main() -> int:
             "recipe_count": recipe_count,
             "recipe_definition_count": len(recipe_defs),
             "item_count": len(targets),
+            "local_mapping_hits": local_mapping_hits,
             "external_cache_entries": len(recipe_cache),
             "external_hits": external_hits,
             "external_misses": external_misses,
