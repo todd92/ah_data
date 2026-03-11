@@ -22,6 +22,8 @@ API_HOSTS = {
 WIKI_API_URL = "https://warcraft.wiki.gg/api.php"
 WIKI_ITEM_ID_RE = re.compile(r"(?:Item ID|ID)\s*:?\s*(\d+)", re.IGNORECASE)
 WIKI_REAGENT_LINE_RE = re.compile(r"(\d+)x\s+([A-Za-z0-9'&: -]+)")
+WIKI_PROF_SECTION_RE = re.compile(r'<h3><span class="mw-headline" id="([A-Za-z]+)">.*?</h3>(.*?)(?=<h[23]>|$)', re.IGNORECASE | re.DOTALL)
+WIKI_LINK_TEXT_RE = re.compile(r">([^<]+)</a>")
 
 
 def text_value(v: Any, locale: str) -> str:
@@ -196,7 +198,24 @@ class WarcraftWikiClient:
             "profession": profession,
             "reagents": reagents,
             "wiki_title": title,
+            "page_kind": "crafted_output" if profession or reagents else "unknown",
         }
+
+    def parse_reagent_outputs(self, title: str, professions: Set[str]) -> List[Dict[str, str]]:
+        page_html = self.page_html(title)
+        if not page_html:
+            return []
+        out: List[Dict[str, str]] = []
+        for section_name, section_html in WIKI_PROF_SECTION_RE.findall(page_html):
+            profession = section_name.strip().lower()
+            if profession not in professions:
+                continue
+            for raw_name in WIKI_LINK_TEXT_RE.findall(section_html):
+                name = html.unescape(raw_name).strip()
+                if not name or name.lower() == "edit":
+                    continue
+                out.append({"profession": profession, "crafted_item_name": name})
+        return out
 
 
 def normalize_name(name: str) -> str:
@@ -428,6 +447,7 @@ def main() -> int:
     name_to_id = {normalize_name(name): item_id for item_id, name in items.items()}
     existing_recipe_outputs = {int(r["crafted_item_id"]) for r in recipe_defs if isinstance(r.get("crafted_item_id"), int)}
     synthetic_recipe_id = 900000000
+    discovered_outputs: List[Dict[str, str]] = []
     for item_id, item_name in sorted(items.items(), key=lambda kv: kv[1].lower()):
         if item_id in existing_recipe_outputs:
             continue
@@ -449,10 +469,18 @@ def main() -> int:
 
         if not parsed:
             external_misses += 1
+            try:
+                discovered_outputs.extend(wiki.parse_reagent_outputs(item_name.replace(" ", "_"), prof_wanted))
+            except Exception:
+                pass
             continue
         external_hits += 1
         profession = str(parsed.get("profession") or "").lower()
         if profession not in prof_wanted:
+            try:
+                discovered_outputs.extend(wiki.parse_reagent_outputs(item_name.replace(" ", "_"), prof_wanted))
+            except Exception:
+                pass
             continue
         if int(parsed.get("crafted_item_id", 0) or 0) != item_id:
             continue
@@ -486,6 +514,62 @@ def main() -> int:
                 "reagents": resolved_reagents,
             }
         )
+
+    for discovered in discovered_outputs:
+        output_name = str(discovered.get("crafted_item_name") or "").strip()
+        profession = str(discovered.get("profession") or "").strip().lower()
+        if not output_name or profession not in prof_wanted:
+            continue
+        cached = recipe_cache.get(output_name)
+        if cached and isinstance(cached.get("crafted_item_id"), int):
+            parsed = cached
+        else:
+            try:
+                parsed = wiki.parse_item_page(output_name.replace(" ", "_"))
+            except Exception as exc:
+                print(f"WARN: output page lookup failed for '{output_name}': {exc}", file=sys.stderr)
+                parsed = None
+            if parsed:
+                recipe_cache[output_name] = parsed
+        if not parsed:
+            continue
+        crafted_item_id = parsed.get("crafted_item_id")
+        if not isinstance(crafted_item_id, int) or crafted_item_id in existing_recipe_outputs:
+            continue
+        reagents_raw = parsed.get("reagents") or []
+        resolved_reagents: List[Dict[str, Any]] = []
+        for reagent in reagents_raw:
+            reagent_name = str(reagent.get("name") or "").strip()
+            reagent_qty = reagent.get("quantity")
+            reagent_id = name_to_id.get(normalize_name(reagent_name))
+            if reagent_id is None or not isinstance(reagent_qty, int) or reagent_qty <= 0:
+                resolved_reagents = []
+                break
+            resolved_reagents.append(
+                {
+                    "item_id": reagent_id,
+                    "name": items[reagent_id],
+                    "quantity": reagent_qty,
+                }
+            )
+        if not resolved_reagents:
+            continue
+        crafted_item_name = str(parsed.get("crafted_item_name") or output_name)
+        items[crafted_item_id] = crafted_item_name
+        name_to_id[normalize_name(crafted_item_name)] = crafted_item_id
+        recipe_defs.append(
+            {
+                "recipe_id": synthetic_recipe_id + crafted_item_id,
+                "recipe_name": crafted_item_name,
+                "profession": profession,
+                "profession_id": None,
+                "crafted_item_id": crafted_item_id,
+                "crafted_item_name": crafted_item_name,
+                "crafted_quantity": 1,
+                "reagents": resolved_reagents,
+            }
+        )
+        existing_recipe_outputs.add(crafted_item_id)
 
     save_cache(cache_path, recipe_cache)
 
