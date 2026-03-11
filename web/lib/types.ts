@@ -23,6 +23,14 @@ export type Opportunity = {
     totalCost: number;
     source: string;
   }>;
+  profitHistory: Array<{
+    alertedAt: string;
+    expectedProfit: number;
+    saleValue: number | null;
+    craftCost: number | null;
+    marginPct: number | null;
+    craftConfidence: number | null;
+  }>;
 };
 
 export type OpportunityResponse = {

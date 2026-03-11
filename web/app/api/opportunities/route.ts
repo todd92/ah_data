@@ -50,6 +50,21 @@ function parseFloatOr(v: string | null, fallback: number): number {
 }
 
 function mapRows(rows: AlertRow[]): Opportunity[] {
+  const historyByKey = new Map<string, Opportunity["profitHistory"]>();
+  for (const r of rows) {
+    const key = `${r.item_id}:${r.recipe_id || 0}:${r.source}`;
+    const history = historyByKey.get(key) || [];
+    history.push({
+      alertedAt: r.alerted_at,
+      expectedProfit: r.expected_profit || 0,
+      saleValue: r.sale_value,
+      craftCost: r.craft_cost,
+      marginPct: r.margin_pct,
+      craftConfidence: r.craft_confidence
+    });
+    historyByKey.set(key, history);
+  }
+
   return rows.map((r) => ({
     alertedAt: r.alerted_at,
     observedAt: r.observed_at,
@@ -92,7 +107,10 @@ function mapRows(rows: AlertRow[]): Opportunity[] {
               return [];
             }
           })()
-        : []
+        : [],
+    profitHistory: (historyByKey.get(`${r.item_id}:${r.recipe_id || 0}:${r.source}`) || [])
+      .slice(0, 12)
+      .reverse()
   }));
 }
 

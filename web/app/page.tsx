@@ -38,6 +38,33 @@ function confidenceLabel(v: number | null): string {
   return `Low (${v})`;
 }
 
+function Sparkline({ values }: { values: number[] }) {
+  if (values.length === 0) return <span className="small">-</span>;
+  const width = 120;
+  const height = 36;
+  const min = Math.min(...values);
+  const max = Math.max(...values);
+  const range = Math.max(max - min, 1);
+  const points = values
+    .map((value, index) => {
+      const x = values.length === 1 ? width / 2 : (index / (values.length - 1)) * width;
+      const y = height - (((value - min) / range) * (height - 6) + 3);
+      return `${x},${y}`;
+    })
+    .join(" ");
+  const trendUp = values[values.length - 1] >= values[0];
+  return (
+    <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`} role="img" aria-label="Profit history">
+      <polyline
+        fill="none"
+        stroke={trendUp ? "currentColor" : "#b45309"}
+        strokeWidth="2"
+        points={points}
+      />
+    </svg>
+  );
+}
+
 function useStats(rows: Opportunity[]) {
   return useMemo(() => {
     const profitable = rows.filter((r) => (r.expectedProfit || 0) > 0);
@@ -190,6 +217,7 @@ export default function HomePage() {
                 <th>Margin</th>
                 <th>Confidence</th>
                 <th>Signal</th>
+                <th>Trend</th>
                 <th>Reagents</th>
               </tr>
             </thead>
@@ -212,6 +240,12 @@ export default function HomePage() {
                     <td>{confidenceLabel(row.craftConfidence)}</td>
                     <td>
                       <span className={`pill ${row.direction === "sell" ? "bad" : ""}`}>{craftDirectionLabel(row.direction)}</span>
+                    </td>
+                    <td>
+                      <div className="small">
+                        <Sparkline values={row.profitHistory.map((point) => point.expectedProfit)} />
+                        <div>{row.profitHistory.length} pts</div>
+                      </div>
                     </td>
                     <td>
                       {row.reagentBreakdown.length === 0 ? (
