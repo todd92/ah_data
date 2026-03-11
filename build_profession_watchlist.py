@@ -517,10 +517,13 @@ def main() -> int:
             if not isinstance(reagent_id, int) or not isinstance(reagent_qty, int) or reagent_qty <= 0:
                 resolved_reagents = []
                 break
+            reagent_name = str(reagent.get("name") or items.get(reagent_id) or f"item-{reagent_id}")
+            if args.include_reagents:
+                items[reagent_id] = reagent_name
             resolved_reagents.append(
                 {
                     "item_id": reagent_id,
-                    "name": items.get(reagent_id, f"item-{reagent_id}"),
+                    "name": items.get(reagent_id, reagent_name),
                     "quantity": reagent_qty,
                 }
             )
