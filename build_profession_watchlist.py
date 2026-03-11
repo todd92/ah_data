@@ -18,10 +18,9 @@ API_HOSTS = {
     "kr": "kr.api.blizzard.com",
     "tw": "tw.api.blizzard.com",
 }
-WOWHEAD_SEARCH_URL = "https://www.wowhead.com/search"
-WOWHEAD_ITEM_RE = re.compile(r"/item=(\d+)/(?:[^\"'<>]+)")
-WOWHEAD_SPELL_RE = re.compile(r"/spell=(\d+)/(?:[^\"'<>]+)")
-WOWHEAD_RESULT_RE = re.compile(r'href=\"(/spell=\d+/[^"]+)\"[^>]*>([^<]+)</a>', re.IGNORECASE)
+WIKI_SEARCH_URL = "https://warcraft.wiki.gg/w/index.php"
+WIKI_ITEM_ID_RE = re.compile(r"(?:Item ID|ID)\s*</[^>]+>\s*<[^>]+>\s*(\d+)\s*<", re.IGNORECASE)
+WIKI_REAGENT_LINK_RE = re.compile(r'/wiki/([^"#?]+)"', re.IGNORECASE)
 
 
 def text_value(v: Any, locale: str) -> str:
@@ -127,7 +126,7 @@ class BlizzardAPI:
         )
 
 
-class WowheadClient:
+class WarcraftWikiClient:
     def __init__(self):
         self._opener = urllib.request.build_opener()
         self._headers = {
@@ -140,40 +139,55 @@ class WowheadClient:
         with self._opener.open(req, timeout=45) as resp:
             return resp.read().decode("utf-8", errors="ignore")
 
-    def search_spell_url(self, recipe_name: str) -> Optional[str]:
-        params = urllib.parse.urlencode({"q": recipe_name})
-        html = self._http_text(f"{WOWHEAD_SEARCH_URL}?{params}")
+    def search_item_page(self, recipe_name: str) -> Optional[str]:
+        title = recipe_name.replace(" ", "_")
+        direct_url = f"https://warcraft.wiki.gg/wiki/{urllib.parse.quote(title, safe='_():-')}"
+        try:
+            html = self._http_text(direct_url)
+            if "<title>" in html and "Search results" not in html:
+                return direct_url
+        except Exception:
+            pass
 
-        lowered_name = recipe_name.strip().lower()
-        for href, label in WOWHEAD_RESULT_RE.findall(html):
-            if label.strip().lower() == lowered_name:
-                return urllib.parse.urljoin("https://www.wowhead.com", href)
-        for href, _label in WOWHEAD_RESULT_RE.findall(html):
-            return urllib.parse.urljoin("https://www.wowhead.com", href)
-        return None
+        params = urllib.parse.urlencode(
+            {
+                "search": recipe_name,
+                "title": "Special:Search",
+                "go": "Go",
+            }
+        )
+        search_url = f"{WIKI_SEARCH_URL}?{params}"
+        try:
+            html = self._http_text(search_url)
+        except Exception:
+            return None
+        match = re.search(r'href="(/wiki/[^"#?]+)"', html, re.IGNORECASE)
+        if not match:
+            return None
+        return urllib.parse.urljoin("https://warcraft.wiki.gg", match.group(1))
 
-    def parse_recipe_page(self, url: str) -> Optional[Dict[str, Any]]:
+    def parse_item_page(self, url: str) -> Optional[Dict[str, Any]]:
         html = self._http_text(url)
-        spell_match = WOWHEAD_SPELL_RE.search(html)
-        crafted_match = WOWHEAD_ITEM_RE.search(html)
-        if not crafted_match:
+        item_id_match = WIKI_ITEM_ID_RE.search(html)
+        if not item_id_match:
+            item_id_match = re.search(r"/item=(\d+)", html)
+        if not item_id_match:
             return None
 
-        item_id = int(crafted_match.group(1))
-        title_match = re.search(r"<title>([^<]+?) - Spell - World of Warcraft</title>", html, re.IGNORECASE)
-        recipe_name = title_match.group(1).strip() if title_match else ""
-        item_name = ""
-        crafted_title = re.search(r'item=(\d+)/([^"\'<>]+)', html, re.IGNORECASE)
-        if crafted_title:
-            item_name = urllib.parse.unquote(crafted_title.group(2)).replace("-", " ").strip().title()
-
+        item_id = int(item_id_match.group(1))
+        title_match = re.search(r"<title>([^<]+?) - Warcraft Wiki", html, re.IGNORECASE)
+        item_name = title_match.group(1).strip() if title_match else f"item-{item_id}"
         return {
-            "wowhead_spell_id": int(spell_match.group(1)) if spell_match else None,
             "crafted_item_id": item_id,
-            "crafted_item_name": item_name or f"item-{item_id}",
-            "recipe_name": recipe_name,
-            "wowhead_url": url,
+            "crafted_item_name": item_name,
+            "recipe_name": recipe_name_from_url(url),
+            "wiki_url": url,
         }
+
+
+def recipe_name_from_url(url: str) -> str:
+    slug = urllib.parse.urlparse(url).path.rsplit("/", 1)[-1]
+    return urllib.parse.unquote(slug).replace("_", " ")
 
 
 def parse_args() -> argparse.Namespace:
@@ -192,9 +206,9 @@ def parse_args() -> argparse.Namespace:
         help="Include recipe reagent items in addition to crafted outputs",
     )
     p.add_argument(
-        "--wowhead-cache",
-        default="wowhead_recipe_cache.json",
-        help="JSON cache file for Wowhead recipe lookups",
+        "--recipe-cache",
+        default="recipe_lookup_cache.json",
+        help="JSON cache file for external recipe lookups",
     )
     return p.parse_args()
 
@@ -264,13 +278,13 @@ def main() -> int:
         raise ValueError("--professions must include at least one value")
 
     api = BlizzardAPI(client_id=client_id, client_secret=client_secret, region=region, locale=locale)
-    wowhead = WowheadClient()
-    cache_path = Path(args.wowhead_cache)
+    wiki = WarcraftWikiClient()
+    cache_path = Path(args.recipe_cache)
     if not cache_path.is_absolute():
         cache_path = Path(args.config).parent / cache_path
-    wowhead_cache = load_cache(cache_path)
-    wowhead_hits = 0
-    wowhead_misses = 0
+    recipe_cache = load_cache(cache_path)
+    external_hits = 0
+    external_misses = 0
 
     prof_index = api.api_get("/data/wow/profession/index", namespace=f"static-{region}")
     professions = prof_index.get("professions", [])
@@ -332,22 +346,22 @@ def main() -> int:
                 crafted_id = item_id_from_ref(crafted)
                 recipe_name = text_value(rdetail.get("name"), locale) or f"recipe-{rid}"
                 if not isinstance(crafted_id, int):
-                    cached = wowhead_cache.get(recipe_name)
+                    cached = recipe_cache.get(recipe_name)
                     if cached and isinstance(cached.get("crafted_item_id"), int):
                         crafted_id = int(cached["crafted_item_id"])
                     else:
                         try:
-                            wowhead_url = wowhead.search_spell_url(recipe_name)
-                            parsed = wowhead.parse_recipe_page(wowhead_url) if wowhead_url else None
+                            wiki_url = wiki.search_item_page(recipe_name)
+                            parsed = wiki.parse_item_page(wiki_url) if wiki_url else None
                         except Exception as exc:
-                            print(f"WARN: Wowhead lookup failed for '{recipe_name}': {exc}", file=sys.stderr)
+                            print(f"WARN: external lookup failed for '{recipe_name}': {exc}", file=sys.stderr)
                             parsed = None
                         if parsed and isinstance(parsed.get("crafted_item_id"), int):
-                            wowhead_cache[recipe_name] = parsed
+                            recipe_cache[recipe_name] = parsed
                             crafted_id = int(parsed["crafted_item_id"])
-                            wowhead_hits += 1
+                            external_hits += 1
                         else:
-                            wowhead_misses += 1
+                            external_misses += 1
 
                 if isinstance(crafted_id, int):
                     recipe_entry: Dict[str, Any] = {
@@ -361,7 +375,7 @@ def main() -> int:
                             if isinstance(crafted, dict)
                             else ""
                         )
-                        or str(wowhead_cache.get(recipe_name, {}).get("crafted_item_name") or f"item-{crafted_id}"),
+                        or str(recipe_cache.get(recipe_name, {}).get("crafted_item_name") or f"item-{crafted_id}"),
                         "crafted_quantity": crafted_quantity_value(rdetail),
                         "reagents": [],
                     }
@@ -395,7 +409,7 @@ def main() -> int:
             f"Processed profession '{prof_name}' (id={pid}), matching tiers={len(matching_tiers)}, failed recipes={failed_recipe_count}"
         )
 
-    save_cache(cache_path, wowhead_cache)
+    save_cache(cache_path, recipe_cache)
 
     targets = [
         {
@@ -416,9 +430,9 @@ def main() -> int:
             "recipe_count": recipe_count,
             "recipe_definition_count": len(recipe_defs),
             "item_count": len(targets),
-            "wowhead_cache_entries": len(wowhead_cache),
-            "wowhead_hits": wowhead_hits,
-            "wowhead_misses": wowhead_misses,
+            "external_cache_entries": len(recipe_cache),
+            "external_hits": external_hits,
+            "external_misses": external_misses,
         },
         "targets": targets,
         "recipes": recipe_defs,
