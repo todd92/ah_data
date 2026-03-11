@@ -14,6 +14,15 @@ export type Opportunity = {
   saleValue: number | null;
   expectedProfit: number | null;
   marginPct: number | null;
+  craftConfidence: number | null;
+  reagentBreakdown: Array<{
+    itemId: number;
+    name: string;
+    quantity: number;
+    unitPrice: number;
+    totalCost: number;
+    source: string;
+  }>;
 };
 
 export type OpportunityResponse = {
@@ -23,6 +32,6 @@ export type OpportunityResponse = {
     profession: Profession | "all";
     minProfitGold: number;
     minMarginPct: number;
-    direction: "buy" | "sell" | "both";
+    direction: "buy" | "both";
   };
 };

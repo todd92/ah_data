@@ -17,6 +17,18 @@ type AlertRow = {
   sale_value: number | null;
   expected_profit: number | null;
   margin_pct: number | null;
+  craft_confidence: number | null;
+  reagent_breakdown:
+    | Array<{
+        item_id: number;
+        name: string;
+        quantity: number;
+        unit_price: number;
+        total_cost: number;
+        source: string;
+      }>
+    | string
+    | null;
 };
 
 function toProfession(raw: string | undefined): Profession {
@@ -49,14 +61,43 @@ function mapRows(rows: AlertRow[]): Opportunity[] {
     craftCost: r.craft_cost,
     saleValue: r.sale_value,
     expectedProfit: r.expected_profit,
-    marginPct: r.margin_pct
+    marginPct: r.margin_pct,
+    craftConfidence: r.craft_confidence,
+    reagentBreakdown: Array.isArray(r.reagent_breakdown)
+      ? r.reagent_breakdown.map((entry) => ({
+          itemId: entry.item_id,
+          name: entry.name,
+          quantity: entry.quantity,
+          unitPrice: entry.unit_price,
+          totalCost: entry.total_cost,
+          source: entry.source
+        }))
+      : typeof r.reagent_breakdown === "string"
+        ? (() => {
+            try {
+              const parsed = JSON.parse(r.reagent_breakdown);
+              return Array.isArray(parsed)
+                ? parsed.map((entry) => ({
+                    itemId: entry.item_id,
+                    name: entry.name,
+                    quantity: entry.quantity,
+                    unitPrice: entry.unit_price,
+                    totalCost: entry.total_cost,
+                    source: entry.source
+                  }))
+                : [];
+            } catch {
+              return [];
+            }
+          })()
+        : []
   }));
 }
 
 export async function GET(request: NextRequest) {
   const params = request.nextUrl.searchParams;
   const profession = (params.get("profession") || "all") as Profession | "all";
-  const direction = (params.get("direction") || "both") as "buy" | "sell" | "both";
+  const direction = (params.get("direction") || "both") as "buy" | "both";
   const minProfitGold = parseFloatOr(params.get("min_profit_gold"), 50);
   const minMarginPct = parseFloatOr(params.get("min_margin_pct"), 10);
   const limit = Math.max(1, Math.min(200, Number.parseInt(params.get("limit") || "50", 10) || 50));
@@ -77,7 +118,7 @@ export async function GET(request: NextRequest) {
   let query = supabase
     .from("alerts")
     .select(
-      "alerted_at, observed_at, item_id, item_name, source, direction, profession, recipe_id, recipe_name, craft_cost, sale_value, expected_profit, margin_pct"
+      "alerted_at, observed_at, item_id, item_name, source, direction, profession, recipe_id, recipe_name, craft_cost, sale_value, expected_profit, margin_pct, craft_confidence, reagent_breakdown"
     )
     .eq("alert_kind", "craft_arbitrage")
     .order("alerted_at", { ascending: false })
@@ -99,8 +140,7 @@ export async function GET(request: NextRequest) {
     const profit = r.expectedProfit || 0;
     const margin = r.marginPct || 0;
     if (direction === "buy") return profit >= minProfitCopper && margin >= minMarginRatio;
-    if (direction === "sell") return profit <= -minProfitCopper && margin <= -minMarginRatio;
-    return (profit >= minProfitCopper && margin >= minMarginRatio) || (profit <= -minProfitCopper && margin <= -minMarginRatio);
+    return profit >= minProfitCopper && margin >= minMarginRatio;
   });
   if (profession !== "all") {
     rows = rows.filter((r) => r.profession === profession);

@@ -39,5 +39,7 @@ CREATE TABLE IF NOT EXISTS alerts (
   craft_cost BIGINT,
   sale_value BIGINT,
   expected_profit BIGINT,
-  margin_pct DOUBLE PRECISION
+  margin_pct DOUBLE PRECISION,
+  craft_confidence INTEGER,
+  reagent_breakdown JSONB
 );

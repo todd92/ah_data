@@ -56,6 +56,8 @@ class Alert:
     sale_value: Optional[int] = None
     expected_profit: Optional[int] = None
     margin_pct: Optional[float] = None
+    craft_confidence: Optional[int] = None
+    reagent_breakdown: Optional[str] = None
 
 
 @dataclass
@@ -280,7 +282,9 @@ def sqlite_schema_sql() -> str:
       craft_cost INTEGER,
       sale_value INTEGER,
       expected_profit INTEGER,
-      margin_pct REAL
+      margin_pct REAL,
+      craft_confidence INTEGER,
+      reagent_breakdown TEXT
     );
     """
 
@@ -328,7 +332,9 @@ def postgres_schema_sql() -> str:
       craft_cost BIGINT,
       sale_value BIGINT,
       expected_profit BIGINT,
-      margin_pct DOUBLE PRECISION
+      margin_pct DOUBLE PRECISION,
+      craft_confidence INTEGER,
+      reagent_breakdown JSONB
     );
     """
 
@@ -457,6 +463,8 @@ class SQLiteClient(DBClient):
             ("sale_value", "INTEGER"),
             ("expected_profit", "INTEGER"),
             ("margin_pct", "REAL"),
+            ("craft_confidence", "INTEGER"),
+            ("reagent_breakdown", "TEXT"),
         ]
         for name, decl in targets:
             if name not in existing:
@@ -514,8 +522,9 @@ class SQLiteClient(DBClient):
                 INSERT INTO alerts (
                   alerted_at, observed_at, item_id, item_name, source, metric_name,
                   current_value, mean_value, stddev_value, z_score, direction,
-                  alert_kind, profession, recipe_id, recipe_name, craft_cost, sale_value, expected_profit, margin_pct
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                  alert_kind, profession, recipe_id, recipe_name, craft_cost, sale_value, expected_profit, margin_pct,
+                  craft_confidence, reagent_breakdown
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             [
                 (
@@ -538,6 +547,8 @@ class SQLiteClient(DBClient):
                     a.sale_value,
                     a.expected_profit,
                     a.margin_pct,
+                    a.craft_confidence,
+                    a.reagent_breakdown,
                 )
                 for a in alerts
             ],
@@ -650,6 +661,8 @@ class PostgresClient(DBClient):
             ("sale_value", "BIGINT"),
             ("expected_profit", "BIGINT"),
             ("margin_pct", "DOUBLE PRECISION"),
+            ("craft_confidence", "INTEGER"),
+            ("reagent_breakdown", "JSONB"),
         ]
         with self.conn.cursor() as cur:
             for column_name, ddl in targets:
@@ -723,8 +736,9 @@ class PostgresClient(DBClient):
                 INSERT INTO alerts (
                   alerted_at, observed_at, item_id, item_name, source, metric_name,
                   current_value, mean_value, stddev_value, z_score, direction,
-                  alert_kind, profession, recipe_id, recipe_name, craft_cost, sale_value, expected_profit, margin_pct
-                ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                  alert_kind, profession, recipe_id, recipe_name, craft_cost, sale_value, expected_profit, margin_pct,
+                  craft_confidence, reagent_breakdown
+                ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
                 """,
                 [
                     (
@@ -747,6 +761,8 @@ class PostgresClient(DBClient):
                         a.sale_value,
                         a.expected_profit,
                         a.margin_pct,
+                        a.craft_confidence,
+                        self._psycopg.types.json.Jsonb(json.loads(a.reagent_breakdown)) if a.reagent_breakdown else None,
                     )
                     for a in alerts
                 ],
@@ -834,6 +850,26 @@ def conservative_craft_sale_unit_price(row: Observation) -> Optional[int]:
     if row.metric_value > 0:
         return row.metric_value
     return None
+
+
+def clamp_ratio(numerator: Optional[int], denominator: Optional[int]) -> Optional[float]:
+    if not isinstance(numerator, int) or not isinstance(denominator, int) or numerator <= 0 or denominator <= 0:
+        return None
+    return min(float(numerator), float(denominator)) / max(float(numerator), float(denominator))
+
+
+def craft_confidence_score(row: Observation, args: argparse.Namespace) -> int:
+    listing_score = min(float(row.listing_count) / float(max(args.craft_min_listings_output * 2, 1)), 1.0)
+    quantity_score = min(float(row.total_quantity) / float(max(args.craft_min_quantity_output * 3, 1)), 1.0)
+    spread_parts = [
+        clamp_ratio(row.p25_unit_price, row.median_unit_price),
+        clamp_ratio(row.median_unit_price, row.avg_unit_price),
+        clamp_ratio(row.min_unit_price, row.p25_unit_price),
+    ]
+    spread_values = [v for v in spread_parts if v is not None]
+    spread_score = sum(spread_values) / float(len(spread_values)) if spread_values else 0.5
+    confidence = int(round(100.0 * ((listing_score * 0.45) + (quantity_score * 0.35) + (spread_score * 0.20))))
+    return max(0, min(confidence, 100))
 
 
 def detect_alerts(
@@ -1025,12 +1061,24 @@ def detect_craft_alerts(
             for recipe in recipe_list:
                 total_craft_cost = 0
                 missing_price = False
+                reagent_breakdown_rows: List[Dict[str, Any]] = []
                 for reagent in recipe.reagents:
                     reagent_row = pick_market_row(rows_by_item.get(reagent.item_id, []), crafted_row.source)
                     if not reagent_row or not passes_liquidity(reagent_row, args):
                         missing_price = True
                         break
-                    total_craft_cost += reagent.quantity * reagent_row.metric_value
+                    reagent_total_cost = reagent.quantity * reagent_row.metric_value
+                    total_craft_cost += reagent_total_cost
+                    reagent_breakdown_rows.append(
+                        {
+                            "item_id": reagent.item_id,
+                            "name": reagent.name,
+                            "quantity": reagent.quantity,
+                            "unit_price": reagent_row.metric_value,
+                            "total_cost": reagent_total_cost,
+                            "source": reagent_row.source,
+                        }
+                    )
                 if missing_price:
                     diagnostics.blocked_missing_reagent_price += 1
                     continue
@@ -1050,6 +1098,7 @@ def detect_craft_alerts(
                 else:
                     diagnostics.blocked_profit_threshold += 1
                     continue
+                confidence = craft_confidence_score(crafted_row, args)
                 alerts.append(
                     Alert(
                         observed_at=crafted_row.observed_at,
@@ -1073,6 +1122,8 @@ def detect_craft_alerts(
                         sale_value=sale_value,
                         expected_profit=expected_profit,
                         margin_pct=margin_pct,
+                        craft_confidence=confidence,
+                        reagent_breakdown=json.dumps(reagent_breakdown_rows),
                     )
                 )
     return alerts, diagnostics
@@ -1147,7 +1198,7 @@ def format_alert_message(alerts: List[Alert], sigma: float, window_hours: int, c
             lines.append(
                 f"- {craft_action_label(a.direction)} {a.item_name} [{a.item_id}] {a.recipe_name or f'r#{a.recipe_id}'}: "
                 f"net sale {format_money_copper(net_sale)} vs mat cost {format_money_copper(a.craft_cost or 0)} "
-                f"(profit {format_money_copper(profit)}, margin {margin:+.1f}%)"
+                f"(profit {format_money_copper(profit)}, margin {margin:+.1f}%, confidence {a.craft_confidence or 0})"
             )
 
     if len(alerts) > 20:

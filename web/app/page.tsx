@@ -31,6 +31,13 @@ function pct(v: number | null): string {
   return `${(v * 100).toFixed(1)}%`;
 }
 
+function confidenceLabel(v: number | null): string {
+  if (v === null) return "-";
+  if (v >= 75) return `High (${v})`;
+  if (v >= 50) return `Medium (${v})`;
+  return `Low (${v})`;
+}
+
 function useStats(rows: Opportunity[]) {
   return useMemo(() => {
     const profitable = rows.filter((r) => (r.expectedProfit || 0) > 0);
@@ -179,7 +186,9 @@ export default function HomePage() {
                 <th>Sale Value</th>
                 <th>Profit</th>
                 <th>Margin</th>
+                <th>Confidence</th>
                 <th>Signal</th>
+                <th>Reagents</th>
               </tr>
             </thead>
             <tbody>
@@ -198,8 +207,25 @@ export default function HomePage() {
                     <td>{moneyFromCopper(row.saleValue)}</td>
                     <td className={positive ? "good" : "bad"}>{moneyFromCopper(row.expectedProfit)}</td>
                     <td className={positive ? "good" : "bad"}>{pct(row.marginPct)}</td>
+                    <td>{confidenceLabel(row.craftConfidence)}</td>
                     <td>
                       <span className={`pill ${row.direction === "sell" ? "bad" : ""}`}>{craftDirectionLabel(row.direction)}</span>
+                    </td>
+                    <td>
+                      {row.reagentBreakdown.length === 0 ? (
+                        <span className="small">-</span>
+                      ) : (
+                        <details>
+                          <summary>{row.reagentBreakdown.length} mats</summary>
+                          <div className="small">
+                            {row.reagentBreakdown.map((reagent) => (
+                              <div key={`${row.itemId}-${reagent.itemId}`}>
+                                {reagent.quantity}x {reagent.name}: {moneyFromCopper(reagent.totalCost)}
+                              </div>
+                            ))}
+                          </div>
+                        </details>
+                      )}
                     </td>
                   </tr>
                 );
