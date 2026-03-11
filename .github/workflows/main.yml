@@ -26,6 +26,7 @@ jobs:
       WOW_TARGETS_FILE: ${{ vars.WOW_TARGETS_FILE || 'targets_midnight_tailoring_enchanting.json' }}
       WOW_EXPANSION_KEYWORD: ${{ vars.WOW_EXPANSION_KEYWORD || 'midnight' }}
       WOW_PROFESSIONS: ${{ vars.WOW_PROFESSIONS || 'tailoring,enchanting,inscription,leatherworking' }}
+      WOW_WEBHOOK_PROFESSIONS: ${{ vars.WOW_WEBHOOK_PROFESSIONS || 'tailoring,enchanting' }}
       WATCHLIST_DEBUG_DIR: watchlist_debug
     steps:
       - name: Checkout code
@@ -119,6 +120,7 @@ jobs:
             --craft-ah-cut-rate 0.05 \
             --craft-min-profit-gold 50 \
             --craft-min-margin-pct 0.10 \
+            --webhook-professions "$WOW_WEBHOOK_PROFESSIONS" \
             --webhook-format discord
 
       - name: Upload watchlist debug artifact
@@ -158,6 +160,7 @@ jobs:
             --craft-ah-cut-rate 0.05 \
             --craft-min-profit-gold 50 \
             --craft-min-margin-pct 0.10 \
+            --webhook-professions "$WOW_WEBHOOK_PROFESSIONS" \
             --webhook-url "${AH_ALERT_WEBHOOK_URL:-}" \
             --webhook-format discord
 

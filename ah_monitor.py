@@ -229,6 +229,11 @@ def parse_args() -> argparse.Namespace:
     )
     p.add_argument("--webhook-url", default="", help="Optional webhook URL for alerts")
     p.add_argument(
+        "--webhook-professions",
+        default="tailoring,enchanting",
+        help="Comma-separated craft professions to include in webhook messages; empty means all",
+    )
+    p.add_argument(
         "--webhook-format",
         default="slack",
         choices=["slack", "discord"],
@@ -1268,6 +1273,21 @@ def send_webhook(url: str, message: str, fmt: str) -> None:
             raise RuntimeError(f"Webhook failed with status {resp.status}")
 
 
+def filter_alerts_for_webhook(alerts: List[Alert], professions_csv: str) -> List[Alert]:
+    wanted = {p.strip().lower() for p in professions_csv.split(",") if p.strip()}
+    if not wanted:
+        return alerts
+    filtered: List[Alert] = []
+    for alert in alerts:
+        if alert.alert_kind != "craft_arbitrage":
+            filtered.append(alert)
+            continue
+        profession = (alert.profession or "").strip().lower()
+        if profession in wanted:
+            filtered.append(alert)
+    return filtered
+
+
 def pick_db_client(args: argparse.Namespace) -> Tuple[DBClient, str]:
     db_url = args.database_url.strip() or os.environ.get("DATABASE_URL", "").strip()
     if not db_url:
@@ -1362,7 +1382,12 @@ def main() -> int:
         print("No alerts this run.")
         return 0
 
-    message = format_alert_message(alerts, args.sigma, args.window_hours, args.craft_ah_cut_rate)
+    webhook_alerts = filter_alerts_for_webhook(alerts, args.webhook_professions)
+    if not webhook_alerts:
+        print("No webhook-eligible alerts this run.")
+        return 0
+
+    message = format_alert_message(webhook_alerts, args.sigma, args.window_hours, args.craft_ah_cut_rate)
     print(message)
 
     if webhook_url:
