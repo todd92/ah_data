@@ -224,6 +224,16 @@ def parse_args() -> argparse.Namespace:
         default="recipe_lookup_cache.json",
         help="JSON cache file for external recipe lookups",
     )
+    p.add_argument(
+        "--debug-dir",
+        default="",
+        help="Optional directory to write external lookup debug files",
+    )
+    p.add_argument(
+        "--debug-items",
+        default="Carving Canine,Lexicologist's Vellum,Silvermoon Weapon Wrap",
+        help="Comma-separated item names to capture debug files for",
+    )
     return p.parse_args()
 
 
@@ -275,6 +285,14 @@ def save_cache(path: Path, cache: Dict[str, Dict[str, Any]]) -> None:
     path.write_text(json.dumps(cache, indent=2, sort_keys=True), encoding="utf-8")
 
 
+def write_debug_files(debug_dir: Path, item_name: str, page_html: str, parsed: Optional[Dict[str, Any]]) -> None:
+    debug_dir.mkdir(parents=True, exist_ok=True)
+    slug = normalize_name(item_name).replace(" ", "_") or "item"
+    (debug_dir / f"{slug}.html").write_text(page_html, encoding="utf-8")
+    payload = parsed if parsed is not None else {"parsed": None}
+    (debug_dir / f"{slug}.json").write_text(json.dumps(payload, indent=2, sort_keys=True), encoding="utf-8")
+
+
 def main() -> int:
     args = parse_args()
     cfg = load_config(Path(args.config))
@@ -299,6 +317,8 @@ def main() -> int:
     recipe_cache = load_cache(cache_path)
     external_hits = 0
     external_misses = 0
+    debug_dir = Path(args.debug_dir).resolve() if args.debug_dir else None
+    debug_items = {normalize_name(v) for v in args.debug_items.split(",") if v.strip()}
 
     prof_index = api.api_get("/data/wow/profession/index", namespace=f"static-{region}")
     professions = prof_index.get("professions", [])
@@ -416,7 +436,11 @@ def main() -> int:
             parsed = cached
         else:
             try:
-                parsed = wiki.parse_item_page(item_name.replace(" ", "_"))
+                wiki_title = item_name.replace(" ", "_")
+                page_html = wiki.page_html(wiki_title)
+                parsed = wiki.parse_item_page(wiki_title) if page_html else None
+                if debug_dir and normalize_name(item_name) in debug_items:
+                    write_debug_files(debug_dir, item_name, page_html or "", parsed)
             except Exception as exc:
                 print(f"WARN: external lookup failed for '{item_name}': {exc}", file=sys.stderr)
                 parsed = None

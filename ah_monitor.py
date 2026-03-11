@@ -216,6 +216,7 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--professions", default="tailoring,enchanting", help="Comma-separated professions for watchlist refresh")
     p.add_argument("--include-reagents", action="store_true", help="Include reagents while refreshing watchlist")
     p.add_argument("--watchlist-output", default="targets_midnight_tailoring_enchanting.json", help="Watchlist output file")
+    p.add_argument("--watchlist-debug-dir", default="", help="Optional directory for watchlist debug artifacts")
     p.add_argument("--ingest-only", action="store_true", help="Skip scraping and just ingest existing report")
     return p.parse_args()
 
@@ -335,6 +336,8 @@ def refresh_watchlist(args: argparse.Namespace) -> None:
     ]
     if args.include_reagents:
         cmd.append("--include-reagents")
+    if args.watchlist_debug_dir:
+        cmd.extend(["--debug-dir", args.watchlist_debug_dir])
     run_cmd(cmd)
 
 

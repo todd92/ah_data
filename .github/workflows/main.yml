@@ -22,6 +22,7 @@ jobs:
       WOW_TARGETS_FILE: ${{ vars.WOW_TARGETS_FILE || 'targets_midnight_tailoring_enchanting.json' }}
       WOW_EXPANSION_KEYWORD: ${{ vars.WOW_EXPANSION_KEYWORD || 'midnight' }}
       WOW_PROFESSIONS: ${{ vars.WOW_PROFESSIONS || 'tailoring,enchanting' }}
+      WATCHLIST_DEBUG_DIR: watchlist_debug
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -84,6 +85,7 @@ jobs:
 
       - name: Run monitor for SQLite archive
         run: |
+          rm -rf "$WATCHLIST_DEBUG_DIR"
           python ah_monitor.py \
             --config "$CONFIG_PATH" \
             --report "$REPORT_PATH" \
@@ -91,6 +93,7 @@ jobs:
             --refresh-watchlist \
             --include-reagents \
             --watchlist-output "$WOW_TARGETS_FILE" \
+            --watchlist-debug-dir "$WATCHLIST_DEBUG_DIR" \
             --expansion-keyword "$WOW_EXPANSION_KEYWORD" \
             --professions "$WOW_PROFESSIONS" \
             --metric weighted_avg_unit_price \
@@ -113,6 +116,14 @@ jobs:
             --craft-min-profit-gold 50 \
             --craft-min-margin-pct 0.10 \
             --webhook-format discord
+
+      - name: Upload watchlist debug artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: watchlist-debug
+          path: watchlist_debug
+          if-no-files-found: ignore
 
       - name: Run monitor for Supabase live window
         env:
