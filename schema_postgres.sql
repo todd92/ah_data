@@ -11,6 +11,8 @@ CREATE TABLE IF NOT EXISTS observations (
   min_unit_price BIGINT,
   max_unit_price BIGINT,
   avg_unit_price BIGINT,
+  median_unit_price BIGINT,
+  p25_unit_price BIGINT,
   weighted_avg_unit_price BIGINT
 );
 

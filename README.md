@@ -189,6 +189,8 @@ The workflow restores `data/ah_prices.sqlite3` from a dedicated `sqlite-history`
 - `min_unit_price`
 - `max_unit_price`
 - `avg_unit_price`
+- `median_unit_price`
+- `p25_unit_price`
 - `weighted_avg_unit_price`
 
 All prices are in copper.

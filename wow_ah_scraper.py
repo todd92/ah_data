@@ -2,6 +2,7 @@
 import argparse
 import base64
 import json
+import math
 import time
 import sys
 import urllib.error
@@ -252,6 +253,21 @@ def unit_price_from_auction(a: Dict[str, Any]) -> Optional[int]:
     return None
 
 
+def percentile_value(sorted_values: List[int], fraction: float) -> Optional[int]:
+    if not sorted_values:
+        return None
+    if len(sorted_values) == 1:
+        return sorted_values[0]
+    clamped = min(max(fraction, 0.0), 1.0)
+    pos = clamped * (len(sorted_values) - 1)
+    lower = int(math.floor(pos))
+    upper = int(math.ceil(pos))
+    if lower == upper:
+        return sorted_values[lower]
+    weight = pos - lower
+    return int(sorted_values[lower] + (sorted_values[upper] - sorted_values[lower]) * weight)
+
+
 def summarize(auctions: List[Dict[str, Any]], item_ids: Set[int]) -> Dict[int, Dict[str, Any]]:
     by_item: Dict[int, List[Tuple[int, int]]] = defaultdict(list)
 
@@ -268,7 +284,7 @@ def summarize(auctions: List[Dict[str, Any]], item_ids: Set[int]) -> Dict[int, D
 
     result: Dict[int, Dict[str, Any]] = {}
     for item_id, samples in by_item.items():
-        prices = [p for p, _ in samples]
+        prices = sorted(p for p, _ in samples)
         qty_sum = sum(q for _, q in samples)
         weighted_sum = sum(p * q for p, q in samples)
         result[item_id] = {
@@ -277,6 +293,8 @@ def summarize(auctions: List[Dict[str, Any]], item_ids: Set[int]) -> Dict[int, D
             "min_unit_price": min(prices),
             "max_unit_price": max(prices),
             "avg_unit_price": int(sum(prices) / len(prices)),
+            "median_unit_price": percentile_value(prices, 0.50),
+            "p25_unit_price": percentile_value(prices, 0.25),
             "weighted_avg_unit_price": int(weighted_sum / qty_sum) if qty_sum else None,
         }
     return result

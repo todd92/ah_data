@@ -28,6 +28,8 @@ class Observation:
     min_unit_price: Optional[int]
     max_unit_price: Optional[int]
     avg_unit_price: Optional[int]
+    median_unit_price: Optional[int]
+    p25_unit_price: Optional[int]
     weighted_avg_unit_price: Optional[int]
 
 
@@ -158,6 +160,18 @@ def parse_args() -> argparse.Namespace:
         help="Liquidity filter for non-commodity sources",
     )
     p.add_argument(
+        "--craft-min-listings-output",
+        type=int,
+        default=5,
+        help="Minimum listing count required for crafted outputs in craft arbitrage alerts",
+    )
+    p.add_argument(
+        "--craft-min-quantity-output",
+        type=int,
+        default=3,
+        help="Minimum quantity required for crafted outputs in craft arbitrage alerts",
+    )
+    p.add_argument(
         "--min-abs-move-gold-commodity",
         type=float,
         default=20.0,
@@ -238,6 +252,8 @@ def sqlite_schema_sql() -> str:
       min_unit_price INTEGER,
       max_unit_price INTEGER,
       avg_unit_price INTEGER,
+      median_unit_price INTEGER,
+      p25_unit_price INTEGER,
       weighted_avg_unit_price INTEGER
     );
 
@@ -284,6 +300,8 @@ def postgres_schema_sql() -> str:
       min_unit_price BIGINT,
       max_unit_price BIGINT,
       avg_unit_price BIGINT,
+      median_unit_price BIGINT,
+      p25_unit_price BIGINT,
       weighted_avg_unit_price BIGINT
     );
 
@@ -371,6 +389,8 @@ def parse_observations(report: Dict[str, Any], metric_name: str, observed_at: st
                     min_unit_price=summary.get("min_unit_price"),
                     max_unit_price=summary.get("max_unit_price"),
                     avg_unit_price=summary.get("avg_unit_price"),
+                    median_unit_price=summary.get("median_unit_price"),
+                    p25_unit_price=summary.get("p25_unit_price"),
                     weighted_avg_unit_price=summary.get("weighted_avg_unit_price"),
                 )
             )
@@ -415,7 +435,15 @@ class SQLiteClient(DBClient):
 
     def init(self) -> None:
         self.conn.executescript(sqlite_schema_sql())
+        self._migrate_observation_columns_if_needed()
         self._migrate_alert_columns_if_needed()
+
+    def _migrate_observation_columns_if_needed(self) -> None:
+        rows = self.conn.execute("PRAGMA table_info(observations)").fetchall()
+        existing = {str(r[1]) for r in rows}
+        for name, decl in [("median_unit_price", "INTEGER"), ("p25_unit_price", "INTEGER")]:
+            if name not in existing:
+                self.conn.execute(f"ALTER TABLE observations ADD COLUMN {name} {decl}")
 
     def _migrate_alert_columns_if_needed(self) -> None:
         rows = self.conn.execute("PRAGMA table_info(alerts)").fetchall()
@@ -440,8 +468,8 @@ class SQLiteClient(DBClient):
             INSERT INTO observations (
               observed_at, item_id, item_name, source, metric_name, metric_value,
               listing_count, total_quantity, min_unit_price, max_unit_price,
-              avg_unit_price, weighted_avg_unit_price
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+              avg_unit_price, median_unit_price, p25_unit_price, weighted_avg_unit_price
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             [
                 (
@@ -456,6 +484,8 @@ class SQLiteClient(DBClient):
                     r.min_unit_price,
                     r.max_unit_price,
                     r.avg_unit_price,
+                    r.median_unit_price,
+                    r.p25_unit_price,
                     r.weighted_avg_unit_price,
                 )
                 for r in rows
@@ -553,8 +583,30 @@ class PostgresClient(DBClient):
     def init(self) -> None:
         with self.conn.cursor() as cur:
             cur.execute(postgres_schema_sql())
+        self._migrate_observation_columns_if_needed()
         self._migrate_int_to_bigint_if_needed()
         self._migrate_alert_columns_if_needed()
+
+    def _migrate_observation_columns_if_needed(self) -> None:
+        targets = [
+            ("median_unit_price", "BIGINT"),
+            ("p25_unit_price", "BIGINT"),
+        ]
+        with self.conn.cursor() as cur:
+            for column_name, ddl in targets:
+                cur.execute(
+                    """
+                    SELECT 1
+                    FROM information_schema.columns
+                    WHERE table_schema = 'public'
+                      AND table_name = 'observations'
+                      AND column_name = %s
+                    """,
+                    (column_name,),
+                )
+                row = cur.fetchone()
+                if not row:
+                    cur.execute(f"ALTER TABLE observations ADD COLUMN {column_name} {ddl}")
 
     def _migrate_int_to_bigint_if_needed(self) -> None:
         targets = [
@@ -563,6 +615,8 @@ class PostgresClient(DBClient):
             ("observations", "min_unit_price"),
             ("observations", "max_unit_price"),
             ("observations", "avg_unit_price"),
+            ("observations", "median_unit_price"),
+            ("observations", "p25_unit_price"),
             ("observations", "weighted_avg_unit_price"),
             ("alerts", "current_value"),
         ]
@@ -620,8 +674,8 @@ class PostgresClient(DBClient):
                 INSERT INTO observations (
                   observed_at, item_id, item_name, source, metric_name, metric_value,
                   listing_count, total_quantity, min_unit_price, max_unit_price,
-                  avg_unit_price, weighted_avg_unit_price
-                ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                  avg_unit_price, median_unit_price, p25_unit_price, weighted_avg_unit_price
+                ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
                 """,
                 [
                     (
@@ -636,6 +690,8 @@ class PostgresClient(DBClient):
                         r.min_unit_price,
                         r.max_unit_price,
                         r.avg_unit_price,
+                        r.median_unit_price,
+                        r.p25_unit_price,
                         r.weighted_avg_unit_price,
                     )
                     for r in rows
@@ -754,6 +810,30 @@ def passes_liquidity(row: Observation, args: argparse.Namespace) -> bool:
     if is_commodity_source(row.source):
         return row.listing_count >= args.min_listings_commodity and row.total_quantity >= args.min_quantity_commodity
     return row.listing_count >= args.min_listings_crafted and row.total_quantity >= args.min_quantity_crafted
+
+
+def passes_craft_output_liquidity(row: Observation, args: argparse.Namespace) -> bool:
+    if is_commodity_source(row.source):
+        return passes_liquidity(row, args)
+    return row.listing_count >= args.craft_min_listings_output and row.total_quantity >= args.craft_min_quantity_output
+
+
+def conservative_craft_sale_unit_price(row: Observation) -> Optional[int]:
+    if isinstance(row.p25_unit_price, int) and row.p25_unit_price > 0:
+        return row.p25_unit_price
+    if isinstance(row.median_unit_price, int) and row.median_unit_price > 0 and isinstance(row.avg_unit_price, int) and row.avg_unit_price > 0:
+        return min(row.median_unit_price, row.avg_unit_price)
+    if isinstance(row.median_unit_price, int) and row.median_unit_price > 0:
+        return row.median_unit_price
+    if isinstance(row.avg_unit_price, int) and row.avg_unit_price > 0:
+        return row.avg_unit_price
+    if isinstance(row.weighted_avg_unit_price, int) and row.weighted_avg_unit_price > 0:
+        return row.weighted_avg_unit_price
+    if isinstance(row.min_unit_price, int) and row.min_unit_price > 0:
+        return row.min_unit_price
+    if row.metric_value > 0:
+        return row.metric_value
+    return None
 
 
 def detect_alerts(
@@ -939,7 +1019,7 @@ def detect_craft_alerts(
             continue
         for crafted_row in crafted_rows:
             diagnostics.matched_crafted_rows += 1
-            if not passes_liquidity(crafted_row, args):
+            if not passes_craft_output_liquidity(crafted_row, args):
                 diagnostics.blocked_output_liquidity += 1
                 continue
             for recipe in recipe_list:
@@ -957,7 +1037,11 @@ def detect_craft_alerts(
                 if total_craft_cost <= 0:
                     diagnostics.blocked_non_positive_cost += 1
                     continue
-                sale_value = crafted_row.metric_value * recipe.crafted_quantity
+                sale_unit_price = conservative_craft_sale_unit_price(crafted_row)
+                if not sale_unit_price or sale_unit_price <= 0:
+                    diagnostics.blocked_profit_threshold += 1
+                    continue
+                sale_value = sale_unit_price * recipe.crafted_quantity
                 net_sale = int(sale_value * (1.0 - args.craft_ah_cut_rate))
                 expected_profit = net_sale - total_craft_cost
                 margin_pct = expected_profit / float(total_craft_cost)
@@ -975,7 +1059,7 @@ def detect_craft_alerts(
                         item_name=crafted_row.item_name,
                         source=crafted_row.source,
                         metric_name="craft_profit",
-                        current_value=crafted_row.metric_value,
+                        current_value=sale_unit_price,
                         mean_value=0.0,
                         stddev_value=0.0,
                         z_score=0.0,
