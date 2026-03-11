@@ -25,7 +25,7 @@ jobs:
       WOW_DEFAULT_REALM_SLUG: ${{ vars.WOW_DEFAULT_REALM_SLUG || 'dawnbringer' }}
       WOW_TARGETS_FILE: ${{ vars.WOW_TARGETS_FILE || 'targets_midnight_tailoring_enchanting.json' }}
       WOW_EXPANSION_KEYWORD: ${{ vars.WOW_EXPANSION_KEYWORD || 'midnight' }}
-      WOW_PROFESSIONS: ${{ vars.WOW_PROFESSIONS || 'tailoring,enchanting' }}
+      WOW_PROFESSIONS: ${{ vars.WOW_PROFESSIONS || 'tailoring,enchanting,inscription,leatherworking' }}
       WATCHLIST_DEBUG_DIR: watchlist_debug
     steps:
       - name: Checkout code

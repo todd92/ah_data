@@ -100,6 +100,7 @@ class CraftAlertDiagnostics:
     blocked_missing_reagent_price: int = 0
     blocked_non_positive_cost: int = 0
     blocked_profit_threshold: int = 0
+    blocked_low_confidence: int = 0
 
 
 def parse_args() -> argparse.Namespace:
@@ -220,6 +221,12 @@ def parse_args() -> argparse.Namespace:
         default=0.10,
         help="Minimum absolute margin ratio for crafting arbitrage alerts",
     )
+    p.add_argument(
+        "--craft-min-confidence",
+        type=int,
+        default=40,
+        help="Minimum confidence score required for crafting arbitrage alerts",
+    )
     p.add_argument("--webhook-url", default="", help="Optional webhook URL for alerts")
     p.add_argument(
         "--webhook-format",
@@ -229,7 +236,11 @@ def parse_args() -> argparse.Namespace:
     )
     p.add_argument("--refresh-watchlist", action="store_true", help="Refresh targets file before scraping")
     p.add_argument("--expansion-keyword", default="midnight", help="Expansion keyword for watchlist refresh")
-    p.add_argument("--professions", default="tailoring,enchanting", help="Comma-separated professions for watchlist refresh")
+    p.add_argument(
+        "--professions",
+        default="tailoring,enchanting,inscription,leatherworking",
+        help="Comma-separated professions for watchlist refresh",
+    )
     p.add_argument("--include-reagents", action="store_true", help="Include reagents while refreshing watchlist")
     p.add_argument("--watchlist-output", default="targets_midnight_tailoring_enchanting.json", help="Watchlist output file")
     p.add_argument("--watchlist-debug-dir", default="", help="Optional directory for watchlist debug artifacts")
@@ -858,7 +869,13 @@ def clamp_ratio(numerator: Optional[int], denominator: Optional[int]) -> Optiona
     return min(float(numerator), float(denominator)) / max(float(numerator), float(denominator))
 
 
-def craft_confidence_score(row: Observation, args: argparse.Namespace) -> int:
+def craft_confidence_score(
+    row: Observation,
+    sale_unit_price: int,
+    margin_pct: float,
+    recent_sale_avg: Optional[float],
+    args: argparse.Namespace,
+) -> int:
     listing_score = min(float(row.listing_count) / float(max(args.craft_min_listings_output * 2, 1)), 1.0)
     quantity_score = min(float(row.total_quantity) / float(max(args.craft_min_quantity_output * 3, 1)), 1.0)
     spread_parts = [
@@ -868,7 +885,21 @@ def craft_confidence_score(row: Observation, args: argparse.Namespace) -> int:
     ]
     spread_values = [v for v in spread_parts if v is not None]
     spread_score = sum(spread_values) / float(len(spread_values)) if spread_values else 0.5
-    confidence = int(round(100.0 * ((listing_score * 0.45) + (quantity_score * 0.35) + (spread_score * 0.20))))
+    recent_score = 0.5
+    if isinstance(recent_sale_avg, float) and recent_sale_avg > 0:
+        recent_score = min(float(sale_unit_price), recent_sale_avg) / max(float(sale_unit_price), recent_sale_avg)
+    confidence = int(round(100.0 * ((listing_score * 0.30) + (quantity_score * 0.25) + (spread_score * 0.20) + (recent_score * 0.25))))
+    penalty = 0
+    if margin_pct >= 1.5:
+        penalty += min(int((margin_pct - 1.5) * 8.0), 20)
+    if margin_pct >= 3.0 and (row.listing_count < 10 or row.total_quantity < 8):
+        penalty += 20
+    if isinstance(recent_sale_avg, float) and recent_sale_avg > 0:
+        if sale_unit_price > recent_sale_avg * 1.5:
+            penalty += 15
+        if sale_unit_price > recent_sale_avg * 2.0:
+            penalty += 15
+    confidence -= penalty
     return max(0, min(confidence, 100))
 
 
@@ -1031,6 +1062,7 @@ def pick_market_row(candidates: List[Observation], preferred_source: str) -> Opt
 
 
 def detect_craft_alerts(
+    db: DBClient,
     rows: List[Observation],
     recipes: List[RecipeDefinition],
     args: argparse.Namespace,
@@ -1098,7 +1130,17 @@ def detect_craft_alerts(
                 else:
                     diagnostics.blocked_profit_threshold += 1
                     continue
-                confidence = craft_confidence_score(crafted_row, args)
+                current_ts = datetime.fromisoformat(crafted_row.observed_at.replace("Z", "+00:00"))
+                recent_history = db.history_values(
+                    row=crafted_row,
+                    start_iso=(current_ts - timedelta(hours=args.trend_hours)).isoformat().replace("+00:00", "Z"),
+                    end_iso=crafted_row.observed_at,
+                )
+                recent_sale_avg = float(sum(recent_history)) / float(len(recent_history)) if recent_history else None
+                confidence = craft_confidence_score(crafted_row, sale_unit_price, margin_pct, recent_sale_avg, args)
+                if confidence < args.craft_min_confidence:
+                    diagnostics.blocked_low_confidence += 1
+                    continue
                 alerts.append(
                     Alert(
                         observed_at=crafted_row.observed_at,
@@ -1154,7 +1196,8 @@ def format_craft_alert_diagnostics(diag: CraftAlertDiagnostics, recipe_count: in
         f"output_liquidity={diag.blocked_output_liquidity}, "
         f"missing_reagent_price={diag.blocked_missing_reagent_price}, "
         f"non_positive_cost={diag.blocked_non_positive_cost}, "
-        f"profit_threshold={diag.blocked_profit_threshold}"
+        f"profit_threshold={diag.blocked_profit_threshold}, "
+        f"low_confidence={diag.blocked_low_confidence}"
     )
 
 
@@ -1280,7 +1323,7 @@ def main() -> int:
             args=args,
         )
         if args.enable_craft_alerts:
-            craft_alerts, craft_diag = detect_craft_alerts(rows=rows, recipes=recipe_defs, args=args)
+            craft_alerts, craft_diag = detect_craft_alerts(db=db, rows=rows, recipes=recipe_defs, args=args)
         else:
             craft_alerts, craft_diag = [], CraftAlertDiagnostics(total_rows=len(rows))
         alerts = sigma_alerts + craft_alerts

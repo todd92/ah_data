@@ -5,7 +5,7 @@ import type { Opportunity, OpportunityResponse } from "@/lib/types";
 import { sampleResponse } from "@/lib/sample-data";
 
 type Filters = {
-  profession: "all" | "tailoring" | "enchanting";
+  profession: "all" | "tailoring" | "enchanting" | "inscription" | "leatherworking";
   direction: "both" | "buy";
   minProfitGold: number;
   minMarginPct: number;
@@ -107,6 +107,8 @@ export default function HomePage() {
               <option value="all">All</option>
               <option value="tailoring">Tailoring</option>
               <option value="enchanting">Enchanting</option>
+              <option value="inscription">Inscription</option>
+              <option value="leatherworking">Leatherworking</option>
             </select>
           </div>
           <div>

@@ -35,6 +35,8 @@ function toProfession(raw: string | undefined): Profession {
   const lowered = (raw || "").toLowerCase();
   if (lowered.includes("tailor")) return "tailoring";
   if (lowered.includes("enchant")) return "enchanting";
+  if (lowered.includes("inscript")) return "inscription";
+  if (lowered.includes("leather")) return "leatherworking";
   return "unknown";
 }
 

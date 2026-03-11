@@ -233,8 +233,8 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--expansion-keyword", default="midnight", help="Case-insensitive tier-name keyword")
     p.add_argument(
         "--professions",
-        default="tailoring,enchanting",
-        help="Comma-separated profession names to include (ex: tailoring,enchanting)",
+        default="tailoring,enchanting,inscription,leatherworking",
+        help="Comma-separated profession names to include (ex: tailoring,enchanting,inscription,leatherworking)",
     )
     p.add_argument("--output", default="targets_midnight_tailoring_enchanting.json", help="Output targets JSON file")
     p.add_argument(

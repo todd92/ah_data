@@ -1,4 +1,4 @@
-export type Profession = "tailoring" | "enchanting" | "unknown";
+export type Profession = "tailoring" | "enchanting" | "inscription" | "leatherworking" | "unknown";
 
 export type Opportunity = {
   alertedAt: string;
