@@ -234,6 +234,12 @@ def parse_args() -> argparse.Namespace:
         help="Comma-separated craft professions to include in webhook messages; empty means all",
     )
     p.add_argument(
+        "--webhook-min-craft-confidence",
+        type=int,
+        default=90,
+        help="Minimum craft confidence required for webhook messages; ignored for non-craft alerts",
+    )
+    p.add_argument(
         "--webhook-format",
         default="slack",
         choices=["slack", "discord"],
@@ -1294,17 +1300,18 @@ def send_webhook(url: str, message: str, fmt: str) -> None:
                 raise RuntimeError(f"Webhook failed with status {resp.status}")
 
 
-def filter_alerts_for_webhook(alerts: List[Alert], professions_csv: str) -> List[Alert]:
+def filter_alerts_for_webhook(alerts: List[Alert], professions_csv: str, min_craft_confidence: int) -> List[Alert]:
     wanted = {p.strip().lower() for p in professions_csv.split(",") if p.strip()}
     if not wanted:
-        return alerts
+        wanted = set()
     filtered: List[Alert] = []
     for alert in alerts:
         if alert.alert_kind != "craft_arbitrage":
             filtered.append(alert)
             continue
         profession = (alert.profession or "").strip().lower()
-        if profession in wanted:
+        confidence = int(alert.craft_confidence or 0)
+        if (not wanted or profession in wanted) and confidence >= min_craft_confidence:
             filtered.append(alert)
     return filtered
 
@@ -1403,7 +1410,7 @@ def main() -> int:
         print("No alerts this run.")
         return 0
 
-    webhook_alerts = filter_alerts_for_webhook(alerts, args.webhook_professions)
+    webhook_alerts = filter_alerts_for_webhook(alerts, args.webhook_professions, args.webhook_min_craft_confidence)
     if not webhook_alerts:
         print("No webhook-eligible alerts this run.")
         return 0

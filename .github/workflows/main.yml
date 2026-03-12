@@ -27,6 +27,7 @@ jobs:
       WOW_EXPANSION_KEYWORD: ${{ vars.WOW_EXPANSION_KEYWORD || 'midnight' }}
       WOW_PROFESSIONS: ${{ vars.WOW_PROFESSIONS || 'tailoring,enchanting,inscription,leatherworking,alchemy,blacksmithing,engineering' }}
       WOW_WEBHOOK_PROFESSIONS: ${{ vars.WOW_WEBHOOK_PROFESSIONS || 'tailoring,enchanting' }}
+      WOW_WEBHOOK_MIN_CRAFT_CONFIDENCE: ${{ vars.WOW_WEBHOOK_MIN_CRAFT_CONFIDENCE || '90' }}
       WATCHLIST_DEBUG_DIR: watchlist_debug
     steps:
       - name: Checkout code
@@ -121,6 +122,7 @@ jobs:
             --craft-min-profit-gold 50 \
             --craft-min-margin-pct 0.10 \
             --webhook-professions "$WOW_WEBHOOK_PROFESSIONS" \
+            --webhook-min-craft-confidence "$WOW_WEBHOOK_MIN_CRAFT_CONFIDENCE" \
             --webhook-format discord
 
       - name: Upload watchlist debug artifact
@@ -161,6 +163,7 @@ jobs:
             --craft-min-profit-gold 50 \
             --craft-min-margin-pct 0.10 \
             --webhook-professions "$WOW_WEBHOOK_PROFESSIONS" \
+            --webhook-min-craft-confidence "$WOW_WEBHOOK_MIN_CRAFT_CONFIDENCE" \
             --webhook-url "${AH_ALERT_WEBHOOK_URL:-}" \
             --webhook-format discord
 
