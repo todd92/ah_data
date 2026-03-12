@@ -1255,22 +1255,43 @@ def format_alert_message(alerts: List[Alert], sigma: float, window_hours: int, c
 
 
 def send_webhook(url: str, message: str, fmt: str) -> None:
+    messages = [message]
     if fmt == "discord":
-        payload = {"content": message}
-    else:
-        payload = {"text": message}
-    body = json.dumps(payload).encode("utf-8")
-    
-    # Add User-Agent header to avoid 403 Forbidden
+        max_len = 1900
+        chunks: List[str] = []
+        current: List[str] = []
+        current_len = 0
+        for line in message.splitlines():
+            line_len = len(line) + (1 if current else 0)
+            if current and current_len + line_len > max_len:
+                chunks.append("\n".join(current))
+                current = [line]
+                current_len = len(line)
+            elif not current and len(line) > max_len:
+                chunks.append(line[:max_len])
+                current = []
+                current_len = 0
+            else:
+                current.append(line)
+                current_len += line_len
+        if current:
+            chunks.append("\n".join(current))
+        messages = chunks or [message[:max_len]]
+
     headers = {
         "Content-Type": "application/json",
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)" 
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
     }
-    
-    req = urllib.request.Request(url, data=body, method="POST", headers=headers)
-    with urllib.request.urlopen(req, timeout=20) as resp:
-        if resp.status >= 300:
-            raise RuntimeError(f"Webhook failed with status {resp.status}")
+    for part in messages:
+        if fmt == "discord":
+            payload = {"content": part}
+        else:
+            payload = {"text": part}
+        body = json.dumps(payload).encode("utf-8")
+        req = urllib.request.Request(url, data=body, method="POST", headers=headers)
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            if resp.status >= 300:
+                raise RuntimeError(f"Webhook failed with status {resp.status}")
 
 
 def filter_alerts_for_webhook(alerts: List[Alert], professions_csv: str) -> List[Alert]:
