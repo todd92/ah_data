@@ -54,6 +54,7 @@ function parseFloatOr(v: string | null, fallback: number): number {
 
 function mapRows(rows: AlertRow[]): Opportunity[] {
   const historyByKey = new Map<string, Opportunity["profitHistory"]>();
+  const latestByKey = new Map<string, AlertRow>();
   for (const r of rows) {
     const key = `${r.item_id}:${r.recipe_id || 0}:${r.source}`;
     const history = historyByKey.get(key) || [];
@@ -66,9 +67,12 @@ function mapRows(rows: AlertRow[]): Opportunity[] {
       craftConfidence: r.craft_confidence
     });
     historyByKey.set(key, history);
+    if (!latestByKey.has(key)) {
+      latestByKey.set(key, r);
+    }
   }
 
-  return rows.map((r) => ({
+  return Array.from(latestByKey.values()).map((r) => ({
     alertedAt: r.alerted_at,
     observedAt: r.observed_at,
     itemId: r.item_id,
@@ -114,7 +118,8 @@ function mapRows(rows: AlertRow[]): Opportunity[] {
     profitHistory: (historyByKey.get(`${r.item_id}:${r.recipe_id || 0}:${r.source}`) || [])
       .slice(0, 12)
       .reverse()
-  }));
+  }))
+    .sort((a, b) => b.alertedAt.localeCompare(a.alertedAt));
 }
 
 export async function GET(request: NextRequest) {
