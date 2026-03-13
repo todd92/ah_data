@@ -53,7 +53,7 @@
         {
           "item_id": 236951,
           "quantity": 15,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 251283,
@@ -96,7 +96,7 @@
         {
           "item_id": 236951,
           "quantity": 15,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 251283,
@@ -139,7 +139,7 @@
         {
           "item_id": 236951,
           "quantity": 6,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 236950,
@@ -187,7 +187,7 @@
         {
           "item_id": 236951,
           "quantity": 15,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 251283,
@@ -230,7 +230,7 @@
         {
           "item_id": 236951,
           "quantity": 15,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 237366,
@@ -273,7 +273,7 @@
         {
           "item_id": 236951,
           "quantity": 15,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 251283,
@@ -316,7 +316,7 @@
         {
           "item_id": 236951,
           "quantity": 6,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 236950,
@@ -364,7 +364,7 @@
         {
           "item_id": 236951,
           "quantity": 15,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 251283,
@@ -407,7 +407,7 @@
         {
           "item_id": 236951,
           "quantity": 6,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 236950,
@@ -455,7 +455,7 @@
         {
           "item_id": 236951,
           "quantity": 6,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 236950,
@@ -503,7 +503,7 @@
         {
           "item_id": 236951,
           "quantity": 15,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 237366,
@@ -546,7 +546,7 @@
         {
           "item_id": 236951,
           "quantity": 15,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 251283,
@@ -599,7 +599,7 @@
         {
           "item_id": 245766,
           "quantity": 3,
-          "name": "item-245766"
+          "name": "Soul Cipher"
         }
       ],
       "skill": [
@@ -632,7 +632,7 @@
         {
           "item_id": 245766,
           "quantity": 6,
-          "name": "item-245766"
+          "name": "Soul Cipher"
         }
       ],
       "skill": [
@@ -665,7 +665,7 @@
         {
           "item_id": 245766,
           "quantity": 3,
-          "name": "item-245766"
+          "name": "Soul Cipher"
         }
       ],
       "skill": [
@@ -698,7 +698,7 @@
         {
           "item_id": 245766,
           "quantity": 2,
-          "name": "item-245766"
+          "name": "Soul Cipher"
         }
       ],
       "skill": [
@@ -733,44 +733,6 @@
         2906
       ],
       "profession": "alchemy"
-    },
-    {
-      "recipe_name": "Ambient Aethercharged Crystal",
-      "wowhead_spell_id": 1248612,
-      "crafted_item_id": 246460,
-      "crafted_item_name": "Ambient Aethercharged Crystal",
-      "crafted_quantity": 1,
-      "reagents": [
-        {
-          "item_id": 256963,
-          "quantity": 30,
-          "name": "Thalassian Lumber"
-        },
-        {
-          "item_id": 243574,
-          "quantity": 10,
-          "name": "item-243574"
-        },
-        {
-          "item_id": 243576,
-          "quantity": 10,
-          "name": "item-243576"
-        },
-        {
-          "item_id": 243578,
-          "quantity": 5,
-          "name": "item-243578"
-        },
-        {
-          "item_id": 243581,
-          "quantity": 5,
-          "name": "item-243581"
-        }
-      ],
-      "skill": [
-        2910
-      ],
-      "profession": "engineering"
     },
     {
       "recipe_name": "Animated Sin'dorei Hammer",
@@ -909,7 +871,7 @@
         {
           "item_id": 236951,
           "quantity": 4,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 237018,
@@ -1175,7 +1137,7 @@
         {
           "item_id": 236951,
           "quantity": 12,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 251283,
@@ -1199,6 +1161,29 @@
       "profession": "tailoring"
     },
     {
+      "recipe_name": "Argentleaf Tea",
+      "wowhead_spell_id": 1226194,
+      "crafted_item_id": 242298,
+      "crafted_item_name": "Argentleaf Tea",
+      "crafted_quantity": 2,
+      "reagents": [
+        {
+          "item_id": 242644,
+          "quantity": 1,
+          "name": "Mana-Wyrm Essence"
+        },
+        {
+          "item_id": 236776,
+          "quantity": 2,
+          "name": "item-236776"
+        }
+      ],
+      "skill": [
+        2908
+      ],
+      "profession": "cooking"
+    },
+    {
       "recipe_name": "Axe-Flingin' Bands",
       "wowhead_spell_id": 1237516,
       "crafted_item_id": 244605,
@@ -1213,7 +1198,7 @@
         {
           "item_id": 236951,
           "quantity": 20,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 238511,
@@ -1240,6 +1225,29 @@
         2915
       ],
       "profession": "leatherworking"
+    },
+    {
+      "recipe_name": "Azeroot Tea",
+      "wowhead_spell_id": 1226197,
+      "crafted_item_id": 242301,
+      "crafted_item_name": "Azeroot Tea",
+      "crafted_quantity": 2,
+      "reagents": [
+        {
+          "item_id": 242644,
+          "quantity": 1,
+          "name": "Mana-Wyrm Essence"
+        },
+        {
+          "item_id": 236774,
+          "quantity": 2,
+          "name": "item-236774"
+        }
+      ],
+      "skill": [
+        2908
+      ],
+      "profession": "cooking"
     },
     {
       "recipe_name": "B0P, Curator of Booms",
@@ -1284,7 +1292,7 @@
         {
           "item_id": 236951,
           "quantity": 1,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 243581,
@@ -1307,7 +1315,7 @@
         {
           "item_id": 236951,
           "quantity": 10,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 238523,
@@ -1571,7 +1579,7 @@
         {
           "item_id": 236951,
           "quantity": 6,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 237018,
@@ -1728,6 +1736,44 @@
       "profession": "blacksmithing"
     },
     {
+      "recipe_name": "Bloodthistle-Wrapped Cutlets",
+      "wowhead_spell_id": 1226192,
+      "crafted_item_id": 242296,
+      "crafted_item_name": "Bloodthistle-Wrapped Cutlets",
+      "crafted_quantity": 4,
+      "reagents": [
+        {
+          "item_id": 242639,
+          "quantity": 10,
+          "name": "Practically Pork"
+        },
+        {
+          "item_id": 242647,
+          "quantity": 2,
+          "name": "Tavern Fixings"
+        },
+        {
+          "item_id": 242644,
+          "quantity": 1,
+          "name": "Mana-Wyrm Essence"
+        },
+        {
+          "item_id": 242641,
+          "quantity": 1,
+          "name": "Cooking Spirits"
+        },
+        {
+          "item_id": 236770,
+          "quantity": 5,
+          "name": "item-236770"
+        }
+      ],
+      "skill": [
+        2908
+      ],
+      "profession": "cooking"
+    },
+    {
       "recipe_name": "Bloomforged Claw",
       "wowhead_spell_id": 1229649,
       "crafted_item_id": 237845,
@@ -1804,32 +1850,47 @@
       "profession": "blacksmithing"
     },
     {
-      "recipe_name": "Bouquet of Herbs",
-      "wowhead_spell_id": 1230892,
-      "crafted_item_id": 245650,
-      "crafted_item_name": "Bouquet of Herbs",
-      "crafted_quantity": 1,
+      "recipe_name": "Blooming Feast",
+      "wowhead_spell_id": 1226169,
+      "crafted_item_id": 242273,
+      "crafted_item_name": "Blooming Feast",
+      "crafted_quantity": 2,
       "reagents": [
         {
-          "item_id": 242651,
+          "item_id": 242640,
+          "quantity": 10,
+          "name": "Plant Protein"
+        },
+        {
+          "item_id": 242647,
+          "quantity": 5,
+          "name": "Tavern Fixings"
+        },
+        {
+          "item_id": 251285,
           "quantity": 1,
-          "name": "Stabilized Derivate"
+          "name": "Petrified Root"
         },
         {
-          "item_id": 243599,
-          "quantity": 20,
-          "name": "item-243599"
+          "item_id": 236774,
+          "quantity": 5,
+          "name": "item-236774"
         },
         {
-          "item_id": 243602,
-          "quantity": 4,
-          "name": "item-243602"
+          "item_id": 236776,
+          "quantity": 5,
+          "name": "item-236776"
+        },
+        {
+          "item_id": 236778,
+          "quantity": 5,
+          "name": "item-236778"
         }
       ],
       "skill": [
-        2906
+        2908
       ],
-      "profession": "alchemy"
+      "profession": "cooking"
     },
     {
       "recipe_name": "Box of Rocks",
@@ -1865,50 +1926,42 @@
       "profession": "alchemy"
     },
     {
-      "recipe_name": "Bright Linen Alchemy Apron",
-      "wowhead_spell_id": 1228968,
-      "crafted_item_id": 239641,
-      "crafted_item_name": "Bright Linen Alchemy Apron",
-      "crafted_quantity": 1,
+      "recipe_name": "Braised Blood Hunter",
+      "wowhead_spell_id": 1226172,
+      "crafted_item_id": 242276,
+      "crafted_item_name": "Braised Blood Hunter",
+      "crafted_quantity": 2,
       "reagents": [
         {
-          "item_id": 251665,
-          "quantity": 5,
-          "name": "Silverleaf Thread"
+          "item_id": 238377,
+          "quantity": 6,
+          "name": "Blood Hunter"
         },
         {
-          "item_id": 239702,
-          "quantity": 2,
-          "name": "item-239702"
+          "item_id": 242643,
+          "quantity": 3,
+          "name": "A Big Ol' Stick of Butter"
         },
         {
-          "item_id": 243599,
+          "item_id": 242641,
+          "quantity": 3,
+          "name": "Cooking Spirits"
+        },
+        {
+          "item_id": 242647,
+          "quantity": 3,
+          "name": "Tavern Fixings"
+        },
+        {
+          "item_id": 236950,
           "quantity": 2,
-          "name": "item-243599"
+          "name": "Mote of Primal Energy"
         }
       ],
       "skill": [
-        2918
+        2908
       ],
-      "profession": "tailoring"
-    },
-    {
-      "recipe_name": "Bright Linen Bandage",
-      "wowhead_spell_id": 1228941,
-      "crafted_item_id": 239711,
-      "crafted_item_name": "Bright Linen Bandage",
-      "crafted_quantity": 1,
-      "reagents": [
-        {
-          "item_id": 239700,
-          "quantity": 1,
-          "name": "item-239700"
-        }
-      ],
-      "skill": [
-        2918
-      ],
-      "profession": "tailoring"
+      "profession": "cooking"
     },
     {
       "recipe_name": "Bright Linen Bolt",
@@ -1926,90 +1979,6 @@
           "item_id": 236963,
           "quantity": 1,
           "name": "item-236963"
-        }
-      ],
-      "skill": [
-        2918
-      ],
-      "profession": "tailoring"
-    },
-    {
-      "recipe_name": "Bright Linen Enchanting Hat",
-      "wowhead_spell_id": 1228970,
-      "crafted_item_id": 239643,
-      "crafted_item_name": "Bright Linen Enchanting Hat",
-      "crafted_quantity": 1,
-      "reagents": [
-        {
-          "item_id": 251665,
-          "quantity": 3,
-          "name": "Silverleaf Thread"
-        },
-        {
-          "item_id": 239702,
-          "quantity": 2,
-          "name": "item-239702"
-        },
-        {
-          "item_id": 243599,
-          "quantity": 2,
-          "name": "item-243599"
-        }
-      ],
-      "skill": [
-        2918
-      ],
-      "profession": "tailoring"
-    },
-    {
-      "recipe_name": "Bright Linen Fishing Hat",
-      "wowhead_spell_id": 1228971,
-      "crafted_item_id": 239644,
-      "crafted_item_name": "Bright Linen Fishing Hat",
-      "crafted_quantity": 1,
-      "reagents": [
-        {
-          "item_id": 251665,
-          "quantity": 3,
-          "name": "Silverleaf Thread"
-        },
-        {
-          "item_id": 239702,
-          "quantity": 2,
-          "name": "item-239702"
-        },
-        {
-          "item_id": 243599,
-          "quantity": 2,
-          "name": "item-243599"
-        }
-      ],
-      "skill": [
-        2918
-      ],
-      "profession": "tailoring"
-    },
-    {
-      "recipe_name": "Bright Linen Herbalism Hat",
-      "wowhead_spell_id": 1228972,
-      "crafted_item_id": 239645,
-      "crafted_item_name": "Bright Linen Herbalism Hat",
-      "crafted_quantity": 1,
-      "reagents": [
-        {
-          "item_id": 251665,
-          "quantity": 3,
-          "name": "Silverleaf Thread"
-        },
-        {
-          "item_id": 239702,
-          "quantity": 2,
-          "name": "item-239702"
-        },
-        {
-          "item_id": 243599,
-          "quantity": 2,
-          "name": "item-243599"
         }
       ],
       "skill": [
@@ -2046,60 +2015,42 @@
       "profession": "tailoring"
     },
     {
-      "recipe_name": "Bright Linen Spellthread",
-      "wowhead_spell_id": 1228976,
-      "crafted_item_id": 240156,
-      "crafted_item_name": "Bright Linen Spellthread",
-      "crafted_quantity": 1,
+      "recipe_name": "Buttered Root Crab",
+      "wowhead_spell_id": 1226176,
+      "crafted_item_id": 242280,
+      "crafted_item_name": "Buttered Root Crab",
+      "crafted_quantity": 2,
       "reagents": [
         {
-          "item_id": 251691,
+          "item_id": 238367,
+          "quantity": 6,
+          "name": "Root Crab"
+        },
+        {
+          "item_id": 242640,
           "quantity": 3,
-          "name": "Embroidery Floss"
+          "name": "Plant Protein"
         },
         {
-          "item_id": 239702,
-          "quantity": 2,
-          "name": "item-239702"
+          "item_id": 242643,
+          "quantity": 3,
+          "name": "A Big Ol' Stick of Butter"
         },
         {
-          "item_id": 243599,
-          "quantity": 2,
-          "name": "item-243599"
+          "item_id": 242646,
+          "quantity": 3,
+          "name": "Pouch of Spices"
+        },
+        {
+          "item_id": 242647,
+          "quantity": 1,
+          "name": "Tavern Fixings"
         }
       ],
       "skill": [
-        2918
+        2908
       ],
-      "profession": "tailoring"
-    },
-    {
-      "recipe_name": "Bright Linen Tailoring Robe",
-      "wowhead_spell_id": 1228973,
-      "crafted_item_id": 239646,
-      "crafted_item_name": "Bright Linen Tailoring Robe",
-      "crafted_quantity": 1,
-      "reagents": [
-        {
-          "item_id": 251665,
-          "quantity": 3,
-          "name": "Silverleaf Thread"
-        },
-        {
-          "item_id": 239702,
-          "quantity": 2,
-          "name": "item-239702"
-        },
-        {
-          "item_id": 243599,
-          "quantity": 2,
-          "name": "item-243599"
-        }
-      ],
-      "skill": [
-        2918
-      ],
-      "profession": "tailoring"
+      "profession": "cooking"
     },
     {
       "recipe_name": "Cauldron of Sin'dorei Flasks",
@@ -2138,34 +2089,6 @@
         2906
       ],
       "profession": "alchemy"
-    },
-    {
-      "recipe_name": "Chef's Bright Linen Cooking Chapeau",
-      "wowhead_spell_id": 1228969,
-      "crafted_item_id": 239642,
-      "crafted_item_name": "Chef's Bright Linen Cooking Chapeau",
-      "crafted_quantity": 1,
-      "reagents": [
-        {
-          "item_id": 251665,
-          "quantity": 3,
-          "name": "Silverleaf Thread"
-        },
-        {
-          "item_id": 239702,
-          "quantity": 2,
-          "name": "item-239702"
-        },
-        {
-          "item_id": 243599,
-          "quantity": 2,
-          "name": "item-243599"
-        }
-      ],
-      "skill": [
-        2918
-      ],
-      "profession": "tailoring"
     },
     {
       "recipe_name": "Chemist's Cap",
@@ -2243,7 +2166,7 @@
         {
           "item_id": 236951,
           "quantity": 1,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 236774,
@@ -2253,7 +2176,7 @@
         {
           "item_id": 245766,
           "quantity": 1,
-          "name": "item-245766"
+          "name": "Soul Cipher"
         }
       ],
       "skill": [
@@ -2271,7 +2194,7 @@
         {
           "item_id": 236951,
           "quantity": 4,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 236950,
@@ -2408,7 +2331,7 @@
         {
           "item_id": 236951,
           "quantity": 3,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 245801,
@@ -2460,231 +2383,37 @@
       "profession": "inscription"
     },
     {
-      "recipe_name": "Courtly Belt",
-      "wowhead_spell_id": 1228953,
-      "crafted_item_id": 239670,
-      "crafted_item_name": "Courtly Belt",
-      "crafted_quantity": 1,
+      "recipe_name": "Crimson Calamari",
+      "wowhead_spell_id": 1226173,
+      "crafted_item_id": 242277,
+      "crafted_item_name": "Crimson Calamari",
+      "crafted_quantity": 2,
       "reagents": [
         {
-          "item_id": 251665,
+          "item_id": 238373,
+          "quantity": 6,
+          "name": "Ominous Octopus"
+        },
+        {
+          "item_id": 242643,
           "quantity": 3,
-          "name": "Silverleaf Thread"
+          "name": "A Big Ol' Stick of Butter"
         },
         {
-          "item_id": 251691,
-          "quantity": 2,
-          "name": "Embroidery Floss"
+          "item_id": 242646,
+          "quantity": 3,
+          "name": "Pouch of Spices"
         },
         {
-          "item_id": 239700,
-          "quantity": 2,
-          "name": "item-239700"
+          "item_id": 236770,
+          "quantity": 6,
+          "name": "item-236770"
         }
       ],
       "skill": [
-        2918
+        2908
       ],
-      "profession": "tailoring"
-    },
-    {
-      "recipe_name": "Courtly Cloak",
-      "wowhead_spell_id": 1228958,
-      "crafted_item_id": 239674,
-      "crafted_item_name": "Courtly Cloak",
-      "crafted_quantity": 1,
-      "reagents": [
-        {
-          "item_id": 251665,
-          "quantity": 3,
-          "name": "Silverleaf Thread"
-        },
-        {
-          "item_id": 239700,
-          "quantity": 2,
-          "name": "item-239700"
-        }
-      ],
-      "skill": [
-        2918
-      ],
-      "profession": "tailoring"
-    },
-    {
-      "recipe_name": "Courtly Gloves",
-      "wowhead_spell_id": 1228952,
-      "crafted_item_id": 239669,
-      "crafted_item_name": "Courtly Gloves",
-      "crafted_quantity": 1,
-      "reagents": [
-        {
-          "item_id": 251665,
-          "quantity": 3,
-          "name": "Silverleaf Thread"
-        },
-        {
-          "item_id": 239700,
-          "quantity": 3,
-          "name": "item-239700"
-        }
-      ],
-      "skill": [
-        2918
-      ],
-      "profession": "tailoring"
-    },
-    {
-      "recipe_name": "Courtly Helm",
-      "wowhead_spell_id": 1228951,
-      "crafted_item_id": 239668,
-      "crafted_item_name": "Courtly Helm",
-      "crafted_quantity": 1,
-      "reagents": [
-        {
-          "item_id": 251665,
-          "quantity": 4,
-          "name": "Silverleaf Thread"
-        },
-        {
-          "item_id": 251691,
-          "quantity": 3,
-          "name": "Embroidery Floss"
-        },
-        {
-          "item_id": 239700,
-          "quantity": 3,
-          "name": "item-239700"
-        }
-      ],
-      "skill": [
-        2918
-      ],
-      "profession": "tailoring"
-    },
-    {
-      "recipe_name": "Courtly Pants",
-      "wowhead_spell_id": 1228956,
-      "crafted_item_id": 239676,
-      "crafted_item_name": "Courtly Pants",
-      "crafted_quantity": 1,
-      "reagents": [
-        {
-          "item_id": 251665,
-          "quantity": 4,
-          "name": "Silverleaf Thread"
-        },
-        {
-          "item_id": 251691,
-          "quantity": 3,
-          "name": "Embroidery Floss"
-        },
-        {
-          "item_id": 239700,
-          "quantity": 3,
-          "name": "item-239700"
-        }
-      ],
-      "skill": [
-        2918
-      ],
-      "profession": "tailoring"
-    },
-    {
-      "recipe_name": "Courtly Robes",
-      "wowhead_spell_id": 1228955,
-      "crafted_item_id": 239672,
-      "crafted_item_name": "Courtly Robes",
-      "crafted_quantity": 1,
-      "reagents": [
-        {
-          "item_id": 251665,
-          "quantity": 3,
-          "name": "Silverleaf Thread"
-        },
-        {
-          "item_id": 239700,
-          "quantity": 2,
-          "name": "item-239700"
-        }
-      ],
-      "skill": [
-        2918
-      ],
-      "profession": "tailoring"
-    },
-    {
-      "recipe_name": "Courtly Shoulders",
-      "wowhead_spell_id": 1228959,
-      "crafted_item_id": 239675,
-      "crafted_item_name": "Courtly Shoulders",
-      "crafted_quantity": 1,
-      "reagents": [
-        {
-          "item_id": 251665,
-          "quantity": 3,
-          "name": "Silverleaf Thread"
-        },
-        {
-          "item_id": 251691,
-          "quantity": 1,
-          "name": "Embroidery Floss"
-        },
-        {
-          "item_id": 239700,
-          "quantity": 2,
-          "name": "item-239700"
-        }
-      ],
-      "skill": [
-        2918
-      ],
-      "profession": "tailoring"
-    },
-    {
-      "recipe_name": "Courtly Slippers",
-      "wowhead_spell_id": 1228957,
-      "crafted_item_id": 239673,
-      "crafted_item_name": "Courtly Slippers",
-      "crafted_quantity": 1,
-      "reagents": [
-        {
-          "item_id": 251665,
-          "quantity": 3,
-          "name": "Silverleaf Thread"
-        },
-        {
-          "item_id": 239700,
-          "quantity": 2,
-          "name": "item-239700"
-        }
-      ],
-      "skill": [
-        2918
-      ],
-      "profession": "tailoring"
-    },
-    {
-      "recipe_name": "Courtly Wrists",
-      "wowhead_spell_id": 1228954,
-      "crafted_item_id": 239671,
-      "crafted_item_name": "Courtly Wrists",
-      "crafted_quantity": 1,
-      "reagents": [
-        {
-          "item_id": 251665,
-          "quantity": 2,
-          "name": "Silverleaf Thread"
-        },
-        {
-          "item_id": 239700,
-          "quantity": 2,
-          "name": "item-239700"
-        }
-      ],
-      "skill": [
-        2918
-      ],
-      "profession": "tailoring"
+      "profession": "cooking"
     },
     {
       "recipe_name": "Darkmoon Dominion: Blood",
@@ -2721,7 +2450,7 @@
         {
           "item_id": 245766,
           "quantity": 5,
-          "name": "item-245766"
+          "name": "Soul Cipher"
         }
       ],
       "skill": [
@@ -2744,7 +2473,7 @@
         {
           "item_id": 236951,
           "quantity": 20,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 245829,
@@ -2764,7 +2493,7 @@
         {
           "item_id": 245766,
           "quantity": 5,
-          "name": "item-245766"
+          "name": "Soul Cipher"
         }
       ],
       "skill": [
@@ -2807,7 +2536,7 @@
         {
           "item_id": 245766,
           "quantity": 5,
-          "name": "item-245766"
+          "name": "Soul Cipher"
         }
       ],
       "skill": [
@@ -2850,7 +2579,7 @@
         {
           "item_id": 245766,
           "quantity": 5,
-          "name": "item-245766"
+          "name": "Soul Cipher"
         }
       ],
       "skill": [
@@ -2883,7 +2612,7 @@
         {
           "item_id": 245766,
           "quantity": 5,
-          "name": "item-245766"
+          "name": "Soul Cipher"
         }
       ],
       "skill": [
@@ -2906,7 +2635,7 @@
         {
           "item_id": 236951,
           "quantity": 10,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 245829,
@@ -2916,7 +2645,7 @@
         {
           "item_id": 245766,
           "quantity": 5,
-          "name": "item-245766"
+          "name": "Soul Cipher"
         }
       ],
       "skill": [
@@ -2949,7 +2678,7 @@
         {
           "item_id": 245766,
           "quantity": 5,
-          "name": "item-245766"
+          "name": "Soul Cipher"
         }
       ],
       "skill": [
@@ -2982,7 +2711,7 @@
         {
           "item_id": 245766,
           "quantity": 5,
-          "name": "item-245766"
+          "name": "Soul Cipher"
         }
       ],
       "skill": [
@@ -3247,7 +2976,7 @@
         {
           "item_id": 236951,
           "quantity": 5,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 239198,
@@ -3313,7 +3042,7 @@
         {
           "item_id": 236951,
           "quantity": 5,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 239198,
@@ -3455,7 +3184,7 @@
         {
           "item_id": 236951,
           "quantity": 10,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 238523,
@@ -3541,7 +3270,7 @@
         {
           "item_id": 236951,
           "quantity": 5,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 238528,
@@ -3704,29 +3433,6 @@
       "profession": "enchanting"
     },
     {
-      "recipe_name": "Enchant Helm - Blessing of Speed",
-      "wowhead_spell_id": 1236070,
-      "crafted_item_id": 243978,
-      "crafted_item_name": "Enchant Helm - Blessing of Speed",
-      "crafted_quantity": 1,
-      "reagents": [
-        {
-          "item_id": 243599,
-          "quantity": 15,
-          "name": "item-243599"
-        },
-        {
-          "item_id": 243602,
-          "quantity": 3,
-          "name": "item-243602"
-        }
-      ],
-      "skill": [
-        2909
-      ],
-      "profession": "enchanting"
-    },
-    {
       "recipe_name": "Enchant Helm - Empowered Blessing of Speed",
       "wowhead_spell_id": 1236071,
       "crafted_item_id": 243980,
@@ -3774,7 +3480,7 @@
         {
           "item_id": 236951,
           "quantity": 20,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 251285,
@@ -3841,70 +3547,6 @@
       "profession": "enchanting"
     },
     {
-      "recipe_name": "Enchant Helm - Hex of Leeching",
-      "wowhead_spell_id": 1236055,
-      "crafted_item_id": 243948,
-      "crafted_item_name": "Enchant Helm - Hex of Leeching",
-      "crafted_quantity": 1,
-      "reagents": [
-        {
-          "item_id": 243599,
-          "quantity": 15,
-          "name": "item-243599"
-        },
-        {
-          "item_id": 243602,
-          "quantity": 3,
-          "name": "item-243602"
-        }
-      ],
-      "skill": [
-        2909
-      ],
-      "profession": "enchanting"
-    },
-    {
-      "recipe_name": "Enchant Helm - Rune of Avoidance",
-      "wowhead_spell_id": 1236083,
-      "crafted_item_id": 244004,
-      "crafted_item_name": "Enchant Helm - Rune of Avoidance",
-      "crafted_quantity": 1,
-      "reagents": [
-        {
-          "item_id": 243599,
-          "quantity": 15,
-          "name": "item-243599"
-        },
-        {
-          "item_id": 243602,
-          "quantity": 3,
-          "name": "item-243602"
-        }
-      ],
-      "skill": [
-        2909
-      ],
-      "profession": "enchanting"
-    },
-    {
-      "recipe_name": "Enchant Ring - Amani Mastery",
-      "wowhead_spell_id": 1236058,
-      "crafted_item_id": 243954,
-      "crafted_item_name": "Enchant Ring - Amani Mastery",
-      "crafted_quantity": 1,
-      "reagents": [
-        {
-          "item_id": 243599,
-          "quantity": 5,
-          "name": "item-243599"
-        }
-      ],
-      "skill": [
-        2909
-      ],
-      "profession": "enchanting"
-    },
-    {
       "recipe_name": "Enchant Ring - Eyes of the Eagle",
       "wowhead_spell_id": 1236059,
       "crafted_item_id": 243956,
@@ -3914,7 +3556,7 @@
         {
           "item_id": 236951,
           "quantity": 15,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 238522,
@@ -3978,24 +3620,6 @@
           "item_id": 243605,
           "quantity": 1,
           "name": "item-243605"
-        }
-      ],
-      "skill": [
-        2909
-      ],
-      "profession": "enchanting"
-    },
-    {
-      "recipe_name": "Enchant Ring - Nature's Wrath",
-      "wowhead_spell_id": 1236073,
-      "crafted_item_id": 243984,
-      "crafted_item_name": "Enchant Ring - Nature's Wrath",
-      "crafted_quantity": 1,
-      "reagents": [
-        {
-          "item_id": 243599,
-          "quantity": 5,
-          "name": "item-243599"
         }
       ],
       "skill": [
@@ -4080,42 +3704,6 @@
       "profession": "enchanting"
     },
     {
-      "recipe_name": "Enchant Ring - Thalassian Haste",
-      "wowhead_spell_id": 1236086,
-      "crafted_item_id": 244010,
-      "crafted_item_name": "Enchant Ring - Thalassian Haste",
-      "crafted_quantity": 1,
-      "reagents": [
-        {
-          "item_id": 243599,
-          "quantity": 5,
-          "name": "item-243599"
-        }
-      ],
-      "skill": [
-        2909
-      ],
-      "profession": "enchanting"
-    },
-    {
-      "recipe_name": "Enchant Ring - Thalassian Versatility",
-      "wowhead_spell_id": 1236087,
-      "crafted_item_id": 244012,
-      "crafted_item_name": "Enchant Ring - Thalassian Versatility",
-      "crafted_quantity": 1,
-      "reagents": [
-        {
-          "item_id": 243599,
-          "quantity": 5,
-          "name": "item-243599"
-        }
-      ],
-      "skill": [
-        2909
-      ],
-      "profession": "enchanting"
-    },
-    {
       "recipe_name": "Enchant Ring - Zul'jin's Mastery",
       "wowhead_spell_id": 1236060,
       "crafted_item_id": 243958,
@@ -4125,7 +3713,7 @@
         {
           "item_id": 236951,
           "quantity": 15,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 251285,
@@ -4163,7 +3751,7 @@
         {
           "item_id": 236951,
           "quantity": 20,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 243599,
@@ -4225,52 +3813,6 @@
       "profession": "enchanting"
     },
     {
-      "recipe_name": "Enchant Shoulders - Flight of the Eagle",
-      "wowhead_spell_id": 1236061,
-      "crafted_item_id": 243960,
-      "crafted_item_name": "Enchant Shoulders - Flight of the Eagle",
-      "crafted_quantity": 1,
-      "reagents": [
-        {
-          "item_id": 243599,
-          "quantity": 15,
-          "name": "item-243599"
-        },
-        {
-          "item_id": 243602,
-          "quantity": 3,
-          "name": "item-243602"
-        }
-      ],
-      "skill": [
-        2909
-      ],
-      "profession": "enchanting"
-    },
-    {
-      "recipe_name": "Enchant Shoulders - Nature's Grace",
-      "wowhead_spell_id": 1236075,
-      "crafted_item_id": 243988,
-      "crafted_item_name": "Enchant Shoulders - Nature's Grace",
-      "crafted_quantity": 1,
-      "reagents": [
-        {
-          "item_id": 243599,
-          "quantity": 15,
-          "name": "item-243599"
-        },
-        {
-          "item_id": 243602,
-          "quantity": 3,
-          "name": "item-243602"
-        }
-      ],
-      "skill": [
-        2909
-      ],
-      "profession": "enchanting"
-    },
-    {
       "recipe_name": "Enchant Shoulders - Silvermoon's Mending",
       "wowhead_spell_id": 1236091,
       "crafted_item_id": 244020,
@@ -4304,29 +3846,6 @@
       "profession": "enchanting"
     },
     {
-      "recipe_name": "Enchant Shoulders - Thalassian Recovery",
-      "wowhead_spell_id": 1236090,
-      "crafted_item_id": 244018,
-      "crafted_item_name": "Enchant Shoulders - Thalassian Recovery",
-      "crafted_quantity": 1,
-      "reagents": [
-        {
-          "item_id": 243599,
-          "quantity": 15,
-          "name": "item-243599"
-        },
-        {
-          "item_id": 243602,
-          "quantity": 3,
-          "name": "item-243602"
-        }
-      ],
-      "skill": [
-        2909
-      ],
-      "profession": "enchanting"
-    },
-    {
       "recipe_name": "Enchant Tool - Amani Perception",
       "wowhead_spell_id": 1236063,
       "crafted_item_id": 243964,
@@ -4336,7 +3855,7 @@
         {
           "item_id": 236951,
           "quantity": 20,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 238197,
@@ -4374,7 +3893,7 @@
         {
           "item_id": 236951,
           "quantity": 20,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 238197,
@@ -4650,7 +4169,7 @@
         {
           "item_id": 236951,
           "quantity": 5,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 251285,
@@ -4736,7 +4255,7 @@
         {
           "item_id": 236951,
           "quantity": 5,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 238530,
@@ -4779,7 +4298,7 @@
         {
           "item_id": 236951,
           "quantity": 5,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 238528,
@@ -5004,7 +4523,7 @@
         {
           "item_id": 236951,
           "quantity": 20,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 245881,
@@ -5107,44 +4626,6 @@
         2906
       ],
       "profession": "alchemy"
-    },
-    {
-      "recipe_name": "Ensorcelled Broom",
-      "wowhead_spell_id": 1246904,
-      "crafted_item_id": 262450,
-      "crafted_item_name": "Ensorcelled Broom",
-      "crafted_quantity": 1,
-      "reagents": [
-        {
-          "item_id": 251665,
-          "quantity": 50,
-          "name": "Silverleaf Thread"
-        },
-        {
-          "item_id": 256963,
-          "quantity": 22,
-          "name": "Thalassian Lumber"
-        },
-        {
-          "item_id": 243599,
-          "quantity": 30,
-          "name": "item-243599"
-        },
-        {
-          "item_id": 243602,
-          "quantity": 5,
-          "name": "item-243602"
-        },
-        {
-          "item_id": 243605,
-          "quantity": 5,
-          "name": "item-243605"
-        }
-      ],
-      "skill": [
-        2909
-      ],
-      "profession": "enchanting"
     },
     {
       "recipe_name": "Entropic Extract",
@@ -5274,6 +4755,39 @@
       "profession": "leatherworking"
     },
     {
+      "recipe_name": "Eversong Pudding",
+      "wowhead_spell_id": 1226188,
+      "crafted_item_id": 242292,
+      "crafted_item_name": "Eversong Pudding",
+      "crafted_quantity": 4,
+      "reagents": [
+        {
+          "item_id": 238383,
+          "quantity": 1,
+          "name": "Eversong Trout"
+        },
+        {
+          "item_id": 242643,
+          "quantity": 5,
+          "name": "A Big Ol' Stick of Butter"
+        },
+        {
+          "item_id": 242644,
+          "quantity": 2,
+          "name": "Mana-Wyrm Essence"
+        },
+        {
+          "item_id": 242641,
+          "quantity": 2,
+          "name": "Cooking Spirits"
+        }
+      ],
+      "skill": [
+        2908
+      ],
+      "profession": "cooking"
+    },
+    {
       "recipe_name": "Farstrider's Brilliant Plumes",
       "wowhead_spell_id": 1237541,
       "crafted_item_id": 244580,
@@ -5381,39 +4895,6 @@
         2918
       ],
       "profession": "tailoring"
-    },
-    {
-      "recipe_name": "Farstrider's Hawkeye",
-      "wowhead_spell_id": 1261866,
-      "crafted_item_id": 257745,
-      "crafted_item_name": "Farstrider's Hawkeye",
-      "crafted_quantity": 1,
-      "reagents": [
-        {
-          "item_id": 243574,
-          "quantity": 1,
-          "name": "item-243574"
-        },
-        {
-          "item_id": 243576,
-          "quantity": 1,
-          "name": "item-243576"
-        },
-        {
-          "item_id": 243578,
-          "quantity": 3,
-          "name": "item-243578"
-        },
-        {
-          "item_id": 243581,
-          "quantity": 2,
-          "name": "item-243581"
-        }
-      ],
-      "skill": [
-        2910
-      ],
-      "profession": "engineering"
     },
     {
       "recipe_name": "Farstrider's Mercy",
@@ -5818,7 +5299,7 @@
         {
           "item_id": 236951,
           "quantity": 2,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 236770,
@@ -5918,6 +5399,534 @@
       "profession": "alchemy"
     },
     {
+      "recipe_name": "Flawless Deadly Amethyst",
+      "wowhead_spell_id": 1230459,
+      "crafted_item_id": 240897,
+      "crafted_item_name": "Flawless Deadly Amethyst",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 236952,
+          "quantity": 3,
+          "name": "Mote of Pure Void"
+        },
+        {
+          "item_id": 251285,
+          "quantity": 1,
+          "name": "Petrified Root"
+        },
+        {
+          "item_id": 242611,
+          "quantity": 1,
+          "name": "item-242611"
+        },
+        {
+          "item_id": 242620,
+          "quantity": 5,
+          "name": "item-242620"
+        }
+      ],
+      "skill": [
+        2914
+      ],
+      "profession": "jewelcrafting"
+    },
+    {
+      "recipe_name": "Flawless Deadly Garnet",
+      "wowhead_spell_id": 1230467,
+      "crafted_item_id": 240903,
+      "crafted_item_name": "Flawless Deadly Garnet",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 236949,
+          "quantity": 3,
+          "name": "Mote of Light"
+        },
+        {
+          "item_id": 251285,
+          "quantity": 1,
+          "name": "Petrified Root"
+        },
+        {
+          "item_id": 242613,
+          "quantity": 1,
+          "name": "item-242613"
+        },
+        {
+          "item_id": 242620,
+          "quantity": 5,
+          "name": "item-242620"
+        }
+      ],
+      "skill": [
+        2914
+      ],
+      "profession": "jewelcrafting"
+    },
+    {
+      "recipe_name": "Flawless Deadly Lapis",
+      "wowhead_spell_id": 1230451,
+      "crafted_item_id": 240913,
+      "crafted_item_name": "Flawless Deadly Lapis",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 236951,
+          "quantity": 3,
+          "name": "Transmute: Mote of Wild Magic"
+        },
+        {
+          "item_id": 251285,
+          "quantity": 1,
+          "name": "Petrified Root"
+        },
+        {
+          "item_id": 242612,
+          "quantity": 1,
+          "name": "item-242612"
+        },
+        {
+          "item_id": 242620,
+          "quantity": 5,
+          "name": "item-242620"
+        }
+      ],
+      "skill": [
+        2914
+      ],
+      "profession": "jewelcrafting"
+    },
+    {
+      "recipe_name": "Flawless Deadly Peridot",
+      "wowhead_spell_id": 1230443,
+      "crafted_item_id": 240889,
+      "crafted_item_name": "Flawless Deadly Peridot",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 236950,
+          "quantity": 3,
+          "name": "Mote of Primal Energy"
+        },
+        {
+          "item_id": 251285,
+          "quantity": 1,
+          "name": "Petrified Root"
+        },
+        {
+          "item_id": 242610,
+          "quantity": 1,
+          "name": "item-242610"
+        },
+        {
+          "item_id": 242620,
+          "quantity": 5,
+          "name": "item-242620"
+        }
+      ],
+      "skill": [
+        2914
+      ],
+      "profession": "jewelcrafting"
+    },
+    {
+      "recipe_name": "Flawless Masterful Amethyst",
+      "wowhead_spell_id": 1230460,
+      "crafted_item_id": 240895,
+      "crafted_item_name": "Flawless Masterful Amethyst",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 236952,
+          "quantity": 3,
+          "name": "Mote of Pure Void"
+        },
+        {
+          "item_id": 251285,
+          "quantity": 1,
+          "name": "Petrified Root"
+        },
+        {
+          "item_id": 242611,
+          "quantity": 1,
+          "name": "item-242611"
+        },
+        {
+          "item_id": 242620,
+          "quantity": 5,
+          "name": "item-242620"
+        }
+      ],
+      "skill": [
+        2914
+      ],
+      "profession": "jewelcrafting"
+    },
+    {
+      "recipe_name": "Flawless Masterful Garnet",
+      "wowhead_spell_id": 1230468,
+      "crafted_item_id": 240907,
+      "crafted_item_name": "Flawless Masterful Garnet",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 236949,
+          "quantity": 3,
+          "name": "Mote of Light"
+        },
+        {
+          "item_id": 251285,
+          "quantity": 1,
+          "name": "Petrified Root"
+        },
+        {
+          "item_id": 242613,
+          "quantity": 1,
+          "name": "item-242613"
+        },
+        {
+          "item_id": 242620,
+          "quantity": 5,
+          "name": "item-242620"
+        }
+      ],
+      "skill": [
+        2914
+      ],
+      "profession": "jewelcrafting"
+    },
+    {
+      "recipe_name": "Flawless Masterful Lapis",
+      "wowhead_spell_id": 1230452,
+      "crafted_item_id": 240917,
+      "crafted_item_name": "Flawless Masterful Lapis",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 236951,
+          "quantity": 3,
+          "name": "Transmute: Mote of Wild Magic"
+        },
+        {
+          "item_id": 251285,
+          "quantity": 1,
+          "name": "Petrified Root"
+        },
+        {
+          "item_id": 242612,
+          "quantity": 1,
+          "name": "item-242612"
+        },
+        {
+          "item_id": 242620,
+          "quantity": 5,
+          "name": "item-242620"
+        }
+      ],
+      "skill": [
+        2914
+      ],
+      "profession": "jewelcrafting"
+    },
+    {
+      "recipe_name": "Flawless Masterful Peridot",
+      "wowhead_spell_id": 1230444,
+      "crafted_item_id": 240891,
+      "crafted_item_name": "Flawless Masterful Peridot",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 236950,
+          "quantity": 3,
+          "name": "Mote of Primal Energy"
+        },
+        {
+          "item_id": 251285,
+          "quantity": 1,
+          "name": "Petrified Root"
+        },
+        {
+          "item_id": 242610,
+          "quantity": 1,
+          "name": "item-242610"
+        },
+        {
+          "item_id": 242620,
+          "quantity": 5,
+          "name": "item-242620"
+        }
+      ],
+      "skill": [
+        2914
+      ],
+      "profession": "jewelcrafting"
+    },
+    {
+      "recipe_name": "Flawless Quick Amethyst",
+      "wowhead_spell_id": 1230458,
+      "crafted_item_id": 240899,
+      "crafted_item_name": "Flawless Quick Amethyst",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 236952,
+          "quantity": 3,
+          "name": "Mote of Pure Void"
+        },
+        {
+          "item_id": 251285,
+          "quantity": 1,
+          "name": "Petrified Root"
+        },
+        {
+          "item_id": 242611,
+          "quantity": 1,
+          "name": "item-242611"
+        },
+        {
+          "item_id": 242620,
+          "quantity": 5,
+          "name": "item-242620"
+        }
+      ],
+      "skill": [
+        2914
+      ],
+      "profession": "jewelcrafting"
+    },
+    {
+      "recipe_name": "Flawless Quick Garnet",
+      "wowhead_spell_id": 1230466,
+      "crafted_item_id": 240905,
+      "crafted_item_name": "Flawless Quick Garnet",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 236949,
+          "quantity": 3,
+          "name": "Mote of Light"
+        },
+        {
+          "item_id": 251285,
+          "quantity": 1,
+          "name": "Petrified Root"
+        },
+        {
+          "item_id": 242613,
+          "quantity": 1,
+          "name": "item-242613"
+        },
+        {
+          "item_id": 242620,
+          "quantity": 5,
+          "name": "item-242620"
+        }
+      ],
+      "skill": [
+        2914
+      ],
+      "profession": "jewelcrafting"
+    },
+    {
+      "recipe_name": "Flawless Quick Lapis",
+      "wowhead_spell_id": 1230450,
+      "crafted_item_id": 240915,
+      "crafted_item_name": "Flawless Quick Lapis",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 236951,
+          "quantity": 3,
+          "name": "Transmute: Mote of Wild Magic"
+        },
+        {
+          "item_id": 251285,
+          "quantity": 1,
+          "name": "Petrified Root"
+        },
+        {
+          "item_id": 242612,
+          "quantity": 1,
+          "name": "item-242612"
+        },
+        {
+          "item_id": 242620,
+          "quantity": 5,
+          "name": "item-242620"
+        }
+      ],
+      "skill": [
+        2914
+      ],
+      "profession": "jewelcrafting"
+    },
+    {
+      "recipe_name": "Flawless Quick Peridot",
+      "wowhead_spell_id": 1230442,
+      "crafted_item_id": 240887,
+      "crafted_item_name": "Flawless Quick Peridot",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 236950,
+          "quantity": 3,
+          "name": "Mote of Primal Energy"
+        },
+        {
+          "item_id": 251285,
+          "quantity": 1,
+          "name": "Petrified Root"
+        },
+        {
+          "item_id": 242610,
+          "quantity": 1,
+          "name": "item-242610"
+        },
+        {
+          "item_id": 242620,
+          "quantity": 5,
+          "name": "item-242620"
+        }
+      ],
+      "skill": [
+        2914
+      ],
+      "profession": "jewelcrafting"
+    },
+    {
+      "recipe_name": "Flawless Versatile Amethyst",
+      "wowhead_spell_id": 1230461,
+      "crafted_item_id": 240901,
+      "crafted_item_name": "Flawless Versatile Amethyst",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 236952,
+          "quantity": 3,
+          "name": "Mote of Pure Void"
+        },
+        {
+          "item_id": 251285,
+          "quantity": 1,
+          "name": "Petrified Root"
+        },
+        {
+          "item_id": 242611,
+          "quantity": 1,
+          "name": "item-242611"
+        },
+        {
+          "item_id": 242620,
+          "quantity": 5,
+          "name": "item-242620"
+        }
+      ],
+      "skill": [
+        2914
+      ],
+      "profession": "jewelcrafting"
+    },
+    {
+      "recipe_name": "Flawless Versatile Garnet",
+      "wowhead_spell_id": 1230469,
+      "crafted_item_id": 240909,
+      "crafted_item_name": "Flawless Versatile Garnet",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 236949,
+          "quantity": 3,
+          "name": "Mote of Light"
+        },
+        {
+          "item_id": 251285,
+          "quantity": 1,
+          "name": "Petrified Root"
+        },
+        {
+          "item_id": 242613,
+          "quantity": 1,
+          "name": "item-242613"
+        },
+        {
+          "item_id": 242620,
+          "quantity": 5,
+          "name": "item-242620"
+        }
+      ],
+      "skill": [
+        2914
+      ],
+      "profession": "jewelcrafting"
+    },
+    {
+      "recipe_name": "Flawless Versatile Lapis",
+      "wowhead_spell_id": 1230453,
+      "crafted_item_id": 240911,
+      "crafted_item_name": "Flawless Versatile Lapis",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 236951,
+          "quantity": 3,
+          "name": "Transmute: Mote of Wild Magic"
+        },
+        {
+          "item_id": 251285,
+          "quantity": 1,
+          "name": "Petrified Root"
+        },
+        {
+          "item_id": 242612,
+          "quantity": 1,
+          "name": "item-242612"
+        },
+        {
+          "item_id": 242620,
+          "quantity": 5,
+          "name": "item-242620"
+        }
+      ],
+      "skill": [
+        2914
+      ],
+      "profession": "jewelcrafting"
+    },
+    {
+      "recipe_name": "Flawless Versatile Peridot",
+      "wowhead_spell_id": 1230445,
+      "crafted_item_id": 240893,
+      "crafted_item_name": "Flawless Versatile Peridot",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 236950,
+          "quantity": 3,
+          "name": "Mote of Primal Energy"
+        },
+        {
+          "item_id": 251285,
+          "quantity": 1,
+          "name": "Petrified Root"
+        },
+        {
+          "item_id": 242610,
+          "quantity": 1,
+          "name": "item-242610"
+        },
+        {
+          "item_id": 242620,
+          "quantity": 5,
+          "name": "item-242620"
+        }
+      ],
+      "skill": [
+        2914
+      ],
+      "profession": "jewelcrafting"
+    },
+    {
       "recipe_name": "Floratender's Crutch",
       "wowhead_spell_id": 1230056,
       "crafted_item_id": 245772,
@@ -5983,7 +5992,7 @@
         {
           "item_id": 236951,
           "quantity": 10,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 245882,
@@ -6041,7 +6050,7 @@
         {
           "item_id": 236951,
           "quantity": 10,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 244633,
@@ -6058,6 +6067,44 @@
         2915
       ],
       "profession": "leatherworking"
+    },
+    {
+      "recipe_name": "Fried Bloomtail",
+      "wowhead_spell_id": 1226187,
+      "crafted_item_id": 242291,
+      "crafted_item_name": "Fried Bloomtail",
+      "crafted_quantity": 4,
+      "reagents": [
+        {
+          "item_id": 238369,
+          "quantity": 5,
+          "name": "Bloomtail Minnow"
+        },
+        {
+          "item_id": 253403,
+          "quantity": 10,
+          "name": "Thalassian Filet"
+        },
+        {
+          "item_id": 242643,
+          "quantity": 5,
+          "name": "A Big Ol' Stick of Butter"
+        },
+        {
+          "item_id": 242646,
+          "quantity": 5,
+          "name": "Pouch of Spices"
+        },
+        {
+          "item_id": 242641,
+          "quantity": 1,
+          "name": "Cooking Spirits"
+        }
+      ],
+      "skill": [
+        2908
+      ],
+      "profession": "cooking"
     },
     {
       "recipe_name": "Giga-Gem Grippers",
@@ -6192,6 +6239,29 @@
       "profession": "inscription"
     },
     {
+      "recipe_name": "Gleaming Copper Band",
+      "wowhead_spell_id": 1230489,
+      "crafted_item_id": 240947,
+      "crafted_item_name": "Gleaming Copper Band",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 237359,
+          "quantity": 5,
+          "name": "item-237359"
+        },
+        {
+          "item_id": 242788,
+          "quantity": 1,
+          "name": "item-242788"
+        }
+      ],
+      "skill": [
+        2914
+      ],
+      "profession": "jewelcrafting"
+    },
+    {
       "recipe_name": "Gleeful Glamour - Blood Elf",
       "wowhead_spell_id": 1236461,
       "crafted_item_id": 243773,
@@ -6201,7 +6271,7 @@
         {
           "item_id": 236951,
           "quantity": 1,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 243599,
@@ -6385,7 +6455,7 @@
         {
           "item_id": 236951,
           "quantity": 1,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 243599,
@@ -6523,7 +6593,7 @@
         {
           "item_id": 236951,
           "quantity": 1,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 243599,
@@ -6546,7 +6616,7 @@
         {
           "item_id": 236951,
           "quantity": 1,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 243599,
@@ -6592,7 +6662,7 @@
         {
           "item_id": 236951,
           "quantity": 1,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 243599,
@@ -6615,7 +6685,7 @@
         {
           "item_id": 236951,
           "quantity": 1,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 243599,
@@ -6638,7 +6708,7 @@
         {
           "item_id": 236951,
           "quantity": 1,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 243599,
@@ -6707,7 +6777,7 @@
         {
           "item_id": 236951,
           "quantity": 1,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 243599,
@@ -6730,7 +6800,7 @@
         {
           "item_id": 236951,
           "quantity": 1,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 243599,
@@ -6753,7 +6823,7 @@
         {
           "item_id": 236951,
           "quantity": 1,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 243599,
@@ -6765,6 +6835,39 @@
         2909
       ],
       "profession": "enchanting"
+    },
+    {
+      "recipe_name": "Glitter Skewers",
+      "wowhead_spell_id": 1226177,
+      "crafted_item_id": 242281,
+      "crafted_item_name": "Glitter Skewers",
+      "crafted_quantity": 2,
+      "reagents": [
+        {
+          "item_id": 238378,
+          "quantity": 2,
+          "name": "Shimmersiren"
+        },
+        {
+          "item_id": 253403,
+          "quantity": 5,
+          "name": "Thalassian Filet"
+        },
+        {
+          "item_id": 242647,
+          "quantity": 1,
+          "name": "Tavern Fixings"
+        },
+        {
+          "item_id": 242643,
+          "quantity": 1,
+          "name": "A Big Ol' Stick of Butter"
+        }
+      ],
+      "skill": [
+        2908
+      ],
+      "profession": "cooking"
     },
     {
       "recipe_name": "Gloaming Alloy",
@@ -6809,7 +6912,7 @@
         {
           "item_id": 236951,
           "quantity": 1,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 243574,
@@ -6826,6 +6929,49 @@
         2910
       ],
       "profession": "engineering"
+    },
+    {
+      "recipe_name": "Harandar Celebration",
+      "wowhead_spell_id": 1226175,
+      "crafted_item_id": 255846,
+      "crafted_item_name": "Harandar Celebration",
+      "crafted_quantity": 2,
+      "reagents": [
+        {
+          "item_id": 242640,
+          "quantity": 10,
+          "name": "Plant Protein"
+        },
+        {
+          "item_id": 242647,
+          "quantity": 4,
+          "name": "Tavern Fixings"
+        },
+        {
+          "item_id": 242641,
+          "quantity": 3,
+          "name": "Cooking Spirits"
+        },
+        {
+          "item_id": 236951,
+          "quantity": 3,
+          "name": "Transmute: Mote of Wild Magic"
+        },
+        {
+          "item_id": 251285,
+          "quantity": 1,
+          "name": "Petrified Root"
+        },
+        {
+          "item_id": 236774,
+          "quantity": 3,
+          "name": "item-236774"
+        }
+      ],
+      "skill": [
+        2908
+      ],
+      "profession": "cooking"
     },
     {
       "recipe_name": "Haranir Canopy Bed",
@@ -6956,7 +7102,7 @@
         {
           "item_id": 236951,
           "quantity": 2,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 236761,
@@ -7108,7 +7254,7 @@
         {
           "item_id": 236951,
           "quantity": 20,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 238511,
@@ -7314,7 +7460,7 @@
         {
           "item_id": 236951,
           "quantity": 1,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 38682,
@@ -7389,29 +7535,6 @@
       "profession": "tailoring"
     },
     {
-      "recipe_name": "Imbued Bright Linen Bolt",
-      "wowhead_spell_id": 1228940,
-      "crafted_item_id": 239702,
-      "crafted_item_name": "Imbued Bright Linen Bolt",
-      "crafted_quantity": 1,
-      "reagents": [
-        {
-          "item_id": 251665,
-          "quantity": 4,
-          "name": "Silverleaf Thread"
-        },
-        {
-          "item_id": 239700,
-          "quantity": 2,
-          "name": "item-239700"
-        }
-      ],
-      "skill": [
-        2918
-      ],
-      "profession": "tailoring"
-    },
-    {
       "recipe_name": "Infused Scalewoven Hide",
       "wowhead_spell_id": 1237573,
       "crafted_item_id": 244633,
@@ -7436,7 +7559,7 @@
         {
           "item_id": 236951,
           "quantity": 2,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 238529,
@@ -7488,34 +7611,6 @@
       "profession": "engineering"
     },
     {
-      "recipe_name": "Kinetic Ankle Primers",
-      "wowhead_spell_id": 1229919,
-      "crafted_item_id": 248132,
-      "crafted_item_name": "Kinetic Ankle Primers",
-      "crafted_quantity": 1,
-      "reagents": [
-        {
-          "item_id": 243574,
-          "quantity": 2,
-          "name": "item-243574"
-        },
-        {
-          "item_id": 243578,
-          "quantity": 3,
-          "name": "item-243578"
-        },
-        {
-          "item_id": 243581,
-          "quantity": 1,
-          "name": "item-243581"
-        }
-      ],
-      "skill": [
-        2910
-      ],
-      "profession": "engineering"
-    },
-    {
       "recipe_name": "Knight-Commander's Palisade",
       "wowhead_spell_id": 1230767,
       "crafted_item_id": 244472,
@@ -7552,39 +7647,6 @@
         2907
       ],
       "profession": "blacksmithing"
-    },
-    {
-      "recipe_name": "Laced Zoomshots",
-      "wowhead_spell_id": 1261895,
-      "crafted_item_id": 257749,
-      "crafted_item_name": "Laced Zoomshots",
-      "crafted_quantity": 1,
-      "reagents": [
-        {
-          "item_id": 243574,
-          "quantity": 1,
-          "name": "item-243574"
-        },
-        {
-          "item_id": 243576,
-          "quantity": 1,
-          "name": "item-243576"
-        },
-        {
-          "item_id": 243578,
-          "quantity": 3,
-          "name": "item-243578"
-        },
-        {
-          "item_id": 243581,
-          "quantity": 2,
-          "name": "item-243581"
-        }
-      ],
-      "skill": [
-        2910
-      ],
-      "profession": "engineering"
     },
     {
       "recipe_name": "Leather-Bound Haranir Wall Shelf",
@@ -7719,6 +7781,44 @@
       "profession": "alchemy"
     },
     {
+      "recipe_name": "Loa Worshiper's Band",
+      "wowhead_spell_id": 1230479,
+      "crafted_item_id": 251513,
+      "crafted_item_name": "Loa Worshiper's Band",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 236951,
+          "quantity": 20,
+          "name": "Transmute: Mote of Wild Magic"
+        },
+        {
+          "item_id": 240974,
+          "quantity": 1,
+          "name": "item-240974"
+        },
+        {
+          "item_id": 242612,
+          "quantity": 1,
+          "name": "item-242612"
+        },
+        {
+          "item_id": 242788,
+          "quantity": 5,
+          "name": "item-242788"
+        }
+      ],
+      "skill": [
+        2914
+      ],
+      "profession": "jewelcrafting"
+    },
+    {
       "recipe_name": "Lucky Keychain",
       "wowhead_spell_id": 1229916,
       "crafted_item_id": 248130,
@@ -7733,7 +7833,7 @@
         {
           "item_id": 236951,
           "quantity": 1,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 243581,
@@ -7813,32 +7913,47 @@
       "profession": "tailoring"
     },
     {
-      "recipe_name": "M3DDY, Travel-Sized",
-      "wowhead_spell_id": 1229917,
-      "crafted_item_id": 248136,
-      "crafted_item_name": "M3DDY, Travel-Sized",
+      "recipe_name": "Mage-Eye Precision Loupes",
+      "wowhead_spell_id": 1242461,
+      "crafted_item_id": 246526,
+      "crafted_item_name": "Mage-Eye Precision Loupes",
       "crafted_quantity": 1,
       "reagents": [
         {
-          "item_id": 243576,
+          "item_id": 245345,
+          "quantity": 20,
+          "name": "Fused Vitality"
+        },
+        {
+          "item_id": 238529,
           "quantity": 1,
-          "name": "item-243576"
+          "name": "Majestic Hide"
         },
         {
-          "item_id": 243578,
-          "quantity": 3,
-          "name": "item-243578"
+          "item_id": 240972,
+          "quantity": 10,
+          "name": "item-240972"
         },
         {
-          "item_id": 243581,
-          "quantity": 2,
-          "name": "item-243581"
+          "item_id": 242620,
+          "quantity": 10,
+          "name": "item-242620"
+        },
+        {
+          "item_id": 242788,
+          "quantity": 6,
+          "name": "item-242788"
+        },
+        {
+          "item_id": 244633,
+          "quantity": 1,
+          "name": "item-244633"
         }
       ],
       "skill": [
-        2910
+        2914
       ],
-      "profession": "engineering"
+      "profession": "jewelcrafting"
     },
     {
       "recipe_name": "Magister's Alchemist Stone",
@@ -7860,7 +7975,7 @@
         {
           "item_id": 236951,
           "quantity": 8,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 251283,
@@ -8067,6 +8182,29 @@
         2907
       ],
       "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Mana Lily Tea",
+      "wowhead_spell_id": 1226193,
+      "crafted_item_id": 242297,
+      "crafted_item_name": "Mana Lily Tea",
+      "crafted_quantity": 2,
+      "reagents": [
+        {
+          "item_id": 242644,
+          "quantity": 1,
+          "name": "Mana-Wyrm Essence"
+        },
+        {
+          "item_id": 236778,
+          "quantity": 2,
+          "name": "item-236778"
+        }
+      ],
+      "skill": [
+        2908
+      ],
+      "profession": "cooking"
     },
     {
       "recipe_name": "Martyr's Bindings",
@@ -8298,7 +8436,7 @@
         {
           "item_id": 236951,
           "quantity": 8,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 251283,
@@ -8341,7 +8479,7 @@
         {
           "item_id": 236951,
           "quantity": 8,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 251283,
@@ -8446,6 +8584,39 @@
       "profession": "blacksmithing"
     },
     {
+      "recipe_name": "Masterwork Sin'dorei Amulet",
+      "wowhead_spell_id": 1230486,
+      "crafted_item_id": 240950,
+      "crafted_item_name": "Masterwork Sin'dorei Amulet",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 236949,
+          "quantity": 10,
+          "name": "Mote of Light"
+        },
+        {
+          "item_id": 240974,
+          "quantity": 1,
+          "name": "item-240974"
+        },
+        {
+          "item_id": 242788,
+          "quantity": 5,
+          "name": "item-242788"
+        }
+      ],
+      "skill": [
+        2914
+      ],
+      "profession": "jewelcrafting"
+    },
+    {
       "recipe_name": "Murder Row Fishhook",
       "wowhead_spell_id": 1230768,
       "crafted_item_id": 244679,
@@ -8520,6 +8691,67 @@
         2907
       ],
       "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Nocturnal Charm",
+      "wowhead_spell_id": 1230490,
+      "crafted_item_id": 240948,
+      "crafted_item_name": "Nocturnal Charm",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 237362,
+          "quantity": 5,
+          "name": "item-237362"
+        },
+        {
+          "item_id": 242788,
+          "quantity": 1,
+          "name": "item-242788"
+        }
+      ],
+      "skill": [
+        2914
+      ],
+      "profession": "jewelcrafting"
+    },
+    {
+      "recipe_name": "Null and Void Plate",
+      "wowhead_spell_id": 1226178,
+      "crafted_item_id": 242282,
+      "crafted_item_name": "Null and Void Plate",
+      "crafted_quantity": 2,
+      "reagents": [
+        {
+          "item_id": 238379,
+          "quantity": 2,
+          "name": "Warping Wise"
+        },
+        {
+          "item_id": 238373,
+          "quantity": 1,
+          "name": "Ominous Octopus"
+        },
+        {
+          "item_id": 242643,
+          "quantity": 1,
+          "name": "A Big Ol' Stick of Butter"
+        },
+        {
+          "item_id": 242646,
+          "quantity": 1,
+          "name": "Pouch of Spices"
+        },
+        {
+          "item_id": 242647,
+          "quantity": 1,
+          "name": "Tavern Fixings"
+        }
+      ],
+      "skill": [
+        2908
+      ],
+      "profession": "cooking"
     },
     {
       "recipe_name": "Oil of Dawn",
@@ -8602,7 +8834,7 @@
         {
           "item_id": 236951,
           "quantity": 6,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 236950,
@@ -8744,7 +8976,7 @@
         {
           "item_id": 236951,
           "quantity": 2,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 236761,
@@ -8934,6 +9166,49 @@
         2907
       ],
       "profession": "blacksmithing"
+    },
+    {
+      "recipe_name": "Quel'dorei Medley",
+      "wowhead_spell_id": 1226168,
+      "crafted_item_id": 242272,
+      "crafted_item_name": "Quel'dorei Medley",
+      "crafted_quantity": 2,
+      "reagents": [
+        {
+          "item_id": 238383,
+          "quantity": 6,
+          "name": "Eversong Trout"
+        },
+        {
+          "item_id": 242647,
+          "quantity": 1,
+          "name": "Tavern Fixings"
+        },
+        {
+          "item_id": 238372,
+          "quantity": 4,
+          "name": "Restored Songfish"
+        },
+        {
+          "item_id": 242641,
+          "quantity": 1,
+          "name": "Cooking Spirits"
+        },
+        {
+          "item_id": 253403,
+          "quantity": 10,
+          "name": "Thalassian Filet"
+        },
+        {
+          "item_id": 251285,
+          "quantity": 1,
+          "name": "Petrified Root"
+        }
+      ],
+      "skill": [
+        2908
+      ],
+      "profession": "cooking"
     },
     {
       "recipe_name": "Ranger-General's Grips",
@@ -9190,82 +9465,6 @@
       "profession": "blacksmithing"
     },
     {
-      "recipe_name": "Ren'dorei Crafting Framework",
-      "wowhead_spell_id": 1248615,
-      "crafted_item_id": 262617,
-      "crafted_item_name": "Ren'dorei Crafting Framework",
-      "crafted_quantity": 1,
-      "reagents": [
-        {
-          "item_id": 256963,
-          "quantity": 24,
-          "name": "Thalassian Lumber"
-        },
-        {
-          "item_id": 243574,
-          "quantity": 10,
-          "name": "item-243574"
-        },
-        {
-          "item_id": 243576,
-          "quantity": 10,
-          "name": "item-243576"
-        },
-        {
-          "item_id": 243578,
-          "quantity": 5,
-          "name": "item-243578"
-        },
-        {
-          "item_id": 243581,
-          "quantity": 5,
-          "name": "item-243581"
-        }
-      ],
-      "skill": [
-        2910
-      ],
-      "profession": "engineering"
-    },
-    {
-      "recipe_name": "Ren'dorei Lightpost",
-      "wowhead_spell_id": 1248611,
-      "crafted_item_id": 263049,
-      "crafted_item_name": "Ren'dorei Lightpost",
-      "crafted_quantity": 1,
-      "reagents": [
-        {
-          "item_id": 256963,
-          "quantity": 26,
-          "name": "Thalassian Lumber"
-        },
-        {
-          "item_id": 243574,
-          "quantity": 10,
-          "name": "item-243574"
-        },
-        {
-          "item_id": 243576,
-          "quantity": 10,
-          "name": "item-243576"
-        },
-        {
-          "item_id": 243578,
-          "quantity": 5,
-          "name": "item-243578"
-        },
-        {
-          "item_id": 243581,
-          "quantity": 5,
-          "name": "item-243581"
-        }
-      ],
-      "skill": [
-        2910
-      ],
-      "profession": "engineering"
-    },
-    {
       "recipe_name": "Ren'dorei Postal Repository",
       "wowhead_spell_id": 1246903,
       "crafted_item_id": 262468,
@@ -9307,120 +9506,6 @@
         2909
       ],
       "profession": "enchanting"
-    },
-    {
-      "recipe_name": "Ren'dorei Stargazer",
-      "wowhead_spell_id": 1248613,
-      "crafted_item_id": 262465,
-      "crafted_item_name": "Ren'dorei Stargazer",
-      "crafted_quantity": 1,
-      "reagents": [
-        {
-          "item_id": 256963,
-          "quantity": 32,
-          "name": "Thalassian Lumber"
-        },
-        {
-          "item_id": 243574,
-          "quantity": 10,
-          "name": "item-243574"
-        },
-        {
-          "item_id": 243576,
-          "quantity": 10,
-          "name": "item-243576"
-        },
-        {
-          "item_id": 243578,
-          "quantity": 5,
-          "name": "item-243578"
-        },
-        {
-          "item_id": 243581,
-          "quantity": 5,
-          "name": "item-243581"
-        }
-      ],
-      "skill": [
-        2910
-      ],
-      "profession": "engineering"
-    },
-    {
-      "recipe_name": "Ren'dorei Void Projector",
-      "wowhead_spell_id": 1248610,
-      "crafted_item_id": 262618,
-      "crafted_item_name": "Ren'dorei Void Projector",
-      "crafted_quantity": 1,
-      "reagents": [
-        {
-          "item_id": 256963,
-          "quantity": 22,
-          "name": "Thalassian Lumber"
-        },
-        {
-          "item_id": 243574,
-          "quantity": 10,
-          "name": "item-243574"
-        },
-        {
-          "item_id": 243576,
-          "quantity": 10,
-          "name": "item-243576"
-        },
-        {
-          "item_id": 243578,
-          "quantity": 5,
-          "name": "item-243578"
-        },
-        {
-          "item_id": 243581,
-          "quantity": 5,
-          "name": "item-243581"
-        }
-      ],
-      "skill": [
-        2910
-      ],
-      "profession": "engineering"
-    },
-    {
-      "recipe_name": "Ren'dorei Warp Orb",
-      "wowhead_spell_id": 1248616,
-      "crafted_item_id": 262602,
-      "crafted_item_name": "Ren'dorei Warp Orb",
-      "crafted_quantity": 1,
-      "reagents": [
-        {
-          "item_id": 256963,
-          "quantity": 28,
-          "name": "Thalassian Lumber"
-        },
-        {
-          "item_id": 243574,
-          "quantity": 10,
-          "name": "item-243574"
-        },
-        {
-          "item_id": 243576,
-          "quantity": 10,
-          "name": "item-243576"
-        },
-        {
-          "item_id": 243578,
-          "quantity": 5,
-          "name": "item-243578"
-        },
-        {
-          "item_id": 243581,
-          "quantity": 5,
-          "name": "item-243581"
-        }
-      ],
-      "skill": [
-        2910
-      ],
-      "profession": "engineering"
     },
     {
       "recipe_name": "Riftstone",
@@ -9783,27 +9868,27 @@
       "profession": "enchanting"
     },
     {
-      "recipe_name": "Runed Refulgent Copper Rod",
-      "wowhead_spell_id": 1236486,
-      "crafted_item_id": 244175,
-      "crafted_item_name": "Runed Refulgent Copper Rod",
-      "crafted_quantity": 1,
+      "recipe_name": "Sanguithorn Tea",
+      "wowhead_spell_id": 1226195,
+      "crafted_item_id": 242299,
+      "crafted_item_name": "Sanguithorn Tea",
+      "crafted_quantity": 2,
       "reagents": [
         {
-          "item_id": 244174,
+          "item_id": 242644,
           "quantity": 1,
-          "name": "Refulgent Copper Rod"
+          "name": "Mana-Wyrm Essence"
         },
         {
-          "item_id": 243599,
-          "quantity": 5,
-          "name": "item-243599"
+          "item_id": 236770,
+          "quantity": 2,
+          "name": "item-236770"
         }
       ],
       "skill": [
-        2909
+        2908
       ],
-      "profession": "enchanting"
+      "profession": "cooking"
     },
     {
       "recipe_name": "Scalewoven Hide",
@@ -10099,39 +10184,6 @@
       "profession": "leatherworking"
     },
     {
-      "recipe_name": "Self-Pouring Thalassian Sunwine",
-      "wowhead_spell_id": 1246909,
-      "crafted_item_id": 246693,
-      "crafted_item_name": "Self-Pouring Thalassian Sunwine",
-      "crafted_quantity": 1,
-      "reagents": [
-        {
-          "item_id": 256963,
-          "quantity": 18,
-          "name": "Thalassian Lumber"
-        },
-        {
-          "item_id": 242787,
-          "quantity": 5,
-          "name": "item-242787"
-        },
-        {
-          "item_id": 243602,
-          "quantity": 10,
-          "name": "item-243602"
-        },
-        {
-          "item_id": 243605,
-          "quantity": 5,
-          "name": "item-243605"
-        }
-      ],
-      "skill": [
-        2909
-      ],
-      "profession": "enchanting"
-    },
-    {
       "recipe_name": "Self-Sharpening Sin'dorei Snippers",
       "wowhead_spell_id": 1264526,
       "crafted_item_id": 259177,
@@ -10168,6 +10220,44 @@
         2910
       ],
       "profession": "engineering"
+    },
+    {
+      "recipe_name": "Signet of Azerothian Blessings",
+      "wowhead_spell_id": 1230487,
+      "crafted_item_id": 241140,
+      "crafted_item_name": "Signet of Azerothian Blessings",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 236950,
+          "quantity": 20,
+          "name": "Mote of Primal Energy"
+        },
+        {
+          "item_id": 240974,
+          "quantity": 1,
+          "name": "item-240974"
+        },
+        {
+          "item_id": 242610,
+          "quantity": 1,
+          "name": "item-242610"
+        },
+        {
+          "item_id": 242788,
+          "quantity": 5,
+          "name": "item-242788"
+        }
+      ],
+      "skill": [
+        2914
+      ],
+      "profession": "jewelcrafting"
     },
     {
       "recipe_name": "Silvermoon Agent's Coat",
@@ -10563,6 +10653,49 @@
       "profession": "alchemy"
     },
     {
+      "recipe_name": "Silvermoon Parade",
+      "wowhead_spell_id": 1257796,
+      "crafted_item_id": 255845,
+      "crafted_item_name": "Silvermoon Parade",
+      "crafted_quantity": 2,
+      "reagents": [
+        {
+          "item_id": 238366,
+          "quantity": 4,
+          "name": "Lynxfish"
+        },
+        {
+          "item_id": 242647,
+          "quantity": 1,
+          "name": "Tavern Fixings"
+        },
+        {
+          "item_id": 238371,
+          "quantity": 4,
+          "name": "Arcane Wyrmfish"
+        },
+        {
+          "item_id": 242641,
+          "quantity": 1,
+          "name": "Cooking Spirits"
+        },
+        {
+          "item_id": 242639,
+          "quantity": 10,
+          "name": "Practically Pork"
+        },
+        {
+          "item_id": 251285,
+          "quantity": 1,
+          "name": "Petrified Root"
+        }
+      ],
+      "skill": [
+        2908
+      ],
+      "profession": "cooking"
+    },
+    {
       "recipe_name": "Silvermoon Spire Fountain",
       "wowhead_spell_id": 1233138,
       "crafted_item_id": 257420,
@@ -10572,7 +10705,7 @@
         {
           "item_id": 236951,
           "quantity": 6,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 236950,
@@ -11030,6 +11163,39 @@
       "profession": "leatherworking"
     },
     {
+      "recipe_name": "Sin'dorei Jeweler's Loupes",
+      "wowhead_spell_id": 1230496,
+      "crafted_item_id": 240959,
+      "crafted_item_name": "Sin'dorei Jeweler's Loupes",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238518,
+          "quantity": 1,
+          "name": "item-238518"
+        },
+        {
+          "item_id": 240972,
+          "quantity": 6,
+          "name": "item-240972"
+        },
+        {
+          "item_id": 242620,
+          "quantity": 3,
+          "name": "item-242620"
+        },
+        {
+          "item_id": 242788,
+          "quantity": 3,
+          "name": "item-242788"
+        }
+      ],
+      "skill": [
+        2914
+      ],
+      "profession": "jewelcrafting"
+    },
+    {
       "recipe_name": "Sin'dorei Leathershaper's Smock",
       "wowhead_spell_id": 1237564,
       "crafted_item_id": 244625,
@@ -11218,44 +11384,6 @@
       "profession": "leatherworking"
     },
     {
-      "recipe_name": "Small Telogrus Lamp",
-      "wowhead_spell_id": 1248614,
-      "crafted_item_id": 262789,
-      "crafted_item_name": "Small Telogrus Lamp",
-      "crafted_quantity": 1,
-      "reagents": [
-        {
-          "item_id": 256963,
-          "quantity": 18,
-          "name": "Thalassian Lumber"
-        },
-        {
-          "item_id": 243574,
-          "quantity": 10,
-          "name": "item-243574"
-        },
-        {
-          "item_id": 243576,
-          "quantity": 10,
-          "name": "item-243576"
-        },
-        {
-          "item_id": 243578,
-          "quantity": 5,
-          "name": "item-243578"
-        },
-        {
-          "item_id": 243581,
-          "quantity": 5,
-          "name": "item-243581"
-        }
-      ],
-      "skill": [
-        2910
-      ],
-      "profession": "engineering"
-    },
-    {
       "recipe_name": "Smuggler's Cloak",
       "wowhead_spell_id": 1280541,
       "crafted_item_id": 267444,
@@ -11391,39 +11519,6 @@
       "profession": "leatherworking"
     },
     {
-      "recipe_name": "Smuggler's Lynxeye",
-      "wowhead_spell_id": 1261893,
-      "crafted_item_id": 257747,
-      "crafted_item_name": "Smuggler's Lynxeye",
-      "crafted_quantity": 1,
-      "reagents": [
-        {
-          "item_id": 243574,
-          "quantity": 1,
-          "name": "item-243574"
-        },
-        {
-          "item_id": 243576,
-          "quantity": 1,
-          "name": "item-243576"
-        },
-        {
-          "item_id": 243578,
-          "quantity": 3,
-          "name": "item-243578"
-        },
-        {
-          "item_id": 243581,
-          "quantity": 2,
-          "name": "item-243581"
-        }
-      ],
-      "skill": [
-        2910
-      ],
-      "profession": "engineering"
-    },
-    {
       "recipe_name": "Smuggler's Reinforced Binding",
       "wowhead_spell_id": 1237505,
       "crafted_item_id": 244595,
@@ -11554,6 +11649,34 @@
       "profession": "leatherworking"
     },
     {
+      "recipe_name": "Song Gear",
+      "wowhead_spell_id": 1229755,
+      "crafted_item_id": 243574,
+      "crafted_item_name": "Song Gear",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 253302,
+          "quantity": 1,
+          "name": "Malleable Wireframe"
+        },
+        {
+          "item_id": 237359,
+          "quantity": 10,
+          "name": "item-237359"
+        },
+        {
+          "item_id": 237362,
+          "quantity": 5,
+          "name": "item-237362"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
+    },
+    {
       "recipe_name": "Soul Cipher",
       "wowhead_spell_id": 1230019,
       "crafted_item_id": 245766,
@@ -11590,6 +11713,34 @@
         2913
       ],
       "profession": "inscription"
+    },
+    {
+      "recipe_name": "Soul Sprocket",
+      "wowhead_spell_id": 1229853,
+      "crafted_item_id": 243576,
+      "crafted_item_name": "Soul Sprocket",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 253302,
+          "quantity": 1,
+          "name": "Malleable Wireframe"
+        },
+        {
+          "item_id": 237359,
+          "quantity": 5,
+          "name": "item-237359"
+        },
+        {
+          "item_id": 237362,
+          "quantity": 10,
+          "name": "item-237362"
+        }
+      ],
+      "skill": [
+        2910
+      ],
+      "profession": "engineering"
     },
     {
       "recipe_name": "Spellbound Tome of Thalassian Magics",
@@ -12467,6 +12618,34 @@
       "profession": "blacksmithing"
     },
     {
+      "recipe_name": "Sun-Seared Lumifin",
+      "wowhead_spell_id": 1226179,
+      "crafted_item_id": 242283,
+      "crafted_item_name": "Sun-Seared Lumifin",
+      "crafted_quantity": 2,
+      "reagents": [
+        {
+          "item_id": 238374,
+          "quantity": 2,
+          "name": "Tender Lumifin"
+        },
+        {
+          "item_id": 253403,
+          "quantity": 5,
+          "name": "Thalassian Filet"
+        },
+        {
+          "item_id": 242647,
+          "quantity": 1,
+          "name": "Tavern Fixings"
+        }
+      ],
+      "skill": [
+        2908
+      ],
+      "profession": "cooking"
+    },
+    {
       "recipe_name": "Sunfire Bracers",
       "wowhead_spell_id": 1228981,
       "crafted_item_id": 239657,
@@ -12481,7 +12660,7 @@
         {
           "item_id": 236951,
           "quantity": 12,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 238523,
@@ -13088,6 +13267,72 @@
       "profession": "alchemy"
     },
     {
+      "recipe_name": "Sunwell Delight",
+      "wowhead_spell_id": 1226189,
+      "crafted_item_id": 242293,
+      "crafted_item_name": "Sunwell Delight",
+      "crafted_quantity": 4,
+      "reagents": [
+        {
+          "item_id": 238384,
+          "quantity": 4,
+          "name": "Sunwell Fish"
+        },
+        {
+          "item_id": 253403,
+          "quantity": 12,
+          "name": "Thalassian Filet"
+        },
+        {
+          "item_id": 242647,
+          "quantity": 5,
+          "name": "Tavern Fixings"
+        },
+        {
+          "item_id": 242641,
+          "quantity": 1,
+          "name": "Cooking Spirits"
+        }
+      ],
+      "skill": [
+        2908
+      ],
+      "profession": "cooking"
+    },
+    {
+      "recipe_name": "Tasty Smoked Tetra",
+      "wowhead_spell_id": 1226174,
+      "crafted_item_id": 242278,
+      "crafted_item_name": "Tasty Smoked Tetra",
+      "crafted_quantity": 2,
+      "reagents": [
+        {
+          "item_id": 238368,
+          "quantity": 6,
+          "name": "Twisted Tetra"
+        },
+        {
+          "item_id": 242647,
+          "quantity": 4,
+          "name": "Tavern Fixings"
+        },
+        {
+          "item_id": 242646,
+          "quantity": 4,
+          "name": "Pouch of Spices"
+        },
+        {
+          "item_id": 236950,
+          "quantity": 2,
+          "name": "Mote of Primal Energy"
+        }
+      ],
+      "skill": [
+        2908
+      ],
+      "profession": "cooking"
+    },
+    {
       "recipe_name": "Thalassian Alchemist's Mixcap",
       "wowhead_spell_id": 1237550,
       "crafted_item_id": 244812,
@@ -13102,7 +13347,7 @@
         {
           "item_id": 236951,
           "quantity": 40,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 245345,
@@ -13648,7 +13893,7 @@
         {
           "item_id": 236951,
           "quantity": 4,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 238523,
@@ -13681,7 +13926,7 @@
         {
           "item_id": 236951,
           "quantity": 4,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 238523,
@@ -14530,7 +14775,7 @@
         {
           "item_id": 236951,
           "quantity": 5,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 245345,
@@ -14568,7 +14813,7 @@
         {
           "item_id": 236951,
           "quantity": 40,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 245345,
@@ -14606,7 +14851,7 @@
         {
           "item_id": 236951,
           "quantity": 5,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 245345,
@@ -14644,7 +14889,7 @@
         {
           "item_id": 236951,
           "quantity": 40,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 245345,
@@ -14687,7 +14932,7 @@
         {
           "item_id": 236951,
           "quantity": 40,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 245345,
@@ -14725,7 +14970,7 @@
         {
           "item_id": 236951,
           "quantity": 40,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 245345,
@@ -14842,7 +15087,7 @@
         {
           "item_id": 236951,
           "quantity": 1,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 245801,
@@ -14875,7 +15120,7 @@
         {
           "item_id": 236951,
           "quantity": 1,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 245801,
@@ -14908,7 +15153,7 @@
         {
           "item_id": 236951,
           "quantity": 1,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 245801,
@@ -15308,6 +15553,44 @@
       "profession": "enchanting"
     },
     {
+      "recipe_name": "Thalassian Phoenix Torque",
+      "wowhead_spell_id": 1230488,
+      "crafted_item_id": 241139,
+      "crafted_item_name": "Thalassian Phoenix Torque",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 236949,
+          "quantity": 20,
+          "name": "Mote of Light"
+        },
+        {
+          "item_id": 240974,
+          "quantity": 1,
+          "name": "item-240974"
+        },
+        {
+          "item_id": 242613,
+          "quantity": 1,
+          "name": "item-242613"
+        },
+        {
+          "item_id": 242788,
+          "quantity": 5,
+          "name": "item-242788"
+        }
+      ],
+      "skill": [
+        2914
+      ],
+      "profession": "jewelcrafting"
+    },
+    {
       "recipe_name": "Thalassian Pickaxe",
       "wowhead_spell_id": 1229609,
       "crafted_item_id": 238010,
@@ -15373,7 +15656,7 @@
         {
           "item_id": 236951,
           "quantity": 40,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 245345,
@@ -15420,6 +15703,29 @@
       "profession": "blacksmithing"
     },
     {
+      "recipe_name": "Thalassian Skeleton Key",
+      "wowhead_spell_id": 1265906,
+      "crafted_item_id": 260232,
+      "crafted_item_name": "Thalassian Skeleton Key",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 237359,
+          "quantity": 6,
+          "name": "item-237359"
+        },
+        {
+          "item_id": 237364,
+          "quantity": 3,
+          "name": "item-237364"
+        }
+      ],
+      "skill": [
+        2907
+      ],
+      "profession": "blacksmithing"
+    },
+    {
       "recipe_name": "Thalassian Skinning Knife",
       "wowhead_spell_id": 1229608,
       "crafted_item_id": 238011,
@@ -15441,29 +15747,6 @@
         2907
       ],
       "profession": "blacksmithing"
-    },
-    {
-      "recipe_name": "Thalassian Spellweaver's Wand",
-      "wowhead_spell_id": 1236489,
-      "crafted_item_id": 244178,
-      "crafted_item_name": "Thalassian Spellweaver's Wand",
-      "crafted_quantity": 1,
-      "reagents": [
-        {
-          "item_id": 243599,
-          "quantity": 15,
-          "name": "item-243599"
-        },
-        {
-          "item_id": 243602,
-          "quantity": 3,
-          "name": "item-243602"
-        }
-      ],
-      "skill": [
-        2909
-      ],
-      "profession": "enchanting"
     },
     {
       "recipe_name": "Thalassian Tailor's Threads",
@@ -15551,7 +15834,7 @@
         {
           "item_id": 236951,
           "quantity": 1,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 245801,
@@ -15683,7 +15966,7 @@
         {
           "item_id": 236951,
           "quantity": 1,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 245801,
@@ -15815,7 +16098,7 @@
         {
           "item_id": 236951,
           "quantity": 1,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 245801,
@@ -15881,7 +16164,7 @@
         {
           "item_id": 236951,
           "quantity": 40,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 245345,
@@ -15919,7 +16202,7 @@
         {
           "item_id": 236951,
           "quantity": 40,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 245345,
@@ -15964,6 +16247,29 @@
         2915
       ],
       "profession": "leatherworking"
+    },
+    {
+      "recipe_name": "Tranquility Bloom Tea",
+      "wowhead_spell_id": 1226196,
+      "crafted_item_id": 242300,
+      "crafted_item_name": "Tranquility Bloom Tea",
+      "crafted_quantity": 2,
+      "reagents": [
+        {
+          "item_id": 242644,
+          "quantity": 1,
+          "name": "Mana-Wyrm Essence"
+        },
+        {
+          "item_id": 236761,
+          "quantity": 6,
+          "name": "item-236761"
+        }
+      ],
+      "skill": [
+        2908
+      ],
+      "profession": "cooking"
     },
     {
       "recipe_name": "Transmute: Mote of Light",
@@ -16021,7 +16327,7 @@
         {
           "item_id": 236951,
           "quantity": 10,
-          "name": "Mote of Wild Magic"
+          "name": "Transmute: Mote of Wild Magic"
         },
         {
           "item_id": 242651,
@@ -16271,6 +16577,39 @@
       "profession": "alchemy"
     },
     {
+      "recipe_name": "Voidstone Shielding Array",
+      "wowhead_spell_id": 1251983,
+      "crafted_item_id": 251073,
+      "crafted_item_name": "Voidstone Shielding Array",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 251283,
+          "quantity": 1,
+          "name": "Tormented Tantalum"
+        },
+        {
+          "item_id": 236952,
+          "quantity": 20,
+          "name": "Mote of Pure Void"
+        },
+        {
+          "item_id": 240972,
+          "quantity": 12,
+          "name": "item-240972"
+        },
+        {
+          "item_id": 242788,
+          "quantity": 12,
+          "name": "item-242788"
+        }
+      ],
+      "skill": [
+        2914
+      ],
+      "profession": "jewelcrafting"
+    },
+    {
       "recipe_name": "Voidstrider Saddlebag",
       "wowhead_spell_id": 1246929,
       "crafted_item_id": 262611,
@@ -16304,37 +16643,60 @@
       "profession": "tailoring"
     },
     {
-      "recipe_name": "Weighted Boomshots",
-      "wowhead_spell_id": 1261913,
-      "crafted_item_id": 257751,
-      "crafted_item_name": "Weighted Boomshots",
-      "crafted_quantity": 1,
+      "recipe_name": "Warped Wise Wings",
+      "wowhead_spell_id": 1226181,
+      "crafted_item_id": 242285,
+      "crafted_item_name": "Warped Wise Wings",
+      "crafted_quantity": 2,
       "reagents": [
         {
-          "item_id": 243574,
-          "quantity": 1,
-          "name": "item-243574"
-        },
-        {
-          "item_id": 243576,
-          "quantity": 1,
-          "name": "item-243576"
-        },
-        {
-          "item_id": 243578,
+          "item_id": 238379,
           "quantity": 3,
-          "name": "item-243578"
+          "name": "Warping Wise"
         },
         {
-          "item_id": 243581,
-          "quantity": 2,
-          "name": "item-243581"
+          "item_id": 242643,
+          "quantity": 3,
+          "name": "A Big Ol' Stick of Butter"
+        },
+        {
+          "item_id": 242646,
+          "quantity": 1,
+          "name": "Pouch of Spices"
         }
       ],
       "skill": [
-        2910
+        2908
       ],
-      "profession": "engineering"
+      "profession": "cooking"
+    },
+    {
+      "recipe_name": "Wise Tails",
+      "wowhead_spell_id": 1226186,
+      "crafted_item_id": 242290,
+      "crafted_item_name": "Wise Tails",
+      "crafted_quantity": 4,
+      "reagents": [
+        {
+          "item_id": 238379,
+          "quantity": 3,
+          "name": "Warping Wise"
+        },
+        {
+          "item_id": 242647,
+          "quantity": 1,
+          "name": "Tavern Fixings"
+        },
+        {
+          "item_id": 242642,
+          "quantity": 3,
+          "name": "Thalassian Herbs"
+        }
+      ],
+      "skill": [
+        2908
+      ],
+      "profession": "cooking"
     },
     {
       "recipe_name": "Wondrous Synergist",

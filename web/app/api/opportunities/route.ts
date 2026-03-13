@@ -40,6 +40,8 @@ function toProfession(raw: string | undefined): Profession {
   if (lowered.includes("alchem")) return "alchemy";
   if (lowered.includes("blacksmith")) return "blacksmithing";
   if (lowered.includes("engineer")) return "engineering";
+  if (lowered.includes("jewel")) return "jewelcrafting";
+  if (lowered.includes("cook")) return "cooking";
   return "unknown";
 }
 

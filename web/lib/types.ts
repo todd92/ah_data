@@ -6,6 +6,8 @@ export type Profession =
   | "alchemy"
   | "blacksmithing"
   | "engineering"
+  | "jewelcrafting"
+  | "cooking"
   | "unknown";
 
 export type Opportunity = {
