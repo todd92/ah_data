@@ -64,13 +64,15 @@ make report
 
 ## 5) Store snapshots + sigma alerts
 
-Run the monitoring pipeline (scrape -> store in SQLite -> check 7-day anomalies):
+For prediction and backtesting, use the GitHub archive database path `data/ah_prices.sqlite3`. Keep Supabase for the recent live window and UI reads.
+
+Run the monitoring pipeline (scrape -> store in SQLite archive -> predictions + 7-day anomalies):
 
 ```bash
 python3 ah_monitor.py \
   --config config.json \
   --report report.json \
-  --db ah_prices.sqlite3 \
+  --db data/ah_prices.sqlite3 \
   --metric weighted_avg_unit_price \
   --signal-direction both \
   --window-hours 168 \
@@ -84,6 +86,12 @@ python3 ah_monitor.py \
   --min-quantity-crafted 1 \
   --min-abs-move-gold-commodity 20 \
   --min-abs-move-gold-crafted 100 \
+  --enable-predictions \
+  --prediction-window-hours 168 \
+  --prediction-short-window-hours 12 \
+  --prediction-medium-window-hours 48 \
+  --prediction-min-history 24 \
+  --prediction-min-confidence 0.80 \
   --enable-craft-alerts \
   --craft-ah-cut-rate 0.05 \
   --craft-min-profit-gold 50 \
@@ -98,6 +106,12 @@ Shortcut with Make:
 make monitor-live
 ```
 
+Prediction-only pass against the archive:
+
+```bash
+make predict-archive
+```
+
 Retention notes:
 - `--retention-days-observations 30` keeps only the most recent 30 days of snapshots.
 - `--retention-days-alerts 90` keeps 90 days of emitted alerts for review.
@@ -109,6 +123,31 @@ Crafting arbitrage notes:
 - Profitable crafts emit BUY alerts; strongly negative crafts emit SELL alerts.
 - Craft alerts are stored in the same `alerts` table with `alert_kind='craft_arbitrage'`.
 - Craft rows include both `recipe_id` and `recipe_name`.
+
+Prediction notes:
+- `--enable-predictions` stores one baseline directional score per item/source snapshot in the `predictions` table.
+- Phase 1 predictions are rule-based, not ML: they combine long-window mean reversion, short-vs-medium trend, and supply/liquidity changes.
+- `predicted_direction` is `up`, `down`, or `flat`.
+- `confidence` is a normalized 0-1 score for the chosen direction.
+- `predicted_return_pct` is a rough expected move estimate for ranking, not a guaranteed price target.
+- Recommended source for prediction history: `data/ah_prices.sqlite3` restored from the `sqlite-history` branch.
+- Recommended live threshold: `--prediction-min-confidence 0.80` so weak signals are suppressed by default.
+- Cooldowns are persisted in `prediction_cooldowns`. If a prior high-confidence directional call matures and is badly wrong, that item/source/direction is suppressed for a fixed period before new predictions are emitted.
+- Default cooldown policy: 24 hours after a 12-hour prediction fails by 20% or more, with the failed call required to have at least 0.85 confidence.
+
+Backtest the Phase 1 predictor against the archive:
+
+```bash
+python3 backtest_predictions.py --db data/ah_prices.sqlite3
+```
+
+The backtest replays active cooldown state, so the reported metrics include suppression of repeated failed rebound calls.
+
+Shortcut with Make:
+
+```bash
+make backtest-archive
+```
 
 ## 6) Supabase Setup
 
@@ -142,7 +181,7 @@ Then run the same monitor command. With `DATABASE_URL` set, `ah_monitor.py` writ
 Run commands with `uv`:
 
 ```bash
-uv run python ah_monitor.py --config config.json --report report.json --db ah_prices.sqlite3
+uv run python ah_monitor.py --config config.json --report report.json --db data/ah_prices.sqlite3
 ```
 
 Optional webhook ping (Slack/Discord):
@@ -159,7 +198,7 @@ crontab -e
 ```
 
 ```cron
-0 * * * * cd /home/toddglad/projects/personal/ah_data && /usr/bin/env -S bash -lc 'uv run python ah_monitor.py --config config.json --report report.json --db ah_prices.sqlite3 >> monitor.log 2>&1'
+0 * * * * cd /home/toddglad/projects/personal/ah_data && /usr/bin/env -S bash -lc 'uv run python ah_monitor.py --config config.json --report report.json --db data/ah_prices.sqlite3 >> monitor.log 2>&1'
 ```
 
 ## GitHub Actions Dual Database Sync
@@ -196,11 +235,13 @@ The workflow restores `data/ah_prices.sqlite3` from a dedicated `sqlite-history`
 All prices are in copper.
 Alert messages display prices as gold/silver/copper (`Xg Ys Zc`) for readability.
 
-`ah_prices.sqlite3` stores:
+`data/ah_prices.sqlite3` stores:
 - `observations` table: one row per item/source snapshot
 - `alerts` table: z-score outliers detected per run
+- `predictions` table: baseline directional forecasts for each item/source snapshot
+- `prediction_cooldowns` table: temporary suppression windows created by badly failed prior predictions
 
-When using Supabase, the same tables are created in Postgres (`observations`, `alerts`).
+When using Supabase, the same tables are created in Postgres (`observations`, `alerts`, `predictions`, `prediction_cooldowns`).
 
 ## Signal Logic
 - Baseline: 7-day window (`--window-hours 168`), alert threshold `|z| >= 2`.

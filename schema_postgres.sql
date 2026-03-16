@@ -43,3 +43,49 @@ CREATE TABLE IF NOT EXISTS alerts (
   craft_confidence INTEGER,
   reagent_breakdown JSONB
 );
+
+CREATE TABLE IF NOT EXISTS predictions (
+  id BIGSERIAL PRIMARY KEY,
+  observed_at TIMESTAMPTZ NOT NULL,
+  item_id INTEGER NOT NULL,
+  item_name TEXT NOT NULL,
+  source TEXT NOT NULL,
+  metric_name TEXT NOT NULL,
+  current_value BIGINT NOT NULL,
+  predicted_direction TEXT NOT NULL,
+  confidence DOUBLE PRECISION NOT NULL,
+  up_score DOUBLE PRECISION NOT NULL,
+  down_score DOUBLE PRECISION NOT NULL,
+  flat_score DOUBLE PRECISION NOT NULL,
+  predicted_return_pct DOUBLE PRECISION NOT NULL,
+  short_mean DOUBLE PRECISION NOT NULL,
+  medium_mean DOUBLE PRECISION NOT NULL,
+  long_mean DOUBLE PRECISION NOT NULL,
+  price_vs_long_pct DOUBLE PRECISION NOT NULL,
+  short_vs_medium_pct DOUBLE PRECISION NOT NULL,
+  quantity_vs_long_pct DOUBLE PRECISION NOT NULL,
+  listings_vs_long_pct DOUBLE PRECISION NOT NULL,
+  reason TEXT NOT NULL
+);
+
+CREATE INDEX IF NOT EXISTS idx_predictions_item_source_time
+  ON predictions(item_id, source, metric_name, observed_at);
+
+CREATE TABLE IF NOT EXISTS prediction_cooldowns (
+  id BIGSERIAL PRIMARY KEY,
+  item_id INTEGER NOT NULL,
+  item_name TEXT NOT NULL,
+  source TEXT NOT NULL,
+  metric_name TEXT NOT NULL,
+  predicted_direction TEXT NOT NULL,
+  cooldown_until TIMESTAMPTZ NOT NULL,
+  reason TEXT NOT NULL,
+  trigger_prediction_at TIMESTAMPTZ NOT NULL,
+  trigger_confidence DOUBLE PRECISION NOT NULL,
+  trigger_return_pct DOUBLE PRECISION NOT NULL,
+  realized_return_pct DOUBLE PRECISION NOT NULL,
+  UNIQUE(item_id, source, metric_name, predicted_direction, trigger_prediction_at)
+);
+
+CREATE INDEX IF NOT EXISTS idx_prediction_cooldowns_lookup
+  ON prediction_cooldowns(item_id, source, metric_name, predicted_direction, cooldown_until);

@@ -1,26 +1,29 @@
-.PHONY: help setup watchlist report monitor monitor-live monitor-supabase check-database-url
+.PHONY: help setup watchlist report monitor monitor-live monitor-supabase check-database-url predict-archive backtest-archive
 
 UV ?= uv
 PY ?= python
 
 CONFIG ?= config.json
 REPORT ?= report.json
-DB ?= ah_prices.sqlite3
+DB ?= data/ah_prices.sqlite3
 WATCHLIST ?= targets_midnight_tailoring_enchanting.json
 
 EXPANSION_KEYWORD ?= midnight
 PROFESSIONS ?= tailoring,enchanting
 
-MONITOR_ARGS ?= --metric weighted_avg_unit_price --window-hours 168 --sigma 2.0 --min-history 24 --trend-hours 48 --min-trend-history 6 --min-listings-commodity 8 --min-quantity-commodity 200 --min-listings-crafted 2 --min-quantity-crafted 1 --min-abs-move-gold-commodity 20 --min-abs-move-gold-crafted 100 --retention-days-observations 30 --retention-days-alerts 90 --enable-craft-alerts --craft-ah-cut-rate 0.05 --craft-min-profit-gold 50 --craft-min-margin-pct 0.10
+MONITOR_ARGS ?= --metric weighted_avg_unit_price --window-hours 168 --sigma 2.0 --min-history 24 --trend-hours 48 --min-trend-history 6 --min-listings-commodity 8 --min-quantity-commodity 200 --min-listings-crafted 2 --min-quantity-crafted 1 --min-abs-move-gold-commodity 20 --min-abs-move-gold-crafted 100 --retention-days-observations 30 --retention-days-alerts 90 --enable-predictions --prediction-window-hours 168 --prediction-short-window-hours 12 --prediction-medium-window-hours 48 --prediction-min-history 24 --prediction-min-confidence 0.80 --prediction-cooldown-hours 24 --prediction-cooldown-horizon-hours 12 --prediction-cooldown-grace-hours 6 --prediction-cooldown-min-confidence 0.85 --prediction-cooldown-loss-pct 20 --enable-craft-alerts --craft-ah-cut-rate 0.05 --craft-min-profit-gold 50 --craft-min-margin-pct 0.10
+BACKTEST_ARGS ?= --metric weighted_avg_unit_price --horizon-hours 12 --grace-hours 6 --min-actual-move-pct 2.0 --min-confidence 0.80 --prediction-window-hours 168 --prediction-short-window-hours 12 --prediction-medium-window-hours 48 --prediction-min-history 24 --prediction-min-short-history 6 --min-listings-commodity 8 --min-quantity-commodity 200 --min-listings-crafted 2 --min-quantity-crafted 1
 
 help:
 	@echo "Targets:"
 	@echo "  make setup         # create venv + install deps with uv"
 	@echo "  make watchlist     # rebuild Midnight tailoring/enchanting targets"
 	@echo "  make report        # run AH scraper and write report.json"
-	@echo "  make monitor       # ingest existing report + anomaly detection"
-	@echo "  make monitor-live  # watchlist refresh + scrape + ingest + alerts"
+	@echo "  make monitor       # ingest existing report into archive DB + predictions + alerts"
+	@echo "  make monitor-live  # watchlist refresh + scrape + ingest into archive DB + predictions + alerts"
 	@echo "  make monitor-supabase # same as monitor-live, requires DATABASE_URL"
+	@echo "  make predict-archive # run prediction pass against archive DB only"
+	@echo "  make backtest-archive # backtest Phase 1 predictions against archive DB"
 
 setup:
 	$(UV) venv
@@ -48,3 +51,9 @@ check-database-url:
 
 monitor-supabase: check-database-url
 	$(UV) run $(PY) ah_monitor.py --config $(CONFIG) --report $(REPORT) --database-url "$$DATABASE_URL" --refresh-watchlist --include-reagents --watchlist-output $(WATCHLIST) --expansion-keyword $(EXPANSION_KEYWORD) --professions $(PROFESSIONS) $(MONITOR_ARGS)
+
+predict-archive:
+	$(UV) run $(PY) ah_monitor.py --config $(CONFIG) --report $(REPORT) --db $(DB) --ingest-only --enable-predictions --prediction-top-n 15
+
+backtest-archive:
+	$(UV) run $(PY) backtest_predictions.py --db $(DB) $(BACKTEST_ARGS)

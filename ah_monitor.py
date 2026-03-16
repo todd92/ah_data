@@ -105,6 +105,59 @@ class CraftAlertDiagnostics:
     blocked_low_confidence: int = 0
 
 
+@dataclass
+class Prediction:
+    observed_at: str
+    item_id: int
+    item_name: str
+    source: str
+    metric_name: str
+    current_value: int
+    predicted_direction: str
+    confidence: float
+    up_score: float
+    down_score: float
+    flat_score: float
+    predicted_return_pct: float
+    short_mean: float
+    medium_mean: float
+    long_mean: float
+    price_vs_long_pct: float
+    short_vs_medium_pct: float
+    quantity_vs_long_pct: float
+    listings_vs_long_pct: float
+    reason: str
+
+
+@dataclass
+class PredictionDiagnostics:
+    total_rows: int = 0
+    blocked_liquidity: int = 0
+    blocked_min_history: int = 0
+    blocked_short_history: int = 0
+    blocked_cooldown: int = 0
+    blocked_regime_guard: int = 0
+    blocked_instability_guard: int = 0
+    emitted_up: int = 0
+    emitted_down: int = 0
+    emitted_flat: int = 0
+
+
+@dataclass
+class PredictionCooldown:
+    item_id: int
+    item_name: str
+    source: str
+    metric_name: str
+    predicted_direction: str
+    cooldown_until: str
+    reason: str
+    trigger_prediction_at: str
+    trigger_confidence: float
+    trigger_return_pct: float
+    realized_return_pct: float
+
+
 def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(description="Run AH scrape, store snapshots in SQLite, and alert on 7-day 2-sigma anomalies.")
     p.add_argument("--config", default="config.json", help="Path to scraper config")
@@ -258,6 +311,20 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--watchlist-output", default="targets_midnight_tailoring_enchanting.json", help="Watchlist output file")
     p.add_argument("--watchlist-debug-dir", default="", help="Optional directory for watchlist debug artifacts")
     p.add_argument("--ingest-only", action="store_true", help="Skip scraping and just ingest existing report")
+    p.add_argument("--enable-predictions", action="store_true", help="Generate baseline directional predictions from observation history")
+    p.add_argument("--prediction-window-hours", type=int, default=168, help="Long history window for baseline prediction features")
+    p.add_argument("--prediction-short-window-hours", type=int, default=12, help="Short history window for momentum stabilization features")
+    p.add_argument("--prediction-medium-window-hours", type=int, default=48, help="Medium history window for trend context")
+    p.add_argument("--prediction-min-history", type=int, default=24, help="Minimum history rows required before scoring a prediction")
+    p.add_argument("--prediction-min-short-history", type=int, default=6, help="Minimum short-window history rows required before scoring a prediction")
+    p.add_argument("--prediction-min-confidence", type=float, default=0.80, help="Minimum confidence required for up/down predictions; weaker rows are marked flat")
+    p.add_argument("--prediction-top-n", type=int, default=10, help="Number of top predictions to print")
+    p.add_argument("--retention-days-predictions", type=int, default=30, help="Delete predictions older than this many days (0 disables pruning)")
+    p.add_argument("--prediction-cooldown-hours", type=int, default=24, help="Cooldown duration after a strongly failed directional prediction")
+    p.add_argument("--prediction-cooldown-horizon-hours", type=int, default=12, help="Resolution horizon used to judge whether a prior prediction failed")
+    p.add_argument("--prediction-cooldown-grace-hours", type=int, default=6, help="Extra grace window when matching a current observation to an older prediction")
+    p.add_argument("--prediction-cooldown-min-confidence", type=float, default=0.85, help="Minimum prior prediction confidence required before a failed call can trigger cooldown")
+    p.add_argument("--prediction-cooldown-loss-pct", type=float, default=20.0, help="Realized adverse move percent required to trigger a cooldown")
     return p.parse_args()
 
 
@@ -310,6 +377,52 @@ def sqlite_schema_sql() -> str:
       craft_confidence INTEGER,
       reagent_breakdown TEXT
     );
+
+    CREATE TABLE IF NOT EXISTS predictions (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      observed_at TEXT NOT NULL,
+      item_id INTEGER NOT NULL,
+      item_name TEXT NOT NULL,
+      source TEXT NOT NULL,
+      metric_name TEXT NOT NULL,
+      current_value INTEGER NOT NULL,
+      predicted_direction TEXT NOT NULL,
+      confidence REAL NOT NULL,
+      up_score REAL NOT NULL,
+      down_score REAL NOT NULL,
+      flat_score REAL NOT NULL,
+      predicted_return_pct REAL NOT NULL,
+      short_mean REAL NOT NULL,
+      medium_mean REAL NOT NULL,
+      long_mean REAL NOT NULL,
+      price_vs_long_pct REAL NOT NULL,
+      short_vs_medium_pct REAL NOT NULL,
+      quantity_vs_long_pct REAL NOT NULL,
+      listings_vs_long_pct REAL NOT NULL,
+      reason TEXT NOT NULL
+    );
+
+    CREATE INDEX IF NOT EXISTS idx_predictions_item_source_time
+      ON predictions(item_id, source, metric_name, observed_at);
+
+    CREATE TABLE IF NOT EXISTS prediction_cooldowns (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      item_id INTEGER NOT NULL,
+      item_name TEXT NOT NULL,
+      source TEXT NOT NULL,
+      metric_name TEXT NOT NULL,
+      predicted_direction TEXT NOT NULL,
+      cooldown_until TEXT NOT NULL,
+      reason TEXT NOT NULL,
+      trigger_prediction_at TEXT NOT NULL,
+      trigger_confidence REAL NOT NULL,
+      trigger_return_pct REAL NOT NULL,
+      realized_return_pct REAL NOT NULL,
+      UNIQUE(item_id, source, metric_name, predicted_direction, trigger_prediction_at)
+    );
+
+    CREATE INDEX IF NOT EXISTS idx_prediction_cooldowns_lookup
+      ON prediction_cooldowns(item_id, source, metric_name, predicted_direction, cooldown_until);
     """
 
 
@@ -360,6 +473,52 @@ def postgres_schema_sql() -> str:
       craft_confidence INTEGER,
       reagent_breakdown JSONB
     );
+
+    CREATE TABLE IF NOT EXISTS predictions (
+      id BIGSERIAL PRIMARY KEY,
+      observed_at TIMESTAMPTZ NOT NULL,
+      item_id INTEGER NOT NULL,
+      item_name TEXT NOT NULL,
+      source TEXT NOT NULL,
+      metric_name TEXT NOT NULL,
+      current_value BIGINT NOT NULL,
+      predicted_direction TEXT NOT NULL,
+      confidence DOUBLE PRECISION NOT NULL,
+      up_score DOUBLE PRECISION NOT NULL,
+      down_score DOUBLE PRECISION NOT NULL,
+      flat_score DOUBLE PRECISION NOT NULL,
+      predicted_return_pct DOUBLE PRECISION NOT NULL,
+      short_mean DOUBLE PRECISION NOT NULL,
+      medium_mean DOUBLE PRECISION NOT NULL,
+      long_mean DOUBLE PRECISION NOT NULL,
+      price_vs_long_pct DOUBLE PRECISION NOT NULL,
+      short_vs_medium_pct DOUBLE PRECISION NOT NULL,
+      quantity_vs_long_pct DOUBLE PRECISION NOT NULL,
+      listings_vs_long_pct DOUBLE PRECISION NOT NULL,
+      reason TEXT NOT NULL
+    );
+
+    CREATE INDEX IF NOT EXISTS idx_predictions_item_source_time
+      ON predictions(item_id, source, metric_name, observed_at);
+
+    CREATE TABLE IF NOT EXISTS prediction_cooldowns (
+      id BIGSERIAL PRIMARY KEY,
+      item_id INTEGER NOT NULL,
+      item_name TEXT NOT NULL,
+      source TEXT NOT NULL,
+      metric_name TEXT NOT NULL,
+      predicted_direction TEXT NOT NULL,
+      cooldown_until TIMESTAMPTZ NOT NULL,
+      reason TEXT NOT NULL,
+      trigger_prediction_at TIMESTAMPTZ NOT NULL,
+      trigger_confidence DOUBLE PRECISION NOT NULL,
+      trigger_return_pct DOUBLE PRECISION NOT NULL,
+      realized_return_pct DOUBLE PRECISION NOT NULL,
+      UNIQUE(item_id, source, metric_name, predicted_direction, trigger_prediction_at)
+    );
+
+    CREATE INDEX IF NOT EXISTS idx_prediction_cooldowns_lookup
+      ON prediction_cooldowns(item_id, source, metric_name, predicted_direction, cooldown_until);
     """
 
 
@@ -438,17 +597,44 @@ class DBClient:
     def insert_observations(self, rows: List[Observation]) -> None:
         raise NotImplementedError
 
+    def history_rows(self, row: Observation, start_iso: str, end_iso: str) -> List[Observation]:
+        raise NotImplementedError
+
     def history_values(self, row: Observation, start_iso: str, end_iso: str) -> List[int]:
         raise NotImplementedError
 
     def insert_alerts(self, alerts: List[Alert], alerted_at: str) -> None:
         raise NotImplementedError
 
+    def insert_predictions(self, predictions: List[Prediction]) -> None:
+        raise NotImplementedError
+
+    def active_prediction_cooldown(
+        self,
+        row: Observation,
+        predicted_direction: str,
+        observed_at: str,
+    ) -> Optional[PredictionCooldown]:
+        raise NotImplementedError
+
+    def matured_predictions_for_row(
+        self,
+        row: Observation,
+        start_iso: str,
+        end_iso: str,
+        min_confidence: float,
+    ) -> List[Tuple[str, int, str, float, float]]:
+        raise NotImplementedError
+
+    def insert_prediction_cooldowns(self, cooldowns: List[PredictionCooldown]) -> None:
+        raise NotImplementedError
+
     def prune_old_rows(
         self,
         observations_before_iso: Optional[str],
         alerts_before_iso: Optional[str],
-    ) -> Tuple[int, int]:
+        predictions_before_iso: Optional[str],
+    ) -> Tuple[int, int, int]:
         raise NotImplementedError
 
     def commit(self) -> None:
@@ -493,6 +679,42 @@ class SQLiteClient(DBClient):
         for name, decl in targets:
             if name not in existing:
                 self.conn.execute(f"ALTER TABLE alerts ADD COLUMN {name} {decl}")
+
+    def history_rows(self, row: Observation, start_iso: str, end_iso: str) -> List[Observation]:
+        rows = self.conn.execute(
+            """
+            SELECT observed_at, item_id, item_name, source, metric_name, metric_value,
+                   listing_count, total_quantity, min_unit_price, max_unit_price,
+                   avg_unit_price, median_unit_price, p25_unit_price, weighted_avg_unit_price
+            FROM observations
+            WHERE item_id = ?
+              AND source = ?
+              AND metric_name = ?
+              AND observed_at >= ?
+              AND observed_at < ?
+            ORDER BY observed_at ASC
+            """,
+            (row.item_id, row.source, row.metric_name, start_iso, end_iso),
+        ).fetchall()
+        return [
+            Observation(
+                observed_at=str(v[0]),
+                item_id=int(v[1]),
+                item_name=str(v[2]),
+                source=str(v[3]),
+                metric_name=str(v[4]),
+                metric_value=int(v[5]),
+                listing_count=int(v[6]),
+                total_quantity=int(v[7]),
+                min_unit_price=v[8],
+                max_unit_price=v[9],
+                avg_unit_price=v[10],
+                median_unit_price=v[11],
+                p25_unit_price=v[12],
+                weighted_avg_unit_price=v[13],
+            )
+            for v in rows
+        ]
 
     def insert_observations(self, rows: List[Observation]) -> None:
         self.conn.executemany(
@@ -578,13 +800,140 @@ class SQLiteClient(DBClient):
             ],
         )
 
+    def insert_predictions(self, predictions: List[Prediction]) -> None:
+        self.conn.executemany(
+            """
+            INSERT INTO predictions (
+              observed_at, item_id, item_name, source, metric_name, current_value,
+              predicted_direction, confidence, up_score, down_score, flat_score,
+              predicted_return_pct, short_mean, medium_mean, long_mean,
+              price_vs_long_pct, short_vs_medium_pct, quantity_vs_long_pct,
+              listings_vs_long_pct, reason
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            [
+                (
+                    p.observed_at,
+                    p.item_id,
+                    p.item_name,
+                    p.source,
+                    p.metric_name,
+                    p.current_value,
+                    p.predicted_direction,
+                    p.confidence,
+                    p.up_score,
+                    p.down_score,
+                    p.flat_score,
+                    p.predicted_return_pct,
+                    p.short_mean,
+                    p.medium_mean,
+                    p.long_mean,
+                    p.price_vs_long_pct,
+                    p.short_vs_medium_pct,
+                    p.quantity_vs_long_pct,
+                    p.listings_vs_long_pct,
+                    p.reason,
+                )
+                for p in predictions
+            ],
+        )
+
+    def active_prediction_cooldown(
+        self,
+        row: Observation,
+        predicted_direction: str,
+        observed_at: str,
+    ) -> Optional[PredictionCooldown]:
+        hit = self.conn.execute(
+            """
+            SELECT item_id, item_name, source, metric_name, predicted_direction, cooldown_until, reason,
+                   trigger_prediction_at, trigger_confidence, trigger_return_pct, realized_return_pct
+            FROM prediction_cooldowns
+            WHERE item_id = ?
+              AND source = ?
+              AND metric_name = ?
+              AND predicted_direction = ?
+              AND cooldown_until > ?
+            ORDER BY cooldown_until DESC
+            LIMIT 1
+            """,
+            (row.item_id, row.source, row.metric_name, predicted_direction, observed_at),
+        ).fetchone()
+        if not hit:
+            return None
+        return PredictionCooldown(
+            item_id=int(hit[0]),
+            item_name=str(hit[1]),
+            source=str(hit[2]),
+            metric_name=str(hit[3]),
+            predicted_direction=str(hit[4]),
+            cooldown_until=str(hit[5]),
+            reason=str(hit[6]),
+            trigger_prediction_at=str(hit[7]),
+            trigger_confidence=float(hit[8]),
+            trigger_return_pct=float(hit[9]),
+            realized_return_pct=float(hit[10]),
+        )
+
+    def matured_predictions_for_row(
+        self,
+        row: Observation,
+        start_iso: str,
+        end_iso: str,
+        min_confidence: float,
+    ) -> List[Tuple[str, int, str, float, float]]:
+        rows = self.conn.execute(
+            """
+            SELECT observed_at, current_value, predicted_direction, confidence, predicted_return_pct
+            FROM predictions
+            WHERE item_id = ?
+              AND source = ?
+              AND metric_name = ?
+              AND observed_at >= ?
+              AND observed_at <= ?
+              AND predicted_direction IN ('up', 'down')
+              AND confidence >= ?
+            ORDER BY observed_at ASC
+            """,
+            (row.item_id, row.source, row.metric_name, start_iso, end_iso, min_confidence),
+        ).fetchall()
+        return [(str(v[0]), int(v[1]), str(v[2]), float(v[3]), float(v[4])) for v in rows]
+
+    def insert_prediction_cooldowns(self, cooldowns: List[PredictionCooldown]) -> None:
+        self.conn.executemany(
+            """
+            INSERT OR IGNORE INTO prediction_cooldowns (
+              item_id, item_name, source, metric_name, predicted_direction, cooldown_until, reason,
+              trigger_prediction_at, trigger_confidence, trigger_return_pct, realized_return_pct
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            [
+                (
+                    c.item_id,
+                    c.item_name,
+                    c.source,
+                    c.metric_name,
+                    c.predicted_direction,
+                    c.cooldown_until,
+                    c.reason,
+                    c.trigger_prediction_at,
+                    c.trigger_confidence,
+                    c.trigger_return_pct,
+                    c.realized_return_pct,
+                )
+                for c in cooldowns
+            ],
+        )
+
     def prune_old_rows(
         self,
         observations_before_iso: Optional[str],
         alerts_before_iso: Optional[str],
-    ) -> Tuple[int, int]:
+        predictions_before_iso: Optional[str],
+    ) -> Tuple[int, int, int]:
         deleted_observations = 0
         deleted_alerts = 0
+        deleted_predictions = 0
         if observations_before_iso:
             cur = self.conn.execute(
                 "DELETE FROM observations WHERE observed_at < ?",
@@ -597,7 +946,13 @@ class SQLiteClient(DBClient):
                 (alerts_before_iso,),
             )
             deleted_alerts = max(int(cur.rowcount), 0)
-        return deleted_observations, deleted_alerts
+        if predictions_before_iso:
+            cur = self.conn.execute(
+                "DELETE FROM predictions WHERE observed_at < ?",
+                (predictions_before_iso,),
+            )
+            deleted_predictions = max(int(cur.rowcount), 0)
+        return deleted_observations, deleted_alerts, deleted_predictions
 
     def commit(self) -> None:
         self.conn.commit()
@@ -704,6 +1059,44 @@ class PostgresClient(DBClient):
                 if not row:
                     cur.execute(f"ALTER TABLE alerts ADD COLUMN {column_name} {ddl}")
 
+    def history_rows(self, row: Observation, start_iso: str, end_iso: str) -> List[Observation]:
+        with self.conn.cursor() as cur:
+            cur.execute(
+                """
+                SELECT observed_at, item_id, item_name, source, metric_name, metric_value,
+                       listing_count, total_quantity, min_unit_price, max_unit_price,
+                       avg_unit_price, median_unit_price, p25_unit_price, weighted_avg_unit_price
+                FROM observations
+                WHERE item_id = %s
+                  AND source = %s
+                  AND metric_name = %s
+                  AND observed_at >= %s
+                  AND observed_at < %s
+                ORDER BY observed_at ASC
+                """,
+                (row.item_id, row.source, row.metric_name, ts_for_db(start_iso), ts_for_db(end_iso)),
+            )
+            rows = cur.fetchall()
+        return [
+            Observation(
+                observed_at=str(v[0]).replace("+00:00", "Z"),
+                item_id=int(v[1]),
+                item_name=str(v[2]),
+                source=str(v[3]),
+                metric_name=str(v[4]),
+                metric_value=int(v[5]),
+                listing_count=int(v[6]),
+                total_quantity=int(v[7]),
+                min_unit_price=v[8],
+                max_unit_price=v[9],
+                avg_unit_price=v[10],
+                median_unit_price=v[11],
+                p25_unit_price=v[12],
+                weighted_avg_unit_price=v[13],
+            )
+            for v in rows
+        ]
+
     def insert_observations(self, rows: List[Observation]) -> None:
         with self.conn.cursor() as cur:
             cur.executemany(
@@ -792,13 +1185,147 @@ class PostgresClient(DBClient):
                 ],
             )
 
+    def insert_predictions(self, predictions: List[Prediction]) -> None:
+        with self.conn.cursor() as cur:
+            cur.executemany(
+                """
+                INSERT INTO predictions (
+                  observed_at, item_id, item_name, source, metric_name, current_value,
+                  predicted_direction, confidence, up_score, down_score, flat_score,
+                  predicted_return_pct, short_mean, medium_mean, long_mean,
+                  price_vs_long_pct, short_vs_medium_pct, quantity_vs_long_pct,
+                  listings_vs_long_pct, reason
+                ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                """,
+                [
+                    (
+                        ts_for_db(p.observed_at),
+                        p.item_id,
+                        p.item_name,
+                        p.source,
+                        p.metric_name,
+                        p.current_value,
+                        p.predicted_direction,
+                        p.confidence,
+                        p.up_score,
+                        p.down_score,
+                        p.flat_score,
+                        p.predicted_return_pct,
+                        p.short_mean,
+                        p.medium_mean,
+                        p.long_mean,
+                        p.price_vs_long_pct,
+                        p.short_vs_medium_pct,
+                        p.quantity_vs_long_pct,
+                        p.listings_vs_long_pct,
+                        p.reason,
+                    )
+                    for p in predictions
+                ],
+            )
+
+    def active_prediction_cooldown(
+        self,
+        row: Observation,
+        predicted_direction: str,
+        observed_at: str,
+    ) -> Optional[PredictionCooldown]:
+        with self.conn.cursor() as cur:
+            cur.execute(
+                """
+                SELECT item_id, item_name, source, metric_name, predicted_direction, cooldown_until, reason,
+                       trigger_prediction_at, trigger_confidence, trigger_return_pct, realized_return_pct
+                FROM prediction_cooldowns
+                WHERE item_id = %s
+                  AND source = %s
+                  AND metric_name = %s
+                  AND predicted_direction = %s
+                  AND cooldown_until > %s
+                ORDER BY cooldown_until DESC
+                LIMIT 1
+                """,
+                (row.item_id, row.source, row.metric_name, predicted_direction, ts_for_db(observed_at)),
+            )
+            hit = cur.fetchone()
+        if not hit:
+            return None
+        return PredictionCooldown(
+            item_id=int(hit[0]),
+            item_name=str(hit[1]),
+            source=str(hit[2]),
+            metric_name=str(hit[3]),
+            predicted_direction=str(hit[4]),
+            cooldown_until=str(hit[5]).replace("+00:00", "Z"),
+            reason=str(hit[6]),
+            trigger_prediction_at=str(hit[7]).replace("+00:00", "Z"),
+            trigger_confidence=float(hit[8]),
+            trigger_return_pct=float(hit[9]),
+            realized_return_pct=float(hit[10]),
+        )
+
+    def matured_predictions_for_row(
+        self,
+        row: Observation,
+        start_iso: str,
+        end_iso: str,
+        min_confidence: float,
+    ) -> List[Tuple[str, int, str, float, float]]:
+        with self.conn.cursor() as cur:
+            cur.execute(
+                """
+                SELECT observed_at, current_value, predicted_direction, confidence, predicted_return_pct
+                FROM predictions
+                WHERE item_id = %s
+                  AND source = %s
+                  AND metric_name = %s
+                  AND observed_at >= %s
+                  AND observed_at <= %s
+                  AND predicted_direction IN ('up', 'down')
+                  AND confidence >= %s
+                ORDER BY observed_at ASC
+                """,
+                (row.item_id, row.source, row.metric_name, ts_for_db(start_iso), ts_for_db(end_iso), min_confidence),
+            )
+            rows = cur.fetchall()
+        return [(str(v[0]).replace("+00:00", "Z"), int(v[1]), str(v[2]), float(v[3]), float(v[4])) for v in rows]
+
+    def insert_prediction_cooldowns(self, cooldowns: List[PredictionCooldown]) -> None:
+        with self.conn.cursor() as cur:
+            cur.executemany(
+                """
+                INSERT INTO prediction_cooldowns (
+                  item_id, item_name, source, metric_name, predicted_direction, cooldown_until, reason,
+                  trigger_prediction_at, trigger_confidence, trigger_return_pct, realized_return_pct
+                ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                ON CONFLICT (item_id, source, metric_name, predicted_direction, trigger_prediction_at) DO NOTHING
+                """,
+                [
+                    (
+                        c.item_id,
+                        c.item_name,
+                        c.source,
+                        c.metric_name,
+                        c.predicted_direction,
+                        ts_for_db(c.cooldown_until),
+                        c.reason,
+                        ts_for_db(c.trigger_prediction_at),
+                        c.trigger_confidence,
+                        c.trigger_return_pct,
+                        c.realized_return_pct,
+                    )
+                    for c in cooldowns
+                ],
+            )
+
     def prune_old_rows(
         self,
         observations_before_iso: Optional[str],
         alerts_before_iso: Optional[str],
-    ) -> Tuple[int, int]:
+        predictions_before_iso: Optional[str],
+    ) -> Tuple[int, int, int]:
         deleted_observations = 0
         deleted_alerts = 0
+        deleted_predictions = 0
         with self.conn.cursor() as cur:
             if observations_before_iso:
                 cur.execute(
@@ -812,7 +1339,13 @@ class PostgresClient(DBClient):
                     (ts_for_db(alerts_before_iso),),
                 )
                 deleted_alerts = max(int(cur.rowcount), 0)
-        return deleted_observations, deleted_alerts
+            if predictions_before_iso:
+                cur.execute(
+                    "DELETE FROM predictions WHERE observed_at < %s",
+                    (ts_for_db(predictions_before_iso),),
+                )
+                deleted_predictions = max(int(cur.rowcount), 0)
+        return deleted_observations, deleted_alerts, deleted_predictions
 
     def commit(self) -> None:
         self.conn.commit()
@@ -826,6 +1359,27 @@ def mean_stddev(values: List[int]) -> Tuple[float, float]:
     mean = float(sum(values)) / float(n)
     var = sum((v - mean) ** 2 for v in values) / float(n)
     return mean, math.sqrt(var)
+
+
+def clamp(value: float, minimum: float, maximum: float) -> float:
+    return max(minimum, min(value, maximum))
+
+
+def safe_pct_change(current: float, baseline: float) -> float:
+    if baseline <= 0:
+        return 0.0
+    return (current - baseline) / baseline
+
+
+def trailing_mean(rows: List[Observation], field_name: str) -> Optional[float]:
+    values: List[int] = []
+    for row in rows:
+        raw = getattr(row, field_name)
+        if isinstance(raw, int) and raw > 0:
+            values.append(raw)
+    if not values:
+        return None
+    return float(sum(values)) / float(len(values))
 
 
 def format_money_copper(value_copper: int) -> str:
@@ -914,6 +1468,293 @@ def craft_confidence_score(
             penalty += 15
     confidence -= penalty
     return max(0, min(confidence, 100))
+
+
+def detect_predictions(
+    db: DBClient,
+    rows: List[Observation],
+    args: argparse.Namespace,
+) -> Tuple[List[Prediction], PredictionDiagnostics]:
+    predictions: List[Prediction] = []
+    diagnostics = PredictionDiagnostics(total_rows=len(rows))
+    for row in rows:
+        if not passes_liquidity(row, args):
+            diagnostics.blocked_liquidity += 1
+            continue
+
+        current_ts = datetime.fromisoformat(row.observed_at.replace("Z", "+00:00"))
+        long_history = db.history_rows(
+            row=row,
+            start_iso=(current_ts - timedelta(hours=args.prediction_window_hours)).isoformat().replace("+00:00", "Z"),
+            end_iso=row.observed_at,
+        )
+        if len(long_history) < args.prediction_min_history:
+            diagnostics.blocked_min_history += 1
+            continue
+
+        short_history = [
+            hist for hist in long_history
+            if datetime.fromisoformat(hist.observed_at.replace("Z", "+00:00"))
+            >= current_ts - timedelta(hours=args.prediction_short_window_hours)
+        ]
+        if len(short_history) < args.prediction_min_short_history:
+            diagnostics.blocked_short_history += 1
+            continue
+
+        medium_history = [
+            hist for hist in long_history
+            if datetime.fromisoformat(hist.observed_at.replace("Z", "+00:00"))
+            >= current_ts - timedelta(hours=args.prediction_medium_window_hours)
+        ]
+        if not medium_history:
+            medium_history = long_history
+
+        long_prices = [hist.metric_value for hist in long_history]
+        short_prices = [hist.metric_value for hist in short_history]
+        medium_prices = [hist.metric_value for hist in medium_history]
+
+        long_mean = float(sum(long_prices)) / float(len(long_prices))
+        short_mean = float(sum(short_prices)) / float(len(short_prices))
+        medium_mean = float(sum(medium_prices)) / float(len(medium_prices))
+        _, short_std = mean_stddev(short_prices)
+        short_cv = short_std / short_mean if short_mean > 0 else 0.0
+        short_range_pct = (max(short_prices) - min(short_prices)) / short_mean if short_mean > 0 else 0.0
+
+        quantity_long_mean = trailing_mean(long_history, "total_quantity") or float(max(row.total_quantity, 1))
+        listings_long_mean = trailing_mean(long_history, "listing_count") or float(max(row.listing_count, 1))
+
+        price_vs_long_pct = safe_pct_change(float(row.metric_value), long_mean)
+        current_vs_short_pct = safe_pct_change(float(row.metric_value), short_mean)
+        short_vs_medium_pct = safe_pct_change(short_mean, medium_mean)
+        quantity_vs_long_pct = safe_pct_change(float(row.total_quantity), quantity_long_mean)
+        listings_vs_long_pct = safe_pct_change(float(row.listing_count), listings_long_mean)
+
+        liquidity_score = min(
+            1.0,
+            (
+                min(float(row.listing_count) / max(float(args.min_listings_commodity if is_commodity_source(row.source) else args.min_listings_crafted), 1.0), 3.0)
+                + min(float(row.total_quantity) / max(float(args.min_quantity_commodity if is_commodity_source(row.source) else args.min_quantity_crafted), 1.0), 3.0)
+            ) / 6.0,
+        )
+
+        value_up = clamp((-price_vs_long_pct) / 0.25, 0.0, 1.0)
+        value_down = clamp(price_vs_long_pct / 0.25, 0.0, 1.0)
+        rebound_up = clamp((current_vs_short_pct + 0.03) / 0.06, 0.0, 1.0)
+        fade_down = clamp((-current_vs_short_pct + 0.03) / 0.06, 0.0, 1.0)
+        trend_up = clamp((short_vs_medium_pct + 0.02) / 0.05, 0.0, 1.0)
+        trend_down = clamp((-short_vs_medium_pct + 0.02) / 0.05, 0.0, 1.0)
+        supply_tightening = clamp((-quantity_vs_long_pct) / 0.50, 0.0, 1.0)
+        supply_expansion = clamp(quantity_vs_long_pct / 0.50, 0.0, 1.0)
+        listings_tightening = clamp((-listings_vs_long_pct) / 0.50, 0.0, 1.0)
+        listings_expansion = clamp(listings_vs_long_pct / 0.50, 0.0, 1.0)
+        supply_penalty_up = clamp(max(quantity_vs_long_pct, 0.0) / 0.50, 0.0, 1.0)
+        supply_penalty_down = clamp(max(-quantity_vs_long_pct, 0.0) / 0.50, 0.0, 1.0)
+        listings_penalty_up = clamp(max(listings_vs_long_pct, 0.0) / 0.50, 0.0, 1.0)
+        listings_penalty_down = clamp(max(-listings_vs_long_pct, 0.0) / 0.50, 0.0, 1.0)
+
+        up_score = clamp(
+            (value_up * 0.25)
+            + (rebound_up * 0.22)
+            + (trend_up * 0.18)
+            + (supply_tightening * 0.15)
+            + (listings_tightening * 0.08)
+            + (liquidity_score * 0.10),
+            0.0,
+            1.0,
+        )
+        down_score = clamp(
+            (value_down * 0.25)
+            + (fade_down * 0.22)
+            + (trend_down * 0.18)
+            + (supply_expansion * 0.15)
+            + (listings_expansion * 0.08)
+            + (liquidity_score * 0.10),
+            0.0,
+            1.0,
+        )
+        up_score = clamp(up_score - (supply_penalty_up * 0.12) - (listings_penalty_up * 0.08), 0.0, 1.0)
+        down_score = clamp(down_score - (supply_penalty_down * 0.12) - (listings_penalty_down * 0.08), 0.0, 1.0)
+        directional_gap = abs(up_score - down_score)
+        best_direction = "up" if up_score > down_score else "down"
+        cooldown_up = db.active_prediction_cooldown(row, "up", row.observed_at)
+        cooldown_down = db.active_prediction_cooldown(row, "down", row.observed_at)
+
+        if best_direction == "up" and cooldown_up is not None:
+            diagnostics.blocked_cooldown += 1
+            predicted_direction = "flat"
+            confidence = clamp(1.0 - directional_gap, 0.0, 1.0)
+            flat_score = clamp(max(0.70, 1.0 - max(up_score, down_score)), 0.0, 1.0)
+            predicted_return_pct = 0.0
+            diagnostics.emitted_flat += 1
+            reason = f"cooldown until {cooldown_up.cooldown_until}: {cooldown_up.reason}"
+        elif best_direction == "down" and cooldown_down is not None:
+            diagnostics.blocked_cooldown += 1
+            predicted_direction = "flat"
+            confidence = clamp(1.0 - directional_gap, 0.0, 1.0)
+            flat_score = clamp(max(0.70, 1.0 - max(up_score, down_score)), 0.0, 1.0)
+            predicted_return_pct = 0.0
+            diagnostics.emitted_flat += 1
+            reason = f"cooldown until {cooldown_down.cooldown_until}: {cooldown_down.reason}"
+        elif best_direction == "up" and (short_vs_medium_pct < -0.08 or current_vs_short_pct < -0.12):
+            diagnostics.blocked_regime_guard += 1
+            predicted_direction = "flat"
+            confidence = clamp(1.0 - directional_gap, 0.0, 1.0)
+            flat_score = clamp(max(0.60, 1.0 - max(up_score, down_score)), 0.0, 1.0)
+            predicted_return_pct = 0.0
+            diagnostics.emitted_flat += 1
+            reason = "blocked by regime guard"
+        elif best_direction == "down" and (short_vs_medium_pct > 0.08 or current_vs_short_pct > 0.12):
+            diagnostics.blocked_regime_guard += 1
+            predicted_direction = "flat"
+            confidence = clamp(1.0 - directional_gap, 0.0, 1.0)
+            flat_score = clamp(max(0.60, 1.0 - max(up_score, down_score)), 0.0, 1.0)
+            predicted_return_pct = 0.0
+            diagnostics.emitted_flat += 1
+            reason = "blocked by regime guard"
+        elif best_direction == "up" and ((short_cv > 0.30 and short_range_pct > 0.50 and quantity_vs_long_pct > 0.10) or (short_cv > 0.35 and quantity_vs_long_pct > 0.20)):
+            diagnostics.blocked_instability_guard += 1
+            predicted_direction = "flat"
+            confidence = clamp(1.0 - directional_gap, 0.0, 1.0)
+            flat_score = clamp(max(0.65, 1.0 - max(up_score, down_score)), 0.0, 1.0)
+            predicted_return_pct = 0.0
+            diagnostics.emitted_flat += 1
+            reason = "blocked by instability guard"
+        elif best_direction == "down" and ((short_cv > 0.30 and short_range_pct > 0.50 and quantity_vs_long_pct < -0.10) or (short_cv > 0.35 and quantity_vs_long_pct < -0.20)):
+            diagnostics.blocked_instability_guard += 1
+            predicted_direction = "flat"
+            confidence = clamp(1.0 - directional_gap, 0.0, 1.0)
+            flat_score = clamp(max(0.65, 1.0 - max(up_score, down_score)), 0.0, 1.0)
+            predicted_return_pct = 0.0
+            diagnostics.emitted_flat += 1
+            reason = "blocked by instability guard"
+        elif best_direction == "up" and price_vs_long_pct < -0.50 and quantity_vs_long_pct > 0.10:
+            diagnostics.blocked_instability_guard += 1
+            predicted_direction = "flat"
+            confidence = clamp(1.0 - directional_gap, 0.0, 1.0)
+            flat_score = clamp(max(0.70, 1.0 - max(up_score, down_score)), 0.0, 1.0)
+            predicted_return_pct = 0.0
+            diagnostics.emitted_flat += 1
+            reason = "blocked by oversupply crash guard"
+        elif best_direction == "down" and price_vs_long_pct > 0.50 and quantity_vs_long_pct < -0.10:
+            diagnostics.blocked_instability_guard += 1
+            predicted_direction = "flat"
+            confidence = clamp(1.0 - directional_gap, 0.0, 1.0)
+            flat_score = clamp(max(0.70, 1.0 - max(up_score, down_score)), 0.0, 1.0)
+            predicted_return_pct = 0.0
+            diagnostics.emitted_flat += 1
+            reason = "blocked by squeeze guard"
+        elif max(up_score, down_score) < args.prediction_min_confidence or directional_gap < 0.12:
+            predicted_direction = "flat"
+            confidence = clamp(1.0 - directional_gap, 0.0, 1.0)
+            flat_score = clamp(max(0.60, 1.0 - max(up_score, down_score)), 0.0, 1.0)
+            predicted_return_pct = 0.0
+            diagnostics.emitted_flat += 1
+            reason = "confidence below threshold"
+        elif up_score > down_score:
+            predicted_direction = "up"
+            confidence = up_score
+            flat_score = clamp(1.0 - up_score, 0.0, 1.0)
+            predicted_return_pct = clamp(max(0.0, (-price_vs_long_pct * 0.40) + (short_vs_medium_pct * 0.35) + (-quantity_vs_long_pct * 0.25)), 0.0, 0.25)
+            diagnostics.emitted_up += 1
+            reason = ""
+        else:
+            predicted_direction = "down"
+            confidence = down_score
+            flat_score = clamp(1.0 - down_score, 0.0, 1.0)
+            predicted_return_pct = -clamp(max(0.0, (price_vs_long_pct * 0.40) + (-short_vs_medium_pct * 0.35) + (quantity_vs_long_pct * 0.25)), 0.0, 0.25)
+            diagnostics.emitted_down += 1
+            reason = ""
+
+        reasons: List[str] = []
+        if reason:
+            reasons.append(reason)
+        else:
+            if price_vs_long_pct <= -0.05:
+                reasons.append(f"price {price_vs_long_pct * 100.0:.1f}% below long mean")
+            elif price_vs_long_pct >= 0.05:
+                reasons.append(f"price {price_vs_long_pct * 100.0:.1f}% above long mean")
+            if short_vs_medium_pct >= 0.02:
+                reasons.append(f"short trend improving {short_vs_medium_pct * 100.0:.1f}%")
+            elif short_vs_medium_pct <= -0.02:
+                reasons.append(f"short trend weakening {short_vs_medium_pct * 100.0:.1f}%")
+            if quantity_vs_long_pct <= -0.10:
+                reasons.append(f"supply down {quantity_vs_long_pct * 100.0:.1f}%")
+            elif quantity_vs_long_pct >= 0.10:
+                reasons.append(f"supply up {quantity_vs_long_pct * 100.0:.1f}%")
+            if not reasons:
+                reasons.append("mixed conditions")
+
+        predictions.append(
+            Prediction(
+                observed_at=row.observed_at,
+                item_id=row.item_id,
+                item_name=row.item_name,
+                source=row.source,
+                metric_name=row.metric_name,
+                current_value=row.metric_value,
+                predicted_direction=predicted_direction,
+                confidence=confidence,
+                up_score=up_score,
+                down_score=down_score,
+                flat_score=flat_score,
+                predicted_return_pct=predicted_return_pct,
+                short_mean=short_mean,
+                medium_mean=medium_mean,
+                long_mean=long_mean,
+                price_vs_long_pct=price_vs_long_pct,
+                short_vs_medium_pct=short_vs_medium_pct,
+                quantity_vs_long_pct=quantity_vs_long_pct,
+                listings_vs_long_pct=listings_vs_long_pct,
+                reason="; ".join(reasons[:3]),
+            )
+        )
+    return predictions, diagnostics
+
+
+def resolve_prediction_cooldowns(
+    db: DBClient,
+    rows: List[Observation],
+    args: argparse.Namespace,
+) -> List[PredictionCooldown]:
+    cooldowns: List[PredictionCooldown] = []
+    adverse_move = args.prediction_cooldown_loss_pct / 100.0
+    grace_start_hours = args.prediction_cooldown_horizon_hours + args.prediction_cooldown_grace_hours
+    for row in rows:
+        current_ts = datetime.fromisoformat(row.observed_at.replace("Z", "+00:00"))
+        start_iso = (current_ts - timedelta(hours=grace_start_hours)).isoformat().replace("+00:00", "Z")
+        end_iso = (current_ts - timedelta(hours=args.prediction_cooldown_horizon_hours)).isoformat().replace("+00:00", "Z")
+        matured = db.matured_predictions_for_row(row, start_iso, end_iso, args.prediction_cooldown_min_confidence)
+        for trigger_at, trigger_value, predicted_direction, trigger_confidence, trigger_return_pct in matured:
+            if trigger_value <= 0:
+                continue
+            realized_return = (row.metric_value - trigger_value) / float(trigger_value)
+            failed = (
+                predicted_direction == "up" and realized_return <= -adverse_move
+            ) or (
+                predicted_direction == "down" and realized_return >= adverse_move
+            )
+            if not failed:
+                continue
+            cooldown_until = (current_ts + timedelta(hours=args.prediction_cooldown_hours)).isoformat().replace("+00:00", "Z")
+            cooldowns.append(
+                PredictionCooldown(
+                    item_id=row.item_id,
+                    item_name=row.item_name,
+                    source=row.source,
+                    metric_name=row.metric_name,
+                    predicted_direction=predicted_direction,
+                    cooldown_until=cooldown_until,
+                    reason=(
+                        f"failed {predicted_direction} call from {trigger_at} "
+                        f"({realized_return * 100.0:+.1f}% realized)"
+                    ),
+                    trigger_prediction_at=trigger_at,
+                    trigger_confidence=trigger_confidence,
+                    trigger_return_pct=trigger_return_pct,
+                    realized_return_pct=realized_return,
+                )
+            )
+    return cooldowns
 
 
 def detect_alerts(
@@ -1246,6 +2087,40 @@ def format_craft_alert_diagnostics(diag: CraftAlertDiagnostics, recipe_count: in
     )
 
 
+def format_prediction_diagnostics(diag: PredictionDiagnostics) -> str:
+    return (
+        "Prediction diagnostics: "
+        f"rows={diag.total_rows}, "
+        f"liquidity={diag.blocked_liquidity}, "
+        f"min_history={diag.blocked_min_history}, "
+        f"short_history={diag.blocked_short_history}, "
+        f"cooldown={diag.blocked_cooldown}, "
+        f"regime_guard={diag.blocked_regime_guard}, "
+        f"instability_guard={diag.blocked_instability_guard}, "
+        f"up={diag.emitted_up}, "
+        f"down={diag.emitted_down}, "
+        f"flat={diag.emitted_flat}"
+    )
+
+
+def format_prediction_message(predictions: List[Prediction], top_n: int) -> str:
+    actionable = [p for p in predictions if p.predicted_direction in {"up", "down"}]
+    if not actionable:
+        return "No actionable predictions this run."
+    ranked = sorted(actionable, key=lambda p: (p.confidence, abs(p.predicted_return_pct)), reverse=True)
+    lines = [f"Directional predictions: {len(actionable)} actionable"]
+    for pred in ranked[:top_n]:
+        move_pct = pred.predicted_return_pct * 100.0
+        lines.append(
+            f"- {pred.predicted_direction.upper()} {pred.item_name} [{pred.item_id}] {pred.source}: "
+            f"conf {pred.confidence:.2f}, move {move_pct:+.1f}%, "
+            f"price {format_money_copper(pred.current_value)}; {pred.reason}"
+        )
+    if len(ranked) > top_n:
+        lines.append(f"... plus {len(ranked) - top_n} more")
+    return "\n".join(lines)
+
+
 def craft_action_label(direction: str) -> str:
     if direction == "buy":
         return "CRAFT"
@@ -1399,6 +2274,23 @@ def main() -> int:
     try:
         db.init()
         db.insert_observations(rows)
+        if args.enable_predictions:
+            cooldowns = resolve_prediction_cooldowns(
+                db=db,
+                rows=rows,
+                args=args,
+            )
+            if cooldowns:
+                db.insert_prediction_cooldowns(cooldowns)
+            predictions, prediction_diag = detect_predictions(
+                db=db,
+                rows=rows,
+                args=args,
+            )
+            if predictions:
+                db.insert_predictions(predictions)
+        else:
+            predictions, prediction_diag, cooldowns = [], PredictionDiagnostics(total_rows=len(rows)), []
         sigma_alerts, sigma_diag = detect_alerts(
             db=db,
             rows=rows,
@@ -1415,6 +2307,7 @@ def main() -> int:
         now_utc = datetime.now(timezone.utc).replace(microsecond=0)
         observations_before_iso = None
         alerts_before_iso = None
+        predictions_before_iso = None
         if args.retention_days_observations > 0:
             observations_before_iso = (now_utc - timedelta(days=args.retention_days_observations)).isoformat().replace(
                 "+00:00", "Z"
@@ -1423,21 +2316,34 @@ def main() -> int:
             alerts_before_iso = (now_utc - timedelta(days=args.retention_days_alerts)).isoformat().replace(
                 "+00:00", "Z"
             )
-        deleted_observations, deleted_alerts = db.prune_old_rows(observations_before_iso, alerts_before_iso)
+        if args.retention_days_predictions > 0:
+            predictions_before_iso = (now_utc - timedelta(days=args.retention_days_predictions)).isoformat().replace(
+                "+00:00", "Z"
+            )
+        deleted_observations, deleted_alerts, deleted_predictions = db.prune_old_rows(
+            observations_before_iso,
+            alerts_before_iso,
+            predictions_before_iso,
+        )
         db.commit()
     finally:
         db.close()
 
     print(f"Inserted {len(rows)} observations into {db_label} at {observed_at}")
+    if args.enable_predictions:
+        print(format_prediction_diagnostics(prediction_diag))
+        print(f"Prediction cooldowns added: {len(cooldowns)}")
+        print(format_prediction_message(predictions, args.prediction_top_n))
     print(format_alert_diagnostics(sigma_diag))
     if args.enable_craft_alerts:
         print(f"Craft recipe definitions loaded: {len(recipe_defs)}")
         print(format_craft_alert_diagnostics(craft_diag, len(recipe_defs)))
-    if observations_before_iso or alerts_before_iso:
+    if observations_before_iso or alerts_before_iso or predictions_before_iso:
         print(
             "Retention prune:"
             f" deleted {deleted_observations} observation(s)"
-            f" and {deleted_alerts} alert(s)."
+            f", {deleted_alerts} alert(s)"
+            f", and {deleted_predictions} prediction(s)."
         )
 
     if not alerts:
