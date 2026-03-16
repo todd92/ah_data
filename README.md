@@ -149,6 +149,56 @@ Shortcut with Make:
 make backtest-archive
 ```
 
+### How Prediction Works
+
+The prediction system is separate from sigma alerts. Sigma alerts answer "is the current price unusual versus recent history?" Prediction answers "does this item look more likely to move up, down, or stay flat over the next horizon?"
+
+Prediction flow:
+1. `wow_ah_scraper.py` writes the latest auction snapshot to `report.json`.
+2. `ah_monitor.py` ingests that snapshot into `observations`.
+3. If `--enable-predictions` is set, `ah_monitor.py` reads historical `observations` for each item/source and computes a rule-based score.
+4. It writes the result to `predictions`.
+5. Before scoring a new prediction, it also checks whether older high-confidence predictions for that same item/source failed badly enough to create a cooldown.
+6. If a cooldown is active, the new directional call is suppressed and the row is emitted as `flat`.
+
+Prediction features used in Phase 1:
+- Price versus long-window mean (`prediction-window-hours`)
+- Short-window versus medium-window trend
+- Current price versus short mean
+- Current quantity and listings versus long-window averages
+- Liquidity gates using listing count and total quantity
+
+How direction is chosen:
+- `up`: item is cheap versus longer history, short-term trend is improving or stabilizing, and supply is not expanding in a way that contradicts the bounce thesis
+- `down`: item is expensive versus longer history, short-term trend is weakening, and supply/listings support downside
+- `flat`: confidence is too low, the regime guards reject the setup, or a cooldown is active
+
+How cooldowns work:
+1. A prior prediction must be directional (`up` or `down`) and high confidence.
+2. Once that prediction reaches the cooldown resolution horizon, the monitor compares the old predicted row to the current observed price.
+3. If the realized move is badly wrong, a row is inserted into `prediction_cooldowns`.
+4. Future predictions for the same `item_id`, `source`, `metric_name`, and direction are blocked until `cooldown_until`.
+
+Default cooldown policy:
+- Prior prediction confidence at least `0.85`
+- Resolution horizon `12` hours
+- Grace window `6` hours
+- Adverse realized move threshold `20%`
+- Cooldown duration `24` hours
+
+What backtesting measures:
+- `backtest_predictions.py` walks forward through archived snapshots in `data/ah_prices.sqlite3`
+- It generates predictions using only history available at that timestamp
+- It resolves those predictions at the future horizon
+- It applies the same cooldown logic during replay
+- It reports directional accuracy, average predicted return, average realized return, and how many predictions were blocked by cooldown
+
+Where the data goes:
+- `observations`: raw historical snapshots
+- `alerts`: sigma alerts and craft arbitrage alerts
+- `predictions`: directional prediction rows
+- `prediction_cooldowns`: temporary suppression windows created from failed prior predictions
+
 ## 6) Supabase Setup
 
 Install dependencies (preferred: `uv`):
