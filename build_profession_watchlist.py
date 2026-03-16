@@ -286,6 +286,16 @@ def add_item(store: Dict[int, str], item_obj: Dict[str, Any], locale: str):
         store[item_id] = name
 
 
+def vendor_purchase_unit_price(item_details: Dict[str, Any]) -> Optional[int]:
+    purchase_price = item_details.get("purchase_price")
+    if not isinstance(purchase_price, int) or purchase_price <= 0:
+        return None
+    purchase_quantity = item_details.get("purchase_quantity")
+    if not isinstance(purchase_quantity, int) or purchase_quantity <= 0:
+        purchase_quantity = 1
+    return int(purchase_price / purchase_quantity)
+
+
 def crafted_quantity_value(recipe: Dict[str, Any]) -> int:
     raw = recipe.get("crafted_quantity")
     if isinstance(raw, int) and raw > 0:
@@ -704,12 +714,50 @@ def main() -> int:
 
     save_cache(cache_path, recipe_cache)
 
-    targets = [
-        {
-            "name": name,
-            "item_id": item_id,
-            "source_mode": "auto",
+    item_metadata: Dict[int, Dict[str, Any]] = {}
+    vendor_item_count = 0
+    for item_id in sorted(items):
+        try:
+            details = api.api_get(f"/data/wow/item/{item_id}", namespace=f"static-{region}")
+        except Exception as exc:
+            print(f"WARN: skipping item metadata for {item_id}: {exc}", file=sys.stderr)
+            continue
+        vendor_unit_price = vendor_purchase_unit_price(details)
+        if vendor_unit_price is None:
+            continue
+        item_metadata[item_id] = {
+            "vendor_purchase_unit_price": vendor_unit_price,
         }
+        vendor_item_count += 1
+
+    for recipe in recipe_defs:
+        crafted_item_id = recipe.get("crafted_item_id")
+        if isinstance(crafted_item_id, int):
+            vendor_meta = item_metadata.get(crafted_item_id)
+            if vendor_meta:
+                recipe["crafted_item_vendor_purchase_unit_price"] = vendor_meta["vendor_purchase_unit_price"]
+        reagents = recipe.get("reagents")
+        if not isinstance(reagents, list):
+            continue
+        for reagent in reagents:
+            if not isinstance(reagent, dict):
+                continue
+            reagent_id = reagent.get("item_id")
+            if not isinstance(reagent_id, int):
+                continue
+            vendor_meta = item_metadata.get(reagent_id)
+            if vendor_meta:
+                reagent["vendor_purchase_unit_price"] = vendor_meta["vendor_purchase_unit_price"]
+
+    targets = [
+        (
+            {
+                "name": name,
+                "item_id": item_id,
+                "source_mode": "auto",
+                **item_metadata.get(item_id, {}),
+            }
+        )
         for item_id, name in sorted(items.items(), key=lambda kv: kv[1].lower())
     ]
 
@@ -727,6 +775,7 @@ def main() -> int:
             "external_cache_entries": len(recipe_cache),
             "external_hits": external_hits,
             "external_misses": external_misses,
+            "vendor_item_count": vendor_item_count,
         },
         "targets": targets,
         "recipes": recipe_defs,

@@ -48,6 +48,12 @@ function confidenceLabel(v: number | null): string {
   return `Low (${v})`;
 }
 
+function sourceLabel(source: string): string {
+  if (source === "commodity:region") return "Regional commodity AH";
+  if (source === "vendor") return "Vendor";
+  return source;
+}
+
 function Sparkline({ values }: { values: number[] }) {
   if (values.length === 0) return <span className="small">-</span>;
   const width = 120;
@@ -244,7 +250,7 @@ export default function HomePage() {
                   <tr key={`${row.alertedAt}-${row.itemId}-${row.recipeId || "none"}`}>
                     <td>
                       <strong>{row.itemName}</strong>
-                      <div className="small">{row.source}</div>
+                      <div className="small">{sourceLabel(row.source)}</div>
                     </td>
                     <td>{row.recipeName || `Recipe #${row.recipeId || "?"}`}</td>
                     <td style={{ textTransform: "capitalize" }}>{row.profession}</td>

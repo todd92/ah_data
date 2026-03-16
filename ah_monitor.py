@@ -65,6 +65,7 @@ class RecipeReagent:
     item_id: int
     name: str
     quantity: int
+    vendor_unit_price: Optional[int] = None
 
 
 @dataclass
@@ -76,6 +77,7 @@ class RecipeDefinition:
     crafted_item_name: str
     crafted_quantity: int
     reagents: List[RecipeReagent]
+    crafted_vendor_unit_price: Optional[int] = None
 
 
 @dataclass
@@ -1042,9 +1044,18 @@ def load_recipe_definitions(config_path: Path) -> List[RecipeDefinition]:
                 quantity = r.get("quantity")
                 if not isinstance(item_id, int) or not isinstance(quantity, int) or quantity <= 0:
                     continue
-                reagents.append(RecipeReagent(item_id=item_id, name=str(r.get("name", f"item-{item_id}")), quantity=quantity))
+                vendor_unit_price = r.get("vendor_purchase_unit_price")
+                reagents.append(
+                    RecipeReagent(
+                        item_id=item_id,
+                        name=str(r.get("name", f"item-{item_id}")),
+                        quantity=quantity,
+                        vendor_unit_price=vendor_unit_price if isinstance(vendor_unit_price, int) and vendor_unit_price > 0 else None,
+                    )
+                )
             if not reagents:
                 continue
+            crafted_vendor_unit_price = raw.get("crafted_item_vendor_purchase_unit_price")
             out.append(
                 RecipeDefinition(
                     recipe_id=recipe_id,
@@ -1054,6 +1065,11 @@ def load_recipe_definitions(config_path: Path) -> List[RecipeDefinition]:
                     crafted_item_name=str(raw.get("crafted_item_name", f"item-{crafted_item_id}")),
                     crafted_quantity=max(int(raw.get("crafted_quantity", 1) or 1), 1),
                     reagents=reagents,
+                    crafted_vendor_unit_price=(
+                        crafted_vendor_unit_price
+                        if isinstance(crafted_vendor_unit_price, int) and crafted_vendor_unit_price > 0
+                        else None
+                    ),
                 )
             )
             seen_recipe_ids.add(recipe_id)
@@ -1107,19 +1123,31 @@ def detect_craft_alerts(
                 reagent_breakdown_rows: List[Dict[str, Any]] = []
                 for reagent in recipe.reagents:
                     reagent_row = pick_market_row(rows_by_item.get(reagent.item_id, []), crafted_row.source)
-                    if not reagent_row or not passes_liquidity(reagent_row, args):
+                    market_unit_price: Optional[int] = None
+                    market_source: Optional[str] = None
+                    if reagent_row and passes_liquidity(reagent_row, args):
+                        market_unit_price = reagent_row.metric_value
+                        market_source = reagent_row.source
+                    vendor_unit_price = reagent.vendor_unit_price if isinstance(reagent.vendor_unit_price, int) and reagent.vendor_unit_price > 0 else None
+                    if market_unit_price is None and vendor_unit_price is None:
                         missing_price = True
                         break
-                    reagent_total_cost = reagent.quantity * reagent_row.metric_value
+                    if vendor_unit_price is not None and (market_unit_price is None or vendor_unit_price <= market_unit_price):
+                        chosen_unit_price = vendor_unit_price
+                        chosen_source = "vendor"
+                    else:
+                        chosen_unit_price = market_unit_price
+                        chosen_source = market_source or "unknown"
+                    reagent_total_cost = reagent.quantity * int(chosen_unit_price or 0)
                     total_craft_cost += reagent_total_cost
                     reagent_breakdown_rows.append(
                         {
                             "item_id": reagent.item_id,
                             "name": reagent.name,
                             "quantity": reagent.quantity,
-                            "unit_price": reagent_row.metric_value,
+                            "unit_price": chosen_unit_price,
                             "total_cost": reagent_total_cost,
-                            "source": reagent_row.source,
+                            "source": chosen_source,
                         }
                     )
                 if missing_price:
@@ -1132,6 +1160,12 @@ def detect_craft_alerts(
                 if not sale_unit_price or sale_unit_price <= 0:
                     diagnostics.blocked_profit_threshold += 1
                     continue
+                if (
+                    isinstance(recipe.crafted_vendor_unit_price, int)
+                    and recipe.crafted_vendor_unit_price > 0
+                    and sale_unit_price > recipe.crafted_vendor_unit_price
+                ):
+                    sale_unit_price = recipe.crafted_vendor_unit_price
                 sale_value = sale_unit_price * recipe.crafted_quantity
                 net_sale = int(sale_value * (1.0 - args.craft_ah_cut_rate))
                 expected_profit = net_sale - total_craft_cost
