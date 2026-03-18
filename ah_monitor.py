@@ -522,6 +522,10 @@ def postgres_schema_sql() -> str:
     """
 
 
+def postgres_schema_statements() -> List[str]:
+    return [stmt.strip() for stmt in postgres_schema_sql().split(";") if stmt.strip()]
+
+
 def run_cmd(cmd: Sequence[str]) -> None:
     proc = subprocess.run(cmd, text=True)
     if proc.returncode != 0:
@@ -969,13 +973,17 @@ class PostgresClient(DBClient):
             raise RuntimeError("Postgres backend requires 'psycopg'. Install with: pip install psycopg[binary]") from exc
         self._psycopg = psycopg
         self.conn = psycopg.connect(url, prepare_threshold=None)
-        
+
     def init(self) -> None:
         with self.conn.cursor() as cur:
-            cur.execute(postgres_schema_sql())
+            cur.execute("SET statement_timeout = 0")
+            for statement in postgres_schema_statements():
+                cur.execute(statement)
         self._migrate_observation_columns_if_needed()
         self._migrate_int_to_bigint_if_needed()
         self._migrate_alert_columns_if_needed()
+        with self.conn.cursor() as cur:
+            cur.execute("RESET statement_timeout")
 
     def _migrate_observation_columns_if_needed(self) -> None:
         targets = [
