@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import type { Opportunity, OpportunityResponse } from "@/lib/types";
 import { sampleResponse } from "@/lib/sample-data";
@@ -133,6 +134,13 @@ export default function HomePage() {
 
   return (
     <main className="wrap">
+      <nav className="topnav">
+        <Link href="/" className="active">
+          Craft Alerts
+        </Link>
+        <Link href="/predictions">Predictions</Link>
+      </nav>
+
       <section className="hero">
         <h1>AH Crafting Radar</h1>
         <p>Choose a profession and rank crafts by expected profit, margin, and current market conditions.</p>

@@ -115,6 +115,17 @@ jobs:
             --min-quantity-crafted 1 \
             --min-abs-move-gold-commodity 20 \
             --min-abs-move-gold-crafted 100 \
+            --enable-predictions \
+            --prediction-window-hours 168 \
+            --prediction-short-window-hours 12 \
+            --prediction-medium-window-hours 48 \
+            --prediction-min-history 24 \
+            --prediction-min-confidence 0.80 \
+            --prediction-cooldown-hours 24 \
+            --prediction-cooldown-horizon-hours 12 \
+            --prediction-cooldown-grace-hours 6 \
+            --prediction-cooldown-min-confidence 0.85 \
+            --prediction-cooldown-loss-pct 20 \
             --retention-days-observations 0 \
             --retention-days-alerts 0 \
             --enable-craft-alerts \
@@ -156,6 +167,17 @@ jobs:
             --min-quantity-crafted 1 \
             --min-abs-move-gold-commodity 20 \
             --min-abs-move-gold-crafted 100 \
+            --enable-predictions \
+            --prediction-window-hours 168 \
+            --prediction-short-window-hours 12 \
+            --prediction-medium-window-hours 48 \
+            --prediction-min-history 24 \
+            --prediction-min-confidence 0.80 \
+            --prediction-cooldown-hours 24 \
+            --prediction-cooldown-horizon-hours 12 \
+            --prediction-cooldown-grace-hours 6 \
+            --prediction-cooldown-min-confidence 0.85 \
+            --prediction-cooldown-loss-pct 20 \
             --retention-days-observations 30 \
             --retention-days-alerts 90 \
             --enable-craft-alerts \

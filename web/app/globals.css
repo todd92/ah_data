@@ -32,6 +32,29 @@ body {
   padding: 24px 16px 48px;
 }
 
+.topnav {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.topnav a {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.75);
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.topnav a.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
 .hero {
   background: linear-gradient(120deg, #023047, #005f73 45%, #0a9396);
   color: #fff;

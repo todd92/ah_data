@@ -53,3 +53,33 @@ export type OpportunityResponse = {
     direction: "buy" | "both";
   };
 };
+
+export type PredictionSignal = {
+  observedAt: string;
+  itemId: number;
+  itemName: string;
+  source: string;
+  metricName: string;
+  predictedDirection: "up" | "down" | "flat";
+  confidence: number;
+  predictedReturnPct: number;
+  currentValue: number;
+  reason: string;
+  shortMean: number;
+  mediumMean: number;
+  longMean: number;
+  priceVsLongPct: number;
+  shortVsMediumPct: number;
+  quantityVsLongPct: number;
+  listingsVsLongPct: number;
+  cooldownActive: boolean;
+};
+
+export type PredictionResponse = {
+  rows: PredictionSignal[];
+  source: "supabase" | "sample";
+  filters: {
+    direction: "both" | "up" | "down";
+    minConfidence: number;
+  };
+};

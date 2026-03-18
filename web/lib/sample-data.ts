@@ -1,4 +1,4 @@
-import type { OpportunityResponse } from "./types";
+import type { OpportunityResponse, PredictionResponse } from "./types";
 
 export const sampleResponse: OpportunityResponse = {
   source: "sample",
@@ -59,6 +59,56 @@ export const sampleResponse: OpportunityResponse = {
         { alertedAt: "2026-03-08T22:00:00Z", expectedProfit: 910000, saleValue: 8450000, craftCost: 7400000, marginPct: 0.123, craftConfidence: 61 },
         { alertedAt: "2026-03-09T15:00:00Z", expectedProfit: 1210000, saleValue: 8610000, craftCost: 7400000, marginPct: 0.164, craftConfidence: 67 }
       ]
+    }
+  ]
+};
+
+export const samplePredictionResponse: PredictionResponse = {
+  source: "sample",
+  filters: {
+    direction: "both",
+    minConfidence: 0.8
+  },
+  rows: [
+    {
+      observedAt: "2026-03-16T14:51:07Z",
+      itemId: 238523,
+      itemName: "Carving Canine",
+      source: "commodity:region",
+      metricName: "weighted_avg_unit_price",
+      predictedDirection: "up",
+      confidence: 0.95,
+      predictedReturnPct: 0.25,
+      currentValue: 4302032,
+      reason: "price -37.3% below long mean; short trend improving 28.3%; supply down -41.1%",
+      shortMean: 1930081,
+      mediumMean: 1504535,
+      longMean: 3874737,
+      priceVsLongPct: -0.373,
+      shortVsMediumPct: 0.283,
+      quantityVsLongPct: -0.411,
+      listingsVsLongPct: -0.556,
+      cooldownActive: false
+    },
+    {
+      observedAt: "2026-03-16T14:51:07Z",
+      itemId: 251665,
+      itemName: "Silverleaf Thread",
+      source: "commodity:region",
+      metricName: "weighted_avg_unit_price",
+      predictedDirection: "flat",
+      confidence: 0.91,
+      predictedReturnPct: 0,
+      currentValue: 7264,
+      reason: "cooldown until 2026-03-17T06:04:15Z: failed up call from 2026-03-15T15:35:51Z (-92.5% realized)",
+      shortMean: 61281,
+      mediumMean: 46955,
+      longMean: 147953,
+      priceVsLongPct: -0.951,
+      shortVsMediumPct: 0.305,
+      quantityVsLongPct: 0.412,
+      listingsVsLongPct: 0.153,
+      cooldownActive: true
     }
   ]
 };
