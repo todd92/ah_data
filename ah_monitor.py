@@ -1402,6 +1402,42 @@ def is_commodity_source(source: str) -> bool:
     return source.startswith("commodity:")
 
 
+def get_seasonality_multipliers(observed_at_iso: str, is_commodity: bool) -> Tuple[float, float]:
+    """
+    Returns (up_multiplier, down_multiplier) based on the weekly and daily WoW cycle.
+    """
+    dt = datetime.fromisoformat(observed_at_iso.replace("Z", "+00:00"))
+    weekday = dt.weekday()  # 0=Monday, 1=Tuesday, ..., 6=Sunday
+    hour = dt.hour         # UTC hour
+
+    up_mult = 1.0
+    down_mult = 1.0
+
+    # Weekly Reset Cycle (NA Tuesday = 1, EU Wednesday = 2)
+    # Demand spikes on reset days for commodities (consumables/reagents)
+    if is_commodity:
+        if weekday in [1, 2]:  # Tue/Wed
+            up_mult *= 1.15    # Demand surge
+            down_mult *= 0.85  # Less likely to stay down
+        elif weekday in [5, 6]: # Sat/Sun
+            up_mult *= 0.90    # Weekend supply flush
+            down_mult *= 1.10  # More casual listing activity
+
+    # Daily Cycle (UTC)
+    # Typical peak: 18:00 - 00:00 UTC (Prime time NA/EU)
+    # Typical lull: 04:00 - 10:00 UTC (Late night/Early morning)
+    if 18 <= hour <= 23:
+        # High velocity period
+        up_mult *= 1.05
+        down_mult *= 1.05
+    elif 4 <= hour <= 9:
+        # Low liquidity period, avoid strong directional calls
+        up_mult *= 0.90
+        down_mult *= 0.90
+
+    return up_mult, down_mult
+
+
 def min_abs_move_copper(row: Observation, args: argparse.Namespace) -> int:
     if is_commodity_source(row.source):
         return int(args.min_abs_move_gold_commodity * 10000)
@@ -1560,23 +1596,25 @@ def detect_predictions(
         listings_penalty_up = clamp(max(listings_vs_long_pct, 0.0) / 0.50, 0.0, 1.0)
         listings_penalty_down = clamp(max(-listings_vs_long_pct, 0.0) / 0.50, 0.0, 1.0)
 
+        up_season_mult, down_season_mult = get_seasonality_multipliers(row.observed_at, is_commodity_source(row.source))
+
         up_score = clamp(
-            (value_up * 0.25)
+            ((value_up * 0.25)
             + (rebound_up * 0.22)
             + (trend_up * 0.18)
             + (supply_tightening * 0.15)
             + (listings_tightening * 0.08)
-            + (liquidity_score * 0.10),
+            + (liquidity_score * 0.10)) * up_season_mult,
             0.0,
             1.0,
         )
         down_score = clamp(
-            (value_down * 0.25)
+            ((value_down * 0.25)
             + (fade_down * 0.22)
             + (trend_down * 0.18)
             + (supply_expansion * 0.15)
             + (listings_expansion * 0.08)
-            + (liquidity_score * 0.10),
+            + (liquidity_score * 0.10)) * down_season_mult,
             0.0,
             1.0,
         )
