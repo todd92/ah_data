@@ -325,6 +325,7 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--prediction-cooldown-grace-hours", type=int, default=6, help="Extra grace window when matching a current observation to an older prediction")
     p.add_argument("--prediction-cooldown-min-confidence", type=float, default=0.85, help="Minimum prior prediction confidence required before a failed call can trigger cooldown")
     p.add_argument("--prediction-cooldown-loss-pct", type=float, default=20.0, help="Realized adverse move percent required to trigger a cooldown")
+    p.add_argument("--webhook-min-prediction-confidence", type=float, default=0.85, help="Minimum confidence required for predictions sent to webhook")
     return p.parse_args()
 
 
@@ -2407,6 +2408,18 @@ def main() -> int:
     if webhook_url:
         send_webhook(webhook_url, message, args.webhook_format)
         print(f"Sent alert webhook ({args.webhook_format}).")
+
+        # Send predictions as a separate message if enabled
+        if args.enable_predictions:
+            webhook_predictions = [
+                p for p in predictions 
+                if p.predicted_direction in {"up", "down"} 
+                and p.confidence >= args.webhook_min_prediction_confidence
+            ]
+            if webhook_predictions:
+                pred_message = format_prediction_message(webhook_predictions, args.prediction_top_n)
+                send_webhook(webhook_url, f"**Market Predictions**\n{pred_message}", args.webhook_format)
+                print(f"Sent prediction webhook ({args.webhook_format}).")
     else:
         print("No webhook configured; alerts printed to stdout only.")
 
