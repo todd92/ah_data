@@ -41,14 +41,15 @@ class BlizzardAPI:
         self._access_token: Optional[str] = None
         self._realm_index: Optional[List[Dict[str, Any]]] = None
 
-    def _http_json(self, method: str, url: str, headers: Dict[str, str], body: Optional[bytes] = None) -> Any:
+    def _http_json(self, method: str, url: str, headers: Dict[str, str], body: Optional[bytes] = None) -> Tuple[Any, Optional[str]]:
         retry_status = {429, 500, 502, 503, 504}
         attempts = 5
         for i in range(attempts):
             req = urllib.request.Request(url=url, method=method, headers=headers, data=body)
             try:
                 with urllib.request.urlopen(req, timeout=45) as resp:
-                    return json.loads(resp.read().decode("utf-8"))
+                    last_modified = resp.headers.get("Last-Modified")
+                    return json.loads(resp.read().decode("utf-8")), last_modified
             except urllib.error.HTTPError as exc:
                 details = exc.read().decode("utf-8", errors="ignore")
                 if exc.code in retry_status and i < attempts - 1:
@@ -70,7 +71,7 @@ class BlizzardAPI:
         auth_b64 = base64.b64encode(auth_raw).decode("ascii")
         data = urllib.parse.urlencode({"grant_type": "client_credentials"}).encode("utf-8")
         url = f"https://{OAUTH_HOST}/token"
-        payload = self._http_json(
+        payload, _ = self._http_json(
             method="POST",
             url=url,
             headers={
@@ -85,7 +86,7 @@ class BlizzardAPI:
         self._access_token = token
         return token
 
-    def _api_get(self, path: str, namespace: str) -> Any:
+    def _api_get(self, path: str, namespace: str) -> Tuple[Any, Optional[str]]:
         params = urllib.parse.urlencode({"locale": self.locale})
         url = f"https://{self.api_host}{path}?{params}"
         return self._http_json(
@@ -99,7 +100,7 @@ class BlizzardAPI:
 
     def realm_index(self) -> List[Dict[str, Any]]:
         if self._realm_index is None:
-            data = self._api_get(path="/data/wow/realm/index", namespace=f"dynamic-{self.region}")
+            data, _ = self._api_get(path="/data/wow/realm/index", namespace=f"dynamic-{self.region}")
             self._realm_index = data.get("realms", [])
         return self._realm_index
 
@@ -137,26 +138,27 @@ class BlizzardAPI:
         if match_realm_id is None:
             raise RuntimeError(f"Realm '{realm_slug}' not found in region '{self.region}' realm index")
 
-        data = self._api_get(path=f"/data/wow/realm/{match_realm_id}", namespace=f"dynamic-{self.region}")
+        data, _ = self._api_get(path=f"/data/wow/realm/{match_realm_id}", namespace=f"dynamic-{self.region}")
         href = (data.get("connected_realm") or {}).get("href", "")
         connected_id = self._extract_id_from_href(href, "/data/wow/connected-realm/")
         if connected_id is None:
             raise RuntimeError(f"Could not parse connected realm ID from href '{href}' for realm '{realm_slug}'")
         return connected_id
 
-    def connected_realm_auctions(self, connected_id: int) -> List[Dict[str, Any]]:
-        data = self._api_get(
+    def connected_realm_auctions(self, connected_id: int) -> Tuple[List[Dict[str, Any]], Optional[str]]:
+        data, last_modified = self._api_get(
             path=f"/data/wow/connected-realm/{connected_id}/auctions",
             namespace=f"dynamic-{self.region}",
         )
-        return data.get("auctions", [])
+        return data.get("auctions", []), last_modified
 
-    def commodity_auctions(self) -> List[Dict[str, Any]]:
-        data = self._api_get(path="/data/wow/auctions/commodities", namespace=f"dynamic-{self.region}")
-        return data.get("auctions", [])
+    def commodity_auctions(self) -> Tuple[List[Dict[str, Any]], Optional[str]]:
+        data, last_modified = self._api_get(path="/data/wow/auctions/commodities", namespace=f"dynamic-{self.region}")
+        return data.get("auctions", []), last_modified
 
     def item_details(self, item_id: int) -> Dict[str, Any]:
-        return self._api_get(path=f"/data/wow/item/{item_id}", namespace=f"static-{self.region}")
+        data, _ = self._api_get(path=f"/data/wow/item/{item_id}", namespace=f"static-{self.region}")
+        return data
 
 
 @dataclass
@@ -171,6 +173,7 @@ def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(description="Fetch and summarize WoW auction house prices for selected items.")
     p.add_argument("--config", default="config.json", help="Path to JSON config file")
     p.add_argument("--output", default="report.json", help="Output JSON summary path")
+    p.add_argument("--all-commodities", action="store_true", help="Summarize all items found in the commodities dump")
     return p.parse_args()
 
 
@@ -268,13 +271,13 @@ def percentile_value(sorted_values: List[int], fraction: float) -> Optional[int]
     return int(sorted_values[lower] + (sorted_values[upper] - sorted_values[lower]) * weight)
 
 
-def summarize(auctions: List[Dict[str, Any]], item_ids: Set[int]) -> Dict[int, Dict[str, Any]]:
+def summarize(auctions: List[Dict[str, Any]], item_ids: Set[int], include_all: bool = False) -> Dict[int, Dict[str, Any]]:
     by_item: Dict[int, List[Tuple[int, int]]] = defaultdict(list)
 
     for a in auctions:
         item = a.get("item") or {}
         item_id = item.get("id")
-        if item_id not in item_ids:
+        if not include_all and item_id not in item_ids:
             continue
         unit = unit_price_from_auction(a)
         if unit is None:
@@ -388,12 +391,16 @@ def main() -> int:
             fetch_plan[key] = label
 
     source_item_summary: Dict[SourceKey, Dict[int, Dict[str, Any]]] = {}
+    source_last_modified: Dict[SourceKey, Optional[str]] = {}
+
     for key in fetch_plan:
+        include_all = (key.source_type == "commodity" and args.all_commodities)
         if key.source_type == "commodity":
-            auctions = api.commodity_auctions()
+            auctions, last_modified = api.commodity_auctions()
         else:
-            auctions = api.connected_realm_auctions(int(key.id_or_slug))
-        source_item_summary[key] = summarize(auctions, target_item_ids)
+            auctions, last_modified = api.connected_realm_auctions(int(key.id_or_slug))
+        source_item_summary[key] = summarize(auctions, target_item_ids, include_all=include_all)
+        source_last_modified[key] = last_modified
 
     report: Dict[str, Any] = {
         "region": region,
@@ -401,12 +408,15 @@ def main() -> int:
         "targets": [],
     }
 
+    # First, process explicit targets
+    processed_item_ids = set()
     for t in targets:
         entry = {
             "name": t.name,
             "item_id": t.item_id,
             "sources": [],
         }
+        processed_item_ids.add(t.item_id)
         if t.item_id in auto_target_reason:
             entry["source_mode"] = "auto"
             entry["source_mode_reason"] = auto_target_reason[t.item_id]
@@ -423,10 +433,32 @@ def main() -> int:
             entry["sources"].append(
                 {
                     "source": label,
+                    "last_modified": source_last_modified.get(key),
                     "summary": summary,
                 }
             )
         report["targets"].append(entry)
+
+    # Then, add discovered items from 'all' mode
+    if args.all_commodities:
+        for key, item_summaries in source_item_summary.items():
+            if key.source_type != "commodity":
+                continue
+            for item_id, summary in item_summaries.items():
+                if item_id in processed_item_ids:
+                    continue
+                # Add discovery entry
+                report["targets"].append({
+                    "name": f"discovered-{item_id}",
+                    "item_id": item_id,
+                    "sources": [
+                        {
+                            "source": "commodity:region",
+                            "last_modified": source_last_modified.get(key),
+                            "summary": summary,
+                        }
+                    ]
+                })
 
     out_path = Path(args.output)
     out_path.write_text(json.dumps(report, indent=2), encoding="utf-8")

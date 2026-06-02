@@ -9,20 +9,24 @@
       "cooking",
       "enchanting",
       "engineering",
+      "fishing",
+      "herbalism",
       "inscription",
       "jewelcrafting",
       "leatherworking",
+      "mining",
+      "skinning",
       "tailoring"
     ],
     "include_reagents": true,
-    "recipe_count": 802,
-    "recipe_definition_count": 506,
-    "item_count": 594,
+    "recipe_count": 937,
+    "recipe_definition_count": 510,
+    "item_count": 604,
     "local_mapping_hits": 506,
-    "external_cache_entries": 50,
-    "external_hits": 45,
-    "external_misses": 43,
-    "vendor_item_count": 561
+    "external_cache_entries": 58,
+    "external_hits": 53,
+    "external_misses": 41,
+    "vendor_item_count": 570
   },
   "targets": [
     {
@@ -134,6 +138,12 @@
       "vendor_purchase_unit_price": 8732265
     },
     {
+      "name": "Amani Angler's Ward",
+      "item_id": 241148,
+      "source_mode": "auto",
+      "vendor_purchase_unit_price": 37500
+    },
+    {
       "name": "Amani Extract",
       "item_id": 241298,
       "source_mode": "auto",
@@ -231,13 +241,13 @@
       "name": "B0P, Curator of Booms",
       "item_id": 257735,
       "source_mode": "auto",
-      "vendor_purchase_unit_price": 865250
+      "vendor_purchase_unit_price": 432625
     },
     {
       "name": "B1P, Scorcher of Souls",
       "item_id": 248135,
       "source_mode": "auto",
-      "vendor_purchase_unit_price": 865250
+      "vendor_purchase_unit_price": 432625
     },
     {
       "name": "Blessed Pango Charm",
@@ -250,6 +260,12 @@
       "item_id": 238377,
       "source_mode": "auto",
       "vendor_purchase_unit_price": 6250
+    },
+    {
+      "name": "Blood Hunter Lure",
+      "item_id": 241147,
+      "source_mode": "auto",
+      "vendor_purchase_unit_price": 37500
     },
     {
       "name": "Blood Knight's Armor Kit",
@@ -382,6 +398,11 @@
       "item_id": 240159,
       "source_mode": "auto",
       "vendor_purchase_unit_price": 560250
+    },
+    {
+      "name": "Broken Lynx Leash",
+      "item_id": 272392,
+      "source_mode": "auto"
     },
     {
       "name": "Buttered Root Crab",
@@ -1097,6 +1118,12 @@
       "vendor_purchase_unit_price": 16750
     },
     {
+      "name": "Fungalskin Pike",
+      "item_id": 238375,
+      "source_mode": "auto",
+      "vendor_purchase_unit_price": 6250
+    },
+    {
       "name": "Fused Vitality",
       "item_id": 245345,
       "source_mode": "auto",
@@ -1287,6 +1314,12 @@
       "vendor_purchase_unit_price": 16750
     },
     {
+      "name": "Gore Guppy",
+      "item_id": 238382,
+      "source_mode": "auto",
+      "vendor_purchase_unit_price": 6250
+    },
+    {
       "name": "Greased Cogwheel",
       "item_id": 244699,
       "source_mode": "auto",
@@ -1372,25 +1405,25 @@
       "name": "HU5H, Nonchalant Pup",
       "item_id": 255843,
       "source_mode": "auto",
-      "vendor_purchase_unit_price": 865250
+      "vendor_purchase_unit_price": 432625
     },
     {
       "name": "Illusory Adornment - Blooming Light",
       "item_id": 244032,
       "source_mode": "auto",
-      "vendor_purchase_unit_price": 250000
+      "vendor_purchase_unit_price": 25000
     },
     {
       "name": "Illusory Adornment - Nature's Embrace",
       "item_id": 244034,
       "source_mode": "auto",
-      "vendor_purchase_unit_price": 250000
+      "vendor_purchase_unit_price": 25000
     },
     {
       "name": "Illusory Adornment - Voidtouched",
       "item_id": 244036,
       "source_mode": "auto",
-      "vendor_purchase_unit_price": 250000
+      "vendor_purchase_unit_price": 25000
     },
     {
       "name": "Imbued Bright Linen Backpack",
@@ -1403,6 +1436,12 @@
       "item_id": 253307,
       "source_mode": "auto",
       "vendor_purchase_unit_price": 250000
+    },
+    {
+      "name": "Infused Scalewoven Hide",
+      "item_id": 244634,
+      "source_mode": "auto",
+      "vendor_purchase_unit_price": 220000
     },
     {
       "name": "item-236761",
@@ -1624,7 +1663,7 @@
       "name": "item-243581",
       "item_id": 243581,
       "source_mode": "auto",
-      "vendor_purchase_unit_price": 150000
+      "vendor_purchase_unit_price": 1500
     },
     {
       "name": "item-243599",
@@ -1756,6 +1795,12 @@
       "item_id": 248130,
       "source_mode": "auto",
       "vendor_purchase_unit_price": 300005
+    },
+    {
+      "name": "Lucky Loa Lure",
+      "item_id": 241145,
+      "source_mode": "auto",
+      "vendor_purchase_unit_price": 37500
     },
     {
       "name": "Luminant Flux",
@@ -1959,6 +2004,12 @@
       "vendor_purchase_unit_price": 16750
     },
     {
+      "name": "Null Voidfish",
+      "item_id": 238380,
+      "source_mode": "auto",
+      "vendor_purchase_unit_price": 6250
+    },
+    {
       "name": "Oil of Dawn",
       "item_id": 243735,
       "source_mode": "auto",
@@ -1975,6 +2026,12 @@
       "item_id": 238373,
       "source_mode": "auto",
       "vendor_purchase_unit_price": 6250
+    },
+    {
+      "name": "Ominous Octopus Lure",
+      "item_id": 241149,
+      "source_mode": "auto",
+      "vendor_purchase_unit_price": 37500
     },
     {
       "name": "Ornamental Silvermoon Hanger",
@@ -2402,6 +2459,12 @@
       "item_id": 244712,
       "source_mode": "auto",
       "vendor_purchase_unit_price": 860525
+    },
+    {
+      "name": "Sin'dorei Armor Banding",
+      "item_id": 244636,
+      "source_mode": "auto",
+      "vendor_purchase_unit_price": 77500
     },
     {
       "name": "Sin'dorei Clampers",
@@ -3559,6 +3622,78 @@
   ],
   "recipes": [
     {
+      "recipe_id": 52039,
+      "recipe_name": "Lucky Loa Lure",
+      "profession": "Fishing",
+      "profession_id": 356,
+      "crafted_item_id": 241145,
+      "crafted_item_name": "Lucky Loa Lure",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238365,
+          "name": "Sin'dorei Swarmer",
+          "quantity": 5,
+          "vendor_purchase_unit_price": 6250
+        }
+      ],
+      "crafted_item_vendor_purchase_unit_price": 37500
+    },
+    {
+      "recipe_id": 52040,
+      "recipe_name": "Ominous Octopus Lure",
+      "profession": "Fishing",
+      "profession_id": 356,
+      "crafted_item_id": 241149,
+      "crafted_item_name": "Ominous Octopus Lure",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238380,
+          "name": "Null Voidfish",
+          "quantity": 5,
+          "vendor_purchase_unit_price": 6250
+        }
+      ],
+      "crafted_item_vendor_purchase_unit_price": 37500
+    },
+    {
+      "recipe_id": 52041,
+      "recipe_name": "Blood Hunter Lure",
+      "profession": "Fishing",
+      "profession_id": 356,
+      "crafted_item_id": 241147,
+      "crafted_item_name": "Blood Hunter Lure",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238382,
+          "name": "Gore Guppy",
+          "quantity": 5,
+          "vendor_purchase_unit_price": 6250
+        }
+      ],
+      "crafted_item_vendor_purchase_unit_price": 37500
+    },
+    {
+      "recipe_id": 52042,
+      "recipe_name": "Amani Angler's Ward",
+      "profession": "Fishing",
+      "profession_id": 356,
+      "crafted_item_id": 241148,
+      "crafted_item_name": "Amani Angler's Ward",
+      "crafted_quantity": 1,
+      "reagents": [
+        {
+          "item_id": 238377,
+          "name": "Blood Hunter",
+          "quantity": 2,
+          "vendor_purchase_unit_price": 6250
+        }
+      ],
+      "crafted_item_vendor_purchase_unit_price": 37500
+    },
+    {
       "recipe_id": 1228950,
       "recipe_name": "Adherent's Silken Shroud",
       "profession": "tailoring",
@@ -3643,7 +3778,7 @@
           "item_id": 243581,
           "name": "item-243581",
           "quantity": 2,
-          "vendor_purchase_unit_price": 150000
+          "vendor_purchase_unit_price": 1500
         }
       ],
       "crafted_item_vendor_purchase_unit_price": 2533616
@@ -3691,7 +3826,7 @@
           "item_id": 243581,
           "name": "item-243581",
           "quantity": 2,
-          "vendor_purchase_unit_price": 150000
+          "vendor_purchase_unit_price": 1500
         }
       ],
       "crafted_item_vendor_purchase_unit_price": 2542667
@@ -3745,7 +3880,7 @@
           "item_id": 243581,
           "name": "item-243581",
           "quantity": 4,
-          "vendor_purchase_unit_price": 150000
+          "vendor_purchase_unit_price": 1500
         }
       ],
       "crafted_item_vendor_purchase_unit_price": 3569887
@@ -3793,7 +3928,7 @@
           "item_id": 243581,
           "name": "item-243581",
           "quantity": 3,
-          "vendor_purchase_unit_price": 150000
+          "vendor_purchase_unit_price": 1500
         }
       ],
       "crafted_item_vendor_purchase_unit_price": 3704627
@@ -3841,7 +3976,7 @@
           "item_id": 243581,
           "name": "item-243581",
           "quantity": 2,
-          "vendor_purchase_unit_price": 150000
+          "vendor_purchase_unit_price": 1500
         }
       ],
       "crafted_item_vendor_purchase_unit_price": 2551718
@@ -3889,7 +4024,7 @@
           "item_id": 243581,
           "name": "item-243581",
           "quantity": 3,
-          "vendor_purchase_unit_price": 150000
+          "vendor_purchase_unit_price": 1500
         }
       ],
       "crafted_item_vendor_purchase_unit_price": 3718101
@@ -3943,7 +4078,7 @@
           "item_id": 243581,
           "name": "item-243581",
           "quantity": 4,
-          "vendor_purchase_unit_price": 150000
+          "vendor_purchase_unit_price": 1500
         }
       ],
       "crafted_item_vendor_purchase_unit_price": 3556777
@@ -3991,7 +4126,7 @@
           "item_id": 243581,
           "name": "item-243581",
           "quantity": 2,
-          "vendor_purchase_unit_price": 150000
+          "vendor_purchase_unit_price": 1500
         }
       ],
       "crafted_item_vendor_purchase_unit_price": 2524564
@@ -4045,7 +4180,7 @@
           "item_id": 243581,
           "name": "item-243581",
           "quantity": 4,
-          "vendor_purchase_unit_price": 150000
+          "vendor_purchase_unit_price": 1500
         }
       ],
       "crafted_item_vendor_purchase_unit_price": 3811326
@@ -4099,7 +4234,7 @@
           "item_id": 243581,
           "name": "item-243581",
           "quantity": 4,
-          "vendor_purchase_unit_price": 150000
+          "vendor_purchase_unit_price": 1500
         }
       ],
       "crafted_item_vendor_purchase_unit_price": 3583361
@@ -4147,7 +4282,7 @@
           "item_id": 243581,
           "name": "item-243581",
           "quantity": 3,
-          "vendor_purchase_unit_price": 150000
+          "vendor_purchase_unit_price": 1500
         }
       ],
       "crafted_item_vendor_purchase_unit_price": 3745049
@@ -4195,7 +4330,7 @@
           "item_id": 243581,
           "name": "item-243581",
           "quantity": 3,
-          "vendor_purchase_unit_price": 150000
+          "vendor_purchase_unit_price": 1500
         }
       ],
       "crafted_item_vendor_purchase_unit_price": 3731575
@@ -4961,10 +5096,10 @@
           "item_id": 243581,
           "name": "item-243581",
           "quantity": 5,
-          "vendor_purchase_unit_price": 150000
+          "vendor_purchase_unit_price": 1500
         }
       ],
-      "crafted_item_vendor_purchase_unit_price": 865250
+      "crafted_item_vendor_purchase_unit_price": 432625
     },
     {
       "recipe_id": 1229922,
@@ -4991,10 +5126,10 @@
           "item_id": 243581,
           "name": "item-243581",
           "quantity": 5,
-          "vendor_purchase_unit_price": 150000
+          "vendor_purchase_unit_price": 1500
         }
       ],
-      "crafted_item_vendor_purchase_unit_price": 865250
+      "crafted_item_vendor_purchase_unit_price": 432625
     },
     {
       "recipe_id": 1237577,
@@ -10294,7 +10429,7 @@
           "item_id": 243581,
           "name": "item-243581",
           "quantity": 2,
-          "vendor_purchase_unit_price": 150000
+          "vendor_purchase_unit_price": 1500
         }
       ],
       "crafted_item_vendor_purchase_unit_price": 960525
@@ -11418,7 +11553,7 @@
           "item_id": 243581,
           "name": "item-243581",
           "quantity": 2,
-          "vendor_purchase_unit_price": 150000
+          "vendor_purchase_unit_price": 1500
         }
       ],
       "crafted_item_vendor_purchase_unit_price": 1007500
@@ -11460,7 +11595,7 @@
           "item_id": 243581,
           "name": "item-243581",
           "quantity": 2,
-          "vendor_purchase_unit_price": 150000
+          "vendor_purchase_unit_price": 1500
         }
       ],
       "crafted_item_vendor_purchase_unit_price": 960525
@@ -11658,10 +11793,10 @@
           "item_id": 243581,
           "name": "item-243581",
           "quantity": 5,
-          "vendor_purchase_unit_price": 150000
+          "vendor_purchase_unit_price": 1500
         }
       ],
-      "crafted_item_vendor_purchase_unit_price": 865250
+      "crafted_item_vendor_purchase_unit_price": 432625
     },
     {
       "recipe_id": 1236098,
@@ -11691,7 +11826,7 @@
           "vendor_purchase_unit_price": 37500
         }
       ],
-      "crafted_item_vendor_purchase_unit_price": 250000
+      "crafted_item_vendor_purchase_unit_price": 25000
     },
     {
       "recipe_id": 1236099,
@@ -11721,7 +11856,7 @@
           "vendor_purchase_unit_price": 37500
         }
       ],
-      "crafted_item_vendor_purchase_unit_price": 250000
+      "crafted_item_vendor_purchase_unit_price": 25000
     },
     {
       "recipe_id": 1236100,
@@ -11751,7 +11886,7 @@
           "vendor_purchase_unit_price": 37500
         }
       ],
-      "crafted_item_vendor_purchase_unit_price": 250000
+      "crafted_item_vendor_purchase_unit_price": 25000
     },
     {
       "recipe_id": 1228977,
@@ -11862,7 +11997,7 @@
           "item_id": 243581,
           "name": "item-243581",
           "quantity": 2,
-          "vendor_purchase_unit_price": 150000
+          "vendor_purchase_unit_price": 1500
         }
       ],
       "crafted_item_vendor_purchase_unit_price": 855525
@@ -12119,7 +12254,7 @@
           "item_id": 243581,
           "name": "item-243581",
           "quantity": 5,
-          "vendor_purchase_unit_price": 150000
+          "vendor_purchase_unit_price": 1500
         }
       ],
       "crafted_item_vendor_purchase_unit_price": 300005
@@ -13243,7 +13378,7 @@
           "item_id": 243581,
           "name": "item-243581",
           "quantity": 4,
-          "vendor_purchase_unit_price": 150000
+          "vendor_purchase_unit_price": 1500
         }
       ],
       "crafted_item_vendor_purchase_unit_price": 8605433
@@ -14012,7 +14147,7 @@
           "item_id": 243581,
           "name": "item-243581",
           "quantity": 2,
-          "vendor_purchase_unit_price": 150000
+          "vendor_purchase_unit_price": 1500
         }
       ],
       "crafted_item_vendor_purchase_unit_price": 960525
@@ -14706,7 +14841,7 @@
           "item_id": 243581,
           "name": "item-243581",
           "quantity": 2,
-          "vendor_purchase_unit_price": 150000
+          "vendor_purchase_unit_price": 1500
         }
       ],
       "crafted_item_vendor_purchase_unit_price": 1772725
@@ -15411,7 +15546,7 @@
           "item_id": 243581,
           "name": "item-243581",
           "quantity": 2,
-          "vendor_purchase_unit_price": 150000
+          "vendor_purchase_unit_price": 1500
         }
       ],
       "crafted_item_vendor_purchase_unit_price": 860525
@@ -15477,7 +15612,7 @@
           "item_id": 243581,
           "name": "item-243581",
           "quantity": 2,
-          "vendor_purchase_unit_price": 150000
+          "vendor_purchase_unit_price": 1500
         }
       ],
       "crafted_item_vendor_purchase_unit_price": 855525
@@ -15579,7 +15714,7 @@
           "item_id": 243581,
           "name": "item-243581",
           "quantity": 2,
-          "vendor_purchase_unit_price": 150000
+          "vendor_purchase_unit_price": 1500
         }
       ],
       "crafted_item_vendor_purchase_unit_price": 855525
@@ -15615,7 +15750,7 @@
           "item_id": 243581,
           "name": "item-243581",
           "quantity": 2,
-          "vendor_purchase_unit_price": 150000
+          "vendor_purchase_unit_price": 1500
         }
       ],
       "crafted_item_vendor_purchase_unit_price": 960525
@@ -15855,7 +15990,7 @@
           "item_id": 243581,
           "name": "item-243581",
           "quantity": 2,
-          "vendor_purchase_unit_price": 150000
+          "vendor_purchase_unit_price": 1500
         }
       ],
       "crafted_item_vendor_purchase_unit_price": 970525
@@ -15915,7 +16050,7 @@
           "item_id": 243581,
           "name": "item-243581",
           "quantity": 2,
-          "vendor_purchase_unit_price": 150000
+          "vendor_purchase_unit_price": 1500
         }
       ],
       "crafted_item_vendor_purchase_unit_price": 855525
@@ -21425,7 +21560,7 @@
           "item_id": 243581,
           "name": "item-243581",
           "quantity": 2,
-          "vendor_purchase_unit_price": 150000
+          "vendor_purchase_unit_price": 1500
         }
       ],
       "crafted_item_vendor_purchase_unit_price": 650500
@@ -21467,7 +21602,7 @@
           "item_id": 243581,
           "name": "item-243581",
           "quantity": 2,
-          "vendor_purchase_unit_price": 150000
+          "vendor_purchase_unit_price": 1500
         }
       ],
       "crafted_item_vendor_purchase_unit_price": 820525

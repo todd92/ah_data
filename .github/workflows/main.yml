@@ -25,7 +25,7 @@ jobs:
       WOW_DEFAULT_REALM_SLUG: ${{ vars.WOW_DEFAULT_REALM_SLUG || 'dawnbringer' }}
       WOW_TARGETS_FILE: ${{ vars.WOW_TARGETS_FILE || 'targets_midnight_tailoring_enchanting.json' }}
       WOW_EXPANSION_KEYWORD: ${{ vars.WOW_EXPANSION_KEYWORD || 'midnight' }}
-      WOW_PROFESSIONS: ${{ vars.WOW_PROFESSIONS || 'tailoring,enchanting,inscription,leatherworking,alchemy,blacksmithing,engineering,jewelcrafting,cooking' }}
+      WOW_PROFESSIONS: ${{ vars.WOW_PROFESSIONS || 'tailoring,enchanting,inscription,leatherworking,alchemy,blacksmithing,engineering,jewelcrafting,cooking,herbalism,mining,skinning,fishing' }}
       WOW_WEBHOOK_PROFESSIONS: ${{ vars.WOW_WEBHOOK_PROFESSIONS || 'tailoring,enchanting' }}
       WOW_WEBHOOK_MIN_CRAFT_CONFIDENCE: ${{ vars.WOW_WEBHOOK_MIN_CRAFT_CONFIDENCE || '90' }}
       WATCHLIST_DEBUG_DIR: watchlist_debug
@@ -47,10 +47,10 @@ jobs:
       - name: Restore SQLite archive
         run: |
           mkdir -p "$(dirname "$DB_PATH")"
-          if git ls-remote --exit-code --heads origin "$ARCHIVE_BRANCH" >/dev/null 2>&1; then
-            git fetch origin "$ARCHIVE_BRANCH"
-            if git cat-file -e "origin/$ARCHIVE_BRANCH:$DB_PATH" 2>/dev/null; then
-              git show "origin/$ARCHIVE_BRANCH:$DB_PATH" > "$DB_PATH"
+          if git ls-remote --exit-code --heads upstream "$ARCHIVE_BRANCH" >/dev/null 2>&1; then
+            git fetch upstream "$ARCHIVE_BRANCH"
+            if git cat-file -e "upstream/$ARCHIVE_BRANCH:$DB_PATH" 2>/dev/null; then
+              git show "upstream/$ARCHIVE_BRANCH:$DB_PATH" > "$DB_PATH"
               echo "Restored archive database from $ARCHIVE_BRANCH."
             else
               echo "Archive branch exists, but $DB_PATH is not present yet."
@@ -82,7 +82,10 @@ jobs:
               "default_realm_slug": os.environ["WOW_DEFAULT_REALM_SLUG"],
               "client_id": required["client_id"],
               "client_secret": required["client_secret"],
-              "targets_file": os.environ["WOW_TARGETS_FILE"],
+              "targets_files": [
+                  os.environ["WOW_TARGETS_FILE"],
+                  "expansion_world_items.json"
+              ],
           }
 
           with open(os.environ["CONFIG_PATH"], "w", encoding="utf-8") as fh:
@@ -194,8 +197,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           rm -rf archive-branch
-          if git show-ref --verify --quiet "refs/remotes/origin/$ARCHIVE_BRANCH"; then
-            git worktree add archive-branch "origin/$ARCHIVE_BRANCH"
+          if git show-ref --verify --quiet "refs/remotes/upstream/$ARCHIVE_BRANCH"; then
+            git worktree add archive-branch "upstream/$ARCHIVE_BRANCH"
           else
             git worktree add --detach archive-branch
             (
@@ -211,5 +214,14 @@ jobs:
             cd archive-branch
             git add README.md "$DB_PATH"
             git commit -m "Update SQLite archive" || exit 0
-            git push origin HEAD:"$ARCHIVE_BRANCH"
+            git push upstream HEAD:"$ARCHIVE_BRANCH"
           )
+
+      - name: Sync to Google Drive
+        env:
+          RCLONE_CONFIG_DATA: ${{ secrets.RCLONE_CONFIG_DATA }}
+        run: |
+          sudo apt-get update && sudo apt-get install -y rclone
+          mkdir -p ~/.config/rclone
+          echo "$RCLONE_CONFIG_DATA" > ~/.config/rclone/rclone.conf
+          make sync-gdrive

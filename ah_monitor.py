@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import argparse
+import email.utils
 import json
 import math
 import os
@@ -326,6 +327,7 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--prediction-cooldown-min-confidence", type=float, default=0.85, help="Minimum prior prediction confidence required before a failed call can trigger cooldown")
     p.add_argument("--prediction-cooldown-loss-pct", type=float, default=20.0, help="Realized adverse move percent required to trigger a cooldown")
     p.add_argument("--webhook-min-prediction-confidence", type=float, default=0.85, help="Minimum confidence required for predictions sent to webhook")
+    p.add_argument("--all-commodities", action="store_true", help="Summarize all items found in the commodities dump")
     return p.parse_args()
 
 
@@ -348,7 +350,8 @@ def sqlite_schema_sql() -> str:
       avg_unit_price INTEGER,
       median_unit_price INTEGER,
       p25_unit_price INTEGER,
-      weighted_avg_unit_price INTEGER
+      weighted_avg_unit_price INTEGER,
+      UNIQUE(observed_at, item_id, source, metric_name)
     );
 
     CREATE INDEX IF NOT EXISTS idx_obs_item_source_time
@@ -444,7 +447,8 @@ def postgres_schema_sql() -> str:
       avg_unit_price BIGINT,
       median_unit_price BIGINT,
       p25_unit_price BIGINT,
-      weighted_avg_unit_price BIGINT
+      weighted_avg_unit_price BIGINT,
+      UNIQUE(observed_at, item_id, source, metric_name)
     );
 
     CREATE INDEX IF NOT EXISTS idx_obs_item_source_time
@@ -554,10 +558,13 @@ def refresh_watchlist(args: argparse.Namespace) -> None:
 
 
 def run_scraper(args: argparse.Namespace) -> None:
-    run_cmd([sys.executable, "wow_ah_scraper.py", "--config", args.config, "--output", args.report])
+    cmd = [sys.executable, "wow_ah_scraper.py", "--config", args.config, "--output", args.report]
+    if args.all_commodities:
+        cmd.append("--all-commodities")
+    run_cmd(cmd)
 
 
-def parse_observations(report: Dict[str, Any], metric_name: str, observed_at: str) -> List[Observation]:
+def parse_observations(report: Dict[str, Any], metric_name: str, fallback_observed_at: str) -> List[Observation]:
     out: List[Observation] = []
     for target in report.get("targets", []):
         item_id = int(target["item_id"])
@@ -567,6 +574,17 @@ def parse_observations(report: Dict[str, Any], metric_name: str, observed_at: st
             summary = source_entry.get("summary")
             if not summary:
                 continue
+
+            # Prefer the actual Last-Modified time from the Blizzard API response
+            observed_at = fallback_observed_at
+            raw_last_mod = source_entry.get("last_modified")
+            if raw_last_mod:
+                try:
+                    dt = email.utils.parsedate_to_datetime(raw_last_mod)
+                    observed_at = dt.astimezone(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+                except Exception:
+                    pass
+
             metric_value = summary.get(metric_name)
             if not isinstance(metric_value, int):
                 continue
@@ -724,7 +742,7 @@ class SQLiteClient(DBClient):
     def insert_observations(self, rows: List[Observation]) -> None:
         self.conn.executemany(
             """
-            INSERT INTO observations (
+            INSERT OR IGNORE INTO observations (
               observed_at, item_id, item_name, source, metric_name, metric_value,
               listing_count, total_quantity, min_unit_price, max_unit_price,
               avg_unit_price, median_unit_price, p25_unit_price, weighted_avg_unit_price
@@ -1115,6 +1133,7 @@ class PostgresClient(DBClient):
                   listing_count, total_quantity, min_unit_price, max_unit_price,
                   avg_unit_price, median_unit_price, p25_unit_price, weighted_avg_unit_price
                 ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                ON CONFLICT (observed_at, item_id, source, metric_name) DO NOTHING
                 """,
                 [
                     (
@@ -2310,9 +2329,9 @@ def main() -> int:
         raise FileNotFoundError(f"Report file not found: {report_path}")
 
     report = json.loads(report_path.read_text(encoding="utf-8"))
-    observed_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+    fallback_observed_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
-    rows = parse_observations(report, args.metric, observed_at)
+    rows = parse_observations(report, args.metric, fallback_observed_at)
     if not rows:
         print("No usable observations in report; nothing inserted.")
         return 0
