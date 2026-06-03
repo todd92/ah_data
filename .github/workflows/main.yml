@@ -141,6 +141,12 @@ jobs:
             --webhook-format discord
 
       - name: Upload watchlist debug artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: watchlist-debug
+          path: watchlist_debug
+          if-no-files-found: ignore
 
       - name: Publish SQLite archive
         run: |
