@@ -73,7 +73,7 @@ class BlizzardAPI:
         self._access_token: Optional[str] = None
 
     def _http_json(self, method: str, url: str, headers: Dict[str, str], body: Optional[bytes] = None) -> Any:
-        retry_status = {429, 500, 502, 503, 504}
+        retry_status = {403, 429, 500, 502, 503, 504}
         attempts = 5
         full_headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36",

@@ -92,8 +92,19 @@ jobs:
               json.dump(config, fh, indent=2)
           PY
 
+      - name: Check if watchlist exists
+        id: check_files
+        run: |
+          if [ -f "expansion_world_items.json" ] && [ -f "targets_midnight_tailoring_enchanting.json" ]; then
+            echo "files_exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "files_exists=false" >> $GITHUB_OUTPUT
+          fi
+
       - name: Rebuild expansion watchlist
+        if: github.event_name == 'workflow_dispatch' || steps.check_files.outputs.files_exists == 'false'
         run: make watchlist UV=
+        continue-on-error: true
 
       - name: Run monitor for SQLite archive
         run: |
