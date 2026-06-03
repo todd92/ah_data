@@ -2395,7 +2395,7 @@ def main() -> int:
     finally:
         db.close()
 
-    print(f"Inserted {len(rows)} observations into {db_label} at {observed_at}")
+    print(f"Inserted {len(rows)} observations into {db_label} at {fallback_observed_at}")
     if args.enable_predictions:
         print(format_prediction_diagnostics(prediction_diag))
         print(f"Prediction cooldowns added: {len(cooldowns)}")
