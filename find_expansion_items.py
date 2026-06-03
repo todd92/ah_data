@@ -28,7 +28,11 @@ class BlizzardAPI:
         self._access_token: Optional[str] = None
 
     def _http_json(self, url: str, headers: Dict[str, str]) -> Any:
-        req = urllib.request.Request(url=url, headers=headers)
+        full_headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36",
+            **headers
+        }
+        req = urllib.request.Request(url=url, headers=full_headers)
         with urllib.request.urlopen(req, timeout=45) as resp:
             return json.loads(resp.read().decode("utf-8"))
 
