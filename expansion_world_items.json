@@ -1,0 +1,4809 @@
+{
+  "targets": [
+    {
+      "item_id": 30984,
+      "name": "Spellbreaker's Buckler",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 65316,
+      "name": "Spellbreaker's Helm",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 272961,
+      "name": "Spellbreaker's Bladestaff",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 272960,
+      "name": "Spellbreaker's Shieldwall",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 272318,
+      "name": "Spellbreaker's Phoenixblade",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 272317,
+      "name": "Spellbreaker's Phoenixglaive",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 272316,
+      "name": "Spellbreaker's Bladelance",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 251105,
+      "name": "Ward of the Spellbreaker",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 243579,
+      "name": "Aetherlume",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 133466,
+      "name": "Eversong Cuffs",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 34602,
+      "name": "Eversong Cuffs",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 242712,
+      "name": "Eversong Diamond",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 242608,
+      "name": "Eversong Diamond",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 247672,
+      "name": "Eversong Fizz",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 248049,
+      "name": "Eversong Chain",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 249444,
+      "name": "Eversong Pyrepetal",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263484,
+      "name": "Eversong Blade",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263481,
+      "name": "Eversong Protector",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263482,
+      "name": "Eversong Stabber",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263486,
+      "name": "Eversong Hacker",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263429,
+      "name": "Eversong Hoofcovers",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263447,
+      "name": "Eversong Chopper",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263485,
+      "name": "Eversong Battleaxe",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263480,
+      "name": "Eversong Rod",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 44570,
+      "name": "Glass of Eversong Wine",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 243106,
+      "name": "Gemmed Eversong Lantern",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 240982,
+      "name": "Indecipherable Eversong Diamond",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 240968,
+      "name": "Telluric Eversong Diamond",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 240983,
+      "name": "Indecipherable Eversong Diamond",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 240967,
+      "name": "Powerful Eversong Diamond",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 240971,
+      "name": "Stoic Eversong Diamond",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 238652,
+      "name": "Majestic Eversong Lure",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 238532,
+      "name": "Vial of Eversong Oddities",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 242764,
+      "name": "Hearty Eversong Pudding",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 240966,
+      "name": "Powerful Eversong Diamond",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 240969,
+      "name": "Telluric Eversong Diamond",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 240970,
+      "name": "Stoic Eversong Diamond",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 248027,
+      "name": "Eversong Defender's Crown",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 248029,
+      "name": "Eversong Defender's Hood",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 248053,
+      "name": "Eversong Defender's Helm",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 248028,
+      "name": "Eversong Defender's Helmet",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 251909,
+      "name": "Eversong Feast Platter",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 251911,
+      "name": "Eversong Dessert Platter",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 253615,
+      "name": "\"Autumnal Eversong\" Painting",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 253600,
+      "name": "Eversong Crystal Glass",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 253607,
+      "name": "\"Eversong in Bloom\" Painting",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 250447,
+      "name": "Radiant Eversong Scepter",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 251324,
+      "name": "Basket of Eversong Herbs",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 251321,
+      "name": "Collection of Eversong Minerals",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 254773,
+      "name": "\"Eversong Lantern\" Painting",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 258145,
+      "name": "Eversong Party Platter",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263206,
+      "name": "Plum Eversong Rug",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 262597,
+      "name": "Gilded Eversong Book",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263211,
+      "name": "Gilded Eversong Cup",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263427,
+      "name": "Eversong Naturalist's Boots",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263487,
+      "name": "Eversong Training Staff",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 253369,
+      "name": "Eversong Classic Windrunner Quiver",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 253612,
+      "name": "\"Autumnal Eversong\" Unframed Painting",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 254558,
+      "name": "Herbalist's Handbook: Eversong Medicinals",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256708,
+      "name": "Design: Telluric Eversong Diamond",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256720,
+      "name": "Design: Stoic Eversong Diamond",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256714,
+      "name": "Design: Indecipherable Eversong Diamond",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256704,
+      "name": "Design: Powerful Eversong Diamond",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256669,
+      "name": "Pattern: Eversong Hunter's Headcover",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 258504,
+      "name": "Technique: Gilded Eversong Book",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263344,
+      "name": "Eversong Farstrider's Ring Mail",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 259198,
+      "name": "Void-Touched Eversong Diamond Fragments",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 264276,
+      "name": "Paw Pal Dog House Eversong Roof",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 171491,
+      "name": "Thalassian Wildercloak",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 29994,
+      "name": "Thalassian Wildercloak",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 249921,
+      "name": "Thalassian Dawnguard",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 253522,
+      "name": "Thalassian Chest",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 259190,
+      "name": "Thalassian Whestone",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 262662,
+      "name": "Thalassian Distinguishment",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 223434,
+      "name": "The Sapphire Thalassian Tome",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 166754,
+      "name": "Tome of Thalassian Hymns",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 34193,
+      "name": "Spaulders of the Thalassian Savior",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 34343,
+      "name": "Thalassian Ranger Gauntlets",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 34389,
+      "name": "Spaulders of the Thalassian Defender",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 25246,
+      "name": "Thalassian Compound Bow",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 271005,
+      "name": "Violet Thalassian Greatbow",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 243734,
+      "name": "Thalassian Phoenix Oil",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 244178,
+      "name": "Thalassian Spellweaver's Wand",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 245753,
+      "name": "Thalassian Competitor's Emblem",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 245788,
+      "name": "Thalassian Missive of the Harmonious",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 245784,
+      "name": "Thalassian Missive of the Feverflare",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 245751,
+      "name": "Thalassian Competitor's Medallion",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 245869,
+      "name": "Thalassian Competitor's Bow",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 245786,
+      "name": "Thalassian Missive of the Fireflash",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 245868,
+      "name": "Thalassian Competitor's Pillar",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 245815,
+      "name": "Thalassian Missive of Ingenuity",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 245782,
+      "name": "Thalassian Missive of the Aurora",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 245819,
+      "name": "Thalassian Missive of Multicraft",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 245817,
+      "name": "Thalassian Missive of Resourcefulness",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 245825,
+      "name": "Thalassian Missive of Perception",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 245870,
+      "name": "Thalassian Competitor's Lamp",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 245790,
+      "name": "Thalassian Missive of the Peerless",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 245792,
+      "name": "Thalassian Missive of the Quickblade",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 245827,
+      "name": "Thalassian Missive of Deftness",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 245823,
+      "name": "Thalassian Missive of Finesse",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 240952,
+      "name": "Thalassian Competitor's Amulet",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 238635,
+      "name": "Thalassian Skinning Knife",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 238465,
+      "name": "Thalassian Phoenix Plume",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 238467,
+      "name": "Thalassian Phoenix Ember",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 238466,
+      "name": "Thalassian Phoenix Tail",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 240951,
+      "name": "Thalassian Competitor's Signet",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 241321,
+      "name": "Flask of Thalassian Resistance",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 251326,
+      "name": "Thalassian Enchanter's Purse",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 251322,
+      "name": "Thalassian Leatherworker's Duffel",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 259193,
+      "name": "Lost Thalassian Vellum",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 259201,
+      "name": "Thalassian Mana Oil",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 260394,
+      "name": "Thalassian Recruit's Bow",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 258556,
+      "name": "Thalassian Token of Merit",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 260934,
+      "name": "Thalassian Archer's Quiver",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263458,
+      "name": "Thalassian Jewelcrafter's Notebook",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263464,
+      "name": "Thalassian Enchanter's Folio",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263460,
+      "name": "Thalassian Tailor's Notebook",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263462,
+      "name": "Thalassian Herbalist's Notes",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263461,
+      "name": "Thalassian Skinner's Notes",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263455,
+      "name": "Thalassian Blacksmith's Journal",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263454,
+      "name": "Thalassian Alchemist's Notebook",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263456,
+      "name": "Thalassian Engineer's Notepad",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263463,
+      "name": "Thalassian Miner's Notes",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263459,
+      "name": "Thalassian Leatherworker's Journal",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263457,
+      "name": "Thalassian Scribe's Journal",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 268365,
+      "name": "Thalassian Competitor's Staff",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 268479,
+      "name": "Thalassian Competitor's Rifle",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 244011,
+      "name": "Enchant Ring - Thalassian Haste",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 244018,
+      "name": "Enchant Shoulders - Thalassian Recovery",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 244010,
+      "name": "Enchant Ring - Thalassian Haste",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 244012,
+      "name": "Enchant Ring - Thalassian Versatility",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 244019,
+      "name": "Enchant Shoulders - Thalassian Recovery",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 244013,
+      "name": "Enchant Ring - Thalassian Versatility",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 244738,
+      "name": "Thalassian Competitor's Plate Guard",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 244737,
+      "name": "Thalassian Competitor's Mail Visor",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 244645,
+      "name": "Thalassian Scout Armor Kit",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 244735,
+      "name": "Thalassian Competitor's Cloth Goggles",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 244736,
+      "name": "Thalassian Competitor's Leather Optics",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 245752,
+      "name": "Thalassian Competitor's Insignia of Alacrity",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 245926,
+      "name": "Fleeting Flask of Thalassian Resistance",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 245927,
+      "name": "Fleeting Flask of Thalassian Resistance",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 238230,
+      "name": "Plans: Thalassian Competitor's Splitter",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 238228,
+      "name": "Plans: Thalassian Competitor's Maxim",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 238226,
+      "name": "Plans: Thalassian Competitor's Pickaxe",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 238232,
+      "name": "Plans: Thalassian Competitor's Greatsword",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 238227,
+      "name": "Plans: Thalassian Competitor's Knife",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 238229,
+      "name": "Plans: Thalassian Competitor's Bulwark",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 238231,
+      "name": "Plans: Thalassian Competitor's Skewer",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 238233,
+      "name": "Plans: Thalassian Competitor's Sword",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 244741,
+      "name": "Thalassian Competitor's Mail Links",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 244742,
+      "name": "Thalassian Competitor's Plate Bindings",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 244766,
+      "name": "Thalassian Competitor's Plate Dunkers",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 244739,
+      "name": "Thalassian Competitor's Cloth Cuffs",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 244765,
+      "name": "Thalassian Competitor's Mail Footlinks",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 244740,
+      "name": "Thalassian Competitor's Leather Bands",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 244764,
+      "name": "Thalassian Competitor's Leather Sliders",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 245821,
+      "name": "Thalassian Missive of Crafting Speed",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 246527,
+      "name": "Attuned Thalassian Rune-Prism",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 246525,
+      "name": "Thalassian Scribe's Crystalline Lens",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 246693,
+      "name": "Self-Pouring Thalassian Sunwine",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 251327,
+      "name": "Thalassian Tailor's Tote Bag",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 253525,
+      "name": "Thalassian Academy Dictation Device",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256702,
+      "name": "Design: Thalassian Competitor's Signet",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256671,
+      "name": "Pattern: Thalassian Wildseeker's Workbag",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256664,
+      "name": "Pattern: Thalassian Wildseeker's Stridercap",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256719,
+      "name": "Design: Thalassian Competitor's Amulet",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256657,
+      "name": "Pattern: Thalassian Ironbender's Regalia",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256661,
+      "name": "Pattern: Thalassian Scrapmaster's Gauntlets",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256715,
+      "name": "Design: Thalassian Phoenix Torque",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257243,
+      "name": "Technique: Thalassian Competitor's Lamp",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257259,
+      "name": "Technique: Thalassian Competitor's Pillar",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257262,
+      "name": "Technique: Thalassian Competitor's Medallion",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257258,
+      "name": "Technique: Thalassian Competitor's Bow",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257260,
+      "name": "Technique: Thalassian Competitor's Emblem",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 258496,
+      "name": "Technique: Thalassian Missive of Ingenuity",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 260246,
+      "name": "Plans: Thalassian Skeleton Key",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256658,
+      "name": "Pattern: Thalassian Alchemist's Mixcap",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256663,
+      "name": "Pattern: Thalassian Herbtender's Cradle",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256668,
+      "name": "Pattern: Thalassian Hideshaper's Regalia",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 258492,
+      "name": "Technique: Thalassian Missive of Finesse",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 258489,
+      "name": "Technique: Thalassian Missive of Deftness",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 258494,
+      "name": "Technique: Thalassian Missive of Multicraft",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 258495,
+      "name": "Technique: Thalassian Missive of Resourcefulness",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 258491,
+      "name": "Technique: Thalassian Missive of Perception",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 267053,
+      "name": "Pattern: Thalassian Alchemy Coveralls",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 267057,
+      "name": "Pattern: Thalassian Enchanter's Bonnet",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 267055,
+      "name": "Pattern: Thalassian Chef's Chapeau",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 267061,
+      "name": "Pattern: Thalassian Herbalist's Cowl",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 267063,
+      "name": "Pattern: Thalassian Tailor's Threads",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 268366,
+      "name": "Technique: Thalassian Competitor's Staff",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 268480,
+      "name": "Schematic: Thalassian Competitor's Rifle",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 238224,
+      "name": "Plans: Thalassian Competitor's Plate Waistguard",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 238225,
+      "name": "Plans: Thalassian Competitor's Plate Armguards",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 238222,
+      "name": "Plans: Thalassian Competitor's Plate Greaves",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 238223,
+      "name": "Plans: Thalassian Competitor's Plate Pauldrons",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 238221,
+      "name": "Plans: Thalassian Competitor's Plate Helm",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 238219,
+      "name": "Plans: Thalassian Competitor's Plate Sabatons",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 238218,
+      "name": "Plans: Thalassian Competitor's Plate Breastplate",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 238220,
+      "name": "Plans: Thalassian Competitor's Plate Gauntlets",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 244763,
+      "name": "Thalassian Competitor's Cloth Tip-Toes",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256633,
+      "name": "Pattern: Thalassian Competitor's Chain Stompers",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256626,
+      "name": "Pattern: Thalassian Competitor's Leather Boots",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256646,
+      "name": "Pattern: Thalassian Competitor's Chain Cowl",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256644,
+      "name": "Pattern: Thalassian Competitor's Chain Epaulets",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256643,
+      "name": "Pattern: Thalassian Competitor's Chain Grips",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256630,
+      "name": "Pattern: Thalassian Competitor's Leather Shoulderpads",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256628,
+      "name": "Pattern: Thalassian Competitor's Leather Gloves",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256641,
+      "name": "Pattern: Thalassian Competitor's Chain Leggings",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256649,
+      "name": "Pattern: Thalassian Competitor's Chain Girdle",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256889,
+      "name": "Pattern: Thalassian Competitor's Cloth Leggings",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256887,
+      "name": "Pattern: Thalassian Competitor's Cloth Gloves",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256667,
+      "name": "Pattern: Thalassian Gemshaper's Grand Cover",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256884,
+      "name": "Pattern: Thalassian Competitor's Cloth Sash",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256654,
+      "name": "Pattern: Thalassian Competitor's Chain Cuffs",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256701,
+      "name": "Design: Attuned Thalassian Rune-Prism",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256891,
+      "name": "Pattern: Thalassian Competitor's Cloth Cloak",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256885,
+      "name": "Pattern: Thalassian Competitor's Cloth Tunic",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256890,
+      "name": "Pattern: Thalassian Competitor's Cloth Shoulderpads",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256711,
+      "name": "Design: Thalassian Scribe's Crystalline Lens",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257414,
+      "name": "Schematic: Thalassian Competitor's Leather Optics",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257298,
+      "name": "Schematic: Thalassian Competitor's Plate Dunkers",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257408,
+      "name": "Schematic: Thalassian Competitor's Plate Guard",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257413,
+      "name": "Schematic: Thalassian Competitor's Leather Bands",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257407,
+      "name": "Schematic: Thalassian Competitor's Plate Bindings",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257417,
+      "name": "Recipe: Vicious Thalassian Flask of Honor",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257369,
+      "name": "Schematic: Thalassian Competitor's Mail Footlinks",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257261,
+      "name": "Technique: Thalassian Competitor's Insignia of Alacrity",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257415,
+      "name": "Schematic: Thalassian Competitor's Mail Links",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257370,
+      "name": "Schematic: Thalassian Competitor's Leather Sliders",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257411,
+      "name": "Schematic: Thalassian Competitor's Cloth Goggles",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257410,
+      "name": "Schematic: Thalassian Competitor's Cloth Cuffs",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257416,
+      "name": "Schematic: Thalassian Competitor's Mail Visor",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 259374,
+      "name": "Formula: Spellbound Tome of Thalassian Magics",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 259375,
+      "name": "Formula: Self-Pouring Thalassian Sunwine",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256631,
+      "name": "Pattern: Thalassian Competitor's Leather Belt",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256627,
+      "name": "Pattern: Thalassian Competitor's Leather Chestpiece",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256629,
+      "name": "Pattern: Thalassian Competitor's Leather Trousers",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256634,
+      "name": "Pattern: Thalassian Competitor's Chain Tunic",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256632,
+      "name": "Pattern: Thalassian Competitor's Leather Mask",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256635,
+      "name": "Pattern: Thalassian Competitor's Leather Wristwraps",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256888,
+      "name": "Pattern: Thalassian Competitor's Cloth Hood",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256886,
+      "name": "Pattern: Thalassian Competitor's Cloth Treads",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256880,
+      "name": "Pattern: Thalassian Competitor's Cloth Bands",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 258493,
+      "name": "Technique: Thalassian Missive of Crafting Speed",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257371,
+      "name": "Schematic: Thalassian Competitor's Cloth Tip-Toes",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 237017,
+      "name": "Arcanoweave",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 21866,
+      "name": "Arcanoweave Bracers",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 21867,
+      "name": "Arcanoweave Boots",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 21868,
+      "name": "Arcanoweave Robe",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 239200,
+      "name": "Arcanoweave Bolt",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 240155,
+      "name": "Arcanoweave Spellthread",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 240167,
+      "name": "Arcanoweave Lining",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 21906,
+      "name": "Pattern: Arcanoweave Boots",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 21907,
+      "name": "Pattern: Arcanoweave Robe",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 21905,
+      "name": "Pattern: Arcanoweave Bracers",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 258033,
+      "name": "Pattern: Arcanoweave Lining",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 258124,
+      "name": "Pattern: Arcanoweave Spellthread",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 258126,
+      "name": "Pattern: Arcanoweave Cord",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 133462,
+      "name": "Vial of the Sunwell",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 34471,
+      "name": "Vial of the Sunwell",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 22784,
+      "name": "Sunwell Orb",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 22783,
+      "name": "Sunwell Blade",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 237856,
+      "name": "Sunwell Bardiche",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 264983,
+      "name": "Sunwell Shot",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 183302,
+      "name": "Memory of the Sunwell's Bloom",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 145305,
+      "name": "Sunwell - The Fall of Quel'Thalas",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 242765,
+      "name": "Hearty Sunwell Delight",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 260903,
+      "name": "Lost Sunwell Splitter",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 251076,
+      "name": "Sunwell Defender's Brooch",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 237857,
+      "name": "Sunwell Flame's Bardiche",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 253360,
+      "name": "Sunwell's Legacy Windrunner Quiver",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 18378,
+      "name": "Silvermoon Leggings",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 64914,
+      "name": "Shroud of Silvermoon",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 75036,
+      "name": "Silvermoon Steak",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 64916,
+      "name": "Mantle of Silvermoon",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 64915,
+      "name": "Cape of Silvermoon",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 67535,
+      "name": "Silvermoon Satchel",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 23924,
+      "name": "Robes of Silvermoon",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 31256,
+      "name": "Silvermoon Armor",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 31264,
+      "name": "Silvermoon Robes",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 31263,
+      "name": "Silvermoon Tunic",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 44996,
+      "name": "Seal of Silvermoon",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 45664,
+      "name": "Silvermoon Doublet",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 45596,
+      "name": "Silvermoon Hawkstrider",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 35568,
+      "name": "Flame of Silvermoon",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 144421,
+      "name": "Silvermoon Squeeze",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 258660,
+      "name": "Silvermoon Broom",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 240955,
+      "name": "Silvermoon Loupes",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256172,
+      "name": "Silvermoon Fence",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256043,
+      "name": "Silvermoon Fencepost",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 242305,
+      "name": "Silvermoon Standard",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 255643,
+      "name": "Silvermoon Barrel",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 233023,
+      "name": "Silvermoon Sweeper",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 244538,
+      "name": "Silvermoon Sundial",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 247673,
+      "name": "Silvermoon Sin'gria",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 266429,
+      "name": "Silvermoon Sunspire",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 266430,
+      "name": "Silvermoon Sunguard",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 266432,
+      "name": "Silvermoon Suncrest",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 266431,
+      "name": "Silvermoon Sunveil",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 265039,
+      "name": "Silvermoon Splendor",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 27910,
+      "name": "Silvermoon Crest Shield",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 91863,
+      "name": "Silvermoon Portal Shard",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 45721,
+      "name": "Silvermoon Commendation Badge",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 34115,
+      "name": "\"Silvermoon\" Harry's Debt",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 34613,
+      "name": "Shoulderpads of the Silvermoon Retainer",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 70151,
+      "name": "Silvermoon Writ of Commendation",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 25031,
+      "name": "Silvermoon Royal Cloak",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 25205,
+      "name": "Silvermoon Crescent Axe",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 22717,
+      "name": "Letter from Silvermoon",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 25119,
+      "name": "Silvermoon War-Mace",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 122217,
+      "name": "Music Roll: Silvermoon",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 44571,
+      "name": "Bottle of Silvermoon Port",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 45017,
+      "name": "Silvermoon City Banner",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 45585,
+      "name": "Silvermoon City Tabard",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 29998,
+      "name": "Royal Gauntlets of Silvermoon",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 133476,
+      "name": "Shoulderpads of the Silvermoon Retainer",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 171495,
+      "name": "Royal Gauntlets of Silvermoon",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 245290,
+      "name": "Long Silvermoon Table",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 245284,
+      "name": "Silvermoon Wooden Chair",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 245332,
+      "name": "Tome of Silvermoon Intrigue",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 245649,
+      "name": "Silvermoon Interior Doorway",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 238547,
+      "name": "Silvermoon Blacksmith's Hammer",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 238541,
+      "name": "Silvermoon Smithing Kit",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 260263,
+      "name": "Silvermoon Soiree Spread",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 262500,
+      "name": "Silvermoon's Arcane Defender",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263205,
+      "name": "Crimson Silvermoon Runner",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263231,
+      "name": "Silvermoon Curio Shelves",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263234,
+      "name": "Turning Silvermoon Archives",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263203,
+      "name": "Rack of Silvermoon Arms",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263433,
+      "name": "Overflowing Silvermoon Trove",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 240956,
+      "name": "Silvermoon Focusing Shard",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 242772,
+      "name": "Hearty Silvermoon Standard",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256040,
+      "name": "Silvermoon Gemmed Chair",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 241305,
+      "name": "Silvermoon Health Potion",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 248646,
+      "name": "Silvermoon Sunrise Bush",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 251982,
+      "name": "Gilded Silvermoon Candelabra",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 253602,
+      "name": "\"Silvermoon in Summer\" Painting",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256683,
+      "name": "Silvermoon Training Dummy",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257154,
+      "name": "Crimson Silvermoon Hawkstrider",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257367,
+      "name": "Silvermoon Energy Focus",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257421,
+      "name": "Bejeweled Silvermoon Chandelier",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 244638,
+      "name": "Silvermoon Weapon Wrap",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 244656,
+      "name": "Silvermoon Painter's Cushion",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 245282,
+      "name": "Silvermoon Library Bookcase",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 245583,
+      "name": "Silvermoon Interior Wall",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 245800,
+      "name": "Contract: The Silvermoon Court",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 245941,
+      "name": "Silvermoon Sanctum Focus",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 245992,
+      "name": "Ornate Silvermoon Candelabra",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 246250,
+      "name": "Silvermoon Large Platform",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 246252,
+      "name": "Silvermoon Angled Platform",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 246253,
+      "name": "Silvermoon Round Platform",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 246251,
+      "name": "Silvermoon Small Platform",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 246249,
+      "name": "Silvermoon Beam Platform",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 250770,
+      "name": "Silvermoon Privacy Screen",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 258127,
+      "name": "Pattern: Silvermoon Curtains",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 266985,
+      "name": "Hearty Silvermoon Parade",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 267638,
+      "name": "Tarnished Silvermoon Sunspire",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 267640,
+      "name": "Tarnished Silvermoon Sunveil",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 267639,
+      "name": "Tarnished Silvermoon Sunguard",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 267641,
+      "name": "Tarnished Silvermoon Suncrest",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 265658,
+      "name": "Silvermoon Court Cloak",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 265663,
+      "name": "Silvermoon Court Tabard",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 265659,
+      "name": "Silvermoon Court Epaulets",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 49943,
+      "name": "Lovely Silvermoon City Card",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 137046,
+      "name": "Ilterendi, Crown Jewel of Silvermoon",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 245581,
+      "name": "Silvermoon Round Interior Pillar",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 247423,
+      "name": "Recipe: Silvermoon Spire Fountain",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 244017,
+      "name": "Enchant Ring - Silvermoon's Tenacity",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 244021,
+      "name": "Enchant Shoulders - Silvermoon's Mending",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 244015,
+      "name": "Enchant Ring - Silvermoon's Alacrity",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263452,
+      "name": "Comfy Silvermoon Flying Quilt",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263444,
+      "name": "Technique: Contract: The Silvermoon Court",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 245582,
+      "name": "Silvermoon Interior Narrow Wall",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 258133,
+      "name": "Pattern: Chic Silvermoon Pillow",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 258132,
+      "name": "Pattern: Plush Silvermoon Bed",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 265528,
+      "name": "Plans: Gilded Silvermoon Anvil",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 265532,
+      "name": "Plans: Gilded Silvermoon Hanger",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 265530,
+      "name": "Plans: Ornamental Silvermoon Hanger",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 237164,
+      "name": "Art and Architecture of Silvermoon: Vol. 3",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256760,
+      "name": "Formula: Enchant Ring - Silvermoon's Tenacity",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 258131,
+      "name": "Pattern: Luxurious Silvermoon Lounge Cushion",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 38195,
+      "name": "Magister's Bane",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 109954,
+      "name": "Magister's Chain",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 133570,
+      "name": "The Hungry Magister",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 22976,
+      "name": "Magister's Pouch",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 16686,
+      "name": "Magister's Crown",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 16689,
+      "name": "Magister's Mantle",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 16684,
+      "name": "Magister's Gloves",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 16682,
+      "name": "Magister's Boots",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 16683,
+      "name": "Magister's Bindings",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 16688,
+      "name": "Magister's Robes",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 16687,
+      "name": "Magister's Leggings",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 16685,
+      "name": "Magister's Belt",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263349,
+      "name": "Magister's Shawl",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 264987,
+      "name": "Magister's Mead",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 241323,
+      "name": "Flask of the Magisters",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 246168,
+      "name": "Magister Recommendation",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263230,
+      "name": "Magister's Bookshelf",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 119242,
+      "name": "Contract: Magister Serena",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 133841,
+      "name": "Recipe: The Hungry Magister",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 133821,
+      "name": "Recipe: The Hungry Magister",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 78186,
+      "name": "Replica Magister's Boots",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 78016,
+      "name": "Replica Magister's Crown",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 78192,
+      "name": "Replica Magister's Belt",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 78020,
+      "name": "Replica Magister's Belt",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 119243,
+      "name": "Contract: Magister Krelas",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 133861,
+      "name": "Recipe: The Hungry Magister",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 121799,
+      "name": "Tel'anor Magister's Ring",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 78187,
+      "name": "Replica Magister's Gloves",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 78188,
+      "name": "Replica Magister's Crown",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 78021,
+      "name": "Replica Magister's Bindings",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 78189,
+      "name": "Replica Magister's Leggings",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 78193,
+      "name": "Replica Magister's Bindings",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 78190,
+      "name": "Replica Magister's Robes",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 78019,
+      "name": "Replica Magister's Mantle",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 78015,
+      "name": "Replica Magister's Gloves",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 78017,
+      "name": "Replica Magister's Leggings",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 78014,
+      "name": "Replica Magister's Boots",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 78018,
+      "name": "Replica Magister's Robes",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 78191,
+      "name": "Replica Magister's Mantle",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 25652,
+      "name": "Magister's Armor Kit",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 21783,
+      "name": "Magister Duskwither's Journal",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 265696,
+      "name": "Preyseeker's Magister Bust",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 266384,
+      "name": "Sanctum Magister's Post",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 217793,
+      "name": "Sin'dorei Magister's Epaulets",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 217792,
+      "name": "Sin'dorei Magister's Orbs",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 217795,
+      "name": "Sin'dorei Magister's Scimitar",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 217796,
+      "name": "Sin'dorei Magister's Shard",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 217797,
+      "name": "Sin'dorei Magister's Scepter",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 217794,
+      "name": "Sin'dorei Magister's Belt",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 245933,
+      "name": "Fleeting Flask of the Magisters",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 267285,
+      "name": "Plans: Magister's Cleaver",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 254455,
+      "name": "Magister Dignitary's Sash",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 254456,
+      "name": "Magister Dignitary's Tunic",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 254457,
+      "name": "Magister Dignitary's Boots",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 254484,
+      "name": "Magister's Elegant Mantle",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 254487,
+      "name": "Magister's Elegant Robe",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 254485,
+      "name": "Magister's Elegant Leggings",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 254477,
+      "name": "Magister Dignitary's Mask",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 254488,
+      "name": "Magister's Elegant Slippers",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 254486,
+      "name": "Magister's Elegant Clasp",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 266387,
+      "name": "Sanctum Magister's Pylon",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 254454,
+      "name": "Magister Dignitary's Chaps",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 258519,
+      "name": "Plans: Magister's Valediction",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 245932,
+      "name": "Fleeting Flask of the Magisters",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 252693,
+      "name": "Magister Socialite's Treads",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 252689,
+      "name": "Magister Socialite's Gloves",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 252690,
+      "name": "Magister Socialite's Slacks",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 252691,
+      "name": "Magister Socialite's Buckle",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 252692,
+      "name": "Magister Socialite's Vest",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 208695,
+      "name": "Battle Magister's Belt",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 208694,
+      "name": "Battle Magister's Epaulets",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 265681,
+      "name": "Preyseeker's Magister Effigy",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 254282,
+      "name": "Bottle of Magister's Reserve",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 254453,
+      "name": "Magister Dignitary's Gloves",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 271019,
+      "name": "Sin'dorei Magister's Gavel",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 262371,
+      "name": "Bronze Magister's Courtstaff",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 264412,
+      "name": "Sin'dorei Magister's Keepsake",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 171978,
+      "name": "Ensemble: Magister's Regalia",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 208698,
+      "name": "Battle Magister's Scepter",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 208693,
+      "name": "Battle Magister's Orbs",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 208699,
+      "name": "Battle Magister's Regalia",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 208696,
+      "name": "Battle Magister's Scimitar",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 208697,
+      "name": "Battle Magister's Shard",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 208700,
+      "name": "Battle Magister's Enchantments",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 190696,
+      "name": "Magister's Jeweled Drape",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 161422,
+      "name": "Magister Umbric's Void Shard",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 34182,
+      "name": "Grand Magister's Staff of Torrents",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 24277,
+      "name": "Items for Magister Astalor Bloodsworn",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 25722,
+      "name": "Pattern: Magister's Armor Kit",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 267287,
+      "name": "Plans: Magister's Ritual Knife",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 267286,
+      "name": "Plans: Magister's Mana Sword",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 217823,
+      "name": "Arsenal: Sin'dorei Magister's Enchantment",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 259089,
+      "name": "Ensemble: Magister Socialite's Attire",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 244003,
+      "name": "Enchant Chest - Mark of the Magister",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 268481,
+      "name": "Magister's Spell Bee Comb",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 268466,
+      "name": "Nebulous Voidcache: Magisters' Terrace",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263912,
+      "name": "Void-Touched Magister's Baton",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 259074,
+      "name": "Ensemble: Magister's Elegant Regalia",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263919,
+      "name": "Void-Touched Magister's Sword",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 259080,
+      "name": "Ensemble: Magister Dignitary's Trappings",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 217836,
+      "name": "Ensemble: Sin'dorei Magister's Regalia",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 253012,
+      "name": "Set Keystone Map: Magisters' Terrace",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256755,
+      "name": "Formula: Enchant Chest - Mark of the Magister",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 47574,
+      "name": "Sunforged Bracers",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 47575,
+      "name": "Sunforged Bracers",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 47593,
+      "name": "Sunforged Breastplate",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 47594,
+      "name": "Sunforged Breastplate",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 47643,
+      "name": "Plans: Sunforged Breastplate",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 47627,
+      "name": "Plans: Sunforged Bracers",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 47626,
+      "name": "Plans: Sunforged Breastplate",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 47642,
+      "name": "Plans: Sunforged Bracers",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 259319,
+      "name": "Plans: Sunforged Pickaxe",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 259317,
+      "name": "Plans: Sunforged Sickle",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 259322,
+      "name": "Plans: Sunforged Skinning Knife",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 259231,
+      "name": "Plans: Sunforged Blacksmith's Toolbox",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 259235,
+      "name": "Plans: Sunforged Needle Set",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 259233,
+      "name": "Plans: Sunforged Leatherworker's Toolset",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 259237,
+      "name": "Plans: Sunforged Blacksmith's Hammer",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 259318,
+      "name": "Plans: Sunforged Leatherworker's Knife",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 12250,
+      "name": "Midnight Axe",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 936,
+      "name": "Midnight Mace",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 1261,
+      "name": "Midnight Orb",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 30905,
+      "name": "Midnight Chestguard",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 22803,
+      "name": "Midnight Haze",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 30538,
+      "name": "Midnight Legguards",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 39774,
+      "name": "Midnight Ink",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 51910,
+      "name": "Midnight Sun",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 50793,
+      "name": "Midnight Sun",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 162515,
+      "name": "Midnight Salmon",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 141208,
+      "name": "Midnight Morel",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 171499,
+      "name": "Midnight Chestguard",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 127214,
+      "name": "Midnight Legguards",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 178227,
+      "name": "Midnight Starpepper",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 242454,
+      "name": "Midnight Sweatshirt",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 206486,
+      "name": "Midnight's Graze",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 242407,
+      "name": "Midnight Sweatpants",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 215863,
+      "name": "Torch of Midnight",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 249920,
+      "name": "Eye of Midnight",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 24063,
+      "name": "Shifting Sash of Midnight",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 61484,
+      "name": "Midnight Service Treads",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 134469,
+      "name": "Midnight Reaper Handwraps",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 58158,
+      "name": "Gloves of the Painless Midnight",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 72856,
+      "name": "Pauldrons of Midnight Whispers",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 96835,
+      "name": "Robe of Midnight Down",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 96912,
+      "name": "Bracers of the Midnight Comet",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 96168,
+      "name": "Bracers of the Midnight Comet",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 96463,
+      "name": "Robe of Midnight Down",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 96540,
+      "name": "Bracers of the Midnight Comet",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 94806,
+      "name": "Robe of Midnight Down",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 94979,
+      "name": "Bracers of the Midnight Comet",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 95719,
+      "name": "Robe of Midnight Down",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 95796,
+      "name": "Bracers of the Midnight Comet",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 96091,
+      "name": "Robe of Midnight Down",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 140407,
+      "name": "Prestigious Midnight Courser",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 147066,
+      "name": "Greaves of Impure Midnight",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 142236,
+      "name": "Midnight's Eternal Reins",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 139232,
+      "name": "Midnight Herald's Pauldrons",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 210848,
+      "name": "Trader's Midnight Sarong",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 213430,
+      "name": "Duelist's Midnight Doublet",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 213395,
+      "name": "Gloves of the Midnight Soiree",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 213396,
+      "name": "Classic Midnight Tabard",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 187934,
+      "name": "Mark of the Midnight Runestag",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 185782,
+      "name": "Robes of Midnight Bargains",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 190151,
+      "name": "Wanderer's Midnight Scarf",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 190149,
+      "name": "Wanderer's Midnight Cloak",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 190376,
+      "name": "Vagabond's Midnight Cape",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 190150,
+      "name": "Vagabond's Midnight Hood",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 226042,
+      "name": "Plunderlord's Midnight Crocolisk",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 218937,
+      "name": "Midnight Educator's Mantle",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 218901,
+      "name": "Midnight Educator's Pants",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 218906,
+      "name": "Midnight Educator's Robe",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 218997,
+      "name": "Midnight Educator's Wraps",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 219104,
+      "name": "Midnight Educator's Knowledge",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 222733,
+      "name": "Feast of the Midnight Masquerade",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 242455,
+      "name": "Ensemble: Midnight Sweatsuit",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 237645,
+      "name": "Midnight Herald's Petticoat",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 237649,
+      "name": "Midnight Herald's Hauberk",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 200481,
+      "name": "Ohn'ir Midnight Helm",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 200502,
+      "name": "Ohn'ir Midnight Shoulderpads",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 208795,
+      "name": "Midnight Holo-Gogs",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 237641,
+      "name": "Midnight Herald's Shroud",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 237646,
+      "name": "Midnight Herald's Cowl",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 237643,
+      "name": "Midnight Herald's Clasp",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 237642,
+      "name": "Midnight Herald's Wristguards",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 237644,
+      "name": "Midnight Herald's Shadowguards",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 237648,
+      "name": "Midnight Herald's Jackboots",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 237647,
+      "name": "Midnight Herald's Gloves",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 259135,
+      "name": "Midnight Blue Dye",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 262837,
+      "name": "Midnight Dunecloth Belt",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 262819,
+      "name": "Midnight Dunecloth Skirt",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 262855,
+      "name": "Midnight Dunecloth Vest",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 252710,
+      "name": "Midnight Winter Toque",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 247556,
+      "name": "Midnight Herald's Pauldrons",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 249305,
+      "name": "Slippers of the Midnight Flame",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257759,
+      "name": "Sorcerer's Midnight Cowl",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 230074,
+      "name": "Prowler's Midnight Mask",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 230054,
+      "name": "Prowler's Midnight Cowl",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 232660,
+      "name": "Midnight Lounge Cummerbund",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 218831,
+      "name": "Midnight Educator's Gloves",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 218806,
+      "name": "Midnight Educator's Moccasins",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 218771,
+      "name": "Midnight Educator's Vest",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 218866,
+      "name": "Midnight Educator's Crown",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 218972,
+      "name": "Midnight Educator's Scrolls",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 235019,
+      "name": "Vigilante's Midnight Mask",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257779,
+      "name": "Sorcerer's Midnight Cape",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 270279,
+      "name": "Crown of Midnight Springflowers",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 212628,
+      "name": "Dueler's Midnight Shoulder Cape",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 187935,
+      "name": "Technique: Mark of the Midnight Runestag",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 190166,
+      "name": "Ensemble: Vagabond's Midnight Threads",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 190377,
+      "name": "Ensemble: Wanderer's Midnight Trappings",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 246329,
+      "name": "Glimmer of Midnight Inscription Knowledge",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 237255,
+      "name": "Banded Midnight War Legwraps",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 206533,
+      "name": "Ancient Plans: Midnight's Graze",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 262796,
+      "name": "Midnight Angler's Grand Line",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 262658,
+      "name": "Nebulous Voidcache: Midnight Falls",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 255678,
+      "name": "Huge Bag of Midnight Herbs",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 255682,
+      "name": "Huge Bag of Midnight Skins",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 255679,
+      "name": "Huge Bag of Midnight Minerals",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 230033,
+      "name": "Prowler's Midnight Shoulder Cape",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 222781,
+      "name": "Hearty Feast of the Midnight Masquerade",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 230152,
+      "name": "Ensemble: Prowler's Midnight Headgear",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 233096,
+      "name": "Long Midnight War Skirt",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 233152,
+      "name": "Banded Midnight War Wraps",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 233079,
+      "name": "Short Midnight War Skirt",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 233169,
+      "name": "Banded Midnight War Slippers",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 227281,
+      "name": "Recipe: Feast of the Midnight Masquerade",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 246015,
+      "name": "Classic Midnight Eye Patch",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 246335,
+      "name": "Glimmer of Midnight Tailoring Knowledge",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 246320,
+      "name": "Flicker of Midnight Alchemy Knowledge",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 246327,
+      "name": "Glimmer of Midnight Engineering Knowledge",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 246330,
+      "name": "Flicker of Midnight Jewelcrafting Knowledge",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 246324,
+      "name": "Flicker of Midnight Enchanting Knowledge",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 246326,
+      "name": "Flicker of Midnight Engineering Knowledge",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 246332,
+      "name": "Flicker of Midnight Leatherworking Knowledge",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 246333,
+      "name": "Glimmer of Midnight Leatherworking Knowledge",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 246325,
+      "name": "Glimmer of Midnight Enchanting Knowledge",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 246321,
+      "name": "Glimmer of Midnight Alchemy Knowledge",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 246323,
+      "name": "Glimmer of Midnight Blacksmithing Knowledge",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 246322,
+      "name": "Flicker of Midnight Blacksmithing Knowledge",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 246328,
+      "name": "Flicker of Midnight Inscription Knowledge",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 246331,
+      "name": "Glimmer of Midnight Jewelcrafting Knowledge",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 246334,
+      "name": "Flicker of Midnight Tailoring Knowledge",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 248976,
+      "name": "Ensemble: Midnight Herald's Shrouds",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257970,
+      "name": "Ensemble: Sorcerer's Midnight Garb",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 264174,
+      "name": "Midnight Tailor's Shop Sign",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 264003,
+      "name": "Midnight Herbalist's Shop Sign",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 264006,
+      "name": "Midnight Leatherworker's Shop Sign",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 264005,
+      "name": "Midnight Jewelcrafter's Shop Sign",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 264172,
+      "name": "Midnight Miner's Shop Sign",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263997,
+      "name": "Midnight Alchemist's Shop Sign",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 264000,
+      "name": "Midnight Enchanter's Shop Sign",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 264002,
+      "name": "Midnight Fisher's Shop Sign",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 264004,
+      "name": "Midnight Scribe's Shop Sign",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 264173,
+      "name": "Midnight Skinner's Shop Sign",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263999,
+      "name": "Midnight Cook's Shop Sign",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 264001,
+      "name": "Midnight Engineer's Shop Sign",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 264414,
+      "name": "Midnight Delver's Flare Gun",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263998,
+      "name": "Midnight Blacksmith's Shop Sign",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 143492,
+      "name": "Midnight Black Reins of Dark Portent",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 255689,
+      "name": "Huge Bag of Midnight Engineering Goods",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 255666,
+      "name": "Huge Bag of Midnight General Goods",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 255687,
+      "name": "Huge Bag of Midnight Optional Goods",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 255690,
+      "name": "Huge Bag of Midnight Enchanting Goods",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 255703,
+      "name": "Huge Bag of Midnight Blacksmithing Goods",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 255684,
+      "name": "Huge Bag of Midnight Leatherworking Goods",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 255686,
+      "name": "Huge Bag of Midnight Alchemy Goods",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256136,
+      "name": "Professor Instructaur's Brain Pertaining to Midnight",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 255704,
+      "name": "Huge Bag of Midnight Inscription Goods",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 255691,
+      "name": "Huge Bag of Midnight Tailoring Goods",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 255683,
+      "name": "Huge Bag of Midnight Jewelcrafting Goods",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 233135,
+      "name": "Long Midnight War Skirt and Leg Wraps",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 233116,
+      "name": "Short Midnight War Skirt and Leg Wraps",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 255828,
+      "name": "Sr. Professor Instructaur's Top Secret Guide to Midnight Alchemy",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 255838,
+      "name": "Sr. Professor Instructaur's Top Secret Guide to Midnight Tailoring",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 255832,
+      "name": "Sr. Professor Instructaur's Top Secret Guide to Midnight Herbalism",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 255829,
+      "name": "Sr. Professor Instructaur's Top Secret Guide to Midnight Blacksmithing",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 255836,
+      "name": "Sr. Professor Instructaur's Top Secret Guide to Midnight Mining",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 255835,
+      "name": "Sr. Professor Instructaur's Top Secret Guide to Midnight Leatherworking",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 255834,
+      "name": "Sr. Professor Instructaur's Top Secret Guide to Midnight Jewelcrafting",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 255830,
+      "name": "Sr. Professor Instructaur's Top Secret Guide to Midnight Enchanting",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 255833,
+      "name": "Sr. Professor Instructaur's Top Secret Guide to Midnight Inscription",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 255831,
+      "name": "Sr. Professor Instructaur's Top Secret Guide to Midnight Engineering",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 255837,
+      "name": "Sr. Professor Instructaur's Top Secret Guide to Midnight Skinning",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 242309,
+      "name": "Farstrider Rations",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 131249,
+      "name": "Farstrider's Cuffs",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 131242,
+      "name": "Farstrider's Chainmail",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 131244,
+      "name": "Farstrider's Chain",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 28142,
+      "name": "Farstrider's Belt",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 28764,
+      "name": "Farstrider Wildercloak",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 28153,
+      "name": "Farstrider's Shield",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 22958,
+      "name": "Farstrider Sword",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 22982,
+      "name": "Farstrider's Longbow",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 24136,
+      "name": "Farstrider's Bow",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 23405,
+      "name": "Farstrider's Tunic",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 23395,
+      "name": "Farstrider's Buckler",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 23408,
+      "name": "Farstrider's Bracers",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 244715,
+      "name": "Farstrider Hardhat",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 244713,
+      "name": "Farstrider Clampers",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 246166,
+      "name": "Farstrider Recommendation",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256969,
+      "name": "Farstrider's Pendant",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263352,
+      "name": "Cowl of the Farstriders",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 264997,
+      "name": "Farstriders Quiver",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257745,
+      "name": "Farstrider's Hawkeye",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257746,
+      "name": "Farstrider's Hawkeye",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 227703,
+      "name": "Farstrider's Huntsblade",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 129830,
+      "name": "Farstrider Defender's Cloak",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 29385,
+      "name": "Farstrider Defender's Cloak",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 242776,
+      "name": "Hearty Farstrider Rations",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 252694,
+      "name": "Farstrider Socialite's Gloves",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 250462,
+      "name": "Forgotten Farstrider's Insignia",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 252696,
+      "name": "Farstrider Socialite's Buckle",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 252698,
+      "name": "Farstrider Socialite's Treads",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 252697,
+      "name": "Farstrider Socialite's Vest",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 252695,
+      "name": "Farstrider Socialite's Slacks",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 254458,
+      "name": "Farstrider Dignitary's Gloves",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 254460,
+      "name": "Farstrider Dignitary's Sash",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 254461,
+      "name": "Farstrider Dignitary's Tunic",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 254459,
+      "name": "Farstrider Dignitary's Chaps",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 254489,
+      "name": "Farstrider's Elegant Mantle",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 244711,
+      "name": "Farstrider Hobbyist Rod",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 244707,
+      "name": "Farstrider Fabric Cutters",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 244719,
+      "name": "Farstrider Rock Satchel",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 266084,
+      "name": "Farstrider's Forest Quiver",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263212,
+      "name": "Farstrider's Comfy Cushion",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 265799,
+      "name": "Preyseeker's Farstrider Bust",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 254492,
+      "name": "Farstrider's Elegant Robe",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 265631,
+      "name": "Farstriders' Glory Statue",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 266393,
+      "name": "Farstrider's Gilded Bow",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 266396,
+      "name": "Farstrider's Solemn Bow",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 264645,
+      "name": "Aged Farstrider Bow",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 264403,
+      "name": "Repurposed Farstrider Slippers",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 264404,
+      "name": "Repurposed Farstrider Boots",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 264405,
+      "name": "Repurposed Farstrider Treads",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 264406,
+      "name": "Repurposed Farstrider Stompers",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 265797,
+      "name": "Preyseeker's Farstrider Effigy",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 265106,
+      "name": "Farstriders' Pride Statue",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 254462,
+      "name": "Farstrider Dignitary's Boots",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 254476,
+      "name": "Farstrider Dignitary's Mask",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 254490,
+      "name": "Farstrider's Elegant Leggings",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263419,
+      "name": "Farstrider Recruit's Footwear",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 260386,
+      "name": "Farstrider's Forest Bow",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 254491,
+      "name": "Farstrider's Elegant Clasp",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 254493,
+      "name": "Farstrider's Elegant Slippers",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 190900,
+      "name": "Prototype Farstrider Sniper Rifle",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 244009,
+      "name": "Enchant Boots - Farstrider's Hunt",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 259079,
+      "name": "Ensemble: Farstrider Dignitary's Trappings",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 259076,
+      "name": "Ensemble: Farstrider's Elegant Regalia",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 259090,
+      "name": "Ensemble: Farstrider Socialite's Attire",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256756,
+      "name": "Formula: Enchant Boots - Farstrider's Hunt",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 270431,
+      "name": "Haranir Footlocker",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 238792,
+      "name": "Haranir Artifacts",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 246795,
+      "name": "Tabard of the Haranir",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 246740,
+      "name": "Tabard of the Haranir",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263019,
+      "name": "Haranir Pennant",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 270442,
+      "name": "Rootbound Haranir Chopper",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 270443,
+      "name": "Wildbloom Haranir Bastion",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 270433,
+      "name": "Dawnroot Haranir Quarterstaff",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 270441,
+      "name": "Thornpierce Haranir Chopper",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 270440,
+      "name": "Rootbound Haranir Handaxe",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 270430,
+      "name": "Windpetal Haranir Crook",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 270439,
+      "name": "Wildgrove Haranir Spear",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 270444,
+      "name": "Wildbloom Haranir Carver",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 238594,
+      "name": "Haranir Leatherworking Knife",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 238593,
+      "name": "Haranir Leatherworking Mallet",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 244057,
+      "name": "Gleeful Glamour - Haranir",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 245535,
+      "name": "Sturdy Haranir Handcart",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 241313,
+      "name": "Haranir Phial of Ingenuity",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 241311,
+      "name": "Haranir Phial of Finesse",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 241317,
+      "name": "Haranir Phial of Perception",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 246408,
+      "name": "Haranir Herb Rack",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256205,
+      "name": "Hopeful Haranir's Grasps",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257552,
+      "name": "Hardened Haranir Soles",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257589,
+      "name": "Entwined Haranir Loincloth",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257529,
+      "name": "Coarse Haranir Cowl",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257559,
+      "name": "Entwined Haranir Leaves",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257590,
+      "name": "Coarse Haranir Loincloth",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257550,
+      "name": "Entwined Haranir Soles",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257591,
+      "name": "Hardened Haranir Loincloth",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257546,
+      "name": "Hardened Haranir Thorns",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257560,
+      "name": "Coarse Haranir Leaves",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257562,
+      "name": "Woven Haranir Loincloth",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257549,
+      "name": "Woven Haranir Soles",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257556,
+      "name": "Hardened Haranir Skirt",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257594,
+      "name": "Coarse Haranir Vines",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257532,
+      "name": "Entwined Haranir Thorns",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257525,
+      "name": "Coarse Haranir Wrappings",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257527,
+      "name": "Woven Haranir Cowl",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257526,
+      "name": "Hardened Haranir Wrappings",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257524,
+      "name": "Entwined Haranir Wrappings",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257533,
+      "name": "Coarse Haranir Thorns",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257528,
+      "name": "Entwined Haranir Cowl",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257523,
+      "name": "Woven Haranir Wrappings",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257561,
+      "name": "Hardened Haranir Leaves",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257592,
+      "name": "Woven Haranir Vines",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257593,
+      "name": "Entwined Haranir Vines",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257595,
+      "name": "Hardened Haranir Vines",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257555,
+      "name": "Coarse Haranir Skirt",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257553,
+      "name": "Woven Haranir Skirt",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257531,
+      "name": "Woven Haranir Thorns",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257551,
+      "name": "Coarse Haranir Soles",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257530,
+      "name": "Hardened Haranir Cowl",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257558,
+      "name": "Woven Haranir Leaves",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257554,
+      "name": "Entwined Haranir Skirt",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 258411,
+      "name": "Traditions of the Haranir: Inscription",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256221,
+      "name": "Rallied Haranir's Mitts",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 258410,
+      "name": "Traditions of the Haranir: Herbalism",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 264245,
+      "name": "Warm Haranir Blanket",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 264262,
+      "name": "Haranir Whistling Arrow",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 262613,
+      "name": "Replica Haranir Mural",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263315,
+      "name": "Bubbling Haranir Cauldron",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263038,
+      "name": "Haranir Reclined Bed",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 264243,
+      "name": "Firm Haranir Pillow",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 266269,
+      "name": "Rootbound Haranir Aegis",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 266271,
+      "name": "Wildbloom Haranir Warblade",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 265943,
+      "name": "Firm Haranir Pillow",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 266266,
+      "name": "Moonpetal Haranir Staff",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 265946,
+      "name": "Haranir Reclined Bed",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 266264,
+      "name": "Sunpetal Haranir Spire",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 266267,
+      "name": "Thornpierce Haranir Fang",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 266263,
+      "name": "Wildgrove Haranir Longbow",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 266262,
+      "name": "Dawnroot Haranir Channeler",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 266265,
+      "name": "Windpetal Haranir Baton",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 266270,
+      "name": "Witherbloom Haranir Staff",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 265945,
+      "name": "Warm Haranir Blanket",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 243995,
+      "name": "Enchant Tool - Haranir Multicrafting",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 243993,
+      "name": "Enchant Tool - Haranir Finesse",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 246416,
+      "name": "Waterlogged Haranir Pigment Bowl",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 247499,
+      "name": "Recipe: Haranir Preserving Agents",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 246415,
+      "name": "Ruddy Haranir Pigment Bowl",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256743,
+      "name": "Formula: Gleeful Glamour - Haranir",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 258141,
+      "name": "Recipe: Haranir Phial of Perception",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 259366,
+      "name": "Design: Replica Haranir Mural",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 259368,
+      "name": "Pattern: Sturdy Haranir Chair",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 259371,
+      "name": "Pattern: Stitched Haranir Rug",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 259457,
+      "name": "Pattern: Simple Haranir Table",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 259362,
+      "name": "Pattern: Haranir Canopy Bed",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256749,
+      "name": "Formula: Enchant Tool - Haranir Multicrafting",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 259365,
+      "name": "Pattern: Plush Haranir Leather Pillow",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 162573,
+      "name": "Amani Mule",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 160107,
+      "name": "Amani Head",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 68825,
+      "name": "Amani Dragonhawk",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 69579,
+      "name": "Amani Headdress",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 69801,
+      "name": "Amani Armguards",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 33283,
+      "name": "Amani Punisher",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 34069,
+      "name": "Amani Vase",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 29518,
+      "name": "Amani Scimitar",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 25209,
+      "name": "Amani Tomahawk",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 244462,
+      "name": "Amani Orders",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 246443,
+      "name": "Amani Hatchet",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 241299,
+      "name": "Amani Extract",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 242554,
+      "name": "Amani Lapis",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 242722,
+      "name": "Amani Lapis",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 249236,
+      "name": "Amani Headdress",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 250782,
+      "name": "Amani Sunfeather",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 250889,
+      "name": "Amani Windcaller",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257152,
+      "name": "Amani Sharptalon",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 264175,
+      "name": "Amani Strongbox",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 265740,
+      "name": "Amani Totemstring",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 160947,
+      "name": "Amani Berserker's Chopper",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 229426,
+      "name": "Ancient Amani Longbow",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 232002,
+      "name": "Amani Tracker's Blunderbuss",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 166864,
+      "name": "Engraved Amani Spearpoints",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 139572,
+      "name": "Lost Codex of the Amani",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 69593,
+      "name": "Battleplate of the Amani Empire",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 69747,
+      "name": "Amani Battle Bear",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 69581,
+      "name": "Amani Scepter of Rites",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 33326,
+      "name": "Bulwark of the Amani Empire",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 33494,
+      "name": "Amani Divining Staff",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 33474,
+      "name": "Ancient Amani Longbow",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 33930,
+      "name": "Amani Charm of the Bloodletter",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 34256,
+      "name": "Charmed Amani Jewel",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 27424,
+      "name": "Amani Venom-Axe",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 28535,
+      "name": "Amani Throwing Axe",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 23923,
+      "name": "Amani Sacrificial Dagger",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 33809,
+      "name": "Amani War Bear",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 33810,
+      "name": "Amani Mask of Death",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 33865,
+      "name": "Amani Hex Stick",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 23249,
+      "name": "Amani Invasion Plans",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 270992,
+      "name": "Amani Hex Crest",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 271028,
+      "name": "Amani War Spear",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257197,
+      "name": "Blessed Amani Burrower",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 245798,
+      "name": "Contract: The Amani Tribe",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 241131,
+      "name": "Amani Lapis Prism",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 241132,
+      "name": "Amani Lapis Prism",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 238548,
+      "name": "Enchanted Amani Mask",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 238634,
+      "name": "Amani Skinning Knife",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 238588,
+      "name": "Amani Leatherworker's Tool",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 238632,
+      "name": "Amani Tanning Oil",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 238601,
+      "name": "Amani Expert's Chisel",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 242727,
+      "name": "Flawless Amani Lapis",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 241614,
+      "name": "Old Amani Pot",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 241615,
+      "name": "Lost Amani Trinket",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 251970,
+      "name": "Overflowing Amani Trove",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 251075,
+      "name": "Lost Amani Bolt",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 251272,
+      "name": "Lost Amani Oar",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 254554,
+      "name": "Amani Hex Stick",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256925,
+      "name": "Amani Spearhunter's Spit",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256928,
+      "name": "Banner of the Amani Tribe",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256934,
+      "name": "Boiling Amani Cauldron",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256926,
+      "name": "Empty Amani Cauldron",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 257219,
+      "name": "Amani Blessed Bear",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 258305,
+      "name": "Recipe: Amani Extract",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 258549,
+      "name": "Burning Amani Pinecone",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 259200,
+      "name": "Amani Tanning Oil",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 259473,
+      "name": "Charred Amani Trinket",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 259474,
+      "name": "Lost Amani Toy",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 259967,
+      "name": "Amani Hex Stave",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 258537,
+      "name": "Amani Dreamer's Charm",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 262581,
+      "name": "Amani Rock Hammer",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 264255,
+      "name": "Amani Trophy Frame",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 264196,
+      "name": "Amani Warbringer's Edge",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 264197,
+      "name": "Amani Spiritbark Ward",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 264195,
+      "name": "Amani Fangcaller's Spear",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 264194,
+      "name": "Amani Flamebinder's Staff",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 264330,
+      "name": "Amani Hanging Brazier",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 264329,
+      "name": "Amani Dining Table",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 264333,
+      "name": "Amani Incense Burner",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 264332,
+      "name": "Amani Ritual Altar",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 262580,
+      "name": "Amani Log Splitter",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 262582,
+      "name": "Amani Gem Clamps",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 262578,
+      "name": "Amani Stonework Chisel",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 262579,
+      "name": "Amani Hide Cutter",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263318,
+      "name": "Simple Amani Basket",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 264193,
+      "name": "Amani Skyhunter's Sight",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 264334,
+      "name": "Amani War Drum",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 264479,
+      "name": "Skyweave Amani Tapestry",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 264655,
+      "name": "Amani Slate Bench",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 264481,
+      "name": "Earthhide Amani Tapestry",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 264480,
+      "name": "Greenvine Amani Tapestry",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 264717,
+      "name": "Amani Warding Hex",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 265562,
+      "name": "Amani Warrior's Spear",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 265072,
+      "name": "Amani Fangstitch Quiver",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 265543,
+      "name": "Tempered Amani Spearhead",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 265700,
+      "name": "Preyseeker's Amani Bust",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 265554,
+      "name": "Reinforced Amani Haft",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 265781,
+      "name": "Amani Spiritdancer's Boneweight",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 265775,
+      "name": "Amani Warrior Stave",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 265685,
+      "name": "Preyseeker's Amani Effigy",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 265739,
+      "name": "Amani Heartstring Pendant",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 266965,
+      "name": "Tabard of Amani Abundance",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 266967,
+      "name": "Shawl of Amani Abundance",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 267009,
+      "name": "Amani Training Dummy",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 267643,
+      "name": "Worn Amani Totemstring",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 266966,
+      "name": "Mantle of Amani Abundance",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 224399,
+      "name": "Reins of the Amani Hunting Bear",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 33932,
+      "name": "Amani Charm of the Witch Doctor",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 33933,
+      "name": "Amani Charm of the Raging Defender",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 33931,
+      "name": "Amani Charm of Mighty Mojo",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 243955,
+      "name": "Enchant Ring - Amani Mastery",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 243954,
+      "name": "Enchant Ring - Amani Mastery",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 243965,
+      "name": "Enchant Tool - Amani Perception",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 243967,
+      "name": "Enchant Tool - Amani Resourcefulness",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 244791,
+      "name": "Recipe: Amani Angler's Ward",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 251629,
+      "name": "Technique: Contract: The Amani Tribe",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256923,
+      "name": "Amani Crafter's Tool Rack",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 264335,
+      "name": "Colossal Amani Stone Visage",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 263320,
+      "name": "Rope-Bound Amani Basket",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 265560,
+      "name": "Toughened Amani Leather Wrap",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 267642,
+      "name": "Worn Amani Heartstring Pendant",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 256744,
+      "name": "Formula: Enchant Tool - Amani Perception",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 119468,
+      "name": "Sunfire Kaliri",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 138798,
+      "name": "Illusion: Sunfire",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 34364,
+      "name": "Sunfire Robe",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 34366,
+      "name": "Sunfire Handwraps",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 34359,
+      "name": "Pendant of Sunfire",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 249691,
+      "name": "Holy Sunfire",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 237016,
+      "name": "Sunfire Silk",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 238549,
+      "name": "Enchanted Sunfire Silk",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 38923,
+      "name": "Enchant Weapon - Sunfire",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 35206,
+      "name": "Pattern: Sunfire Robe",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 35201,
+      "name": "Design: Pendant of Sunfire",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 35204,
+      "name": "Pattern: Sunfire Handwraps",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 35462,
+      "name": "Enchant Weapon - Sunfire",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 239202,
+      "name": "Sunfire Silk Bolt",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 258125,
+      "name": "Pattern: Sunfire Sash",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 240133,
+      "name": "Sunfire Silk Spellthread",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 240165,
+      "name": "Sunfire Silk Lining",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 22560,
+      "name": "Formula: Enchant Weapon - Sunfire",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 258025,
+      "name": "Pattern: Sunfire Silk Lining",
+      "source_mode": "auto"
+    },
+    {
+      "item_id": 258123,
+      "name": "Pattern: Sunfire Silk Spellthread",
+      "source_mode": "auto"
+    }
+  ]
+}
