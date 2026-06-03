@@ -47,10 +47,10 @@ jobs:
       - name: Restore SQLite archive
         run: |
           mkdir -p "$(dirname "$DB_PATH")"
-          if git ls-remote --exit-code --heads upstream "$ARCHIVE_BRANCH" >/dev/null 2>&1; then
-            git fetch upstream "$ARCHIVE_BRANCH"
-            if git cat-file -e "upstream/$ARCHIVE_BRANCH:$DB_PATH" 2>/dev/null; then
-              git show "upstream/$ARCHIVE_BRANCH:$DB_PATH" > "$DB_PATH"
+          if git ls-remote --exit-code --heads origin "$ARCHIVE_BRANCH" >/dev/null 2>&1; then
+            git fetch origin "$ARCHIVE_BRANCH"
+            if git cat-file -e "origin/$ARCHIVE_BRANCH:$DB_PATH" 2>/dev/null; then
+              git show "origin/$ARCHIVE_BRANCH:$DB_PATH" > "$DB_PATH"
               echo "Restored archive database from $ARCHIVE_BRANCH."
             else
               echo "Archive branch exists, but $DB_PATH is not present yet."
@@ -147,8 +147,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           rm -rf archive-branch
-          if git show-ref --verify --quiet "refs/remotes/upstream/$ARCHIVE_BRANCH"; then
-            git worktree add archive-branch "upstream/$ARCHIVE_BRANCH"
+          if git show-ref --verify --quiet "refs/remotes/origin/$ARCHIVE_BRANCH"; then
+            git worktree add archive-branch "origin/$ARCHIVE_BRANCH"
           else
             git worktree add --detach archive-branch
             (
@@ -164,7 +164,7 @@ jobs:
             cd archive-branch
             git add README.md "$DB_PATH"
             git commit -m "Update SQLite archive" || exit 0
-            git push upstream HEAD:"$ARCHIVE_BRANCH"
+            git push origin HEAD:"$ARCHIVE_BRANCH"
           )
 
       - name: Sync to Google Drive
