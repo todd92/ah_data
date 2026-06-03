@@ -2,3 +2,14 @@
 .venv/
 __pycache__/
 *.pyc
+
+# Project Data & Secrets
+config.json
+report.json
+ah_prices.sqlite3
+expansion_world_items.json
+targets_midnight_tailoring_enchanting.json
+temp_*.json
+watchlist_debug/
+recipe_lookup_cache.json
+item_data.bin
