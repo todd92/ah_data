@@ -7,13 +7,21 @@ cd "$SCRIPT_DIR"
 
 # 1. Load environment variables from .env file if it exists
 if [ -f .env ]; then
-  # Load env vars ignoring comment/empty lines, resolving variables correctly
-  while IFS= read -r line || [ -n "$line" ]; do
-    if [[ "$line" =~ ^[[:space:]]*# ]] || [[ -z "${line//[[:space:]]/}" ]]; then
-      continue
-    fi
-    export "$line"
-  done < .env
+  # Load env vars ignoring comment/empty lines, resolving variables and quotes correctly
+  eval "$(python3 -c '
+import os, re, shlex
+if os.path.exists(".env"):
+    for line in open(".env"):
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        m = re.match(r"^([A-Za-z_][A-Za-z0-9_]*)\s*=\s*(.*)$", line)
+        if m:
+            name, val = m.groups()
+            if (val.startswith("\x27") and val.endswith("\x27")) or (val.startswith("\"") and val.endswith("\"")):
+                val = val[1:-1]
+            print(f"export {name}={shlex.quote(val)}")
+')"
 fi
 
 # 2. Set default environment variables (matching GitHub Actions config)
