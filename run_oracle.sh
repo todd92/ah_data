@@ -7,8 +7,13 @@ cd "$SCRIPT_DIR"
 
 # 1. Load environment variables from .env file if it exists
 if [ -f .env ]; then
-  # Load env vars ignoring comment lines, resolving variables correctly
-  export $(grep -v '^#' .env | xargs)
+  # Load env vars ignoring comment/empty lines, resolving variables correctly
+  while IFS= read -r line || [ -n "$line" ]; do
+    if [[ "$line" =~ ^[[:space:]]*# ]] || [[ -z "${line//[[:space:]]/}" ]]; then
+      continue
+    fi
+    export "$line"
+  done < .env
 fi
 
 # 2. Set default environment variables (matching GitHub Actions config)
