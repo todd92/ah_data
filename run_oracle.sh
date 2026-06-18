@@ -5,6 +5,19 @@ set -euo pipefail
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd "$SCRIPT_DIR"
 
+# Prevent concurrent runs from stacking up and freezing the VM
+LOCKFILE="/tmp/wow_ah_scraper.lock"
+if [ -f "$LOCKFILE" ]; then
+  PID=$(cat "$LOCKFILE")
+  if kill -0 "$PID" 2>/dev/null; then
+    echo "Scraper is already running (PID: $PID). Exiting to prevent overload."
+    exit 0
+  fi
+fi
+echo $$ > "$LOCKFILE"
+trap 'rm -f "$LOCKFILE"' EXIT
+
+
 # 1. Load environment variables from .env file if it exists
 if [ -f .env ]; then
   # Load env vars ignoring comment/empty lines, resolving variables and quotes correctly
