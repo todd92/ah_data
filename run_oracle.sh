@@ -123,8 +123,9 @@ python3 ah_monitor.py \
   --prediction-cooldown-grace-hours 6 \
   --prediction-cooldown-min-confidence 0.85 \
   --prediction-cooldown-loss-pct 20 \
-  --retention-days-observations 30 \
-  --retention-days-alerts 90 \
+  --retention-days-observations 0 \
+  --retention-days-alerts 0 \
+  --retention-days-predictions 0 \
   --enable-craft-alerts \
   --craft-ah-cut-rate 0.05 \
   --craft-min-profit-gold 50 \
