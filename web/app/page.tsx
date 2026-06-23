@@ -55,6 +55,28 @@ function sourceLabel(source: string): string {
   return source;
 }
 
+function renderReagentName(name: string) {
+  if (name.endsWith(" [Gold]")) {
+    const baseName = name.slice(0, -7);
+    return (
+      <span>
+        {baseName}{" "}
+        <span style={{ color: "#f59e0b", fontWeight: "bold" }}>[Gold]</span>
+      </span>
+    );
+  }
+  if (name.endsWith(" [Silver]")) {
+    const baseName = name.slice(0, -9);
+    return (
+      <span>
+        {baseName}{" "}
+        <span style={{ color: "#9ca3af", fontWeight: "bold" }}>[Silver]</span>
+      </span>
+    );
+  }
+  return <span>{name}</span>;
+}
+
 function Sparkline({ values }: { values: number[] }) {
   if (values.length === 0) return <span className="small">-</span>;
   const width = 120;
@@ -257,7 +279,7 @@ export default function HomePage() {
                 return (
                   <tr key={`${row.alertedAt}-${row.itemId}-${row.recipeId || "none"}`}>
                     <td>
-                      <strong>{row.itemName}</strong>
+                      <strong>{renderReagentName(row.itemName)}</strong>
                       <div className="small">{sourceLabel(row.source)}</div>
                     </td>
                     <td>{row.recipeName || `Recipe #${row.recipeId || "?"}`}</td>
@@ -285,7 +307,7 @@ export default function HomePage() {
                           <div className="small">
                             {row.reagentBreakdown.map((reagent) => (
                               <div key={`${row.itemId}-${reagent.itemId}`}>
-                                {reagent.quantity}x {reagent.name}: {moneyFromCopper(reagent.totalCost)}
+                                {reagent.quantity}x {renderReagentName(reagent.name)}: {moneyFromCopper(reagent.totalCost)}
                               </div>
                             ))}
                           </div>

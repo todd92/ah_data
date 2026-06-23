@@ -13,7 +13,7 @@ from collections import defaultdict
 from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Sequence, Tuple
+from typing import Any, Dict, List, Optional, Sequence, Set, Tuple
 
 
 @dataclass
@@ -282,6 +282,13 @@ def parse_args() -> argparse.Namespace:
         type=int,
         default=40,
         help="Minimum confidence score required for crafting arbitrage alerts",
+    )
+    p.add_argument(
+        "--craft-reagent-quality",
+        type=int,
+        choices=[1, 2, 3],
+        default=3,
+        help="Reagent quality level to use for craft cost estimates (1=Bronze/Silver-Q1, 2=Silver-Q2/Gold-Q2, 3=Gold-Q3)",
     )
     p.add_argument("--webhook-url", default="", help="Optional webhook URL for alerts")
     p.add_argument(
@@ -1995,6 +2002,35 @@ def pick_market_row(candidates: List[Observation], preferred_source: str) -> Opt
     return max(candidates, key=lambda r: (r.listing_count, r.total_quantity))
 
 
+def resolve_reagent_item_id(base_id: int, target_quality: int, observed_ids: Set[int]) -> int:
+    """
+    Given a base reagent item_id (always the lowest/Silver tier), determines the
+    best item_id to use depending on target_quality (1=Silver/Q1, 2=Q2, 3=Gold/Q3).
+    Automatically handles Midnight (2 qualities) and TWW/Dragonflight (3 qualities).
+    """
+    if target_quality == 1:
+        return base_id
+
+    # Check if a 3-quality system is active (base_id + 2 exists in observations)
+    has_q3 = (base_id + 2) in observed_ids
+    # Check if a 2-quality system is active (base_id + 1 exists in observations)
+    has_q2 = (base_id + 1) in observed_ids
+
+    if target_quality == 3:
+        if has_q3:
+            return base_id + 2
+        elif has_q2:
+            return base_id + 1
+        return base_id
+
+    if target_quality == 2:
+        if has_q2:
+            return base_id + 1
+        return base_id
+
+    return base_id
+
+
 def detect_craft_alerts(
     db: DBClient,
     rows: List[Observation],
@@ -2008,6 +2044,7 @@ def detect_craft_alerts(
     rows_by_item: Dict[int, List[Observation]] = defaultdict(list)
     for row in rows:
         rows_by_item[row.item_id].append(row)
+    observed_ids = set(rows_by_item.keys())
     recipes_by_output: Dict[int, List[RecipeDefinition]] = defaultdict(list)
     for recipe in recipes:
         recipes_by_output[recipe.crafted_item_id].append(recipe)
@@ -2029,7 +2066,8 @@ def detect_craft_alerts(
                 missing_price = False
                 reagent_breakdown_rows: List[Dict[str, Any]] = []
                 for reagent in recipe.reagents:
-                    reagent_row = pick_market_row(rows_by_item.get(reagent.item_id, []), crafted_row.source)
+                    target_id = resolve_reagent_item_id(reagent.item_id, args.craft_reagent_quality, observed_ids)
+                    reagent_row = pick_market_row(rows_by_item.get(target_id, []), crafted_row.source)
                     market_unit_price: Optional[int] = None
                     market_source: Optional[str] = None
                     if reagent_row and passes_liquidity(reagent_row, args):
@@ -2049,8 +2087,8 @@ def detect_craft_alerts(
                     total_craft_cost += reagent_total_cost
                     reagent_breakdown_rows.append(
                         {
-                            "item_id": reagent.item_id,
-                            "name": reagent.name,
+                            "item_id": target_id,
+                            "name": reagent_row.item_name if reagent_row else reagent.name,
                             "quantity": reagent.quantity,
                             "unit_price": chosen_unit_price,
                             "total_cost": reagent_total_cost,

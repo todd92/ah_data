@@ -720,19 +720,69 @@ def main() -> int:
 
     item_metadata: Dict[int, Dict[str, Any]] = {}
     vendor_item_count = 0
+    new_items: Dict[int, str] = {}
+
     for item_id in sorted(items):
+        if item_id in new_items:
+            continue
+
         try:
             details = api.api_get(f"/data/wow/item/{item_id}", namespace=f"static-{region}")
         except Exception as exc:
             print(f"WARN: skipping item metadata for {item_id}: {exc}", file=sys.stderr)
+            new_items[item_id] = items[item_id]
             continue
-        vendor_unit_price = vendor_purchase_unit_price(details)
-        if vendor_unit_price is None:
-            continue
-        item_metadata[item_id] = {
-            "vendor_purchase_unit_price": vendor_unit_price,
-        }
-        vendor_item_count += 1
+
+        real_name = text_value(details.get("name"), locale) or items[item_id]
+        class_id = (details.get("item_class") or {}).get("id")
+
+        # Detect quality variants for reagents/commodities (class 7)
+        is_reagent = (class_id == 7)
+        has_gold_variant = False
+        gold_id = item_id + 1
+
+        if is_reagent:
+            try:
+                gold_details = api.api_get(f"/data/wow/item/{gold_id}", namespace=f"static-{region}")
+                gold_name = text_value(gold_details.get("name"), locale)
+                gold_class = (gold_details.get("item_class") or {}).get("id")
+                if gold_name == real_name and gold_class == 7:
+                    has_gold_variant = True
+            except Exception:
+                pass
+
+        if has_gold_variant:
+            # We found both Silver (item_id) and Gold (gold_id) levels in Midnight
+            silver_name = f"{real_name} [Silver]"
+            gold_name = f"{real_name} [Gold]"
+            new_items[item_id] = silver_name
+            new_items[gold_id] = gold_name
+
+            vendor_unit_price = vendor_purchase_unit_price(details)
+            if vendor_unit_price is not None:
+                item_metadata[item_id] = {
+                    "vendor_purchase_unit_price": vendor_unit_price,
+                }
+                vendor_item_count += 1
+            try:
+                gold_vendor_price = vendor_purchase_unit_price(gold_details)
+                if gold_vendor_price is not None:
+                    item_metadata[gold_id] = {
+                        "vendor_purchase_unit_price": gold_vendor_price,
+                    }
+                    vendor_item_count += 1
+            except Exception:
+                pass
+        else:
+            new_items[item_id] = real_name
+            vendor_unit_price = vendor_purchase_unit_price(details)
+            if vendor_unit_price is not None:
+                item_metadata[item_id] = {
+                    "vendor_purchase_unit_price": vendor_unit_price,
+                }
+                vendor_item_count += 1
+
+    items = new_items
 
     for recipe in recipe_defs:
         crafted_item_id = recipe.get("crafted_item_id")
@@ -749,6 +799,9 @@ def main() -> int:
             reagent_id = reagent.get("item_id")
             if not isinstance(reagent_id, int):
                 continue
+            # Update the reagent's display name to include resolved qualities if tracked
+            if reagent_id in items:
+                reagent["name"] = items[reagent_id]
             vendor_meta = item_metadata.get(reagent_id)
             if vendor_meta:
                 reagent["vendor_purchase_unit_price"] = vendor_meta["vendor_purchase_unit_price"]

@@ -31,6 +31,28 @@ function sourceLabel(source: string): string {
   return source;
 }
 
+function renderReagentName(name: string) {
+  if (name.endsWith(" [Gold]")) {
+    const baseName = name.slice(0, -7);
+    return (
+      <span>
+        {baseName}{" "}
+        <span style={{ color: "#f59e0b", fontWeight: "bold" }}>[Gold]</span>
+      </span>
+    );
+  }
+  if (name.endsWith(" [Silver]")) {
+    const baseName = name.slice(0, -9);
+    return (
+      <span>
+        {baseName}{" "}
+        <span style={{ color: "#9ca3af", fontWeight: "bold" }}>[Silver]</span>
+      </span>
+    );
+  }
+  return <span>{name}</span>;
+}
+
 function useStats(rows: PredictionSignal[]) {
   return useMemo(() => {
     const up = rows.filter((r) => r.predictedDirection === "up").length;
@@ -174,7 +196,7 @@ export default function PredictionsPage() {
               {rows.map((row) => (
                 <tr key={`${row.observedAt}:${row.itemId}:${row.source}:${row.predictedDirection}`}>
                   <td>
-                    <strong>{row.itemName}</strong>
+                    <strong>{renderReagentName(row.itemName)}</strong>
                     <div className="small">#{row.itemId}</div>
                   </td>
                   <td>
