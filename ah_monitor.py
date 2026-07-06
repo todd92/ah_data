@@ -364,6 +364,9 @@ def sqlite_schema_sql() -> str:
     CREATE INDEX IF NOT EXISTS idx_obs_item_source_time
       ON observations(item_id, source, metric_name, observed_at);
 
+    CREATE INDEX IF NOT EXISTS idx_obs_observed_at
+      ON observations(observed_at);
+
     CREATE TABLE IF NOT EXISTS alerts (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       alerted_at TEXT NOT NULL,
@@ -415,6 +418,9 @@ def sqlite_schema_sql() -> str:
 
     CREATE INDEX IF NOT EXISTS idx_predictions_item_source_time
       ON predictions(item_id, source, metric_name, observed_at);
+
+    CREATE INDEX IF NOT EXISTS idx_predictions_observed_at
+      ON predictions(observed_at);
 
     CREATE TABLE IF NOT EXISTS prediction_cooldowns (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
