@@ -31,7 +31,49 @@ cp "$APP_DIR/.env" "$ENV_DEST"
 chmod 600 "$ENV_DEST"
 chown opc:opc "$ENV_DEST"
 
-# 4. Create the systemd service configuration
+# 4. Detect Python executable path dynamically
+# Systemd needs the absolute path to the Python executable running in the virtual environment.
+PYTHON_PATH=""
+
+# Check standard virtualenv folders first
+if [ -f "$APP_DIR/.venv/bin/python" ]; then
+    PYTHON_PATH="$APP_DIR/.venv/bin/python"
+elif [ -f "$APP_DIR/venv/bin/python" ]; then
+    PYTHON_PATH="$APP_DIR/venv/bin/python"
+fi
+
+# Check if uv is in opc's home directories to locate python
+if [ -z "$PYTHON_PATH" ]; then
+    UV_PATHS=(
+        "/home/opc/.local/bin/uv"
+        "/home/opc/.cargo/bin/uv"
+        "/usr/bin/uv"
+        "/usr/local/bin/uv"
+    )
+    for uv_bin in "${UV_PATHS[@]}"; do
+        if [ -f "$uv_bin" ]; then
+            # Run uv as 'opc' inside app dir to find the python path
+            PYTHON_PATH=$(cd "$APP_DIR" && sudo -u opc "$uv_bin" run which python 2>/dev/null || echo "")
+            if [ -n "$PYTHON_PATH" ]; then
+                break
+            fi
+        fi
+    done
+fi
+
+# Fallback to system python3/python
+if [ -z "$PYTHON_PATH" ]; then
+    PYTHON_PATH=$(which python3 || which python || echo "")
+fi
+
+if [ -z "$PYTHON_PATH" ]; then
+    echo "❌ Error: Could not locate Python executable or virtual environment."
+    exit 1
+fi
+
+echo "🔎 Detected Python path: $PYTHON_PATH"
+
+# 5. Create the systemd service configuration
 echo "💾 Writing service file to $SERVICE_FILE..."
 cat <<EOF > "$SERVICE_FILE"
 [Unit]
@@ -42,7 +84,7 @@ After=network.target
 Type=simple
 User=opc
 WorkingDirectory=$APP_DIR
-ExecStart=$APP_DIR/.venv/bin/python $APP_DIR/ah_discord_bot.py
+ExecStart=$PYTHON_PATH $APP_DIR/ah_discord_bot.py
 Restart=always
 RestartSec=10
 EnvironmentFile=$ENV_DEST
