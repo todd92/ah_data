@@ -22,7 +22,16 @@ if [ "$EUID" -ne 0 ]; then
     exit 1
 fi
 
-# 3. Create the systemd service configuration
+# 3. Handle environment file location (Oracle Linux SELinux compatibility)
+# Systemd under SELinux is blocked from reading files in /home/opc/.
+# We copy the .env file to /etc/default/wow-ah-bot which is fully permitted.
+ENV_DEST="/etc/default/wow-ah-bot"
+echo "🔑 Copying environment file to $ENV_DEST..."
+cp "$APP_DIR/.env" "$ENV_DEST"
+chmod 600 "$ENV_DEST"
+chown opc:opc "$ENV_DEST"
+
+# 4. Create the systemd service configuration
 echo "💾 Writing service file to $SERVICE_FILE..."
 cat <<EOF > "$SERVICE_FILE"
 [Unit]
@@ -36,7 +45,7 @@ WorkingDirectory=$APP_DIR
 ExecStart=$APP_DIR/.venv/bin/python $APP_DIR/ah_discord_bot.py
 Restart=always
 RestartSec=10
-EnvironmentFile=$APP_DIR/.env
+EnvironmentFile=$ENV_DEST
 
 [Install]
 WantedBy=multi-user.target
