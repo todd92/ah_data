@@ -1,325 +1,108 @@
-# WoW Auction House Scraper Starter
+# WoW Auction House: Quantitative Analytics & Algorithmic Arbitrage
 
-This starter pulls Auction House prices from the Blizzard Game Data API for selected items and supports:
-- `connected_realm` sources (server group)
-- `realm` sources (single server slug, auto-resolved to its connected realm)
-- `commodity` source (region-wide commodity auction data)
-- `auto` source mode (uses your default realm for non-reagents and commodity feed for reagents/trade goods)
-- `targets_file` support (load large expansion/profession target lists)
+An automated quantitative analysis and machine learning pipeline that ingests Blizzard Auction House data, performs seasonality analysis, and trains predictive models to identify high-probability flipping and crafting arbitrage opportunities in a virtual commodity market.
 
-## 1) Create Blizzard API credentials
-1. Log into the Blizzard developer portal.
-2. Create an API client with `client_credentials` access.
-3. Copy your `client_id` and `client_secret`.
+---
 
-## 2) Configure targets
-Copy the example config and edit it:
+## 🚀 Key Project Insights & Portfolio Case Study
 
+### 📊 Case Study: Weekly Seasonality Arbitrage on *Sunfire Silk Bolt [Gold]*
+By performing a **168-hour weekly seasonality analysis** on 59 days of continuous historical price observations (430,000+ data points), this project successfully identified a recurring, high-margin market inefficiency on the server:
+
+* **The Trough (Optimal Buy Window)**: **Thursday at 12:00 PM (12:00) Local Time**
+  * *Median Price*: **`413.8 Gold`**
+  * *Market Driver*: A post-reset mid-week supply dump occurs as crafters flood the market with fresh inventory, creating peak undercutting competition.
+* **The Peak (Optimal Sell Window)**: **Monday at 8:00 AM (08:00) / Monday Evening Local Time**
+  * *Median Price*: **`809.9 Gold`**
+  * *Market Driver*: Supply is fully depleted after a week of active trading, while players rush to complete dungeon and raid lockouts before the weekly reset.
+* **Arbitrage Yields**:
+  * **Gross Price Increase**: **`+95.7%`**
+  * **Net Return on Investment (ROI)**: **`85.9%`** (after accounting for the 5% Blizzard Auction House transaction fee).
+
+![Optimal Buy/Sell Median Heatmap](docs/images/seasonality_heatmap.png)
+
+---
+
+## 📈 Market Stability & Regime Shift Detection
+
+To ensure trading strategies do not break during expansion content droughts or major patch releases, the pipeline features a **7-Day Rolling Baseline & Control Corridor** ($\pm 1.5$ Standard Deviations):
+
+![Market Stability and Regime Detection](docs/images/market_stability.png)
+
+* **Baseline Tracking**: The thick navy baseline tracks macro-level price inflation/deflation over 2-month periods.
+* **Volatility Signals**: Spikes breaking above the control corridor represent **Super-Sell** opportunities, while drops below the corridor trigger **Extraordinary Buy** signals.
+
+---
+
+## 🛠️ Data Science & Modeling Pipeline
+
+### 1. Feature Engineering
+Raw observation rows are transformed into a multi-dimensional feature matrix to capture short-term momentum, baseline values, supply metrics, and temporal cycles:
+* **Momentum Lags**: $t-1$, $t-2$, and $t-3$ hour lag values to capture immediate price trend velocity.
+* **Baseline Reference**: A 24-hour rolling moving average (`rolling_mean_24`) to identify deviations from the daily mean.
+* **Supply Metrics**: Total quantity of active listings to evaluate supply-side downward pressure.
+* **One-Hot Encoded Calendar Flags**: 
+  * Dummy variables for **Days of the week** (baseline: Friday).
+  * Dummy variables for **Hours of the day** (baseline: Hour 0).
+
+### 2. The 12-Hour Forecasting Model
+A **12-Hour Predictive Model** was trained using Ordinary Least Squares (OLS) regression on an 80/20 chronological Train-Test split:
+* **Evaluation Metric (Unseen Data)**: Achieved a **`25.89%` Mean Absolute Percentage Error (MAPE)** and **`192.69 Gold` Mean Absolute Error (MAE)**.
+* **Explanatory Power**: Achieved an **`R-squared of 0.298` (29.8%)**, indicating the model successfully isolates nearly 30% of the underlying cyclical weekly trend.
+* **Trading Decision Margin**: Establishes a **31% Margin of Safety** threshold (Error + AH Cut) to filter out false signals and ensure profitable real-world executions.
+
+---
+
+## 🖥️ System Architecture & Stack
+
+```
+   Blizzard API (OAuth2) 
+            │
+            ▼
+   Python Scraper (Bulk Downloads)
+            │
+            ▼
+   Local SQLite Archive (data/ah_prices.sqlite3)
+            │
+   ┌────────┴────────┐
+   ▼                 ▼
+Python/Pandas      Next.js Web UI
+(ML & Stats)       (Arbitrage Dashboard)
+```
+
+* **Core Language**: Python 3.10
+* **Data Engineering & Storage**: SQLite, `uv` Package Manager, Cron (automated scheduling)
+* **Statistical Modeling & ML**: Pandas, NumPy, Scikit-learn, Statsmodels
+* **Visualization**: Matplotlib, Seaborn
+* **Monitoring & Observability**: Discord Webhooks, Preemptive VM Memory/Swap/Disk Watchdog (`check_vm_health.sh`)
+* **Deployment**: Hosted on an Oracle Cloud Infrastructure (OCI) VM instance
+
+---
+
+## ⚙️ Setup and Usage
+
+### 1. Install Dependencies
+This project uses `uv` for lightning-fast package management.
+```bash
+make setup
+```
+
+### 2. Configure Scraper
+Create a `config.json` containing your Blizzard Developer API Credentials and target items:
 ```bash
 cp config.example.json config.json
 ```
 
-Fill in credentials and your item/source targets.
-
-If you set:
-- `default_realm_slug` (example: `dawnbringer`)
-- target `source_mode` to `auto`
-
-then the script will:
-- treat reagent/trade-goods items as commodity queries (`commodity:region`)
-- treat non-reagents as realm-scoped using your default realm slug
-
-## 3) Build Midnight profession targets (Tailoring + Enchanting)
-
-Generate target items directly from Blizzard profession/recipe APIs:
-
-```bash
-python3 build_profession_watchlist.py \
-  --config config.json \
-  --expansion-keyword midnight \
-  --professions tailoring,enchanting \
-  --include-reagents \
-  --output targets_midnight_tailoring_enchanting.json
-```
-
-This writes a `targets` JSON file that the scraper can load via `targets_file`.
-
-Shortcut with Make:
-
-```bash
-make watchlist
-```
-
-## 4) Run AH report
-
-```bash
-python3 wow_ah_scraper.py --config config.json --output report.json
-```
-
-Shortcut with Make:
-
-```bash
-make report
-```
-
-## 5) Store snapshots + sigma alerts
-
-For prediction and backtesting, use the GitHub archive database path `data/ah_prices.sqlite3`. Keep Supabase for the recent live window and UI reads.
-
-Run the monitoring pipeline (scrape -> store in SQLite archive -> predictions + 7-day anomalies):
-
-```bash
-python3 ah_monitor.py \
-  --config config.json \
-  --report report.json \
-  --db data/ah_prices.sqlite3 \
-  --metric weighted_avg_unit_price \
-  --signal-direction both \
-  --window-hours 168 \
-  --sigma 2.0 \
-  --min-history 24 \
-  --trend-hours 48 \
-  --min-trend-history 6 \
-  --min-listings-commodity 8 \
-  --min-quantity-commodity 200 \
-  --min-listings-crafted 2 \
-  --min-quantity-crafted 1 \
-  --min-abs-move-gold-commodity 20 \
-  --min-abs-move-gold-crafted 100 \
-  --enable-predictions \
-  --prediction-window-hours 168 \
-  --prediction-short-window-hours 12 \
-  --prediction-medium-window-hours 48 \
-  --prediction-min-history 24 \
-  --prediction-min-confidence 0.80 \
-  --enable-craft-alerts \
-  --craft-ah-cut-rate 0.05 \
-  --craft-min-profit-gold 50 \
-  --craft-min-margin-pct 0.10 \
-  --retention-days-observations 30 \
-  --retention-days-alerts 90
-```
-
-Shortcut with Make:
-
-```bash
-make monitor-live
-```
-
-Prediction-only pass against the archive:
-
-```bash
-make predict-archive
-```
-
-Retention notes:
-- `--retention-days-observations 30` keeps only the most recent 30 days of snapshots.
-- `--retention-days-alerts 90` keeps 90 days of emitted alerts for review.
-- Set either value to `0` to disable pruning for that table.
-
-Crafting arbitrage notes:
-- `build_profession_watchlist.py` now writes recipe definitions to the watchlist JSON under `recipes`.
-- `--enable-craft-alerts` uses those recipes to estimate `sale_value`, `craft_cost`, and `expected_profit`.
-- Profitable crafts emit BUY alerts; strongly negative crafts emit SELL alerts.
-- Craft alerts are stored in the same `alerts` table with `alert_kind='craft_arbitrage'`.
-- Craft rows include both `recipe_id` and `recipe_name`.
-
-Prediction notes:
-- `--enable-predictions` stores one baseline directional score per item/source snapshot in the `predictions` table.
-- Phase 1 predictions are rule-based, not ML: they combine long-window mean reversion, short-vs-medium trend, and supply/liquidity changes.
-- `predicted_direction` is `up`, `down`, or `flat`.
-- `confidence` is a normalized 0-1 score for the chosen direction.
-- `predicted_return_pct` is a rough expected move estimate for ranking, not a guaranteed price target.
-- Recommended source for prediction history: `data/ah_prices.sqlite3` restored from the `sqlite-history` branch.
-- Recommended live threshold: `--prediction-min-confidence 0.80` so weak signals are suppressed by default.
-- Cooldowns are persisted in `prediction_cooldowns`. If a prior high-confidence directional call matures and is badly wrong, that item/source/direction is suppressed for a fixed period before new predictions are emitted.
-- Default cooldown policy: 24 hours after a 12-hour prediction fails by 20% or more, with the failed call required to have at least 0.85 confidence.
-
-Backtest the Phase 1 predictor against the archive:
-
-```bash
-python3 backtest_predictions.py --db data/ah_prices.sqlite3
-```
-
-The backtest replays active cooldown state, so the reported metrics include suppression of repeated failed rebound calls.
-
-Shortcut with Make:
-
-```bash
-make backtest-archive
-```
-
-### How Prediction Works
-
-The prediction system is separate from sigma alerts. Sigma alerts answer "is the current price unusual versus recent history?" Prediction answers "does this item look more likely to move up, down, or stay flat over the next horizon?"
-
-Prediction flow:
-1. `wow_ah_scraper.py` writes the latest auction snapshot to `report.json`.
-2. `ah_monitor.py` ingests that snapshot into `observations`.
-3. If `--enable-predictions` is set, `ah_monitor.py` reads historical `observations` for each item/source and computes a rule-based score.
-4. It writes the result to `predictions`.
-5. Before scoring a new prediction, it also checks whether older high-confidence predictions for that same item/source failed badly enough to create a cooldown.
-6. If a cooldown is active, the new directional call is suppressed and the row is emitted as `flat`.
-
-Prediction features used in Phase 1:
-- Price versus long-window mean (`prediction-window-hours`)
-- Short-window versus medium-window trend
-- Current price versus short mean
-- Current quantity and listings versus long-window averages
-- Liquidity gates using listing count and total quantity
-
-How direction is chosen:
-- `up`: item is cheap versus longer history, short-term trend is improving or stabilizing, and supply is not expanding in a way that contradicts the bounce thesis
-- `down`: item is expensive versus longer history, short-term trend is weakening, and supply/listings support downside
-- `flat`: confidence is too low, the regime guards reject the setup, or a cooldown is active
-
-How cooldowns work:
-1. A prior prediction must be directional (`up` or `down`) and high confidence.
-2. Once that prediction reaches the cooldown resolution horizon, the monitor compares the old predicted row to the current observed price.
-3. If the realized move is badly wrong, a row is inserted into `prediction_cooldowns`.
-4. Future predictions for the same `item_id`, `source`, `metric_name`, and direction are blocked until `cooldown_until`.
-
-Default cooldown policy:
-- Prior prediction confidence at least `0.85`
-- Resolution horizon `12` hours
-- Grace window `6` hours
-- Adverse realized move threshold `20%`
-- Cooldown duration `24` hours
-
-What backtesting measures:
-- `backtest_predictions.py` walks forward through archived snapshots in `data/ah_prices.sqlite3`
-- It generates predictions using only history available at that timestamp
-- It resolves those predictions at the future horizon
-- It applies the same cooldown logic during replay
-- It reports directional accuracy, average predicted return, average realized return, and how many predictions were blocked by cooldown
-
-Where the data goes:
-- `observations`: raw historical snapshots
-- `alerts`: sigma alerts and craft arbitrage alerts
-- `predictions`: directional prediction rows
-- `prediction_cooldowns`: temporary suppression windows created from failed prior predictions
-
-## 6) Supabase Setup
-
-Install dependencies (preferred: `uv`):
-
-```bash
-uv venv
-source .venv/bin/activate
-uv pip install -r requirements.txt
-```
-
-Fallback with `pip`:
-
-```bash
-python3 -m pip install -r requirements.txt
-```
-
-In Supabase:
-1. Open SQL Editor.
-2. Run [schema_postgres.sql](/home/toddglad/projects/personal/ah_data/schema_postgres.sql).
-3. Copy your Postgres connection string.
-
-Set environment:
-
-```bash
-export DATABASE_URL='postgresql://postgres:<password>@<host>:5432/postgres'
-```
-
-Then run the same monitor command. With `DATABASE_URL` set, `ah_monitor.py` writes to Supabase instead of local SQLite.
-
-Run commands with `uv`:
-
-```bash
-uv run python ah_monitor.py --config config.json --report report.json --db data/ah_prices.sqlite3
-```
-
-Optional webhook ping (Slack/Discord):
-
-```bash
-export AH_ALERT_WEBHOOK_URL=\"https://...\"
-uv run python ah_monitor.py --config config.json --webhook-format slack
-```
-
-Hourly scheduling with cron:
-
-```bash
-crontab -e
-```
-
-```cron
-0 * * * * cd /home/toddglad/projects/personal/ah_data && /usr/bin/env -S bash -lc 'uv run python ah_monitor.py --config config.json --report report.json --db data/ah_prices.sqlite3 >> monitor.log 2>&1'
-```
-
-## GitHub Actions Dual Database Sync
-
-If you want GitHub Actions to keep a persistent SQLite history file while still using Supabase for the recent live window:
-
-1. Add GitHub repository secrets:
-   - `BLIZZARD_CLIENT_ID`
-   - `BLIZZARD_CLIENT_SECRET`
-   - `DATABASE_URL`
-   - `AH_ALERT_WEBHOOK_URL` (optional)
-2. Add GitHub repository variables if you want to override defaults:
-   - `WOW_REGION`
-   - `WOW_LOCALE`
-   - `WOW_DEFAULT_REALM_SLUG`
-   - `WOW_TARGETS_FILE`
-   - `WOW_EXPANSION_KEYWORD`
-   - `WOW_PROFESSIONS`
-3. Enable the workflow in [main.yml](/home/toddglad/projects/personal/ah_data/.github/workflows/main.yml).
-
-The workflow restores `data/ah_prices.sqlite3` from a dedicated `sqlite-history` branch, runs `ah_monitor.py` once against SQLite with pruning disabled so the archive keeps full history, then runs it again in `--ingest-only` mode against Supabase so the same snapshot is available there with a 30-day retention window.
-
-## Output
-`report.json` includes each target item with a per-source summary:
-- `listing_count`
-- `total_quantity`
-- `min_unit_price`
-- `max_unit_price`
-- `avg_unit_price`
-- `median_unit_price`
-- `p25_unit_price`
-- `weighted_avg_unit_price`
-
-All prices are in copper.
-Alert messages display prices as gold/silver/copper (`Xg Ys Zc`) for readability.
-
-`data/ah_prices.sqlite3` stores:
-- `observations` table: one row per item/source snapshot
-- `alerts` table: z-score outliers detected per run
-- `predictions` table: baseline directional forecasts for each item/source snapshot
-- `prediction_cooldowns` table: temporary suppression windows created by badly failed prior predictions
-
-When using Supabase, the same tables are created in Postgres (`observations`, `alerts`, `predictions`, `prediction_cooldowns`).
-
-## Signal Logic
-- Baseline: 7-day window (`--window-hours 168`), alert threshold `|z| >= 2`.
-- Liquidity filters:
-- `listing_count`: how many active auctions exist right now.
-- `total_quantity`: total stack quantity available right now.
-- Low liquidity means one or two postings can fake a huge \"opportunity\" that you cannot actually enter/exit at scale.
-- Trend filter:
-- BUY signals require current price to not be deeply below the 48h average (helps avoid falling knives).
-- SELL signals require current price to still show strength vs the 48h average.
-- Use `--signal-direction buy|sell|both` to emit only BUY, only SELL, or both signal types.
-- Minimum absolute move:
-- Prevents tiny price changes from alerting just because volatility is very low.
-
-## Notes
-- For Retail, many realms are part of a connected-realm group; auctions for non-commodities are effectively group-level.
-- If you use `realm` sources, the script resolves the realm slug to connected-realm ID once and then fetches that auction feed.
-- In Blizzard's API, reagent/trade-goods style listings are exposed as commodities (region-wide), not just one connected-realm group.
-- Auction payloads can be large (10MB+). Keep target lists focused for faster runs.
-
-## Web UI (Vercel)
-
-A deployable Next.js app now lives in [`web/`](/home/toddglad/projects/personal/ah_data/web/README.md).
-
-Quick deploy steps:
-1. Import this repository into Vercel.
-2. Set project root directory to `web`.
-3. Add env vars `SUPABASE_URL` and `SUPABASE_ANON_KEY`.
-4. Deploy.
-
-The UI reads `craft_arbitrage` rows from `alerts` and supports filter-driven ranking by profit and margin.
+### 3. Run the Pipeline
+* **Watchlist Rebuild**: Compile targets from Blizzard's recipe indices:
+  ```bash
+  make watchlist
+  ```
+* **Daily Monitor Run**: Scrape, store, and generate predictions:
+  ```bash
+  make monitor-live
+  ```
+* **Database Download**: Pull the database from the OCI VM:
+  ```bash
+  make pull-db
+  ```
